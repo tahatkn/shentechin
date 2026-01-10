@@ -1,0 +1,105 @@
+/* --- 1. BASE.CSS (ÇEKİRDEK & GENEL STİL) --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Premium Renk Paleti */
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%); /* Turkuazdan Mora */
+    --secondary: #0f172a; /* Çok koyu lacivert (Siyah yerine) */
+    
+    --bg-body: #f8fafc; /* Göz yormayan gri-beyaz */
+    --surface: #ffffff;
+    
+    --text-main: #1e293b;
+    --text-light: #64748b;
+    
+    /* Gölgeler (Derinlik Hissi) */
+    --shadow-soft: 0 10px 30px -10px rgba(0,0,0,0.06);
+    --shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+    
+    --radius-lg: 24px;
+    --radius-md: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* NAVBAR (Glassmorphism - Buzlu Cam) */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%;
+    background: rgba(255, 255, 255, 0.85); /* Şeffaf */
+    backdrop-filter: blur(12px); /* Buzlu görüntü */
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+/* Logo (Tıklanabilir & Hareketli) */
+.logo {
+    font-size: 1.5rem; font-weight: 800; color: var(--secondary);
+    text-decoration: none; display: flex; align-items: center;
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.logo:hover { transform: scale(1.05); }
+
+.med-badge {
+    background: var(--accent-gradient); color: white;
+    font-size: 0.7rem; padding: 4px 8px; border-radius: 6px; margin-left: 6px;
+    box-shadow: 0 2px 5px rgba(99, 102, 241, 0.3);
+}
+
+.nav-links {
+    list-style: none; display: flex; align-items: center;
+    gap: 30px; margin: 0; padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none; color: var(--text-main);
+    font-weight: 600; font-size: 0.95rem;
+    transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--primary); }
+
+.btn-login {
+    background: var(--secondary); color: white !important;
+    padding: 10px 24px; border-radius: 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(15, 23, 42, 0.2);
+}
+
+.lang-switcher {
+    border: 1px solid #e2e8f0; padding: 6px 14px;
+    border-radius: 20px; background: white;
+    font-size: 0.85rem; font-weight: 600; color: var(--text-light);
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    text-align: center; padding: 60px 20px;
+    color: var(--text-light); font-size: 0.9rem;
+    border-top: 1px solid #e2e8f0; background: white;
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    .nav-links { gap: 15px; }
+    .nav-links a { font-size: 0.85rem; }
+    .hero h1 { font-size: 2.5rem; }
+}

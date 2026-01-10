@@ -1,0 +1,102 @@
+/* --- 4. PAGES.CSS (ABOUT & RESULT) --- */
+
+/* ABOUT PAGE */
+.about-hero {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 80px 20px;
+    background: white;
+}
+
+/* İstatistik Bandı (Siyah Alan) */
+.stats-bar {
+    background: var(--secondary); color: white;
+    padding: 60px 20px;
+    display: flex; justify-content: center; align-items: center;
+    gap: 80px; flex-wrap: wrap; /* Mobilde alt alta geçsin */
+    margin-bottom: 60px;
+}
+
+.stat-item {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 12px; font-weight: 600; color: #cbd5e1; font-size: 1.1rem;
+}
+.stat-item i {
+    font-size: 2.2rem; color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    padding: 15px; border-radius: 50%;
+}
+
+/* İçerik Izgarası */
+.about-content {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; max-width: 1100px; margin: 0 auto 80px auto;
+    padding: 0 20px; align-items: start;
+}
+
+.info-block { text-align: left; margin-bottom: 40px; }
+.info-block .icon-box {
+    width: 60px; height: 60px; background: #e0f2fe; color: var(--primary);
+    border-radius: 16px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin-bottom: 20px;
+}
+.info-block h2 { font-size: 1.6rem; color: var(--secondary); margin-bottom: 15px; }
+.info-block p { font-size: 1.05rem; color: var(--text-light); line-height: 1.8; }
+
+/* Doktor Kartı (Sticky) */
+.doctor-card {
+    background: white; padding: 50px 40px; border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border-top: 6px solid var(--primary); text-align: center;
+    position: sticky; top: 100px;
+}
+.doc-img-placeholder {
+    width: 100px; height: 100px; background: #eff6ff; color: var(--primary);
+    border-radius: 50%; margin: 0 auto 25px auto;
+    display: flex; align-items: center; justify-content: center; font-size: 2.5rem;
+}
+.doc-title {
+    color: var(--primary); font-weight: 700; text-transform: uppercase;
+    font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 10px;
+}
+
+/* RESULT PAGE */
+.result-container {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 40px; margin-top: 40px;
+}
+.result-card, .action-card {
+    background: white; padding: 40px;
+    border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);
+}
+
+.percentile-box {
+    background: #f1f5f9; padding: 10px 15px; border-radius: 8px;
+    font-weight: 700; margin-bottom: 20px; display: inline-block;
+    border: 1px solid #cbd5e1;
+}
+
+.risk-text { font-size: 1.1rem; line-height: 1.7; }
+.risk-text strong {
+    color: #dc2626; background: rgba(220, 38, 38, 0.05);
+    padding: 0 5px; border-radius: 4px;
+}
+
+.medical-disclaimer {
+    margin-top: 25px; padding: 15px;
+    background: #f0fdf4; border-left: 4px solid #16a34a;
+    border-radius: 6px; color: #166534; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+
+.share-buttons { display: flex; gap: 10px; justify-content: center; margin: 25px 0; }
+.share-btn { padding: 12px 25px; border-radius: 10px; border: none; color: white; cursor: pointer; font-weight: 600; transition: transform 0.2s;}
+.share-btn:hover { transform: scale(1.05); }
+.share-btn.twitter { background: #1da1f2; }
+.share-btn.whatsapp { background: #25d366; }
+
+/* MOBİL */
+@media (max-width: 900px) {
+    .about-content, .result-container { grid-template-columns: 1fr; }
+    .stats-bar { gap: 40px; }
+}
