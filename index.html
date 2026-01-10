@@ -3,14 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShenTechin</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ShenTechin Med | Kendini Bilimle Keşfet</title>
+    <!-- Google Fonts ekliyoruz (Güven veren modern bir font: Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Kendi stil dosyamız -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- FontAwesome ikonları için (Test ikonları) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>ShenTechin'e Hoş Geldiniz</h1>
-        <p>Teknoloji ve inovasyonun yeni adresi. Sitemiz yapım aşamasındadır.</p>
-        <button>İletişime Geç</button>
-    </div>
+
+    <!-- ÜST MENÜ (NAVBAR) -->
+    <nav class="navbar">
+        <div class="logo">ShenTechin<span class="med-badge">MED</span></div>
+        <ul class="nav-links">
+            <li><a href="#">Testler</a></li>
+            <li><a href="#">Hakkımızda</a></li>
+            <li><a href="#" class="btn-login">Giriş Yap</a></li>
+        </ul>
+    </nav>
+
+    <!-- ANA KARŞILAMA (HERO SECTION) -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="trust-badge"><i class="fa-solid fa-user-doctor"></i> Uzman Doktor Onaylı</span>
+            <h1>Sağlığınızın ve Kişiliğinizin<br>DNA'sını Çözün</h1>
+            <p>Tıbbi verilerle desteklenmiş, yapay zeka tabanlı analizlerle kendinizi keşfedin. Uyku düzeninden cilt tipinize kadar 25 farklı kategoride derinlemesine analiz.</p>
+            <a href="#test-section" class="cta-button">Testi Başlat <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </header>
+
+    <!-- TEST KATEGORİLERİ -->
+    <section id="test-section" class="container">
+        <div class="section-title">
+            <h2>Analiz Kategorileri</h2>
+            <p>Merak ettiğiniz konuyu seçin, 25 soruda bilimsel haritanızı çıkaralım.</p>
+        </div>
+
+        <div class="grid-container">
+            <!-- KART 1: UYKU -->
+            <div class="card">
+                <div class="card-icon" style="background: #e0f2fe; color: #0284c7;"><i class="fa-solid fa-moon"></i></div>
+                <h3>Uyku Kalitesi & Kronotip</h3>
+                <p>Uyku döngünüzü analiz edin, sabah insanı mı gece kuşu mu olduğunuzu bilimsel olarak öğrenin.</p>
+                <button class="start-test-btn">Analize Başla</button>
+            </div>
+
+            <!-- KART 2: CİLT -->
+            <div class="card">
+                <div class="card-icon" style="background: #fce7f3; color: #db2777;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>Dermatolojik Profil</h3>
+                <p>Cilt tipinizi, yaşlanma risklerinizi ve size özel dermo-kozmetik ihtiyaçları belirleyin.</p>
+                <button class="start-test-btn">Analize Başla</button>
+            </div>
+
+            <!-- KART 3: BESLENME -->
+            <div class="card">
+                <div class="card-icon" style="background: #dcfce7; color: #16a34a;"><i class="fa-solid fa-carrot"></i></div>
+                <h3>Metabolik Beslenme</h3>
+                <p>Vücudunuzun hangi besinlere nasıl tepki verdiğini ve ideal diyet modelinizi keşfedin.</p>
+                <button class="start-test-btn">Analize Başla</button>
+            </div>
+
+            <!-- KART 4: STRES (Demo için 4 tane yeterli şimdilik) -->
+            <div class="card">
+                <div class="card-icon" style="background: #fef3c7; color: #d97706;"><i class="fa-solid fa-brain"></i></div>
+                <h3>Stres & Kortizol</h3>
+                <p>Günlük stres yükünüzü ve tükenmişlik (burnout) risk seviyenizi ölçün.</p>
+                <button class="start-test-btn">Analize Başla</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ShenTechin Med. Tüm hakları saklıdır. Bu testler tıbbi tanı yerine geçmez.</p>
+    </footer>
+
 </body>
 </html>
