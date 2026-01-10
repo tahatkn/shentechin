@@ -56,23 +56,25 @@ const uiTranslations = {
         res_premium: '<i class="fa-solid fa-user-doctor"></i> Talk to Doctor (Premium)',
         res_retry: "Take Another Test",
 
-        // --- ABOUT PAGE ---
-        about_hero_title: "Bridging Medical Science & AI",
-        about_hero_desc: "We are a team of doctors, data scientists, and psychologists dedicated to helping you understand your body and mind better.",
+        // --- ABOUT PAGE (GENERIC & SAFE) ---
+        about_hero_title: "The Intersection of Technology & Wellness",
+        about_hero_desc: "We combine advanced algorithms with established medical literature to help you understand your body's signals.",
         
         mission_title: "Our Mission",
-        mission_desc: "To democratize health analysis. We believe everyone deserves access to professional-grade health insights without waiting in hospital lines.",
+        mission_desc: "To raise personal health awareness. We provide accessible tools for everyone to gain insights into their physical and mental well-being.",
         
-        privacy_title: "Privacy First",
-        privacy_desc: "Your health data is personal. We do not store any identifiable data permanently. All analysis happens instantly and securely.",
+        privacy_title: "Privacy Commitment",
+        privacy_desc: "Your journey is private. We do not store personal identifiable health data. All assessments are processed securely and anonymously.",
         
-        doctor_title: "Meet Our Lead Specialist",
-        doctor_name: "Dr. Shen Techin, MD, PhD",
-        doctor_bio: "With over 15 years of clinical experience in Neurology and Internal Medicine, Dr. Shen leads our research team to ensure every question in our algorithm is medically relevant.",
+        // Burayı değiştirdik: Kişi değil, Vizyon tanıtıyoruz
+        doctor_title: "Our Approach",
+        doctor_name: "Evidence-Based Methodology",
+        doctor_bio: "Instead of relying on a single opinion, our platform aggregates data from current medical guidelines and psychological research to provide balanced insights.",
         
-        stat_1: "50k+ Tests Taken",
-        stat_2: "98% Accuracy Rate",
-        stat_3: "Doctor Approved"
+        // Yalan sayıları kaldırdık, özellik yazdık
+        stat_1: "AI Powered",
+        stat_2: "Data Driven",
+        stat_3: "Scientific Basis"
     },
     tr: {
         nav_tests: "Testler",
@@ -128,23 +130,25 @@ const uiTranslations = {
         res_premium: '<i class="fa-solid fa-user-doctor"></i> Doktorla Görüş (Premium)',
         res_retry: "Başka Test Çöz",
 
-        // --- HAKKIMIZDA SAYFASI ---
-        about_hero_title: "Tıp Bilimi ve Yapay Zeka Arasındaki Köprü",
-        about_hero_desc: "Biz, bedeninizi ve zihninizi daha iyi anlamanıza yardımcı olmaya adamış doktorlar, veri bilimciler ve psikologlardan oluşan bir ekibiz.",
+        // --- HAKKIMIZDA SAYFASI (GÜVENLİ & GENEL) ---
+        about_hero_title: "Teknoloji ve Sağlığın Kesişim Noktası",
+        about_hero_desc: "Vücudunuzun sinyallerini anlamanız için gelişmiş algoritmaları, yerleşik tıbbi literatür ile birleştiriyoruz.",
         
         mission_title: "Misyonumuz",
-        mission_desc: "Sağlık analizini demokratikleştirmek. Herkesin hastane kuyruklarında beklemeden, profesyonel düzeyde sağlık öngörülerine erişmeyi hak ettiğine inanıyoruz.",
+        mission_desc: "Kişisel sağlık farkındalığını artırmak. Herkesin fiziksel ve zihinsel durumu hakkında içgörü kazanması için erişilebilir araçlar sunuyoruz.",
         
-        privacy_title: "Önce Gizlilik",
-        privacy_desc: "Sağlık verileriniz kişiseldir. Kimliğinizi belirleyecek hiçbir veriyi kalıcı olarak saklamıyoruz. Tüm analizler anlık ve güvenli bir şekilde yapılır.",
+        privacy_title: "Gizlilik Taahhüdü",
+        privacy_desc: "Yolculuğunuz size özeldir. Kişisel kimlik bilgilerini saklamıyoruz. Tüm değerlendirmeler güvenli ve anonim olarak işlenir.",
         
-        doctor_title: "Baş Uzmanımızla Tanışın",
-        doctor_name: "Dr. Shen Techin, MD, PhD",
-        doctor_bio: "Nöroloji ve Dahiliye alanında 15 yılı aşkın klinik deneyime sahip olan Dr. Shen, algoritmamızdaki her sorunun tıbbi açıdan geçerli olmasını sağlamak için araştırma ekibimize liderlik ediyor.",
+        // Kişi gitti, Metodoloji geldi
+        doctor_title: "Yaklaşımımız",
+        doctor_name: "Kanıta Dayalı Metodoloji",
+        doctor_bio: "Platformumuz tek bir görüşe dayanmak yerine, dengeli içgörüler sunmak için güncel tıbbi kılavuzlardan ve psikolojik araştırmalardan elde edilen verileri derler.",
         
-        stat_1: "50k+ Test Çözüldü",
-        stat_2: "%98 Doğruluk Oranı",
-        stat_3: "Doktor Onaylı"
+        // Sayılar gitti
+        stat_1: "Yapay Zeka",
+        stat_2: "Veri Odaklı",
+        stat_3: "Bilimsel Temel"
     }
 };
 
