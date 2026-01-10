@@ -369,3 +369,122 @@ footer {
 .prev-btn:not(:disabled):hover {
     color: var(--secondary);
 }
+
+/* --- SONUÇ SAYFASI --- */
+
+.result-body {
+    background: #f8fafc;
+}
+
+.result-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* İkiye böl */
+    gap: 40px;
+    margin-top: 20px;
+}
+
+/* Mobilde alt alta olsun */
+@media (max-width: 768px) {
+    .result-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.result-card, .action-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.result-desc {
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+/* Dairesel Grafik (CSS Magic) */
+.score-circle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.circular-progress {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary) 0deg, #e2e8f0 0deg); /* JS ile güncellenecek */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 1s ease;
+}
+
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    height: 130px; /* İçteki beyaz daire */
+    width: 130px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.progress-value {
+    position: relative;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--secondary);
+}
+
+/* Paylaşım Butonları */
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.share-btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.share-btn.twitter { background: #1da1f2; }
+.share-btn.whatsapp { background: #25d366; }
+
+.share-btn:hover { opacity: 0.9; transform: scale(1.05); }
+
+/* Premium Buton */
+.premium-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.retry-btn {
+    background: transparent;
+    color: #64748b;
+    border: 1px solid #cbd5e1;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}

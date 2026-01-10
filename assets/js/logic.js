@@ -121,7 +121,15 @@ function updateProgress() {
 }
 
 function finishQuiz() {
-    // Şimdilik sadece uyarı verelim. Sonra buraya Sonuç Sayfası gelecek.
-    alert(`Test Bitti! Toplam Puanınız: ${userScore} / ${quizData.length * 10}`);
-    // İleride: window.location.href = "result.html";
+    // Toplam alınabilecek maksimum puanı hesapla (Her soru 10 puan varsayarsak)
+    // questions.js'deki quizData uzunluğunu kullanıyoruz
+    const maxScore = quizData.length * 10;
+
+    // Puanı ve Max Puanı tarayıcı hafızasına (LocalStorage) kaydet
+    // Böylece result.html sayfası bu veriyi okuyabilecek.
+    localStorage.setItem('quizScore', userScore);
+    localStorage.setItem('quizMaxScore', maxScore);
+
+    // Sonuç sayfasına yönlendir
+    window.location.href = "result.html";
 }

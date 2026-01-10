@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiz Sonucunuz | ShenTechin Med</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="result-body">
+
+    <nav class="navbar">
+        <div class="logo">ShenTechin<span class="med-badge">MED</span></div>
+        <a href="index.html" class="nav-link">Ana Sayfa</a>
+    </nav>
+
+    <div class="container result-container">
+        <!-- SOL TARA: GRAFİK VE PUAN -->
+        <div class="result-card">
+            <div class="score-circle-container">
+                <div class="circular-progress" id="score-circle">
+                    <span class="progress-value" id="score-text">0%</span>
+                </div>
+            </div>
+            <h2 id="result-title">Analiz Yapılıyor...</h2>
+            <p id="result-desc" class="result-desc">Sonuçlarınız işleniyor, lütfen bekleyin.</p>
+        </div>
+
+        <!-- SAĞ TARAF: AKSİYON VE PAYLAŞIM -->
+        <div class="action-card">
+            <h3>Sonucunu Paylaş</h3>
+            <p>Arkadaşlarınla karşılaştır, sağlık skorunu göster.</p>
+            
+            <div class="share-buttons">
+                <button class="share-btn twitter" onclick="shareResult('twitter')">
+                    <i class="fa-brands fa-twitter"></i> Tweetle
+                </button>
+                <button class="share-btn whatsapp" onclick="shareResult('whatsapp')">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </button>
+            </div>
+
+            <hr>
+
+            <h3>Uzman Görüşü Al</h3>
+            <p>Bu sonuçlar ne anlama geliyor? Uzman doktorlarımızdan detaylı yorum alın.</p>
+            <button class="premium-btn"><i class="fa-solid fa-user-doctor"></i> Doktorla Görüş (Premium)</button>
+            
+            <button class="retry-btn" onclick="window.location.href='index.html'">Başka Test Çöz</button>
+        </div>
+    </div>
+
+    <script src="assets/js/result.js"></script>
+</body>
+</html>
