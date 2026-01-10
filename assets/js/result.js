@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const score = parseInt(localStorage.getItem('quizScore')) || 0;
     const maxScore = parseInt(localStorage.getItem('quizMaxScore')) || 50;
     
-    // Hangi testin çözüldüğünü al (Yoksa varsayılan olarak sleep)
+    // Hangi testin çözüldüğünü al
     const testType = localStorage.getItem('currentTestType') || 'sleep';
 
     // 2. Yüzdeyi Hesapla
@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const circle = document.getElementById('score-circle');
     const scoreText = document.getElementById('score-text');
     
-    // Derece hesabı (360 derece üzerinden)
     const degree = 3.6 * percentage;
     
     setTimeout(() => {
@@ -25,12 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const titleEl = document.getElementById('result-title');
     const descEl = document.getElementById('result-desc');
 
-    // Test türlerine göre sonuç metinleri
+    // 9 Kategori İçin Sonuç Başlıkları
     const titles = {
+        // Eski Kategoriler
         sleep: { title: "Uyku Profili", good: "Uykunun Efendisi", bad: "Uykusuz Zombi" },
         skin: { title: "Cilt Sağlığı", good: "Işıltılı ve Canlı", bad: "Yorgun ve Hassas" },
         diet: { title: "Beslenme Düzeni", good: "Sağlıklı Gurme", bad: "Dengesiz Beslenme" },
-        stress: { title: "Stres Yönetimi", good: "Zen Ustası", bad: "Stres Küpü" }
+        stress: { title: "Stres Yönetimi", good: "Zen Ustası", bad: "Stres Küpü" },
+        
+        // Yeni Kategoriler
+        heart: { title: "Kalp Sağlığı", good: "Çelik Gibi Kalp", bad: "Riskli Kardiyo" },
+        focus: { title: "Odaklanma Seviyesi", good: "Lazer Odaklı", bad: "Dağınık Zihin" },
+        fitness: { title: "Fiziksel Kondisyon", good: "Atletik Yapı", bad: "Hareketsiz Yaşam" },
+        immunity: { title: "Bağışıklık Sistemi", good: "Demir Kalkan", bad: "Savunmasız Bünye" },
+        tech: { title: "Dijital Denge", good: "Teknoloji Hakimi", bad: "Dijital Tutsak" }
     };
 
     // Mevcut testin başlıklarını seç
@@ -56,7 +63,7 @@ function shareResult(platform) {
     const score = document.getElementById('score-text').textContent;
     const testType = localStorage.getItem('currentTestType') || 'Medikal';
     
-    // Test tipini baş harfi büyük yapma (süsleme)
+    // Test tipini baş harfi büyük yapma
     const formattedType = testType.charAt(0).toUpperCase() + testType.slice(1);
 
     const text = `ShenTechin Med'de ${formattedType} Analizi yaptım ve sonucum: ${score}. Sen de kendini test et!`;

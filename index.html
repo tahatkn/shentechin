@@ -10,11 +10,11 @@
 </head>
 <body>
 
-    <!-- ÜST MENÜ -->
+    <!-- NAVİGASYON -->
     <nav class="navbar">
         <div class="logo">ShenTechin<span class="med-badge">MED</span></div>
         <ul class="nav-links">
-            <li><a href="#">Testler</a></li>
+            <li><a href="#test-section">Testler</a></li>
             <li><a href="#">Hakkımızda</a></li>
             <li><a href="#" class="btn-login">Giriş Yap</a></li>
         </ul>
@@ -23,9 +23,10 @@
     <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-content">
-            <span class="trust-badge"><i class="fa-solid fa-user-doctor"></i> Uzman Doktor Onaylı</span>
+            <!-- GÜNCELLEME: Metin değiştirildi -->
+            <span class="trust-badge"><i class="fa-solid fa-user-doctor"></i> Doktor Onaylı</span>
             <h1>Sağlığınızın ve Kişiliğinizin<br>DNA'sını Çözün</h1>
-            <p>Tıbbi verilerle desteklenmiş, yapay zeka tabanlı analizlerle kendinizi keşfedin. Uyku düzeninden cilt tipinize kadar 4 farklı kategoride derinlemesine analiz.</p>
+            <p>Tıbbi verilerle desteklenmiş, yapay zeka tabanlı analizlerle kendinizi keşfedin. Artık 9 farklı kategoride derinlemesine sağlık ve kişilik analizi.</p>
             <a href="#test-section" class="cta-button">Testi Başlat <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </header>
@@ -38,15 +39,15 @@
         </div>
 
         <div class="grid-container">
-            <!-- KART 1: UYKU -->
+            <!-- 1. UYKU -->
             <div class="card">
                 <div class="card-icon" style="background: #e0f2fe; color: #0284c7;"><i class="fa-solid fa-moon"></i></div>
-                <h3>Uyku Kalitesi & Kronotip</h3>
+                <h3>Uyku Kalitesi</h3>
                 <p>Uyku döngünüzü analiz edin, sabah insanı mı gece kuşu mu olduğunuzu öğrenin.</p>
                 <a href="quiz.html?type=sleep" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
             </div>
 
-            <!-- KART 2: CİLT -->
+            <!-- 2. CİLT -->
             <div class="card">
                 <div class="card-icon" style="background: #fce7f3; color: #db2777;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                 <h3>Dermatolojik Profil</h3>
@@ -54,7 +55,7 @@
                 <a href="quiz.html?type=skin" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
             </div>
 
-            <!-- KART 3: BESLENME -->
+            <!-- 3. BESLENME -->
             <div class="card">
                 <div class="card-icon" style="background: #dcfce7; color: #16a34a;"><i class="fa-solid fa-carrot"></i></div>
                 <h3>Metabolik Beslenme</h3>
@@ -62,13 +63,54 @@
                 <a href="quiz.html?type=diet" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
             </div>
 
-            <!-- KART 4: STRES -->
+            <!-- 4. STRES -->
             <div class="card">
                 <div class="card-icon" style="background: #fef3c7; color: #d97706;"><i class="fa-solid fa-brain"></i></div>
                 <h3>Stres & Kortizol</h3>
                 <p>Günlük stres yükünüzü ve tükenmişlik (burnout) risk seviyenizi ölçün.</p>
                 <a href="quiz.html?type=stress" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
             </div>
+
+            <!-- YENİ 5. KALP SAĞLIĞI -->
+            <div class="card">
+                <div class="card-icon" style="background: #fee2e2; color: #dc2626;"><i class="fa-solid fa-heart-pulse"></i></div>
+                <h3>Kalp Risk Analizi</h3>
+                <p>Kardiyovasküler risk faktörlerinizi ve kalp yaşı tahmininizi öğrenin.</p>
+                <a href="quiz.html?type=heart" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+            </div>
+
+            <!-- YENİ 6. ODAKLANMA (DEHB) -->
+            <div class="card">
+                <div class="card-icon" style="background: #f3e8ff; color: #9333ea;"><i class="fa-solid fa-crosshairs"></i></div>
+                <h3>Odak & Dikkat</h3>
+                <p>Dikkat eksikliği belirtileri ve zihinsel odaklanma performansınızı ölçün.</p>
+                <a href="quiz.html?type=focus" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+            </div>
+
+            <!-- YENİ 7. FİZİKSEL AKTİVİTE -->
+            <div class="card">
+                <div class="card-icon" style="background: #ffedd5; color: #ea580c;"><i class="fa-solid fa-person-running"></i></div>
+                <h3>Fiziksel Kondisyon</h3>
+                <p>Hareket seviyenizi ve vücudunuzun spora yatkınlığını analiz edin.</p>
+                <a href="quiz.html?type=fitness" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+            </div>
+
+            <!-- YENİ 8. BAĞIŞIKLIK -->
+            <div class="card">
+                <div class="card-icon" style="background: #ecfccb; color: #65a30d;"><i class="fa-solid fa-shield-virus"></i></div>
+                <h3>Bağışıklık Gücü</h3>
+                <p>Vücut direncinizi ve hastalıklara karşı savunma mekanizmanızı test edin.</p>
+                <a href="quiz.html?type=immunity" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+            </div>
+
+            <!-- YENİ 9. TEKNOLOJİ BAĞIMLILIĞI -->
+            <div class="card">
+                <div class="card-icon" style="background: #e0e7ff; color: #3730a3;"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <h3>Dijital Denge</h3>
+                <p>Ekran sürenizin ve teknoloji kullanımınızın beyin sağlığına etkisini ölçün.</p>
+                <a href="quiz.html?type=tech" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+            </div>
+
         </div>
     </section>
 
