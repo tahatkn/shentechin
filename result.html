@@ -1,66 +1,98 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analiz Sonucunuz | ShenTechin Med</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Analysis Result | ShenTechin Med</title>
+    <!-- Fontlar -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS Dosyaları (Parçalanmış Yapı) -->
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/quiz.css">
     <link rel="stylesheet" href="assets/css/pages.css">
+    
+    <!-- İkonlar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="result-body">
+<body>
 
+    <!-- NAVBAR (Dil Destekli) -->
     <nav class="navbar">
         <a href="index.html" class="logo">
             ShenTechin<span class="med-badge">MED</span>
         </a>
-        <a href="index.html" class="nav-link">Ana Sayfa</a>
+        <ul class="nav-links">
+            <li class="lang-switcher">
+                <span id="lang-en" onclick="setLanguage('en')" style="cursor:pointer;">EN</span> | 
+                <span id="lang-tr" onclick="setLanguage('tr')" style="cursor:pointer;">TR</span>
+            </li>
+            <li><a href="index.html" data-i18n="nav_tests">Tests</a></li>
+            <li><a href="about.html" data-i18n="nav_about">About</a></li>
+            <li><a href="#" class="btn-login" data-i18n="nav_login">Login</a></li>
+        </ul>
     </nav>
 
     <div class="container result-container">
-        <!-- SOL TARA: GRAFİK VE PUAN -->
+        <!-- SOL TARAF: GRAFİK VE PUAN -->
         <div class="result-card">
             <div class="score-circle-container">
                 <div class="circular-progress" id="score-circle">
-                    <span class="progress-value" id="score-text">0%</span>
+                    <span class="progress-value" id="score-text">...</span>
                 </div>
             </div>
-            <h2 id="result-title">Analiz Yapılıyor...</h2>
-            <p id="result-desc" class="result-desc">Sonuçlarınız işleniyor, lütfen bekleyin.</p>
+            
+            <!-- JS ile doldurulacak başlıklar -->
+            <h2 id="result-title" style="color:var(--text-light);">Analyzing Data...</h2>
+            <p id="result-desc" class="result-desc">Processing your answers against clinical benchmarks...</p>
+            
+            <!-- Doktor Onay Kutusu (Dil Destekli) -->
             <div class="medical-disclaimer">
-                <span data-i18n="doctor_loop_result">
-                    Medical interpretation provided under physician-supervised AI.
-                </span>
+                <i class="fa-solid fa-file-medical"></i>
+                <span data-i18n="doctor_loop_result">Medical interpretation provided under physician-supervised AI.</span>
             </div>
         </div>
 
         <!-- SAĞ TARAF: AKSİYON VE PAYLAŞIM -->
         <div class="action-card">
-            <h3>Sonucunu Paylaş</h3>
-            <p>Arkadaşlarınla karşılaştır, sağlık skorunu göster.</p>
+            <h3 data-i18n="res_share_title">Share Result</h3>
+            <p data-i18n="res_share_desc" style="color:var(--text-light); margin-bottom:20px;">Compare with friends, show your health score.</p>
             
             <div class="share-buttons">
                 <button class="share-btn twitter" onclick="shareResult('twitter')">
-                    <i class="fa-brands fa-twitter"></i> Tweetle
+                    <i class="fa-brands fa-twitter"></i> <span data-i18n="res_tweet">Tweet</span>
                 </button>
                 <button class="share-btn whatsapp" onclick="shareResult('whatsapp')">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    <i class="fa-brands fa-whatsapp"></i> <span data-i18n="res_whatsapp">WhatsApp</span>
                 </button>
             </div>
 
-            <hr>
+            <hr style="border:0; border-top:1px solid #e2e8f0; margin:30px 0;">
 
-            <h3>Uzman Görüşü Al</h3>
-            <p>Bu sonuçlar ne anlama geliyor? Uzman doktorlarımızdan detaylı yorum alın.</p>
-            <button class="premium-btn"><i class="fa-solid fa-user-doctor"></i> Doktorla Görüş (Premium)</button>
+            <h3 data-i18n="res_expert">Get Expert Opinion</h3>
+            <p data-i18n="res_expert_desc" style="color:var(--text-light); margin-bottom:20px;">What do these results mean? Get detailed comments.</p>
             
-            <button class="retry-btn" onclick="window.location.href='index.html'">Başka Test Çöz</button>
+            <!-- YENİ PREMIUM BUTON KUTUSU -->
+            <div class="result-buttons-container">
+                <button class="premium-btn" data-i18n="res_premium">
+                    <i class="fa-solid fa-user-doctor"></i> Talk to Doctor (Premium)
+                </button>
+                
+                <button class="retry-btn" onclick="window.location.href='index.html'" data-i18n="res_retry">
+                    Take Another Test
+                </button>
+            </div>
         </div>
     </div>
 
+    <footer>
+        <p data-i18n="footer_text">&copy; 2026 ShenTechin Med. All rights reserved.</p>
+    </footer>
+
+    <!-- SCRIPTS (Sıralama Önemli) -->
+    <script src="assets/js/translations.js"></script>
     <script src="assets/js/result.js"></script>
+
 </body>
 </html>
