@@ -550,3 +550,78 @@ footer {
     0% { transform: scale(0); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
 }
+
+/* --- 10'lu ÖLÇEK SİSTEMİ İÇİN YENİ CSS --- */
+
+/* Izgarayı 5 sütuna bölüyoruz (2 satır olacak: 1-5 ve 6-10) */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Mobilde daha sıkışık olabilir */
+@media (max-width: 600px) {
+    .options-grid {
+        gap: 10px;
+    }
+}
+
+/* Sayı Butonları */
+.scale-btn {
+    aspect-ratio: 1; /* Kare olması için */
+    border: 2px solid #e2e8f0;
+    background: white;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scale-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
+}
+
+/* Seçili Olduğunda (Maviden Mora bir geçiş hissi verebiliriz ama düz mavi temizdir) */
+.scale-btn.selected {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* Bilgilendirme Metni (CSS ile ekliyoruz) */
+.options-grid::before {
+    content: "Min (1)";
+    grid-column: 1;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: -10px;
+}
+
+.options-grid::after {
+    content: "Max (10)";
+    grid-column: 5;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: -10px;
+}
+/* Not: before ve after elementleri grid item gibi davranabilir, 
+bu yüzden yapıyı bozabilir. Eğer bozarsa bunları kaldırıp HTML'e ekleriz. 
+Şimdilik display: contents deneyebiliriz veya JavaScript ile label ekleyebiliriz.
+En temizi CSS grid flow'u bozmamak için bunları JS ile eklemek ama 
+basitlik adına kullanıcı zaten anlar. */
+.options-grid::before, .options-grid::after {
+    display: none; /* Şimdilik gizleyelim, kafa karıştırmasın */
+}
