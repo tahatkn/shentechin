@@ -54,7 +54,25 @@ const uiTranslations = {
         res_expert: "Get Expert Opinion",
         res_expert_desc: "What do these results mean? Get detailed comments from our doctors.",
         res_premium: '<i class="fa-solid fa-user-doctor"></i> Talk to Doctor (Premium)',
-        res_retry: "Take Another Test"
+        res_retry: "Take Another Test",
+
+        // --- ABOUT PAGE ---
+        about_hero_title: "Bridging Medical Science & AI",
+        about_hero_desc: "We are a team of doctors, data scientists, and psychologists dedicated to helping you understand your body and mind better.",
+        
+        mission_title: "Our Mission",
+        mission_desc: "To democratize health analysis. We believe everyone deserves access to professional-grade health insights without waiting in hospital lines.",
+        
+        privacy_title: "Privacy First",
+        privacy_desc: "Your health data is personal. We do not store any identifiable data permanently. All analysis happens instantly and securely.",
+        
+        doctor_title: "Meet Our Lead Specialist",
+        doctor_name: "Dr. Shen Techin, MD, PhD",
+        doctor_bio: "With over 15 years of clinical experience in Neurology and Internal Medicine, Dr. Shen leads our research team to ensure every question in our algorithm is medically relevant.",
+        
+        stat_1: "50k+ Tests Taken",
+        stat_2: "98% Accuracy Rate",
+        stat_3: "Doctor Approved"
     },
     tr: {
         nav_tests: "Testler",
@@ -108,7 +126,25 @@ const uiTranslations = {
         res_expert: "Uzman Görüşü Al",
         res_expert_desc: "Bu sonuçlar ne anlama geliyor? Uzman doktorlarımızdan detaylı yorum alın.",
         res_premium: '<i class="fa-solid fa-user-doctor"></i> Doktorla Görüş (Premium)',
-        res_retry: "Başka Test Çöz"
+        res_retry: "Başka Test Çöz",
+
+        // --- HAKKIMIZDA SAYFASI ---
+        about_hero_title: "Tıp Bilimi ve Yapay Zeka Arasındaki Köprü",
+        about_hero_desc: "Biz, bedeninizi ve zihninizi daha iyi anlamanıza yardımcı olmaya adamış doktorlar, veri bilimciler ve psikologlardan oluşan bir ekibiz.",
+        
+        mission_title: "Misyonumuz",
+        mission_desc: "Sağlık analizini demokratikleştirmek. Herkesin hastane kuyruklarında beklemeden, profesyonel düzeyde sağlık öngörülerine erişmeyi hak ettiğine inanıyoruz.",
+        
+        privacy_title: "Önce Gizlilik",
+        privacy_desc: "Sağlık verileriniz kişiseldir. Kimliğinizi belirleyecek hiçbir veriyi kalıcı olarak saklamıyoruz. Tüm analizler anlık ve güvenli bir şekilde yapılır.",
+        
+        doctor_title: "Baş Uzmanımızla Tanışın",
+        doctor_name: "Dr. Shen Techin, MD, PhD",
+        doctor_bio: "Nöroloji ve Dahiliye alanında 15 yılı aşkın klinik deneyime sahip olan Dr. Shen, algoritmamızdaki her sorunun tıbbi açıdan geçerli olmasını sağlamak için araştırma ekibimize liderlik ediyor.",
+        
+        stat_1: "50k+ Test Çözüldü",
+        stat_2: "%98 Doğruluk Oranı",
+        stat_3: "Doktor Onaylı"
     }
 };
 

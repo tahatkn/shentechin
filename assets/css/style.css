@@ -625,3 +625,140 @@ basitlik adına kullanıcı zaten anlar. */
 .options-grid::before, .options-grid::after {
     display: none; /* Şimdilik gizleyelim, kafa karıştırmasın */
 }
+
+/* --- HAKKIMIZDA SAYFASI --- */
+
+.about-hero {
+    background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
+    padding: 80px 0 40px 0;
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* İstatistik Bandı */
+.stats-bar {
+    background: var(--secondary);
+    color: white;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-item i {
+    color: var(--accent);
+}
+
+/* İçerik Düzeni */
+.about-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-block {
+    margin-bottom: 40px;
+}
+
+.info-block .icon-box {
+    width: 50px;
+    height: 50px;
+    background: #e0f2fe;
+    color: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.info-block h2 {
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.info-block p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+/* Doktor Kartı */
+.doctor-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    text-align: center;
+    border-top: 5px solid var(--primary);
+}
+
+.doc-img-placeholder {
+    width: 120px;
+    height: 120px;
+    background: #f1f5f9;
+    color: #cbd5e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 0 auto 20px auto;
+}
+
+.doctor-card h3 {
+    margin: 0;
+    color: var(--secondary);
+}
+
+.doc-title {
+    display: block;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.doc-sign {
+    font-family: 'Cursive', sans-serif; /* İmza efekti için */
+    font-size: 2rem;
+    color: #94a3b8;
+    margin-top: 20px;
+    opacity: 0.5;
+}
+
+/* Navbar Active State */
+.nav-links a.active {
+    color: var(--primary);
+    font-weight: 700;
+}
