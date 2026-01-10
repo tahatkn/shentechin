@@ -4,61 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analiz Başlıyor | ShenTechin Med</title>
+    <!-- Fontlar -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- İkonlar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stil Dosyası -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="quiz-body">
 
-    <!-- SADELEŞTİRİLMİŞ NAVBAR (Odak dağıtmamak için) -->
+    <!-- NAVİGASYON -->
     <nav class="quiz-nav">
-        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön</a>
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Vazgeç ve Dön</a>
         <div class="logo-small">ShenTechin<span class="med-badge">MED</span></div>
     </nav>
 
+    <!-- ANA ALAN -->
     <div class="quiz-container">
+        
         <!-- İLERLEME ÇUBUĞU -->
         <div class="progress-header">
-            <span id="question-count">Soru 1 / 25</span>
+            <span id="question-count">Yükleniyor...</span>
             <div class="progress-bar-bg">
-                <div class="progress-bar-fill" style="width: 4%;"></div>
+                <!-- Başlangıçta genişlik 0, JS ile artacak -->
+                <div class="progress-bar-fill" style="width: 0%;"></div>
             </div>
         </div>
 
         <!-- SORU KARTI -->
         <div class="question-card">
-            <h2 id="question-text">Sabah uyandığınızda kendinizi genellikle nasıl hissedersiniz?</h2>
+            <!-- Soru başlığı buraya gelecek -->
+            <h2 id="question-text">Soru verileri hazırlanıyor...</h2>
             
-            <div class="options-grid">
-                <!-- Şıklar (JavaScript ile doldurulacak, şimdilik görsel taslak) -->
-                <button class="option-btn">
-                    <span class="opt-letter">A</span>
-                    Çok yorgun, yataktan zor kalkarım.
-                </button>
-                
-                <button class="option-btn">
-                    <span class="opt-letter">B</span>
-                    Biraz tutuk, kahve içmeden uyanamam.
-                </button>
-                
-                <button class="option-btn">
-                    <span class="opt-letter">C</span>
-                    Dinç ve enerjik uyanırım.
-                </button>
-                
-                <button class="option-btn">
-                    <span class="opt-letter">D</span>
-                    Baş ağrısı veya gerginlikle uyanırım.
-                </button>
-            </div>
+            <!-- Şık butonları buraya JS tarafından otomatik eklenecek -->
+            <!-- İçi bilerek boş bırakıldı -->
+            <div class="options-grid"></div>
         </div>
 
-        <!-- ALT KONTROLLER -->
+        <!-- ALT BUTONLAR -->
         <div class="quiz-footer">
             <button class="nav-btn prev-btn" disabled>Önceki</button>
             <button class="nav-btn next-btn">Sonraki <i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </div>
+
+    <!-- JAVASCRIPT BAĞLANTILARI -->
+    <!-- Önce sorular, sonra mantık yüklenir -->
+    <script src="assets/js/questions.js"></script>
+    <script src="assets/js/logic.js"></script>
 
 </body>
 </html>
