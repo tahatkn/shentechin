@@ -1,11 +1,30 @@
-/* --- 3. QUIZ.CSS (TEST MOTORU) --- */
+/* --- 3. QUIZ.CSS (TEST MOTORU - FIXED) --- */
 
 .quiz-body { background: #f8fafc; min-height: 100vh; }
 .quiz-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
 
+/* NAVBAR DÜZENLEME (GERİ DÖN LİNKİ) */
+.quiz-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 5%; margin-bottom: 20px;
+}
+.back-link {
+    text-decoration: none; color: var(--text-light);
+    font-weight: 600; display: flex; align-items: center; gap: 8px;
+    padding: 8px 16px; border-radius: 20px;
+    background: white; border: 1px solid #e2e8f0;
+    transition: var(--transition);
+}
+.back-link:hover {
+    background: var(--surface); color: var(--secondary);
+    border-color: var(--secondary); transform: translateX(-3px);
+}
+.logo-small { font-weight: 800; color: var(--secondary); font-size: 1.2rem; }
+
 /* Progress Bar */
-.progress-header { margin-bottom: 30px; }
-.progress-bar-bg { width: 100%; height: 8px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
+.progress-header { margin-bottom: 40px; }
+#question-count { font-weight: 700; color: var(--secondary); display: block; margin-bottom: 10px; }
+.progress-bar-bg { width: 100%; height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
 .progress-bar-fill { height: 100%; background: var(--accent-gradient); width: 0%; transition: width 0.4s ease; }
 
 /* Soru Kartı */
@@ -14,54 +33,65 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
     text-align: center; margin-bottom: 30px;
+    border: 1px solid #fff;
 }
-
 .question-card h2 {
-    font-size: 1.6rem; color: var(--secondary);
-    margin-bottom: 40px; line-height: 1.4;
+    font-size: 1.8rem; color: var(--secondary);
+    margin-bottom: 50px; line-height: 1.3;
 }
 
-/* 1-10 BUTON IZGARASI */
+/* 1-10 BUTON IZGARASI (GÖRÜNÜRLÜK DÜZELTİLDİ) */
 .options-grid {
     display: grid;
-    /* 5 Sütun (Mobilde otomatik küçülür) */
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 15px; /* Butonlar arası boşluk */
+    grid-template-columns: repeat(5, 1fr); /* 5 Sütun */
+    gap: 15px; width: 100%;
 }
 
 .scale-btn {
-    aspect-ratio: 1; /* Kare buton */
     display: flex; align-items: center; justify-content: center;
-    background: white; border: 2px solid #e2e8f0; border-radius: 14px;
-    font-size: 1.2rem; font-weight: 700; color: var(--text-light);
-    cursor: pointer; transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    aspect-ratio: 1; /* Kare */
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    /* GÖRÜNÜRLÜK GARANTİSİ */
+    opacity: 1 !important; 
+    visibility: visible !important;
 }
 
 .scale-btn:hover {
     border-color: var(--primary); color: var(--primary);
-    transform: translateY(-5px); background: #f0f9ff;
+    transform: translateY(-4px); background: #f0f9ff;
     box-shadow: 0 10px 15px rgba(59, 130, 246, 0.1);
 }
 
 .scale-btn.selected {
     background: var(--primary); color: white;
-    border-color: var(--primary); transform: scale(1.1);
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    border-color: var(--primary); transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
-/* Alt Navigasyon */
-.quiz-footer { display: flex; justify-content: space-between; margin-top: 30px; }
-.nav-btn { padding: 14px 35px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; transition: 0.3s; }
-
+/* Alt Butonlar */
+.quiz-footer { display: flex; justify-content: space-between; margin-top: 40px; }
+.nav-btn {
+    padding: 14px 40px; border-radius: 50px; border: none;
+    font-weight: 700; font-size: 1rem; cursor: pointer;
+    transition: var(--transition);
+}
 .next-btn { background: var(--secondary); color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-.next-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-.next-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.next-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); background: var(--primary); }
+.next-btn:disabled { opacity: 0.5; cursor: not-allowed; background: #94a3b8; }
 
 .prev-btn { background: transparent; color: #94a3b8; }
-.prev-btn:hover { color: var(--secondary); }
+.prev-btn:hover:not(:disabled) { color: var(--secondary); }
 
 @media (max-width: 600px) {
     .options-grid { gap: 8px; }
     .scale-btn { font-size: 1rem; border-radius: 10px; }
     .question-card { padding: 30px 20px; }
+    .question-card h2 { font-size: 1.4rem; }
 }

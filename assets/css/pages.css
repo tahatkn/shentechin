@@ -1,102 +1,109 @@
-/* --- 4. PAGES.CSS (ABOUT & RESULT) --- */
+/* --- 4. PAGES.CSS (ABOUT & RESULT - FIXED) --- */
 
-/* ABOUT PAGE */
+/* ABOUT PAGE (CANSIZLIK GİDERİLDİ) */
 .about-hero {
+    /* Canlı Gradyan */
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    text-align: center; padding: 80px 20px;
-    background: white;
+    text-align: center; padding: 100px 20px 120px 20px;
+    border-bottom: 1px solid #dbeafe;
 }
+.about-hero h1 { margin-bottom: 20px; color: var(--secondary); font-size: 3rem; }
+.about-hero p { max-width: 700px; margin: 0 auto; color: var(--text-light); font-size: 1.2rem; }
 
-/* İstatistik Bandı (Siyah Alan) */
 .stats-bar {
     background: var(--secondary); color: white;
-    padding: 60px 20px;
-    display: flex; justify-content: center; align-items: center;
-    gap: 80px; flex-wrap: wrap; /* Mobilde alt alta geçsin */
-    margin-bottom: 60px;
+    padding: 50px 20px; margin-top: -40px; /* Hero'nun içine girsin */
+    border-radius: var(--radius-lg);
+    max-width: 1000px; margin-left: auto; margin-right: auto;
+    display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+    position: relative; z-index: 10;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
 .stat-item {
-    display: flex; flex-direction: column; align-items: center;
-    gap: 12px; font-weight: 600; color: #cbd5e1; font-size: 1.1rem;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    font-weight: 700; color: #e2e8f0; font-size: 1.1rem;
 }
-.stat-item i {
-    font-size: 2.2rem; color: #38bdf8;
-    background: rgba(56, 189, 248, 0.1);
-    padding: 15px; border-radius: 50%;
-}
+.stat-item i { font-size: 2rem; color: #38bdf8; margin-bottom: 5px; }
 
-/* İçerik Izgarası */
+/* İçerik */
 .about-content {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; max-width: 1100px; margin: 0 auto 80px auto;
+    gap: 80px; max-width: 1100px; margin: 100px auto;
     padding: 0 20px; align-items: start;
 }
-
-.info-block { text-align: left; margin-bottom: 40px; }
-.info-block .icon-box {
-    width: 60px; height: 60px; background: #e0f2fe; color: var(--primary);
-    border-radius: 16px; display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; margin-bottom: 20px;
-}
-.info-block h2 { font-size: 1.6rem; color: var(--secondary); margin-bottom: 15px; }
-.info-block p { font-size: 1.05rem; color: var(--text-light); line-height: 1.8; }
-
-/* Doktor Kartı (Sticky) */
 .doctor-card {
     background: white; padding: 50px 40px; border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     border-top: 6px solid var(--primary); text-align: center;
-    position: sticky; top: 100px;
+    position: sticky; top: 120px;
 }
 .doc-img-placeholder {
     width: 100px; height: 100px; background: #eff6ff; color: var(--primary);
     border-radius: 50%; margin: 0 auto 25px auto;
     display: flex; align-items: center; justify-content: center; font-size: 2.5rem;
 }
-.doc-title {
-    color: var(--primary); font-weight: 700; text-transform: uppercase;
-    font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 10px;
-}
 
-/* RESULT PAGE */
+/* RESULT PAGE (HATALAR GİDERİLDİ) */
 .result-container {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 40px; margin-top: 40px;
+    gap: 40px; margin-top: 50px;
 }
 .result-card, .action-card {
-    background: white; padding: 40px;
+    background: white; padding: 50px;
     border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+/* YUVARLAK GRAFİK DÜZELTMESİ */
+.score-circle-container {
+    display: flex; justify-content: center; margin-bottom: 30px;
+}
+.circular-progress {
+    width: 200px; height: 200px; /* Sabit boyut */
+    border-radius: 50%; /* Tam Yuvarlak */
+    background: conic-gradient(var(--primary) 0deg, #f1f5f9 0deg);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.circular-progress::before {
+    content: ""; position: absolute;
+    width: 160px; height: 160px; /* İçteki beyaz daire */
+    border-radius: 50%; background: white;
+}
+.progress-value {
+    position: relative; z-index: 2;
+    font-size: 2.5rem; font-weight: 800; color: var(--secondary);
 }
 
 .percentile-box {
-    background: #f1f5f9; padding: 10px 15px; border-radius: 8px;
-    font-weight: 700; margin-bottom: 20px; display: inline-block;
-    border: 1px solid #cbd5e1;
-}
-
-.risk-text { font-size: 1.1rem; line-height: 1.7; }
-.risk-text strong {
-    color: #dc2626; background: rgba(220, 38, 38, 0.05);
-    padding: 0 5px; border-radius: 4px;
+    background: #f8fafc; padding: 15px 20px; border-radius: 12px;
+    font-weight: 700; margin-bottom: 25px; display: inline-block;
+    border: 1px solid #e2e8f0; color: var(--secondary);
 }
 
 .medical-disclaimer {
-    margin-top: 25px; padding: 15px;
-    background: #f0fdf4; border-left: 4px solid #16a34a;
-    border-radius: 6px; color: #166534; font-weight: 600;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
+    margin-top: 30px; padding: 20px;
+    background: #f0fdf4; border-left: 5px solid #16a34a;
+    border-radius: 8px; color: #15803d; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; gap: 15px;
+    text-align: left;
 }
 
-.share-buttons { display: flex; gap: 10px; justify-content: center; margin: 25px 0; }
-.share-btn { padding: 12px 25px; border-radius: 10px; border: none; color: white; cursor: pointer; font-weight: 600; transition: transform 0.2s;}
+.share-buttons { display: flex; gap: 15px; justify-content: center; margin: 30px 0; }
+.share-btn {
+    padding: 12px 30px; border-radius: 12px; border: none;
+    color: white; cursor: pointer; font-weight: 600;
+    transition: transform 0.2s; display: flex; align-items: center; gap: 8px;
+}
 .share-btn:hover { transform: scale(1.05); }
 .share-btn.twitter { background: #1da1f2; }
 .share-btn.whatsapp { background: #25d366; }
 
-/* MOBİL */
 @media (max-width: 900px) {
     .about-content, .result-container { grid-template-columns: 1fr; }
-    .stats-bar { gap: 40px; }
+    .stats-bar { flex-direction: column; gap: 30px; }
 }
