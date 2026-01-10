@@ -604,3 +604,57 @@ footer {
         text-align: center;
     }
 }
+
+/* --- KLİNİK RAPOR STİLİ --- */
+
+/* Toplumdaki Yeri Kutusu */
+.percentile-box {
+    background: #f1f5f9;
+    color: var(--secondary);
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 15px;
+    border: 1px solid #cbd5e1;
+}
+
+/* Risk Metni */
+.risk-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+/* Önemli kısımları (2.1x Risk gibi) vurgula */
+.risk-text strong {
+    color: #dc2626; /* Koyu kırmızı */
+    font-weight: 800;
+    background: rgba(220, 38, 38, 0.1);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* Sonuç Kartını Güzelleştir */
+.result-card {
+    border-top: 5px solid var(--primary); /* Üstte renkli çizgi */
+    text-align: left; /* Tıbbi raporlar genelde sola dayalıdır */
+}
+
+.result-card h2 {
+    text-align: center; /* Başlık ortada kalsın */
+}
+
+.score-circle-container {
+    margin-bottom: 20px;
+}
+
+/* Medikal Uyarı Kutusu (Önceki adımda eklemiştik, biraz daha geliştirelim) */
+.medical-disclaimer {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid var(--primary);
+    color: var(--text-light);
+    font-weight: 500;
+}
