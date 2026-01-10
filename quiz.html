@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiz Başlıyor | ShenTechin Med</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="quiz-body">
+
+    <!-- SADELEŞTİRİLMİŞ NAVBAR (Odak dağıtmamak için) -->
+    <nav class="quiz-nav">
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön</a>
+        <div class="logo-small">ShenTechin<span class="med-badge">MED</span></div>
+    </nav>
+
+    <div class="quiz-container">
+        <!-- İLERLEME ÇUBUĞU -->
+        <div class="progress-header">
+            <span id="question-count">Soru 1 / 25</span>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 4%;"></div>
+            </div>
+        </div>
+
+        <!-- SORU KARTI -->
+        <div class="question-card">
+            <h2 id="question-text">Sabah uyandığınızda kendinizi genellikle nasıl hissedersiniz?</h2>
+            
+            <div class="options-grid">
+                <!-- Şıklar (JavaScript ile doldurulacak, şimdilik görsel taslak) -->
+                <button class="option-btn">
+                    <span class="opt-letter">A</span>
+                    Çok yorgun, yataktan zor kalkarım.
+                </button>
+                
+                <button class="option-btn">
+                    <span class="opt-letter">B</span>
+                    Biraz tutuk, kahve içmeden uyanamam.
+                </button>
+                
+                <button class="option-btn">
+                    <span class="opt-letter">C</span>
+                    Dinç ve enerjik uyanırım.
+                </button>
+                
+                <button class="option-btn">
+                    <span class="opt-letter">D</span>
+                    Baş ağrısı veya gerginlikle uyanırım.
+                </button>
+            </div>
+        </div>
+
+        <!-- ALT KONTROLLER -->
+        <div class="quiz-footer">
+            <button class="nav-btn prev-btn" disabled>Önceki</button>
+            <button class="nav-btn next-btn">Sonraki <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+</body>
+</html>
