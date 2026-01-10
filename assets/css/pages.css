@@ -1,94 +1,189 @@
-/* --- 4. PAGES.CSS (ABOUT & RESULT - FIXED) --- */
+/* --- 4. PAGES.CSS (ABOUT & RESULT - FINAL) --- */
 
-/* --- ABOUT SAYFASI (DÜZENLENDİ) --- */
+/* --- ABOUT SAYFASI --- */
 .about-hero {
+    /* Canlı ve Modern Gradyan */
     background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     text-align: center;
-    /* YENİ: Boşluklar azaltıldı */
-    padding: 50px 20px 80px 20px; 
+    /* Boşluklar optimize edildi */
+    padding: 60px 20px 100px 20px; 
     border-bottom: 1px solid #dbeafe;
 }
 
 .about-hero h1 { 
-    margin-bottom: 15px; color: var(--secondary); font-size: 2.8rem; line-height: 1.2;
+    margin-bottom: 15px; 
+    color: var(--secondary); 
+    font-size: 2.8rem; 
+    line-height: 1.2;
 }
 .about-hero p { 
-    max-width: 700px; margin: 0 auto; color: var(--text-light); font-size: 1.1rem; 
+    max-width: 700px; 
+    margin: 0 auto; 
+    color: var(--text-light); 
+    font-size: 1.15rem; 
 }
 
+/* İstatistik Bandı */
 .stats-bar {
-    background: var(--secondary); color: white;
-    padding: 30px 20px; /* Padding azaltıldı */
-    margin-top: -30px; /* Yukarı çekildi */
+    background: var(--secondary); 
+    color: white;
+    padding: 35px 20px;
+    margin-top: -50px; /* Hero'nun içine girsin */
     border-radius: var(--radius-lg);
-    max-width: 900px; margin-left: auto; margin-right: auto;
-    display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;
-    position: relative; z-index: 10;
+    max-width: 900px; 
+    margin-left: auto; 
+    margin-right: auto;
+    display: flex; 
+    justify-content: center; 
+    gap: 60px; 
+    flex-wrap: wrap;
+    position: relative; 
+    z-index: 10;
     box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
 .stat-item {
-    display: flex; align-items: center; gap: 15px; /* Yan yana ikon ve yazı */
-    font-weight: 700; color: #e2e8f0; font-size: 1rem;
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    font-weight: 700; 
+    color: #e2e8f0; 
+    font-size: 1.05rem;
 }
 .stat-item i { 
-    font-size: 1.5rem; color: #38bdf8; 
-    background: rgba(56, 189, 248, 0.1); padding: 10px; border-radius: 50%;
+    font-size: 1.8rem; 
+    color: #38bdf8; 
+    background: rgba(56, 189, 248, 0.1); 
+    padding: 12px; 
+    border-radius: 50%;
 }
 
+/* İçerik Izgarası */
 .about-content {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; max-width: 1100px; margin: 60px auto; /* Margin azaltıldı */
-    padding: 0 20px; align-items: start;
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    gap: 60px; 
+    max-width: 1100px; 
+    margin: 80px auto; 
+    padding: 0 20px; 
+    align-items: start;
 }
+
+.info-block { margin-bottom: 40px; }
+
+.info-block .icon-box {
+    width: 60px; height: 60px; 
+    background: #e0f2fe; color: var(--primary);
+    border-radius: 16px; 
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin-bottom: 20px;
+}
+.info-block h2 { font-size: 1.6rem; color: var(--secondary); margin-bottom: 15px; }
+.info-block p { font-size: 1.05rem; color: var(--text-light); line-height: 1.7; }
+
+/* Doktor Kartı */
 .doctor-card {
-    background: white; padding: 40px; border-radius: 24px;
+    background: white; 
+    padding: 40px; 
+    border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    border-top: 6px solid var(--primary); text-align: center;
+    border-top: 6px solid var(--primary); 
+    text-align: center;
     position: sticky; top: 120px;
 }
 .doc-img-placeholder {
-    width: 90px; height: 90px; background: #eff6ff; color: var(--primary);
-    border-radius: 50%; margin: 0 auto 20px auto;
-    display: flex; align-items: center; justify-content: center; font-size: 2.2rem;
+    width: 90px; height: 90px; 
+    background: #eff6ff; color: var(--primary);
+    border-radius: 50%; 
+    margin: 0 auto 20px auto;
+    display: flex; align-items: center; justify-content: center; 
+    font-size: 2.2rem;
+}
+.doc-title {
+    color: var(--primary); 
+    font-weight: 700; 
+    text-transform: uppercase;
+    font-size: 0.85rem; 
+    letter-spacing: 1px; 
+    display: block; 
+    margin-bottom: 10px;
 }
 
-/* --- RESULT SAYFASI (HATALAR GİDERİLDİ) --- */
+/* --- RESULT SAYFASI --- */
 .result-container {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 40px; margin-top: 40px;
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    gap: 40px; 
+    margin-top: 40px;
 }
 .result-card, .action-card {
-    background: white; padding: 40px;
-    border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);
+    background: white; 
+    padding: 40px;
+    border-radius: var(--radius-lg); 
+    box-shadow: var(--shadow-soft);
     text-align: center;
 }
 
-/* Grafik */
+/* Yuvarlak Grafik */
 .score-circle-container { display: flex; justify-content: center; margin-bottom: 25px; }
 .circular-progress {
-    width: 180px; height: 180px; border-radius: 50%;
+    width: 180px; height: 180px; 
+    border-radius: 50%;
     background: conic-gradient(var(--primary) 0deg, #f1f5f9 0deg);
     display: flex; align-items: center; justify-content: center;
-    position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 .circular-progress::before {
     content: ""; position: absolute; width: 150px; height: 150px;
     border-radius: 50%; background: white;
 }
 .progress-value {
-    position: relative; z-index: 2; font-size: 2.2rem; font-weight: 800; color: var(--secondary);
+    position: relative; z-index: 2; 
+    font-size: 2.2rem; font-weight: 800; color: var(--secondary);
 }
 
+/* Risk Analiz Kutusu */
 .percentile-box {
-    background: #f8fafc; padding: 12px 18px; border-radius: 12px;
-    font-weight: 700; margin-bottom: 25px; display: inline-block;
-    border: 1px solid #e2e8f0; color: var(--secondary);
+    background: #f8fafc; 
+    padding: 12px 18px; 
+    border-radius: 12px;
+    font-weight: 700; 
+    margin-bottom: 25px; 
+    display: inline-block;
+    border: 1px solid #e2e8f0; 
+    color: var(--secondary);
+}
+.risk-text { font-size: 1.1rem; line-height: 1.7; }
+
+/* Medikal Uyarı Kutusu (İKON DÜZELTİLDİ) */
+.medical-disclaimer {
+    margin-top: 30px; 
+    padding: 15px 20px;
+    background: #f0fdf4; 
+    border-left: 5px solid #16a34a;
+    border-radius: 8px; 
+    color: #15803d; 
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px; 
+    text-align: left;
 }
 
-/* YENİ: Result Butonları Kutusu */
+.disclaimer-icon {
+    display: flex; align-items: center; justify-content: center;
+    min-width: 40px; height: 40px;
+    background: rgba(22, 163, 74, 0.1);
+    border-radius: 50%;
+    color: #16a34a; font-size: 1.2rem;
+}
+
+/* Buton Kutusu (Premium & Retry) */
 .result-buttons-container {
     background: #f8fafc;
     padding: 25px;
@@ -100,26 +195,24 @@
     gap: 15px;
 }
 
-/* Premium Buton (Doktor) */
 .premium-btn {
-    background: var(--gold-gradient); /* Altın rengi */
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); /* Gold Gradient */
     color: white; border: none; padding: 16px;
     border-radius: 50px; font-weight: 700; font-size: 1rem;
-    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer; transition: 0.2s;
     display: flex; align-items: center; justify-content: center; gap: 10px;
-    text-decoration: none; box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
 }
 .premium-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
 }
 
-/* Tekrar Dene Butonu */
 .retry-btn {
     background: white; color: var(--text-light);
     border: 2px solid #e2e8f0; padding: 14px;
     border-radius: 50px; font-weight: 700; cursor: pointer;
-    transition: 0.2s; text-decoration: none; display: block;
+    transition: 0.2s;
 }
 .retry-btn:hover {
     border-color: var(--primary); color: var(--primary); background: #f0f9ff;
@@ -136,7 +229,9 @@
 .share-btn.twitter { background: #1da1f2; }
 .share-btn.whatsapp { background: #25d366; }
 
+/* MOBİL UYUMLULUK */
 @media (max-width: 900px) {
     .about-content, .result-container { grid-template-columns: 1fr; }
-    .stat-item { flex-direction: column; text-align: center; }
+    .stats-bar { gap: 30px; flex-direction: column; }
+    .medical-disclaimer { flex-direction: column; text-align: center; }
 }

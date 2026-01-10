@@ -78,7 +78,7 @@ const uiTranslations = {
 
         // --- DOCTOR IN THE LOOP ---
         doctor_loop_hero: '<i class="fa-solid fa-stethoscope"></i> This platform is designed and supervised by a medical doctor.',
-        doctor_loop_result: '<i class="fa-solid fa-stethoscope"></i> Medical interpretation provided under physician-supervised AI.',
+        doctor_loop_result: '<i class="fa-solid fa-file-medical"></i> Medical interpretation provided under physician-supervised AI.',
 
         // --- MEDICAL RISK ANALYSIS (EN) ---
         analysis_label: "Clinical Analysis Report",
@@ -237,7 +237,7 @@ const uiTranslations = {
 
         // --- DOCTOR IN THE LOOP ---
         doctor_loop_hero: '<i class="fa-solid fa-stethoscope"></i> Bu platform bir tıp doktoru tarafından tasarlanmış ve denetlenmektedir.',
-        doctor_loop_result: '<i class="fa-solid fa-stethoscope"></i> Tıbbi yorumlama, hekim denetimli yapay zeka altında sağlanmaktadır.',
+        doctor_loop_result: '<i class="fa-solid fa-file-medical"></i> Tıbbi yorumlama, hekim denetimli yapay zeka altında sağlanmaktadır.',
 
         // --- MEDİKAL RİSK ANALİZİ (TR) ---
         analysis_label: "Klinik Analiz Raporu",
