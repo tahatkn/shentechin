@@ -74,7 +74,11 @@ const uiTranslations = {
         // Yalan sayıları kaldırdık, özellik yazdık
         stat_1: "AI Powered",
         stat_2: "Data Driven",
-        stat_3: "Scientific Basis"
+        stat_3: "Scientific Basis",
+
+        // --- DOCTOR IN THE LOOP ---
+        doctor_loop_hero: '<i class="fa-solid fa-stethoscope"></i> This platform is designed and supervised by a medical doctor.',
+        doctor_loop_result: '<i class="fa-solid fa-file-medical"></i> Medical interpretation provided under physician-supervised AI.'
     },
     tr: {
         nav_tests: "Testler",
@@ -148,7 +152,11 @@ const uiTranslations = {
         // Sayılar gitti
         stat_1: "Yapay Zeka",
         stat_2: "Veri Odaklı",
-        stat_3: "Bilimsel Temel"
+        stat_3: "Bilimsel Temel",
+
+        // --- DOCTOR IN THE LOOP ---
+        doctor_loop_hero: '<i class="fa-solid fa-stethoscope"></i> Bu platform bir tıp doktoru tarafından tasarlanmış ve denetlenmektedir.',
+        doctor_loop_result: '<i class="fa-solid fa-file-medical"></i> Tıbbi yorumlama, hekim denetimli yapay zeka altında sağlanmaktadır.'
     }
 };
 
