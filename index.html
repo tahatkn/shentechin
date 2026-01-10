@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShenTechin Med | Kendini Bilimle Keşfet</title>
+    <title>ShenTechin Med | Decode Yourself</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,109 +14,115 @@
     <nav class="navbar">
         <div class="logo">ShenTechin<span class="med-badge">MED</span></div>
         <ul class="nav-links">
-            <li><a href="#test-section">Testler</a></li>
-            <li><a href="#">Hakkımızda</a></li>
-            <li><a href="#" class="btn-login">Giriş Yap</a></li>
+            <!-- Dil Seçici -->
+            <li class="lang-switcher">
+                <span id="lang-en" onclick="setLanguage('en')" style="cursor:pointer;">EN</span> | 
+                <span id="lang-tr" onclick="setLanguage('tr')" style="cursor:pointer;">TR</span>
+            </li>
+            <li><a href="#test-section" data-i18n="nav_tests">Tests</a></li>
+            <li><a href="#" data-i18n="nav_about">About</a></li>
+            <li><a href="#" class="btn-login" data-i18n="nav_login">Login</a></li>
         </ul>
     </nav>
 
     <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-content">
-            <!-- GÜNCELLEME: Metin değiştirildi -->
-            <span class="trust-badge"><i class="fa-solid fa-user-doctor"></i> Doktor Onaylı</span>
-            <h1>Sağlığınızın ve Kişiliğinizin<br>DNA'sını Çözün</h1>
-            <p>Tıbbi verilerle desteklenmiş, yapay zeka tabanlı analizlerle kendinizi keşfedin. Artık 9 farklı kategoride derinlemesine sağlık ve kişilik analizi.</p>
-            <a href="#test-section" class="cta-button">Testi Başlat <i class="fa-solid fa-arrow-right"></i></a>
+            <span class="trust-badge" data-i18n="hero_badge"><i class="fa-solid fa-user-doctor"></i> Doctor Approved</span>
+            <h1 data-i18n="hero_title">Decode Your Health &<br>Personality DNA</h1>
+            <p data-i18n="hero_desc">Discover yourself with AI-based analysis backed by medical data.</p>
+            <a href="#test-section" class="cta-button" data-i18n="hero_btn">Start Test <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </header>
 
     <!-- TEST KATEGORİLERİ -->
     <section id="test-section" class="container">
         <div class="section-title">
-            <h2>Analiz Kategorileri</h2>
-            <p>Merak ettiğiniz konuyu seçin, bilimsel haritanızı çıkaralım.</p>
+            <h2 data-i18n="cat_title">Analysis Categories</h2>
+            <p data-i18n="cat_desc">Select a topic you are curious about.</p>
         </div>
 
         <div class="grid-container">
-            <!-- 1. UYKU -->
+            <!-- 1. SLEEP -->
             <div class="card">
                 <div class="card-icon" style="background: #e0f2fe; color: #0284c7;"><i class="fa-solid fa-moon"></i></div>
-                <h3>Uyku Kalitesi</h3>
-                <p>Uyku döngünüzü analiz edin, sabah insanı mı gece kuşu mu olduğunuzu öğrenin.</p>
-                <a href="quiz.html?type=sleep" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+                <h3 data-i18n="card_sleep_title">Sleep Quality</h3>
+                <p data-i18n="card_sleep_desc">Analyze your sleep cycle.</p>
+                <a href="quiz.html?type=sleep" class="start-test-btn" data-i18n="btn_start">Start Analysis</a>
             </div>
 
-            <!-- 2. CİLT -->
+            <!-- 2. SKIN -->
             <div class="card">
                 <div class="card-icon" style="background: #fce7f3; color: #db2777;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                <h3>Dermatolojik Profil</h3>
-                <p>Cilt tipinizi, yaşlanma risklerinizi ve size özel dermo-kozmetik ihtiyaçları belirleyin.</p>
-                <a href="quiz.html?type=skin" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+                <h3 data-i18n="card_skin_title">Dermatology Profile</h3>
+                <p data-i18n="card_skin_desc">Determine your skin type.</p>
+                <a href="quiz.html?type=skin" class="start-test-btn" data-i18n="btn_start">Start Analysis</a>
             </div>
 
-            <!-- 3. BESLENME -->
+            <!-- 3. DIET -->
             <div class="card">
                 <div class="card-icon" style="background: #dcfce7; color: #16a34a;"><i class="fa-solid fa-carrot"></i></div>
-                <h3>Metabolik Beslenme</h3>
-                <p>Vücudunuzun hangi besinlere nasıl tepki verdiğini ve ideal diyet modelinizi keşfedin.</p>
-                <a href="quiz.html?type=diet" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+                <h3 data-i18n="card_diet_title">Metabolic Nutrition</h3>
+                <p data-i18n="card_diet_desc">Discover your ideal diet model.</p>
+                <a href="quiz.html?type=diet" class="start-test-btn" data-i18n="btn_start">Start Analysis</a>
             </div>
 
-            <!-- 4. STRES -->
+            <!-- 4. STRESS -->
             <div class="card">
                 <div class="card-icon" style="background: #fef3c7; color: #d97706;"><i class="fa-solid fa-brain"></i></div>
-                <h3>Stres & Kortizol</h3>
-                <p>Günlük stres yükünüzü ve tükenmişlik (burnout) risk seviyenizi ölçün.</p>
-                <a href="quiz.html?type=stress" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+                <h3 data-i18n="card_stress_title">Stress & Cortisol</h3>
+                <p data-i18n="card_stress_desc">Measure your daily stress load.</p>
+                <a href="quiz.html?type=stress" class="start-test-btn" data-i18n="btn_start">Start Analysis</a>
             </div>
 
-            <!-- YENİ 5. KALP SAĞLIĞI -->
+            <!-- 5. HEART -->
             <div class="card">
                 <div class="card-icon" style="background: #fee2e2; color: #dc2626;"><i class="fa-solid fa-heart-pulse"></i></div>
-                <h3>Kalp Risk Analizi</h3>
-                <p>Kardiyovasküler risk faktörlerinizi ve kalp yaşı tahmininizi öğrenin.</p>
-                <a href="quiz.html?type=heart" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+                <h3 data-i18n="card_heart_title">Heart Risk Analysis</h3>
+                <p data-i18n="card_heart_desc">Learn your cardiovascular risk factors.</p>
+                <a href="quiz.html?type=heart" class="start-test-btn" data-i18n="btn_start">Start Analysis</a>
             </div>
 
-            <!-- YENİ 6. ODAKLANMA (DEHB) -->
+            <!-- 6. FOCUS -->
             <div class="card">
                 <div class="card-icon" style="background: #f3e8ff; color: #9333ea;"><i class="fa-solid fa-crosshairs"></i></div>
-                <h3>Odak & Dikkat</h3>
-                <p>Dikkat eksikliği belirtileri ve zihinsel odaklanma performansınızı ölçün.</p>
-                <a href="quiz.html?type=focus" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+                <h3 data-i18n="card_focus_title">Focus & Attention</h3>
+                <p data-i18n="card_focus_desc">Measure attention deficit signs.</p>
+                <a href="quiz.html?type=focus" class="start-test-btn" data-i18n="btn_start">Start Analysis</a>
             </div>
 
-            <!-- YENİ 7. FİZİKSEL AKTİVİTE -->
+            <!-- 7. FITNESS -->
             <div class="card">
                 <div class="card-icon" style="background: #ffedd5; color: #ea580c;"><i class="fa-solid fa-person-running"></i></div>
-                <h3>Fiziksel Kondisyon</h3>
-                <p>Hareket seviyenizi ve vücudunuzun spora yatkınlığını analiz edin.</p>
-                <a href="quiz.html?type=fitness" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+                <h3 data-i18n="card_fitness_title">Physical Fitness</h3>
+                <p data-i18n="card_fitness_desc">Analyze your activity level.</p>
+                <a href="quiz.html?type=fitness" class="start-test-btn" data-i18n="btn_start">Start Analysis</a>
             </div>
 
-            <!-- YENİ 8. BAĞIŞIKLIK -->
+            <!-- 8. IMMUNITY -->
             <div class="card">
                 <div class="card-icon" style="background: #ecfccb; color: #65a30d;"><i class="fa-solid fa-shield-virus"></i></div>
-                <h3>Bağışıklık Gücü</h3>
-                <p>Vücut direncinizi ve hastalıklara karşı savunma mekanizmanızı test edin.</p>
-                <a href="quiz.html?type=immunity" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+                <h3 data-i18n="card_immunity_title">Immunity Power</h3>
+                <p data-i18n="card_immunity_desc">Test your body resistance.</p>
+                <a href="quiz.html?type=immunity" class="start-test-btn" data-i18n="btn_start">Start Analysis</a>
             </div>
 
-            <!-- YENİ 9. TEKNOLOJİ BAĞIMLILIĞI -->
+            <!-- 9. TECH -->
             <div class="card">
                 <div class="card-icon" style="background: #e0e7ff; color: #3730a3;"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                <h3>Dijital Denge</h3>
-                <p>Ekran sürenizin ve teknoloji kullanımınızın beyin sağlığına etkisini ölçün.</p>
-                <a href="quiz.html?type=tech" class="start-test-btn" style="text-align:center; text-decoration:none; display:block;">Analize Başla</a>
+                <h3 data-i18n="card_tech_title">Digital Balance</h3>
+                <p data-i18n="card_tech_desc">Measure screen time effects.</p>
+                <a href="quiz.html?type=tech" class="start-test-btn" data-i18n="btn_start">Start Analysis</a>
             </div>
 
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 ShenTechin Med. Tüm hakları saklıdır. Bu testler tıbbi tanı yerine geçmez.</p>
+        <p data-i18n="footer_text">&copy; 2026 ShenTechin Med. All rights reserved.</p>
     </footer>
 
+    <!-- DİL DOSYASINI BAĞLA -->
+    <script src="assets/js/translations.js"></script>
 </body>
 </html>
