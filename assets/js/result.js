@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Önce "Analiz Yapılıyor" modunu simüle edelim
+    const resultContainer = document.querySelector('.result-container');
+    
+    // Eğer HTML'de bir loading elementi yoksa, varmış gibi davranıp içeriği değiştireceğiz.
+    
+    // 1.5 saniye bekle (Hesaplama süsü)
+    setTimeout(() => {
+        showResults();
+    }, 1500);
+});
+
+function showResults() {
     // 1. Verileri LocalStorage'dan Çek
     const score = parseInt(localStorage.getItem('quizScore')) || 0;
     const maxScore = parseInt(localStorage.getItem('quizMaxScore')) || 250;
@@ -8,79 +20,61 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Yüzdeyi Hesapla
     const percentage = Math.round((score / maxScore) * 100);
 
-    // 3. Renk Belirleme (Trafik Işığı Mantığı)
-    let color = "#16a34a"; // Yeşil (İyi)
-    if (percentage < 50) color = "#dc2626"; // Kırmızı (Kritik)
-    else if (percentage < 80) color = "#d97706"; // Turuncu (Ortalama)
+    // 3. Renk Belirleme
+    let color = "#16a34a"; // Yeşil
+    if (percentage < 50) color = "#dc2626"; // Kırmızı
+    else if (percentage < 80) color = "#d97706"; // Turuncu
 
-    // 4. Grafiği Çiz (Conic Gradient Animasyonu)
+    // 4. Grafiği Çiz
     const circle = document.getElementById('score-circle');
     const scoreText = document.getElementById('score-text');
-    
-    // Derece hesabı (360 derece üzerinden)
     const degree = 3.6 * percentage;
     
-    setTimeout(() => {
-        // Dinamik renk ve derece ile grafiği boya
-        circle.style.background = `conic-gradient(${color} ${degree}deg, #f1f5f9 0deg)`;
-        scoreText.textContent = `%${percentage}`;
-        scoreText.style.color = color;
-    }, 500);
+    circle.style.background = `conic-gradient(${color} ${degree}deg, #f1f5f9 0deg)`;
+    scoreText.textContent = `%${percentage}`;
+    scoreText.style.color = color;
 
-    // 5. Tıbbi Risk Analizi Metinlerini Hazırla
-    // (uiTranslations objesi translations.js dosyasından gelir)
-    if (typeof uiTranslations === 'undefined') {
-        console.error("Translations file not loaded!");
-        return;
-    }
+    // 5. Metinleri Getir (translations.js'den)
+    if (typeof uiTranslations === 'undefined') return;
 
     const currentLangData = uiTranslations[lang];
     const t = currentLangData.titles[testType] || currentLangData.titles['sleep'];
 
-    // HTML Elementlerini Seç
     const titleEl = document.getElementById('result-title');
     const descEl = document.getElementById('result-desc');
 
     // Analiz Mantığı
-    let statusTitle = "";     // Örn: Ciddi Sirkadiyen Bozulma
-    let riskText = "";        // Örn: Bu durum kalp kriziyle ilişkilidir...
-    let percentileText = "";  // Örn: Toplumun en riskli %10'u
+    let statusTitle = "";
+    let riskText = "";
+    let percentileText = "";
 
     if (percentage >= 80) {
-        // İYİ DURUM (Yeşil)
-        const topPercent = 100 - percentage; 
         statusTitle = t.good;
         riskText = t.risk_good;
-        percentileText = `${currentLangData.percentile_prefix} Top ${topPercent > 0 ? topPercent : 1}% (Optimal)`;
-        
+        percentileText = `${currentLangData.percentile_prefix} Top ${100 - percentage}% (Optimal)`;
         titleEl.style.color = "#16a34a";
     } else if (percentage >= 50) {
-        // ORTA DURUM (Turuncu)
-        statusTitle = t.title; // Nötr Başlık
+        statusTitle = t.title;
         riskText = t.risk_avg;
-        percentileText = `${currentLangData.percentile_prefix} Average (Median)`;
-        
+        percentileText = `${currentLangData.percentile_prefix} Average`;
         titleEl.style.color = "#d97706";
     } else {
-        // KÖTÜ DURUM (Kırmızı - Korku Faktörü)
         statusTitle = t.bad;
         riskText = t.risk_bad;
         percentileText = `${currentLangData.percentile_prefix} Bottom ${percentage}% (High Risk Group)`;
-        
         titleEl.style.color = "#dc2626";
     }
 
-    // 6. Sonuçları Ekrana Yaz (HTML formatında, bold etiketleri çalışsın diye)
-    
-    // Başlık: Üstüne ufak "Klinik Rapor" etiketi ekliyoruz
+    // 6. İçeriği Güncelle (SONSUZ YÜKLEME BURADA BİTER)
+    // Başlık "Analiz yapılıyor"dan sonuca döner
     titleEl.innerHTML = `
-        <span style="font-size:0.8rem; opacity:0.7; display:block; margin-bottom:5px; text-transform:uppercase; letter-spacing:1px;">
+        <span style="font-size:0.8rem; opacity:0.7; display:block; margin-bottom:5px; text-transform:uppercase; letter-spacing:1px; color:#64748b;">
             ${currentLangData.analysis_label}
         </span>
         ${statusTitle}
     `;
 
-    // Açıklama: Yüzdelik kutusu ve Risk metni
+    // Açıklama "Lütfen bekleyin"den rapora döner
     descEl.innerHTML = `
         <div class="percentile-box" style="border-left: 4px solid ${titleEl.style.color}">
             ${percentileText}
@@ -90,30 +84,20 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // 7. Medikal Feragatnameyi (Disclaimer) Dile Göre Güncelle
+    // Medikal Uyarı
     const disclaimerEl = document.querySelector('.medical-disclaimer span');
     if(disclaimerEl && currentLangData.doctor_loop_result) {
         disclaimerEl.innerHTML = currentLangData.doctor_loop_result;
     }
-});
+}
 
-// SOSYAL MEDYA PAYLAŞIMI
+// Share Fonksiyonu (Aynı Kalıyor)
 function shareResult(platform) {
     const score = document.getElementById('score-text').textContent;
     const testType = localStorage.getItem('currentTestType') || 'medical';
-    const lang = localStorage.getItem('selectedLang') || 'en';
-    
-    // Test tipini baş harfi büyük yapma (Süsleme)
-    const formattedType = testType.charAt(0).toUpperCase() + testType.slice(1);
-    
-    let text = "";
     const url = "https://www.shentechin.com"; 
-
-    if(lang === 'en') {
-        text = `I took the ${formattedType} Risk Analysis at ShenTechin Med. My Clinical Score: ${score}. Check your health status now!`;
-    } else {
-        text = `ShenTechin Med'de ${formattedType} Risk Analizi yaptım. Klinik Skorum: ${score}. Sen de sağlık durumunu test et!`;
-    }
+    
+    let text = `My Health Score: ${score}. Check yours at ShenTechin Med!`;
     
     if (platform === 'twitter') {
         window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`, '_blank');
