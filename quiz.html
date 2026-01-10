@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analiz Başlıyor | ShenTechin Med</title>
-    <!-- Fontlar -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- İkonlar -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Stil Dosyası -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="quiz-body">
 
@@ -26,18 +23,15 @@
         <div class="progress-header">
             <span id="question-count">Yükleniyor...</span>
             <div class="progress-bar-bg">
-                <!-- Başlangıçta genişlik 0, JS ile artacak -->
                 <div class="progress-bar-fill" style="width: 0%;"></div>
             </div>
         </div>
 
         <!-- SORU KARTI -->
         <div class="question-card">
-            <!-- Soru başlığı buraya gelecek -->
-            <h2 id="question-text">Soru verileri hazırlanıyor...</h2>
+            <h2 id="question-text">Sorular hazırlanıyor...</h2>
             
-            <!-- Şık butonları buraya JS tarafından otomatik eklenecek -->
-            <!-- İçi bilerek boş bırakıldı -->
+            <!-- Şık butonları JS ile buraya gelecek -->
             <div class="options-grid"></div>
         </div>
 
@@ -48,8 +42,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT BAĞLANTILARI -->
-    <!-- Önce sorular, sonra mantık yüklenir -->
+    <!-- JAVASCRIPT -->
     <script src="assets/js/questions.js"></script>
     <script src="assets/js/logic.js"></script>
 
