@@ -658,3 +658,191 @@ footer {
     color: var(--text-light);
     font-weight: 500;
 }
+
+/* --- ABOUT PAGE FIXES (HİZALAMA VE STİL) --- */
+
+/* Hero Alanı Ortalama */
+.about-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 80px 20px;
+}
+
+/* İstatistik Bandı (Siyah Alan) Düzeltmesi */
+.stats-bar {
+    width: 100%; /* Tam genişlik */
+    background: var(--secondary); /* Koyu Lacivert */
+    color: white; /* Yazıları Beyaz Yap */
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center; /* Yatayda Ortala */
+    align-items: center; /* Dikeyde Ortala */
+    gap: 80px; /* Öğeler arası boşluk */
+    flex-wrap: wrap; /* Mobilde alt alta geçsin */
+    margin-top: 0;
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column; /* İkon üstte, yazı altta olsun */
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #cbd5e1; /* Hafif gri beyaz */
+}
+
+.stat-item i {
+    font-size: 2.5rem; /* İkonları Büyüt */
+    color: #38bdf8; /* Parlak Mavi */
+    background: rgba(56, 189, 248, 0.1);
+    padding: 15px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+/* İçerik Izgarası (Mission ve Kart) */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Ekranı ikiye böl */
+    gap: 60px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 80px auto; /* Üstten/Alttan boşluk ver, ortala */
+    padding: 0 20px;
+}
+
+/* Mobilde Tek Sütun Olsun */
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    .stats-bar {
+        gap: 40px;
+    }
+}
+
+/* Sol Taraftaki Yazılar (Mission vs) */
+.info-block {
+    margin-bottom: 50px;
+}
+
+.info-block .icon-box {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem; /* İkonları büyüt */
+    background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+    color: var(--primary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.1);
+}
+
+.info-block h2 {
+    font-size: 1.8rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.info-block p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #64748b;
+}
+
+/* Sağdaki Metodoloji (Doktor) Kartı */
+.doctor-card {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08); /* Daha yumuşak gölge */
+    border-top: 6px solid var(--primary);
+    text-align: center;
+    position: sticky;
+    top: 100px; /* Sayfa kayarken takip etsin */
+}
+
+.doc-img-placeholder {
+    width: 100px;
+    height: 100px;
+    background: #eff6ff;
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 25px auto;
+}
+
+.doctor-card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: var(--secondary);
+}
+
+.doc-title {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* --- CARD BUTTON STYLING (PREMIUM) --- */
+
+.card {
+    /* Kartın içindeki elemanları dikey hizala */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Kartların boyu eşit olsun */
+}
+
+.card p {
+    flex-grow: 1; /* Yazı alanı boşluğu doldursun, buton en alta itilsin */
+    margin-bottom: 30px;
+}
+
+.start-test-btn {
+    display: inline-block; /* Link olduğu için blok yap */
+    width: auto; /* Tam genişlik yerine ortalı */
+    margin-top: auto; /* En alta it */
+    padding: 16px 30px;
+    background: #f8fafc; /* Başlangıçta çok açık gri */
+    color: var(--text-main);
+    border: 1px solid #e2e8f0;
+    border-radius: 50px; /* Hap şekli */
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Hover Efekti: Mavi dolgu ve yukarı kalkma */
+.start-test-btn:hover {
+    background: var(--primary); /* Mavi */
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-3px); /* Hafif yukarı kalkar */
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25); /* Mavi gölge */
+}
+
+/* Kartın tamamına tıklanınca butonun da aktif görünmesi için */
+.card:hover .start-test-btn {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
