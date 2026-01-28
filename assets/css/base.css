@@ -28,35 +28,38 @@
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
     margin: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    /* YENİ: Sitenin alt tonuna hafif renkli bir derinlik kattık (Mesh Gradient) */
     background-color: var(--bg-body);
     background-image: 
         radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
         radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.05) 0px, transparent 50%);
-    background-attachment: fixed; /* Kaydırınca arka plan sabit kalsın */
-    
+    background-attachment: fixed;
     color: var(--text-main);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; /* Yatay taşmayı engelle */
 }
 
-/* NAVBAR */
+/* NAVBAR - MASAÜSTÜ */
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
     padding: 1rem 5%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9); /* Biraz daha opak */
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     position: sticky; top: 0; z-index: 1000;
     border-bottom: 1px solid rgba(255,255,255,0.5);
+    transition: var(--transition);
 }
 
 .logo {
     font-size: 1.5rem; font-weight: 800; color: var(--secondary);
     text-decoration: none; display: flex; align-items: center;
     transition: var(--transition);
+    white-space: nowrap; /* Logo kırılmasın */
 }
 .logo:hover { transform: scale(1.05); color: var(--primary); }
 
@@ -70,7 +73,6 @@ body {
     gap: 30px; margin: 0; padding: 0;
 }
 
-/* Link Alt Çizgisi (Sadece normal linkler için, butonlar hariç) */
 .nav-links a:not(.btn-login) {
     text-decoration: none; color: var(--text-main);
     font-weight: 600; font-size: 0.95rem;
@@ -86,14 +88,16 @@ body {
 .nav-links a:not(.btn-login):hover { color: var(--primary); }
 .nav-links a:not(.btn-login):hover::after { width: 100%; }
 
-/* Login Butonu (Çizgiyi kaldırdık, stili güçlendirdik) */
+/* Buton Stili */
 .btn-login {
-    text-decoration: none !important; /* Çizgiyi zorla kaldır */
+    text-decoration: none !important;
     background: var(--secondary); color: white !important;
-    padding: 12px 28px; border-radius: 50px;
+    padding: 12px 24px; border-radius: 50px;
     box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
     transition: var(--transition);
-    border-bottom: none !important; /* Ekstra güvenlik */
+    border-bottom: none !important;
+    font-size: 0.9rem; font-weight: 600;
+    white-space: nowrap;
 }
 .btn-login:hover {
     transform: translateY(-2px);
@@ -106,6 +110,7 @@ body {
     border-radius: 20px; background: white;
     font-size: 0.85rem; font-weight: 700; color: var(--text-light);
     cursor: pointer;
+    white-space: nowrap;
 }
 
 footer {
@@ -113,4 +118,37 @@ footer {
     color: var(--text-light); font-size: 0.9rem;
     background: white; border-top: 1px solid #e2e8f0;
     margin-top: 60px;
+}
+
+/* --- MOBILE OPTIMIZATIONS (NAVBAR) --- */
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column; /* Alt alta diz */
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap; /* Sığmazsa alt satıra geçsin */
+        gap: 15px 20px; /* Dikey 15, Yatay 20 */
+    }
+
+    /* Mobilde linkler daha kolay tıklanmalı */
+    .nav-links a:not(.btn-login) {
+        font-size: 1rem;
+        padding: 5px;
+    }
+
+    /* Mobilde Buton Tam Genişlik veya Daha Belirgin */
+    .btn-login {
+        width: 100%;
+        text-align: center;
+        display: block;
+        padding: 14px;
+    }
+    
+    /* Logo Ortalanır */
+    .logo { font-size: 1.4rem; }
 }

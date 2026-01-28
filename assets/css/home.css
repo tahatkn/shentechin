@@ -1,36 +1,49 @@
 /* --- 2. HOME.CSS (LANDING PAGE) --- */
 
 .hero {
-    /* Daha zengin, derinlikli bir arkaplan */
     background: radial-gradient(circle at 50% 0%, #f0f9ff 0%, #ffffff 80%);
-    padding: 120px 5% 100px 5%; text-align: center;
+    /* Mobilde üst boşluğu artır (Navbar stack olduğu için) */
+    padding: 160px 5% 80px 5%; 
+    text-align: center;
 }
+
 .hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+
+.doctor-badge-container {
+    display: flex; justify-content: center;
+}
 
 .doctor-badge {
     display: inline-flex; align-items: center; gap: 10px;
     background: rgba(255,255,255,0.9); color: var(--primary-dark);
-    padding: 10px 24px; border-radius: 50px;
+    padding: 10px 20px; border-radius: 50px;
     font-size: 0.9rem; font-weight: 700;
     border: 1px solid #bfdbfe;
     box-shadow: var(--shadow-soft);
     backdrop-filter: blur(5px);
     margin-bottom: 30px; transition: var(--transition);
+    text-align: left; /* Mobilde metin kayarsa düzgün dursun */
+    max-width: 100%;
 }
 .doctor-badge:hover { transform: scale(1.02); border-color: var(--primary); }
-.doctor-badge i { color: #ef4444; }
+.doctor-badge i { color: #ef4444; flex-shrink: 0; } /* İkon küçülmesin */
 
 .hero h1 {
-    font-size: 4rem; color: var(--secondary);
+    /* Responsive Font Boyutu: Min 2rem, Tercih 5vw, Max 4rem */
+    font-size: clamp(2.2rem, 5vw + 1rem, 4rem); 
+    color: var(--secondary);
     margin: 0 0 25px 0; line-height: 1.1; letter-spacing: -1.5px;
 }
+
 .hero p {
-    font-size: 1.25rem; color: var(--text-light);
-    margin: 0 auto 50px auto; max-width: 650px;
+    font-size: clamp(1rem, 2vw, 1.25rem); 
+    color: var(--text-light);
+    margin: 0 auto 40px auto; max-width: 650px;
+    padding: 0 10px; /* Mobilde kenarlara yapışmasın */
 }
 
 .cta-button {
-    display: inline-flex; align-items: center; gap: 10px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
     background: var(--primary-gradient); color: white;
     padding: 18px 45px; border-radius: 50px;
     text-decoration: none; font-weight: 700; font-size: 1.1rem;
@@ -44,11 +57,14 @@
 
 /* KARTLAR */
 .container { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
-.section-title { text-align: center; margin-bottom: 70px; }
+.section-title { text-align: center; margin-bottom: 60px; }
+
+.section-title h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 10px; }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Mobilde 300px çok geniş kalabilir, 280px daha güvenli */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px; align-items: stretch;
 }
 
@@ -93,6 +109,26 @@
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
+/* --- MOBILE SPECIFIC FIXES --- */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.8rem; }
+    .hero { 
+        padding-top: 140px; /* Navbar mobilde yüksek olduğu için */
+        padding-bottom: 60px;
+    }
+    
+    .cta-button {
+        width: 100%; /* Mobilde tam genişlik buton */
+    }
+
+    .container {
+        padding: 50px 20px; /* Yan boşlukları azalt */
+    }
+    
+    .grid-container {
+        gap: 20px;
+    }
+    
+    .card {
+        padding: 30px 20px; /* Kart iç boşluğunu azalt */
+    }
 }

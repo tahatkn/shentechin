@@ -1,23 +1,28 @@
-/* --- 4. PAGES.CSS (ABOUT, RESULT & INSIGHTS) --- */
+/* --- 4. PAGES.CSS (ABOUT, RESULT & INSIGHTS - FINAL) --- */
 
-/* --- ABOUT SAYFASI --- */
-.about-hero {
+/* =========================================
+   1. ABOUT PAGE STYLES
+   ========================================= */
+
+   .about-hero {
     /* Canlı ve Modern Gradyan */
     background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     text-align: center;
-    /* Boşluklar optimize edildi */
-    padding: 60px 20px 100px 20px; 
+    /* Navbar payı + Görsel boşluk */
+    padding: 100px 20px 100px 20px; 
     border-bottom: 1px solid #dbeafe;
 }
 
 .about-hero h1 { 
     margin-bottom: 15px; 
     color: var(--secondary); 
-    font-size: 2.8rem; 
+    /* Akıllı Tipografi */
+    font-size: clamp(2rem, 5vw, 2.8rem); 
     line-height: 1.2;
 }
+
 .about-hero p { 
     max-width: 700px; 
     margin: 0 auto; 
@@ -30,7 +35,8 @@
     background: var(--secondary); 
     color: white;
     padding: 35px 20px;
-    margin-top: -50px; /* Hero'nun içine girsin */
+    /* Hero görselinin üzerine binmesi için negatif margin */
+    margin-top: -50px; 
     border-radius: var(--radius-lg);
     max-width: 900px; 
     margin-left: auto; 
@@ -52,6 +58,7 @@
     color: #e2e8f0; 
     font-size: 1.05rem;
 }
+
 .stat-item i { 
     font-size: 1.8rem; 
     color: #38bdf8; 
@@ -80,6 +87,7 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 1.8rem; margin-bottom: 20px;
 }
+
 .info-block h2 { font-size: 1.6rem; color: var(--secondary); margin-bottom: 15px; }
 .info-block p { font-size: 1.05rem; color: var(--text-light); line-height: 1.7; }
 
@@ -91,8 +99,10 @@
     box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     border-top: 6px solid var(--primary); 
     text-align: center;
+    /* Desktop'ta kayarken sabit kalsın */
     position: sticky; top: 120px;
 }
+
 .doc-img-placeholder {
     width: 90px; height: 90px; 
     background: #eff6ff; color: var(--primary);
@@ -101,6 +111,7 @@
     display: flex; align-items: center; justify-content: center; 
     font-size: 2.2rem;
 }
+
 .doc-title {
     color: var(--primary); 
     font-weight: 700; 
@@ -111,13 +122,20 @@
     margin-bottom: 10px;
 }
 
-/* --- RESULT SAYFASI --- */
+/* =========================================
+   2. RESULT PAGE STYLES
+   ========================================= */
+
 .result-container {
     display: grid; 
     grid-template-columns: 1fr 1fr;
     gap: 40px; 
     margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto; margin-right: auto;
+    padding: 0 20px;
 }
+
 .result-card, .action-card {
     background: white; 
     padding: 40px;
@@ -128,6 +146,7 @@
 
 /* Yuvarlak Grafik */
 .score-circle-container { display: flex; justify-content: center; margin-bottom: 25px; }
+
 .circular-progress {
     width: 180px; height: 180px; 
     border-radius: 50%;
@@ -136,10 +155,12 @@
     position: relative; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
+
 .circular-progress::before {
     content: ""; position: absolute; width: 150px; height: 150px;
     border-radius: 50%; background: white;
 }
+
 .progress-value {
     position: relative; z-index: 2; 
     font-size: 2.2rem; font-weight: 800; color: var(--secondary);
@@ -183,7 +204,7 @@
     color: #16a34a; font-size: 1.2rem;
 }
 
-/* Buton Kutusu (Premium & Retry) */
+/* Aksiyon Butonları */
 .result-buttons-container {
     background: #f8fafc;
     padding: 25px;
@@ -229,26 +250,25 @@
 .share-btn.twitter { background: #1da1f2; }
 .share-btn.whatsapp { background: #25d366; }
 
+/* =========================================
+   3. INSIGHTS (BLOG) STYLES
+   ========================================= */
 
-/* --- BLOG / INSIGHTS STYLES --- */
-
-/* Insights Hero */
 .insights-hero {
     background: var(--secondary);
     color: white;
-    padding: 80px 20px;
+    padding: 100px 20px 80px 20px;
     text-align: center;
     border-radius: 0 0 40px 40px;
     margin-bottom: 60px;
     background-image: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.2) 0%, transparent 40%);
 }
-.insights-hero h1 { font-size: 2.5rem; margin-bottom: 15px; letter-spacing: -1px; }
+.insights-hero h1 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 15px; letter-spacing: -1px; }
 .insights-hero p { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-/* Blog Layout */
 .blog-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* Öne Çıkan Makale (Büyük Kart) */
+/* Öne Çıkan Makale */
 .featured-article {
     background: white;
     border-radius: 24px;
@@ -270,6 +290,7 @@
 }
 .featured-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
 
+/* Blog Rozetleri */
 .badge {
     display: inline-block;
     padding: 6px 14px;
@@ -284,7 +305,7 @@
 .badge.sleep { background: #e0f2fe; color: #0284c7; }
 .badge.diet { background: #dcfce7; color: #16a34a; }
 
-.featured-content h2 { font-size: 2rem; margin: 0 0 20px 0; color: var(--secondary); line-height: 1.2; }
+.featured-content h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 20px 0; color: var(--secondary); line-height: 1.2; }
 .featured-content p { color: var(--text-light); margin-bottom: 30px; font-size: 1.1rem; }
 
 /* Makale Grid */
@@ -325,6 +346,7 @@
     padding-top: 20px; border-top: 1px solid #f1f5f9;
     font-size: 0.85rem; color: #94a3b8; font-weight: 600;
 }
+
 .author-box { display: flex; align-items: center; gap: 10px; }
 .author-avatar { width: 30px; height: 30px; background: var(--primary); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
 
@@ -334,12 +356,48 @@
 }
 .read-link:hover { gap: 8px; }
 
-/* Responsive Blog */
+/* =========================================
+   4. GLOBAL MOBILE RESPONSIVENESS
+   ========================================= */
+
 @media (max-width: 900px) {
-    .about-content, .result-container { grid-template-columns: 1fr; }
-    .stats-bar { gap: 30px; flex-direction: column; }
+    /* Genel Yapı - Izgaraları Tek Sütuna İndir */
+    .about-content, .result-container { 
+        grid-template-columns: 1fr; 
+        gap: 40px; 
+    }
+
+    /* Hero Alanları - Navbar Stack olduğu için üst boşluğu artır */
+    .about-hero, .insights-hero {
+        padding-top: 160px; /* Navbar dikey olduğunda içerik altta kalmasın */
+    }
+
+    /* Stats Bar - Dikey Dizilim */
+    .stats-bar { 
+        gap: 30px; 
+        flex-direction: column; 
+        margin-top: -20px;
+        padding: 30px;
+    }
+
+    /* Result Sayfası */
+    .result-container { margin-top: 60px; }
+    .medical-disclaimer { flex-direction: column; text-align: center; }
+    
+    /* Blog Featured Card - Dikey */
     .featured-article { grid-template-columns: 1fr; }
-    .featured-img { min-height: 250px; }
+    .featured-img { min-height: 250px; font-size: 3rem; }
     .featured-content { padding: 30px; }
-    .featured-content h2 { font-size: 1.5rem; }
+    
+    /* Doktor Kartı - Sticky Özelliğini Kaldır */
+    .doctor-card { 
+        position: relative; 
+        top: 0; 
+        margin-bottom: 40px; 
+    }
+
+    /* Grid Kartlar Tam Genişlik */
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
 }
