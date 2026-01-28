@@ -1,8 +1,12 @@
 const uiTranslations = {
     en: {
+        // --- NAVIGATION ---
         nav_tests: "Tests",
         nav_about: "About",
+        nav_insights: "Medical Insights",
         nav_login: "Login",
+
+        // --- HOME (INDEX) ---
         hero_badge: '<i class="fa-solid fa-user-doctor"></i> Doctor Approved',
         hero_title: "Decode Your Health &<br>Personality DNA",
         hero_desc: "Discover yourself with AI-based analysis backed by medical data. Deep analysis in 9 different categories from sleep patterns to skin type.",
@@ -10,7 +14,7 @@ const uiTranslations = {
         cat_title: "Analysis Categories",
         cat_desc: "Select a topic you are curious about, let's map out your scientific profile.",
         
-        // Kart Başlıkları ve Açıklamaları
+        // Home - Cards
         card_sleep_title: "Sleep Quality",
         card_sleep_desc: "Analyze your sleep cycle, find out if you are an early bird or a night owl.",
         
@@ -39,14 +43,63 @@ const uiTranslations = {
         card_tech_desc: "Measure the effect of screen time and tech usage on brain health.",
 
         btn_start: "Start Analysis",
-        footer_text: "&copy; 2026 ShenTechin Med. All rights reserved. These tests are not medical diagnoses.",
+        
+        // --- ABOUT PAGE ---
+        about_hero_title: "The Intersection of Technology & Wellness",
+        about_hero_desc: "We combine advanced algorithms with established medical literature to help you understand your body's signals.",
+        
+        stat_1: "AI Powered",
+        stat_2: "Data Driven",
+        stat_3: "Scientific Basis",
+        
+        mission_title: "Our Mission",
+        mission_desc: "To raise personal health awareness. We provide accessible tools for everyone to gain insights into their physical and mental well-being.",
+        
+        privacy_title: "Privacy Commitment",
+        privacy_desc: "Your journey is private. We do not store personal identifiable health data. All assessments are processed securely and anonymously.",
+        
+        doctor_title: "Our Approach",
+        doctor_name: "Evidence-Based Methodology",
+        doctor_bio: "Instead of relying on a single opinion, our platform aggregates data from current medical guidelines and psychological research to provide balanced insights.",
+        
+        // --- INSIGHTS (BLOG) PAGE ---
+        blog_hero_title: "Clinical Perspectives & Research",
+        blog_hero_desc: "Curated medical knowledge, case studies, and the science behind our algorithms.",
+        
+        // Blog Tags & UI
+        badge_neuro: "Neuroscience",
+        badge_meta: "Metabolism",
+        badge_sleep: "Sleep Medicine",
+        badge_cardio: "Cardiology",
+        blog_read: "Read",
+        blog_read_full: "Read Full Analysis",
 
-        // Quiz Ekranı
+        // Featured Article
+        art_feat_title: "The Cortisol Connection: How Stress Rewires Your Brain",
+        art_feat_desc: "Chronic stress isn't just a feeling; it's a physiological event that alters neural pathways. Understanding the HPA axis is key to regaining control.",
+
+        // Article Grid
+        art_1_title: "Why 'Calorie Counting' Fails for 40% of Patients",
+        art_1_desc: "Metabolic flexibility varies by genetic profile. Here is why the standard model might not work for you.",
+        art_1_date: "Jan 24, 2026",
+
+        art_2_title: "REM Cycle Optimization",
+        art_2_desc: "Deep sleep is where physical recovery happens, but REM is for the mind. How to balance both.",
+        art_2_date: "Jan 18, 2026",
+
+        art_3_title: "HRV: The Metric You Should Be Tracking",
+        art_3_desc: "Heart Rate Variability is the most accurate non-invasive indicator of your nervous system status.",
+        art_3_date: "Jan 10, 2026",
+
+        // --- QUIZ INTERFACE ---
         quiz_back: '<i class="fa-solid fa-arrow-left"></i> Give up & Return',
         quiz_next: 'Next <i class="fa-solid fa-chevron-right"></i>',
         quiz_prev: 'Previous',
+
+        // --- RESULT PAGE ---
+        doctor_loop_hero: '<i class="fa-solid fa-stethoscope"></i> This platform is designed and supervised by a medical doctor.',
+        doctor_loop_result: 'Medical interpretation provided under physician-supervised AI.',
         
-        // Sonuç Ekranı
         res_share_title: "Share Result",
         res_share_desc: "Compare with friends, show your health score.",
         res_tweet: "Tweet",
@@ -55,42 +108,19 @@ const uiTranslations = {
         res_expert_desc: "What do these results mean? Get detailed comments from our doctors.",
         res_premium: '<i class="fa-solid fa-user-doctor"></i> Talk to Doctor (Premium)',
         res_retry: "Take Another Test",
+        
+        // Footer
+        footer_text: "&copy; 2026 ShenTechin Med. All rights reserved. These tests are not medical diagnoses.",
 
-        // --- ABOUT PAGE (GENERIC & SAFE) ---
-        about_hero_title: "The Intersection of Technology & Wellness",
-        about_hero_desc: "We combine advanced algorithms with established medical literature to help you understand your body's signals.",
-        
-        mission_title: "Our Mission",
-        mission_desc: "To raise personal health awareness. We provide accessible tools for everyone to gain insights into their physical and mental well-being.",
-        
-        privacy_title: "Privacy Commitment",
-        privacy_desc: "Your journey is private. We do not store personal identifiable health data. All assessments are processed securely and anonymously.",
-        
-        // Burayı değiştirdik: Kişi değil, Vizyon tanıtıyoruz
-        doctor_title: "Our Approach",
-        doctor_name: "Evidence-Based Methodology",
-        doctor_bio: "Instead of relying on a single opinion, our platform aggregates data from current medical guidelines and psychological research to provide balanced insights.",
-        
-        // Yalan sayıları kaldırdık, özellik yazdık
-        stat_1: "AI Powered",
-        stat_2: "Data Driven",
-        stat_3: "Scientific Basis",
-
-        // --- DOCTOR IN THE LOOP ---
-        doctor_loop_hero: '<i class="fa-solid fa-stethoscope"></i> This platform is designed and supervised by a medical doctor.',
-        doctor_loop_result: 'Medical interpretation provided under physician-supervised AI.',
-
-        // --- MEDICAL RISK ANALYSIS (EN) ---
+        // --- DYNAMIC ANALYSIS LOGIC (Used by result.js) ---
         analysis_label: "Clinical Analysis Report",
         percentile_prefix: "Population Percentile:",
         
-        // Bu başlıklar artık "İyi/Kötü" değil, "Klinik Durum" bildiriyor
         titles: {
             sleep: { 
                 title: "Sleep Architecture Profile", 
                 good: "Optimal Circadian Rhythm", 
                 bad: "Severe Circadian Disruption",
-                // Risk Metinleri (PARA KAZANDIRAN KISIM)
                 risk_good: "Your sleep pattern is associated with maximum neuroplasticity and cellular regeneration.",
                 risk_avg: "Current pattern suggests mild cortisol elevation. Linked to metabolic slowdown in long-term studies.",
                 risk_bad: "Warning: This fragmentation is clinically associated with **2.1x higher cardiovascular risk** and cognitive decline."
@@ -162,9 +192,13 @@ const uiTranslations = {
         }
     },
     tr: {
+        // --- NAVİGASYON ---
         nav_tests: "Testler",
         nav_about: "Hakkımızda",
+        nav_insights: "Tıbbi İçgörüler",
         nav_login: "Giriş Yap",
+
+        // --- ANA SAYFA (INDEX) ---
         hero_badge: '<i class="fa-solid fa-user-doctor"></i> Doktor Onaylı',
         hero_title: "Sağlığınızın ve Kişiliğinizin<br>DNA'sını Çözün",
         hero_desc: "Tıbbi verilerle desteklenmiş, yapay zeka tabanlı analizlerle kendinizi keşfedin. Uyku düzeninden cilt tipinize kadar 9 farklı kategoride derinlemesine analiz.",
@@ -172,6 +206,7 @@ const uiTranslations = {
         cat_title: "Analiz Kategorileri",
         cat_desc: "Merak ettiğiniz konuyu seçin, bilimsel haritanızı çıkaralım.",
         
+        // Kartlar
         card_sleep_title: "Uyku Kalitesi",
         card_sleep_desc: "Uyku döngünüzü analiz edin, sabah insanı mı gece kuşu mu olduğunuzu öğrenin.",
         
@@ -200,12 +235,63 @@ const uiTranslations = {
         card_tech_desc: "Ekran sürenizin ve teknoloji kullanımınızın beyin sağlığına etkisini ölçün.",
 
         btn_start: "Analize Başla",
-        footer_text: "&copy; 2026 ShenTechin Med. Tüm hakları saklıdır. Bu testler tıbbi tanı yerine geçmez.",
 
+        // --- HAKKIMIZDA SAYFASI ---
+        about_hero_title: "Teknoloji ve Sağlığın Kesişim Noktası",
+        about_hero_desc: "Vücudunuzun sinyallerini anlamanız için gelişmiş algoritmaları, yerleşik tıbbi literatür ile birleştiriyoruz.",
+        
+        stat_1: "Yapay Zeka",
+        stat_2: "Veri Odaklı",
+        stat_3: "Bilimsel Temel",
+        
+        mission_title: "Misyonumuz",
+        mission_desc: "Kişisel sağlık farkındalığını artırmak. Herkesin fiziksel ve zihinsel durumu hakkında içgörü kazanması için erişilebilir araçlar sunuyoruz.",
+        
+        privacy_title: "Gizlilik Taahhüdü",
+        privacy_desc: "Yolculuğunuz size özeldir. Kişisel kimlik bilgilerini saklamıyoruz. Tüm değerlendirmeler güvenli ve anonim olarak işlenir.",
+        
+        doctor_title: "Yaklaşımımız",
+        doctor_name: "Kanıta Dayalı Metodoloji",
+        doctor_bio: "Platformumuz tek bir görüşe dayanmak yerine, dengeli içgörüler sunmak için güncel tıbbi kılavuzlardan ve psikolojik araştırmalardan elde edilen verileri derler.",
+
+        // --- INSIGHTS (BLOG) SAYFASI ---
+        blog_hero_title: "Klinik Perspektifler ve Araştırma",
+        blog_hero_desc: "Derlenmiş tıbbi bilgiler, vaka çalışmaları ve algoritmalarımızın arkasındaki bilim.",
+        
+        // Blog Etiketleri & Arayüz
+        badge_neuro: "Nörobilim",
+        badge_meta: "Metabolizma",
+        badge_sleep: "Uyku Tıbbı",
+        badge_cardio: "Kardiyoloji",
+        blog_read: "Oku",
+        blog_read_full: "Tam Analizi Oku",
+
+        // Öne Çıkan Makale
+        art_feat_title: "Kortizol Bağlantısı: Stres Beyninizi Nasıl Yeniden Kabloluyor?",
+        art_feat_desc: "Kronik stres sadece bir his değildir; sinir yollarını değiştiren fizyolojik bir olaydır. HPA eksenini anlamak, kontrolü geri kazanmanın anahtarıdır.",
+
+        // Makale Izgarası
+        art_1_title: "Neden 'Kalori Saymak' Hastaların %40'ında Başarısız Oluyor?",
+        art_1_desc: "Metabolik esneklik genetik profile göre değişir. İşte standart modelin sizin için çalışmayabileceği nedenler.",
+        art_1_date: "24 Oca 2026",
+
+        art_2_title: "REM Döngüsü Optimizasyonu",
+        art_2_desc: "Derin uyku fiziksel iyileşmenin gerçekleştiği yerdir, ancak REM zihin içindir. İkisi nasıl dengelenir?",
+        art_2_date: "18 Oca 2026",
+
+        art_3_title: "HRV: Takip Etmeniz Gereken Metrik",
+        art_3_desc: "Kalp Hızı Değişkenliği (HRV), sinir sistemi durumunuzun en doğru, invaziv olmayan göstergesidir.",
+        art_3_date: "10 Oca 2026",
+
+        // --- QUIZ ARAYÜZÜ ---
         quiz_back: '<i class="fa-solid fa-arrow-left"></i> Vazgeç ve Dön',
         quiz_next: 'Sonraki <i class="fa-solid fa-chevron-right"></i>',
         quiz_prev: 'Önceki',
 
+        // --- SONUÇ SAYFASI ---
+        doctor_loop_hero: '<i class="fa-solid fa-stethoscope"></i> Bu platform bir tıp doktoru tarafından tasarlanmış ve denetlenmektedir.',
+        doctor_loop_result: 'Tıbbi yorumlama, hekim denetimli yapay zeka altında sağlanmaktadır.',
+        
         res_share_title: "Sonucunu Paylaş",
         res_share_desc: "Arkadaşlarınla karşılaştır, sağlık skorunu göster.",
         res_tweet: "Tweetle",
@@ -215,31 +301,10 @@ const uiTranslations = {
         res_premium: '<i class="fa-solid fa-user-doctor"></i> Doktorla Görüş (Premium)',
         res_retry: "Başka Test Çöz",
 
-        // --- HAKKIMIZDA SAYFASI (GÜVENLİ & GENEL) ---
-        about_hero_title: "Teknoloji ve Sağlığın Kesişim Noktası",
-        about_hero_desc: "Vücudunuzun sinyallerini anlamanız için gelişmiş algoritmaları, yerleşik tıbbi literatür ile birleştiriyoruz.",
-        
-        mission_title: "Misyonumuz",
-        mission_desc: "Kişisel sağlık farkındalığını artırmak. Herkesin fiziksel ve zihinsel durumu hakkında içgörü kazanması için erişilebilir araçlar sunuyoruz.",
-        
-        privacy_title: "Gizlilik Taahhüdü",
-        privacy_desc: "Yolculuğunuz size özeldir. Kişisel kimlik bilgilerini saklamıyoruz. Tüm değerlendirmeler güvenli ve anonim olarak işlenir.",
-        
-        // Kişi gitti, Metodoloji geldi
-        doctor_title: "Yaklaşımımız",
-        doctor_name: "Kanıta Dayalı Metodoloji",
-        doctor_bio: "Platformumuz tek bir görüşe dayanmak yerine, dengeli içgörüler sunmak için güncel tıbbi kılavuzlardan ve psikolojik araştırmalardan elde edilen verileri derler.",
-        
-        // Sayılar gitti
-        stat_1: "Yapay Zeka",
-        stat_2: "Veri Odaklı",
-        stat_3: "Bilimsel Temel",
+        // Footer
+        footer_text: "&copy; 2026 ShenTechin Med. Tüm hakları saklıdır. Bu testler tıbbi tanı yerine geçmez.",
 
-        // --- DOCTOR IN THE LOOP ---
-        doctor_loop_hero: '<i class="fa-solid fa-stethoscope"></i> Bu platform bir tıp doktoru tarafından tasarlanmış ve denetlenmektedir.',
-        doctor_loop_result: 'Tıbbi yorumlama, hekim denetimli yapay zeka altında sağlanmaktadır.',
-
-        // --- MEDİKAL RİSK ANALİZİ (TR) ---
+        // --- DİNAMİK ANALİZ MANTIĞI (Result.js Tarafından Kullanılır) ---
         analysis_label: "Klinik Analiz Raporu",
         percentile_prefix: "Toplumdaki Yeri:",
         
@@ -248,7 +313,6 @@ const uiTranslations = {
                 title: "Uyku Mimarisi Profili", 
                 good: "Optimal Sirkadiyen Ritim", 
                 bad: "Ciddi Sirkadiyen Bozulma",
-                // İKNA EDİCİ RİSK METİNLERİ
                 risk_good: "Uyku düzeniniz maksimum nöroplastisite ve hücresel yenilenme ile ilişkilidir.",
                 risk_avg: "Mevcut düzen hafif kortizol yüksekliğine işaret ediyor. Uzun vadede metabolik yavaşlama ile bağlantılı.",
                 risk_bad: "Uyarı: Bu fragmantasyon, klinik olarak **2.1 kat daha yüksek kalp damar riski** ve bilişsel gerileme ile ilişkilidir."
@@ -321,16 +385,28 @@ const uiTranslations = {
     }
 };
 
-// Dil Yönetim Fonksiyonu
+// --- DİL YÖNETİM FONKSİYONLARI ---
+
+// Dili Ayarla ve Kaydet
 function setLanguage(lang) {
     localStorage.setItem('selectedLang', lang);
     applyLanguage(lang);
+    // Eğer sonuç sayfasındaysak, sayfayı yenileyerek grafikleri/metinleri güncelle
+    if(window.location.pathname.includes('result.html')) {
+        location.reload(); 
+    }
+    // Eğer quiz sayfasındaysak (sorular JS'den çekiliyor), yeniden başlatmak gerekebilir
+    if(window.location.pathname.includes('quiz.html')) {
+        location.reload();
+    }
 }
 
+// Kayıtlı Dili Getir
 function getLanguage() {
     return localStorage.getItem('selectedLang') || 'en'; // Varsayılan İngilizce
 }
 
+// Dili Arayüze Uygula
 function applyLanguage(lang) {
     const texts = uiTranslations[lang];
     
@@ -342,7 +418,7 @@ function applyLanguage(lang) {
         }
     });
 
-    // Dil butonlarını güncelle
+    // Dil butonlarının stilini güncelle (Aktif olan koyu, pasif olan şeffaf)
     const enBtn = document.getElementById('lang-en');
     const trBtn = document.getElementById('lang-tr');
     
@@ -361,7 +437,7 @@ function applyLanguage(lang) {
     }
 }
 
-// Sayfa yüklenince çalıştır
+// Sayfa yüklendiğinde çalıştır
 document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(getLanguage());
 });
