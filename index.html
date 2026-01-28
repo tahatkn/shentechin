@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShenTechin Med | Decode Yourself</title>
     
-    <!-- PERFORMANS İYİLEŞTİRMESİ: Preconnect Etiketleri Eklendi -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
@@ -24,14 +23,14 @@
             ShenTechin<span class="med-badge">MED</span>
         </a>
         <ul class="nav-links">
-            <!-- Dil Seçici -->
             <li class="lang-switcher">
                 <span id="lang-en" onclick="setLanguage('en')" style="cursor:pointer;">EN</span> | 
                 <span id="lang-tr" onclick="setLanguage('tr')" style="cursor:pointer;">TR</span>
             </li>
             <li><a href="#test-section" data-i18n="nav_tests">Tests</a></li>
             <li><a href="about.html" data-i18n="nav_about">About</a></li>
-            <li><a href="#" class="btn-login" data-i18n="nav_login">Login</a></li>
+            <!-- Login Kaldırıldı, Insights Eklendi -->
+            <li><a href="insights.html" class="btn-login" style="background:var(--primary-gradient); border:none;" data-i18n="nav_insights">Medical Insights</a></li>
         </ul>
     </nav>
 
@@ -136,7 +135,6 @@
         <p data-i18n="footer_text">&copy; 2026 ShenTechin Med. All rights reserved.</p>
     </footer>
 
-    <!-- DİL DOSYASINI BAĞLA -->
     <script src="assets/js/translations.js"></script>
 </body>
 </html>

@@ -5,25 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analysis Result | ShenTechin Med</title>
     
-    <!-- PERFORMANS İYİLEŞTİRMESİ: Preconnect Etiketleri Eklendi -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Fontlar -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- CSS Dosyaları (Parçalanmış Yapı) -->
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/quiz.css">
     <link rel="stylesheet" href="assets/css/pages.css">
     
-    <!-- İkonlar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- NAVBAR (Dil Destekli) -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <a href="index.html" class="logo">
             ShenTechin<span class="med-badge">MED</span>
@@ -35,7 +31,7 @@
             </li>
             <li><a href="index.html" data-i18n="nav_tests">Tests</a></li>
             <li><a href="about.html" data-i18n="nav_about">About</a></li>
-            <li><a href="#" class="btn-login" data-i18n="nav_login">Login</a></li>
+            <li><a href="insights.html" class="btn-login" style="background:var(--primary-gradient); border:none;" data-i18n="nav_insights">Medical Insights</a></li>
         </ul>
     </nav>
 
@@ -48,13 +44,10 @@
                 </div>
             </div>
             
-            <!-- JS ile doldurulacak başlıklar -->
             <h2 id="result-title" style="color:var(--text-light);">Analyzing Data...</h2>
             <p id="result-desc" class="result-desc">Processing your answers against clinical benchmarks...</p>
             
-            <!-- Doktor Onay Kutusu (Dil Destekli) -->
             <div class="medical-disclaimer">
-                <!-- İkonu değiştirdik ve sabitledik -->
                 <div class="disclaimer-icon">
                     <i class="fa-solid fa-user-doctor"></i>
                 </div>
@@ -83,7 +76,6 @@
             <h3 data-i18n="res_expert">Get Expert Opinion</h3>
             <p data-i18n="res_expert_desc" style="color:var(--text-light); margin-bottom:20px;">What do these results mean? Get detailed comments.</p>
             
-            <!-- YENİ PREMIUM BUTON KUTUSU -->
             <div class="result-buttons-container">
                 <button class="premium-btn" data-i18n="res_premium">
                     <i class="fa-solid fa-user-doctor"></i> Talk to Doctor (Premium)
@@ -100,7 +92,6 @@
         <p data-i18n="footer_text">&copy; 2026 ShenTechin Med. All rights reserved.</p>
     </footer>
 
-    <!-- SCRIPTS (Sıralama Önemli) -->
     <script src="assets/js/translations.js"></script>
     <script src="assets/js/result.js"></script>
 

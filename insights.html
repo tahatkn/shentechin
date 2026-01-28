@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Insights | Dr. ShenTechin</title>
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            ShenTechin<span class="med-badge">MED</span>
+        </a>
+        <ul class="nav-links">
+            <li class="lang-switcher">
+                <span id="lang-en" onclick="setLanguage('en')" style="cursor:pointer;">EN</span> | 
+                <span id="lang-tr" onclick="setLanguage('tr')" style="cursor:pointer;">TR</span>
+            </li>
+            <li><a href="index.html">Tests</a></li>
+            <li><a href="about.html">About</a></li>
+            <!-- Login yerine Medical Insights Butonu -->
+            <li><a href="insights.html" class="btn-login" style="background:var(--primary-gradient); border:none;">Medical Insights</a></li>
+        </ul>
+    </nav>
+
+    <!-- INSIGHTS HERO -->
+    <header class="insights-hero">
+        <div class="container">
+            <h1>Clinical Perspectives & Research</h1>
+            <p>Curated medical knowledge, case studies, and the science behind our algorithms.</p>
+        </div>
+    </header>
+
+    <!-- BLOG CONTENT -->
+    <section class="container blog-container">
+        
+        <!-- FEATURED ARTICLE (Öne Çıkan) -->
+        <article class="featured-article">
+            <div class="featured-img">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="featured-content">
+                <span class="badge neuro">Neuroscience</span>
+                <h2>The Cortisol Connection: How Stress Rewires Your Brain</h2>
+                <p>Chronic stress isn't just a feeling; it's a physiological event that alters neural pathways. Understanding the HPA axis is key to regaining control.</p>
+                <div class="article-footer">
+                    <div class="author-box">
+                        <div class="author-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+                        <span>Dr. ShenTechin</span>
+                    </div>
+                    <a href="#" class="read-link">Read Full Analysis <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </article>
+
+        <!-- ARTICLES GRID -->
+        <div class="articles-grid">
+            
+            <!-- Article 1 -->
+            <article class="article-card">
+                <div class="card-img-top" style="background:#f0fdf4; color:#16a34a;">
+                    <i class="fa-solid fa-apple-whole"></i>
+                </div>
+                <div class="article-body">
+                    <span class="badge diet">Metabolism</span>
+                    <h3 class="article-title">Why 'Calorie Counting' Fails for 40% of Patients</h3>
+                    <p class="article-excerpt">Metabolic flexibility varies by genetic profile. Here is why the standard model might not work for you.</p>
+                    <div class="article-footer">
+                        <span>Jan 24, 2026</span>
+                        <a href="#" class="read-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="article-card">
+                <div class="card-img-top" style="background:#e0f2fe; color:#0284c7;">
+                    <i class="fa-solid fa-bed"></i>
+                </div>
+                <div class="article-body">
+                    <span class="badge sleep">Sleep Medicine</span>
+                    <h3 class="article-title">REM Cycle Optimization</h3>
+                    <p class="article-excerpt">Deep sleep is where physical recovery happens, but REM is for the mind. How to balance both.</p>
+                    <div class="article-footer">
+                        <span>Jan 18, 2026</span>
+                        <a href="#" class="read-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="article-card">
+                <div class="card-img-top" style="background:#fee2e2; color:#dc2626;">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <div class="article-body">
+                    <span class="badge cardio">Cardiology</span>
+                    <h3 class="article-title">HRV: The Metric You Should Be Tracking</h3>
+                    <p class="article-excerpt">Heart Rate Variability is the most accurate non-invasive indicator of your nervous system status.</p>
+                    <div class="article-footer">
+                        <span>Jan 10, 2026</span>
+                        <a href="#" class="read-link">Read <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ShenTechin Med. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/translations.js"></script>
+</body>
+</html>

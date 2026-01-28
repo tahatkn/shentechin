@@ -1,4 +1,4 @@
-/* --- 4. PAGES.CSS (ABOUT & RESULT - FINAL) --- */
+/* --- 4. PAGES.CSS (ABOUT, RESULT & INSIGHTS) --- */
 
 /* --- ABOUT SAYFASI --- */
 .about-hero {
@@ -158,7 +158,7 @@
 }
 .risk-text { font-size: 1.1rem; line-height: 1.7; }
 
-/* Medikal Uyarı Kutusu (İKON DÜZELTİLDİ) */
+/* Medikal Uyarı Kutusu */
 .medical-disclaimer {
     margin-top: 30px; 
     padding: 15px 20px;
@@ -229,9 +229,117 @@
 .share-btn.twitter { background: #1da1f2; }
 .share-btn.whatsapp { background: #25d366; }
 
-/* MOBİL UYUMLULUK */
+
+/* --- BLOG / INSIGHTS STYLES --- */
+
+/* Insights Hero */
+.insights-hero {
+    background: var(--secondary);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 0 0 40px 40px;
+    margin-bottom: 60px;
+    background-image: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.2) 0%, transparent 40%);
+}
+.insights-hero h1 { font-size: 2.5rem; margin-bottom: 15px; letter-spacing: -1px; }
+.insights-hero p { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+/* Blog Layout */
+.blog-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* Öne Çıkan Makale (Büyük Kart) */
+.featured-article {
+    background: white;
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    margin-bottom: 60px;
+    border: 1px solid #f1f5f9;
+    transition: var(--transition);
+}
+.featured-article:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.08); transform: translateY(-3px); }
+
+.featured-img {
+    background: #e0f2fe;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--primary); font-size: 4rem;
+    min-height: 350px;
+}
+.featured-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    width: fit-content;
+}
+.badge.neuro { background: #f3e8ff; color: #9333ea; }
+.badge.cardio { background: #fee2e2; color: #dc2626; }
+.badge.sleep { background: #e0f2fe; color: #0284c7; }
+.badge.diet { background: #dcfce7; color: #16a34a; }
+
+.featured-content h2 { font-size: 2rem; margin: 0 0 20px 0; color: var(--secondary); line-height: 1.2; }
+.featured-content p { color: var(--text-light); margin-bottom: 30px; font-size: 1.1rem; }
+
+/* Makale Grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.article-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid #f1f5f9;
+    transition: var(--transition);
+    display: flex; flex-direction: column;
+}
+.article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: #bfdbfe;
+}
+
+.card-img-top {
+    height: 200px;
+    background: #f8fafc;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-light); font-size: 2.5rem;
+}
+
+.article-body { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+.article-title { font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin: 15px 0 15px 0; }
+.article-excerpt { font-size: 0.95rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+
+.article-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 20px; border-top: 1px solid #f1f5f9;
+    font-size: 0.85rem; color: #94a3b8; font-weight: 600;
+}
+.author-box { display: flex; align-items: center; gap: 10px; }
+.author-avatar { width: 30px; height: 30px; background: var(--primary); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+
+.read-link {
+    color: var(--primary); text-decoration: none; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 5px;
+}
+.read-link:hover { gap: 8px; }
+
+/* Responsive Blog */
 @media (max-width: 900px) {
     .about-content, .result-container { grid-template-columns: 1fr; }
     .stats-bar { gap: 30px; flex-direction: column; }
-    .medical-disclaimer { flex-direction: column; text-align: center; }
+    .featured-article { grid-template-columns: 1fr; }
+    .featured-img { min-height: 250px; }
+    .featured-content { padding: 30px; }
+    .featured-content h2 { font-size: 1.5rem; }
 }
