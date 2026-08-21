@@ -156,9 +156,9 @@ ${cards}
 
 /* ---------------- TEST EKRANI ---------------- */
 function quizMain() {
+  /* Üstteki navbar zaten logoyu taşıyor; burada tekrar etmiyoruz. */
   return `<nav class="quiz-nav">
     <a href="index.html" class="back-link">${icon('arrow-left')} <span data-i18n="quiz_back">Give up &amp; return</span></a>
-    <a href="index.html" class="logo logo-small">ShenTechin<span class="med-badge">MED</span></a>
 </nav>
 
 <main id="main" class="quiz-container">
