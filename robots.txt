@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /quiz.html
+Disallow: /result.html
+
+Sitemap: https://shentechin.com/sitemap.xml

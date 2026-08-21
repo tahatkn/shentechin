@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why calorie counting stops working for so many people</title>
+<meta name="description" content="Calories in, calories out is not wrong — it is incomplete. Here is what the model leaves out and what to do instead.">
+<link rel="canonical" href="https://shentechin.com/insights/why-calorie-counting-fails/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ShenTechin Med">
+<meta property="og:title" content="Why calorie counting stops working for so many people">
+<meta property="og:description" content="Calories in, calories out is not wrong — it is incomplete. Here is what the model leaves out and what to do instead.">
+<meta property="og:url" content="https://shentechin.com/insights/why-calorie-counting-fails/">
+<meta property="og:image" content="https://shentechin.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why calorie counting stops working for so many people">
+<meta name="twitter:description" content="Calories in, calories out is not wrong — it is incomplete. Here is what the model leaves out and what to do instead.">
+<meta name="twitter:image" content="https://shentechin.com/assets/img/og-default.png">
+<meta name="theme-color" content="#2563eb">
+
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/home.css">
+<link rel="stylesheet" href="../../assets/css/pages.css">
+
+<script>
+/* Dili ilk boyamadan önce ayarla; EN dışında bir dil seçiliyse
+   çeviri uygulanana kadar gövdeyi gizleyerek metin sıçramasını önle. */
+(function(){try{var l=localStorage.getItem('selectedLang');if(l!=='en'&&l!=='tr')l='en';
+document.documentElement.lang=l;if(l!=='en')document.documentElement.classList.add('i18n-swap');}catch(e){}})();
+</script>
+<script src="../../assets/js/analytics.js"></script>
+<script src="../../assets/js/i18n.js"></script>
+<script src="../../assets/js/i18n/common.js"></script>
+</head>
+<body>
+<svg class="icon-sprite" aria-hidden="true"><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-list-checks" viewBox="0 0 24 24"><path d="M3 5h1.5L6 6.5 8.5 4M3 12h1.5L6 13.5 8.5 11M3 19h1.5L6 20.5 8.5 18M12 5h9M12 12h9M12 19h9"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="M9 13h6M9 17h6"/></symbol><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol><symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M4 3v6a5 5 0 0 0 10 0V3"/><path d="M4 3H2.5M14 3h1.5"/><path d="M9 14v2a5 5 0 0 0 10 0v-1.5"/><circle cx="19" cy="12" r="2.5"/></symbol><symbol id="i-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.4-6.4 2.1 2.1-6.4z"/></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11 3l1.8 4.4L17 9l-4.2 1.6L11 15l-1.8-4.4L5 9l4.2-1.6L11 3Z"/><path d="M18.5 14.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1Z"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></symbol><symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 4A2.5 2.5 0 0 0 7 6.5c0 .3 0 .5.1.8A3 3 0 0 0 5 10a3 3 0 0 0 .8 2 3 3 0 0 0 .7 4.5A2.5 2.5 0 0 0 9.5 20a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 9.5 4Z"/><path d="M14.5 4A2.5 2.5 0 0 1 17 6.5c0 .3 0 .5-.1.8A3 3 0 0 1 19 10a3 3 0 0 1-.8 2 3 3 0 0 1-.7 4.5A2.5 2.5 0 0 1 14.5 20 2.5 2.5 0 0 1 12 17.5v-11A2.5 2.5 0 0 1 14.5 4Z"/></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/><path d="M3.2 13h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3"/></symbol><symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/></symbol><symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M4 9v6M8 6v12M16 6v12M20 9v6M8 12h8"/></symbol><symbol id="i-smartphone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/></symbol><symbol id="i-x-brand" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.4l-5-6.6L5.8 22H2.7l7.6-8.7L1.6 2h6.6l4.5 6 5.3-6zm-1.1 18h1.7L7.3 3.8H5.5L17.8 20z"/></symbol><symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6a11 11 0 0 1-4.3-4.3c-.4-.7-.7-1.4-.7-2 0-.7.3-1.3.6-1.6.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.4l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1.1 1.6 2 2.2.4.3.7.4.9.2l.6-.7c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.6 0 1z"/></symbol></svg>
+<a class="skip-link" href="#main" data-i18n="skip_link">Skip to main content</a>
+<nav class="navbar">
+    <a href="../../index.html" class="logo">ShenTechin<span class="med-badge">MED</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-i18n-attr="aria-label:nav_menu">
+        <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg><svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+        <li><a href="../../index.html#test-section" data-i18n="nav_tests">Tests</a></li>
+        <li><a href="../../insights.html" aria-current="page" data-i18n="nav_insights">Insights</a></li>
+        <li><a href="../../about.html" data-i18n="nav_about">About</a></li>
+        <li class="lang-switcher" role="group" data-i18n-attr="aria-label:lang_label">
+            <button type="button" class="lang-btn" data-lang-btn data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-btn" data-lang-btn data-lang="tr" aria-pressed="false">TR</button>
+        </li>
+    </ul>
+</nav>
+<main id="main"><div data-lang-block="en">
+    <header class="doc-hero">
+        <span class="badge diet">Metabolism</span>
+        <h1>Why calorie counting stops working for so many people</h1>
+        <div class="doc-meta">
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-user-round"/></svg> Dr. ShenTechin</span>
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg> 21 August 2026</span>
+        </div>
+    </header>
+    <article class="prose">
+        <p><strong>Calories in, calories out is not wrong — it is just incomplete. Here is what the model leaves out, and what to do instead.</strong></p>
+        <p>Energy balance is real physics. If you take in less energy than you use, you lose weight. The reason calorie counting so often stops working is not that the principle is false — it is that both sides of the equation are much harder to know, and much more responsive to each other, than the model implies.</p>
+
+<h2>Problem one: the numbers are estimates</h2>
+<p>The calorie figure on a package is an average derived from analysis, and regulators allow meaningful tolerance around it. Portion sizes at home vary. Cooking method changes how much energy you actually absorb — the same food eaten raw, cooked, whole or blended does not deliver identical energy. Meanwhile the "out" side is worse: activity tracker estimates for energy expenditure are notoriously rough.</p>
+<p>Small errors would not matter if they were random. They are not. They tend to run in the same direction — under-recording what is eaten, over-crediting what is burned — and they accumulate.</p>
+
+<h2>Problem two: the two sides are connected</h2>
+<p>The model treats intake and expenditure as independent. They are not. Eat substantially less for a sustained period and the body responds: resting energy use drifts down, spontaneous movement decreases — you fidget less, walk a bit slower, take the stairs less often, mostly without noticing — and hunger signalling increases.</p>
+<p>This is not a malfunction. It is a system defending against what it interprets as scarcity, and it is why the same deficit produces less weight loss in month four than it did in month one.</p>
+
+<div class="callout"><p>The practical consequence: a plan that depends on permanently out-willing your own hunger signalling is not a plan. It is a countdown.</p></div>
+
+<h2>Problem three: adherence is the real variable</h2>
+<p>When diets are compared head to head over a year or more, the differences between them tend to be smaller than the differences between people who stuck to them and people who did not. That points somewhere useful. The question worth asking about any eating change is not "is this optimal?" but "could I still be doing this in a year?"</p>
+
+<h2>What tends to work better</h2>
+<p>None of this makes tracking useless. Used briefly, it is an excellent way to learn what you are actually eating — most people are surprised, in both directions. Used permanently, as the mechanism that holds the whole thing together, it usually fails.</p>
+<ul>
+<li><strong>Build structure before restriction.</strong> Predictable meals reduce the decisions you have to win. Most overeating happens in the gaps.</li>
+<li><strong>Prioritise protein and fibre.</strong> Not because they are magic, but because they affect how full you feel per calorie, which lowers the amount of willpower the plan requires.</li>
+<li><strong>Change liquid calories first.</strong> Sugary drinks deliver energy with almost no effect on satiety. It is the least painful place to start.</li>
+<li><strong>Judge by trajectory, not by day.</strong> Daily weight moves mostly with water and food volume. Weekly averages tell you something; single readings do not.</li>
+</ul>
+
+<h2>When to get help</h2>
+<p>If you have repeated cycles of losing and regaining weight, a history of disordered eating, or a medical condition affected by diet — diabetes, thyroid disease, kidney disease — this is the point to work with a dietitian rather than another plan. Not because you lack discipline, but because the useful adjustments in those situations are specific, and generic advice is a poor substitute for them.</p>
+        <div class="callout warn"><p>This article is general information, not medical advice, and it is not a substitute for seeing a healthcare professional about your own situation.</p></div>
+    </article>
+    <section class="doc-cta">
+        <h2>Curious where you stand?</h2>
+        <p>Take the related self-assessment — 10 questions, about two minutes.</p>
+        <a class="cta-button" href="../../tests/diet/">Go to the assessment <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
+    </section></div>
+<div data-lang-block="tr" hidden>
+    <header class="doc-hero">
+        <span class="badge diet">Metabolizma</span>
+        <h1>Kalori saymak neden bu kadar çok kişide işe yaramaz oluyor?</h1>
+        <div class="doc-meta">
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-user-round"/></svg> Dr. ShenTechin</span>
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg> 21 Ağustos 2026</span>
+        </div>
+    </header>
+    <article class="prose">
+        <p><strong>"Alınan kalori, harcanan kalori" yanlış değil — sadece eksik. Modelin dışarıda bıraktıkları ve bunun yerine ne yapılabileceği.</strong></p>
+        <p>Enerji dengesi gerçek bir fizik yasasıdır. Harcadığınızdan az enerji alırsanız kilo verirsiniz. Kalori saymanın bu kadar sık işlemez hâle gelmesinin nedeni ilkenin yanlış olması değil — denklemin her iki tarafının da bilinmesinin çok daha zor ve birbirlerine çok daha duyarlı olmasıdır.</p>
+
+<h2>Birinci sorun: sayılar tahmindir</h2>
+<p>Paketin üzerindeki kalori değeri analizden türetilmiş bir ortalamadır ve mevzuat bunun etrafında ciddi bir tolerans tanır. Evdeki porsiyonlar değişir. Pişirme yöntemi gerçekte ne kadar enerji emdiğinizi değiştirir — aynı besin çiğ, pişmiş, bütün ya da blenderdan geçmiş hâlde aynı enerjiyi vermez. "Harcanan" taraf ise daha kötüdür: aktivite takipçilerinin enerji harcaması tahminleri bilinen biçimde kabadır.</p>
+<p>Küçük hatalar rastgele olsaydı sorun olmazdı. Değiller. Genellikle aynı yönde işlerler — yenilen eksik kaydedilir, yakılan fazla sayılır — ve birikirler.</p>
+
+<h2>İkinci sorun: iki taraf birbirine bağlı</h2>
+<p>Model, alımı ve harcamayı birbirinden bağımsız sayar. Değiller. Uzun süre belirgin biçimde az yiyin, beden yanıt verir: dinlenme enerji harcaması aşağı kayar, kendiliğinden hareket azalır — daha az kıpırdanır, biraz daha yavaş yürür, merdiveni daha az kullanırsınız, çoğunlukla fark etmeden — ve açlık sinyali artar.</p>
+<p>Bu bir arıza değildir. Kıtlık olarak yorumladığı şeye karşı kendini savunan bir sistemdir ve aynı açığın dördüncü ayda birinci aydakinden daha az kilo kaybı üretmesinin nedeni budur.</p>
+
+<div class="callout"><p>Pratik sonuç: kendi açlık sinyalinizi kalıcı olarak iradeyle yenmeye dayanan bir plan, plan değildir. Geri sayımdır.</p></div>
+
+<h2>Üçüncü sorun: asıl değişken sürdürülebilirlik</h2>
+<p>Diyetler bir yıl ve üzeri sürelerle karşılaştırıldığında, aralarındaki farklar genellikle diyete sadık kalanlarla kalmayanlar arasındaki farktan küçük çıkar. Bu, işe yarar bir yere işaret ediyor. Herhangi bir beslenme değişikliği için sorulmaya değer soru "bu en iyisi mi?" değil, "bir yıl sonra hâlâ bunu yapıyor olabilir miyim?" sorusudur.</p>
+
+<h2>Daha iyi işleyen yaklaşım</h2>
+<p>Bunların hiçbiri takibi işe yaramaz kılmaz. Kısa süreli kullanıldığında, gerçekte ne yediğinizi öğrenmenin mükemmel bir yoludur — çoğu kişi her iki yönde de şaşırır. Kalıcı olarak, her şeyi bir arada tutan mekanizma olarak kullanıldığında ise genellikle başarısız olur.</p>
+<ul>
+<li><strong>Kısıtlamadan önce düzen kurun.</strong> Öngörülebilir öğünler, kazanmanız gereken karar sayısını azaltır. Aşırı yemenin çoğu boşluklarda olur.</li>
+<li><strong>Protein ve lifi öne alın.</strong> Sihirli oldukları için değil, kalori başına ne kadar tok hissettirdiklerini etkiledikleri için — bu da planın gerektirdiği irade miktarını düşürür.</li>
+<li><strong>Önce sıvı kalorileri değiştirin.</strong> Şekerli içecekler tokluğa neredeyse hiç etki etmeden enerji verir. Başlamak için en az acı veren yer burasıdır.</li>
+<li><strong>Günle değil eğilimle değerlendirin.</strong> Günlük tartı çoğunlukla su ve besin hacmiyle oynar. Haftalık ortalamalar bir şey söyler; tek ölçümler söylemez.</li>
+</ul>
+
+<h2>Ne zaman destek almalı</h2>
+<p>Tekrarlayan kilo verip alma döngüleriniz, düzensiz yeme geçmişiniz ya da beslenmeden etkilenen bir hastalığınız varsa — diyabet, tiroid hastalığı, böbrek hastalığı — burası yeni bir plan yerine bir diyetisyenle çalışma noktasıdır. Disiplininiz eksik olduğu için değil; bu durumlarda işe yarayan düzenlemeler özgül olduğu ve genel tavsiye onların yerini kötü doldurduğu için.</p>
+        <div class="callout warn"><p>Bu yazı genel bilgidir, tıbbi tavsiye değildir ve kendi durumunuz için bir sağlık profesyoneline başvurmanın yerini tutmaz.</p></div>
+    </article>
+    <section class="doc-cta">
+        <h2>Kendi durumunuzu merak ettiniz mi?</h2>
+        <p>İlgili öz-değerlendirmeyi yapın — 10 soru, yaklaşık iki dakika.</p>
+        <a class="cta-button" href="../../tests/diet/">Değerlendirmeye git <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
+    </section></div></main>
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="../../index.html" class="logo">ShenTechin<span class="med-badge">MED</span></a>
+            <p data-i18n="footer_tagline">Free, anonymous self-assessments on everyday health habits.</p>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer_col_tests">Assessments</h4>
+            <ul>
+                <li><a href="../../tests/sleep/" data-i18n="test_sleep_name">sleep</a></li>
+                <li><a href="../../tests/skin/" data-i18n="test_skin_name">skin</a></li>
+                <li><a href="../../tests/diet/" data-i18n="test_diet_name">diet</a></li>
+                <li><a href="../../tests/stress/" data-i18n="test_stress_name">stress</a></li>
+                <li><a href="../../tests/heart/" data-i18n="test_heart_name">heart</a></li>
+                <li><a href="../../tests/focus/" data-i18n="test_focus_name">focus</a></li>
+                <li><a href="../../tests/fitness/" data-i18n="test_fitness_name">fitness</a></li>
+                <li><a href="../../tests/immunity/" data-i18n="test_immunity_name">immunity</a></li>
+                <li><a href="../../tests/tech/" data-i18n="test_tech_name">tech</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer_col_learn">Learn</h4>
+            <ul>
+                <li><a href="../../insights.html" data-i18n="nav_insights">Insights</a></li>
+                <li><a href="../../about.html" data-i18n="nav_about">About</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer_col_legal">Legal</h4>
+            <ul>
+                <li><a href="../../disclaimer.html" data-i18n="footer_disclaimer">Medical Disclaimer</a></li>
+                <li><a href="../../privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+                <li><a href="../../terms.html" data-i18n="footer_terms">Terms of Use</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span data-i18n="footer_copy">&copy; 2026 ShenTechin Med.</span>
+        <span data-i18n="footer_note">These assessments are not medical diagnoses.</span>
+    </div>
+</footer>
+<script src="../../assets/js/nav.js" defer></script>
+
+</body>
+</html>

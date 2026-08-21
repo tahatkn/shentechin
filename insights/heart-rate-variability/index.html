@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart rate variability: what it is and what it isn’t</title>
+<meta name="description" content="HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.">
+<link rel="canonical" href="https://shentechin.com/insights/heart-rate-variability/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ShenTechin Med">
+<meta property="og:title" content="Heart rate variability: what it is and what it isn’t">
+<meta property="og:description" content="HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.">
+<meta property="og:url" content="https://shentechin.com/insights/heart-rate-variability/">
+<meta property="og:image" content="https://shentechin.com/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Heart rate variability: what it is and what it isn’t">
+<meta name="twitter:description" content="HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.">
+<meta name="twitter:image" content="https://shentechin.com/assets/img/og-default.png">
+<meta name="theme-color" content="#2563eb">
+
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/home.css">
+<link rel="stylesheet" href="../../assets/css/pages.css">
+
+<script>
+/* Dili ilk boyamadan önce ayarla; EN dışında bir dil seçiliyse
+   çeviri uygulanana kadar gövdeyi gizleyerek metin sıçramasını önle. */
+(function(){try{var l=localStorage.getItem('selectedLang');if(l!=='en'&&l!=='tr')l='en';
+document.documentElement.lang=l;if(l!=='en')document.documentElement.classList.add('i18n-swap');}catch(e){}})();
+</script>
+<script src="../../assets/js/analytics.js"></script>
+<script src="../../assets/js/i18n.js"></script>
+<script src="../../assets/js/i18n/common.js"></script>
+</head>
+<body>
+<svg class="icon-sprite" aria-hidden="true"><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-list-checks" viewBox="0 0 24 24"><path d="M3 5h1.5L6 6.5 8.5 4M3 12h1.5L6 13.5 8.5 11M3 19h1.5L6 20.5 8.5 18M12 5h9M12 12h9M12 19h9"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="M9 13h6M9 17h6"/></symbol><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol><symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M4 3v6a5 5 0 0 0 10 0V3"/><path d="M4 3H2.5M14 3h1.5"/><path d="M9 14v2a5 5 0 0 0 10 0v-1.5"/><circle cx="19" cy="12" r="2.5"/></symbol><symbol id="i-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.4-6.4 2.1 2.1-6.4z"/></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11 3l1.8 4.4L17 9l-4.2 1.6L11 15l-1.8-4.4L5 9l4.2-1.6L11 3Z"/><path d="M18.5 14.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1Z"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></symbol><symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 4A2.5 2.5 0 0 0 7 6.5c0 .3 0 .5.1.8A3 3 0 0 0 5 10a3 3 0 0 0 .8 2 3 3 0 0 0 .7 4.5A2.5 2.5 0 0 0 9.5 20a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 9.5 4Z"/><path d="M14.5 4A2.5 2.5 0 0 1 17 6.5c0 .3 0 .5-.1.8A3 3 0 0 1 19 10a3 3 0 0 1-.8 2 3 3 0 0 1-.7 4.5A2.5 2.5 0 0 1 14.5 20 2.5 2.5 0 0 1 12 17.5v-11A2.5 2.5 0 0 1 14.5 4Z"/></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/><path d="M3.2 13h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3"/></symbol><symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/></symbol><symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M4 9v6M8 6v12M16 6v12M20 9v6M8 12h8"/></symbol><symbol id="i-smartphone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/></symbol><symbol id="i-x-brand" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.4l-5-6.6L5.8 22H2.7l7.6-8.7L1.6 2h6.6l4.5 6 5.3-6zm-1.1 18h1.7L7.3 3.8H5.5L17.8 20z"/></symbol><symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6a11 11 0 0 1-4.3-4.3c-.4-.7-.7-1.4-.7-2 0-.7.3-1.3.6-1.6.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.4l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1.1 1.6 2 2.2.4.3.7.4.9.2l.6-.7c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.6 0 1z"/></symbol></svg>
+<a class="skip-link" href="#main" data-i18n="skip_link">Skip to main content</a>
+<nav class="navbar">
+    <a href="../../index.html" class="logo">ShenTechin<span class="med-badge">MED</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-i18n-attr="aria-label:nav_menu">
+        <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg><svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
+    </button>
+    <ul class="nav-links" id="primary-nav">
+        <li><a href="../../index.html#test-section" data-i18n="nav_tests">Tests</a></li>
+        <li><a href="../../insights.html" aria-current="page" data-i18n="nav_insights">Insights</a></li>
+        <li><a href="../../about.html" data-i18n="nav_about">About</a></li>
+        <li class="lang-switcher" role="group" data-i18n-attr="aria-label:lang_label">
+            <button type="button" class="lang-btn" data-lang-btn data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-btn" data-lang-btn data-lang="tr" aria-pressed="false">TR</button>
+        </li>
+    </ul>
+</nav>
+<main id="main"><div data-lang-block="en">
+    <header class="doc-hero">
+        <span class="badge cardio">Heart</span>
+        <h1>Heart rate variability: what it is and what it isn’t</h1>
+        <div class="doc-meta">
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-user-round"/></svg> Dr. ShenTechin</span>
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg> 21 August 2026</span>
+        </div>
+    </header>
+    <article class="prose">
+        <p><strong>HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.</strong></p>
+        <p>A healthy heart does not beat like a metronome. Even at complete rest the interval between beats varies slightly from one to the next, and heart rate variability — HRV — is simply a measure of how much. Counter-intuitively, more variation is generally the better sign.</p>
+
+<h2>Why variation is good</h2>
+<p>Your heart rate is under continuous adjustment from two branches of the autonomic nervous system. The sympathetic branch speeds things up; the parasympathetic branch, working mainly through the vagus nerve, slows things down. The two are constantly negotiating, and the beat-to-beat variation is the visible residue of that negotiation.</p>
+<p>When the parasympathetic side has good influence — you are rested, recovered, not under acute pressure — the adjustments are frequent and fine-grained, and variability is higher. Under stress, illness, or after hard training, sympathetic activity dominates, the negotiation stops, and the rhythm becomes more uniform. A very steady resting heartbeat is not a sign of a well-tuned engine; it is closer to the opposite.</p>
+
+<h2>What it can reasonably tell you</h2>
+<p>HRV is genuinely responsive to things worth noticing. It tends to drop with poor sleep, alcohol, acute illness, and heavy training load, and to recover as those resolve. Used as a <strong>personal trend</strong>, tracked at a consistent time — typically overnight or first thing in the morning — it can be a useful early signal that you are more depleted than you feel.</p>
+
+<div class="callout warn"><p>What it cannot do is compare you meaningfully to anyone else. Absolute HRV values vary enormously between individuals, and they decline with age. Someone else's number tells you nothing about yours.</p></div>
+
+<h2>Where the apps overreach</h2>
+<p>Three things are worth knowing before you take a daily HRV score seriously.</p>
+<ul>
+<li><strong>Measurement method matters.</strong> Chest straps read electrical activity directly. Wrist and finger devices infer beat timing optically, through blood flow. The optical approach is more convenient and less precise, and precision is exactly what a variability measure depends on.</li>
+<li><strong>Context dominates.</strong> Body position, breathing rate, time of day, caffeine, and how well you slept all move HRV substantially. Comparing this morning to yesterday morning only works if the conditions were similar.</li>
+<li><strong>A "readiness score" is an interpretation, not a measurement.</strong> The underlying number may be real; the recommendation built on top of it is a proprietary guess about what it means for you.</li>
+</ul>
+
+<h2>A sensible way to use it</h2>
+<p>If you already have a device, treat HRV as one input among several, and give more weight to the obvious ones: how you slept, how you feel, whether you are getting ill. Watch the multi-day direction rather than any single reading. And do not let a low number talk you out of a walk — light activity almost always helps recovery rather than hindering it.</p>
+<p>If you do not have a device, you are not missing much. Sleep duration and consistency, resting heart rate, and simply how you feel on stairs carry most of the same information for free.</p>
+
+<h2>What HRV is not</h2>
+<p>HRV is not a diagnostic test and it is not a screening tool for heart disease. An irregular pulse, palpitations, chest tightness, breathlessness on mild effort or fainting are all reasons to see a doctor directly — they are assessed with an ECG and a clinical examination, not with a wearable's daily score.</p>
+        <div class="callout warn"><p>This article is general information, not medical advice, and it is not a substitute for seeing a healthcare professional about your own situation.</p></div>
+    </article>
+    <section class="doc-cta">
+        <h2>Curious where you stand?</h2>
+        <p>Take the related self-assessment — 10 questions, about two minutes.</p>
+        <a class="cta-button" href="../../tests/heart/">Go to the assessment <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
+    </section></div>
+<div data-lang-block="tr" hidden>
+    <header class="doc-hero">
+        <span class="badge cardio">Kalp</span>
+        <h1>Kalp hızı değişkenliği (HRV): ne olduğu ve ne olmadığı</h1>
+        <div class="doc-meta">
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-user-round"/></svg> Dr. ShenTechin</span>
+            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg> 21 Ağustos 2026</span>
+        </div>
+    </header>
+    <article class="prose">
+        <p><strong>HRV her akıllı saatin manşet sayısı hâline geldi. Gerçek bir şey söylüyor — ama uygulamaların ima ettiğinden çok daha az kesinlikle.</strong></p>
+        <p>Sağlıklı bir kalp metronom gibi atmaz. Tam dinlenme hâlinde bile atımlar arasındaki aralık birinden diğerine biraz değişir; kalp hızı değişkenliği — HRV — bunun ne kadar olduğunun ölçüsüdür. Sezgiye aykırı biçimde, daha fazla değişkenlik genellikle daha iyi işarettir.</p>
+
+<h2>Değişkenlik neden iyi</h2>
+<p>Kalp hızınız otonom sinir sisteminin iki kolundan sürekli ayar alır. Sempatik kol hızlandırır; ağırlıklı olarak vagus siniri üzerinden çalışan parasempatik kol yavaşlatır. İkisi sürekli pazarlık hâlindedir ve atımdan atıma değişkenlik, bu pazarlığın görünür tortusudur.</p>
+<p>Parasempatik taraf iyi etkiliyken — dinlenmişken, toparlanmışken, akut baskı altında değilken — ayarlar sık ve ince olur, değişkenlik yükselir. Stres, hastalık ya da ağır antrenman sonrasında sempatik etkinlik baskın gelir, pazarlık durur ve ritim tekdüzeleşir. Çok düzenli bir dinlenme nabzı iyi ayarlanmış bir motorun işareti değildir; tersine yakındır.</p>
+
+<h2>Makul olarak ne söyleyebilir</h2>
+<p>HRV, fark edilmeye değer şeylere gerçekten duyarlıdır. Kötü uyku, alkol, akut hastalık ve ağır antrenman yüküyle düşme, bunlar geçtikçe toparlanma eğilimindedir. Tutarlı bir saatte — genellikle gece boyunca ya da sabah ilk iş — ölçülen <strong>kişisel bir eğilim</strong> olarak kullanıldığında, hissettiğinizden daha tükenmiş olduğunuza dair faydalı bir erken sinyal olabilir.</p>
+
+<div class="callout warn"><p>Yapamayacağı şey, sizi başkasıyla anlamlı biçimde karşılaştırmaktır. Mutlak HRV değerleri kişiden kişiye muazzam ölçüde değişir ve yaşla düşer. Başkasının sayısı sizinki hakkında hiçbir şey söylemez.</p></div>
+
+<h2>Uygulamalar nerede fazla ileri gidiyor</h2>
+<p>Günlük bir HRV skorunu ciddiye almadan önce bilinmeye değer üç şey var.</p>
+<ul>
+<li><strong>Ölçüm yöntemi önemlidir.</strong> Göğüs bantları elektriksel etkinliği doğrudan okur. Bilek ve parmak cihazları atım zamanlamasını kan akışı üzerinden optik olarak çıkarır. Optik yaklaşım daha pratik ve daha az hassastır; hassasiyet ise bir değişkenlik ölçümünün tam da dayandığı şeydir.</li>
+<li><strong>Bağlam belirleyicidir.</strong> Vücut pozisyonu, solunum hızı, günün saati, kafein ve ne kadar iyi uyuduğunuz HRV'yi ciddi biçimde oynatır. Bu sabahı dün sabahla karşılaştırmak ancak koşullar benzerse işe yarar.</li>
+<li><strong>"Hazır olma skoru" bir ölçüm değil bir yorumdur.</strong> Altındaki sayı gerçek olabilir; üzerine kurulan öneri, onun sizin için ne anlama geldiğine dair tescilli bir tahmindir.</li>
+</ul>
+
+<h2>Makul bir kullanım biçimi</h2>
+<p>Halihazırda bir cihazınız varsa, HRV'yi birkaç girdiden biri olarak görün ve bariz olanlara daha fazla ağırlık verin: nasıl uyuduğunuza, nasıl hissettiğinize, hastalanıp hastalanmadığınıza. Tek bir ölçüm yerine birkaç günlük yönü izleyin. Ve düşük bir sayının sizi yürüyüşten vazgeçirmesine izin vermeyin — hafif aktivite toparlanmayı neredeyse her zaman engellemek yerine destekler.</p>
+<p>Cihazınız yoksa çok şey kaçırmıyorsunuz. Uyku süresi ve düzeni, dinlenme nabzı ve merdivende nasıl hissettiğiniz aynı bilginin çoğunu ücretsiz taşır.</p>
+
+<h2>HRV ne değildir</h2>
+<p>HRV bir tanı testi değildir ve kalp hastalığı için bir tarama aracı değildir. Düzensiz nabız, çarpıntı, göğüste sıkışma, hafif eforda nefes darlığı veya bayılma doğrudan hekime başvurma gerekçesidir — bunlar bir akıllı saatin günlük skoruyla değil, EKG ve klinik muayeneyle değerlendirilir.</p>
+        <div class="callout warn"><p>Bu yazı genel bilgidir, tıbbi tavsiye değildir ve kendi durumunuz için bir sağlık profesyoneline başvurmanın yerini tutmaz.</p></div>
+    </article>
+    <section class="doc-cta">
+        <h2>Kendi durumunuzu merak ettiniz mi?</h2>
+        <p>İlgili öz-değerlendirmeyi yapın — 10 soru, yaklaşık iki dakika.</p>
+        <a class="cta-button" href="../../tests/heart/">Değerlendirmeye git <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
+    </section></div></main>
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="../../index.html" class="logo">ShenTechin<span class="med-badge">MED</span></a>
+            <p data-i18n="footer_tagline">Free, anonymous self-assessments on everyday health habits.</p>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer_col_tests">Assessments</h4>
+            <ul>
+                <li><a href="../../tests/sleep/" data-i18n="test_sleep_name">sleep</a></li>
+                <li><a href="../../tests/skin/" data-i18n="test_skin_name">skin</a></li>
+                <li><a href="../../tests/diet/" data-i18n="test_diet_name">diet</a></li>
+                <li><a href="../../tests/stress/" data-i18n="test_stress_name">stress</a></li>
+                <li><a href="../../tests/heart/" data-i18n="test_heart_name">heart</a></li>
+                <li><a href="../../tests/focus/" data-i18n="test_focus_name">focus</a></li>
+                <li><a href="../../tests/fitness/" data-i18n="test_fitness_name">fitness</a></li>
+                <li><a href="../../tests/immunity/" data-i18n="test_immunity_name">immunity</a></li>
+                <li><a href="../../tests/tech/" data-i18n="test_tech_name">tech</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer_col_learn">Learn</h4>
+            <ul>
+                <li><a href="../../insights.html" data-i18n="nav_insights">Insights</a></li>
+                <li><a href="../../about.html" data-i18n="nav_about">About</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer_col_legal">Legal</h4>
+            <ul>
+                <li><a href="../../disclaimer.html" data-i18n="footer_disclaimer">Medical Disclaimer</a></li>
+                <li><a href="../../privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
+                <li><a href="../../terms.html" data-i18n="footer_terms">Terms of Use</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span data-i18n="footer_copy">&copy; 2026 ShenTechin Med.</span>
+        <span data-i18n="footer_note">These assessments are not medical diagnoses.</span>
+    </div>
+</footer>
+<script src="../../assets/js/nav.js" defer></script>
+
+</body>
+</html>

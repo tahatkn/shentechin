@@ -1,403 +1,416 @@
-/* --- 4. PAGES.CSS (ABOUT, RESULT & INSIGHTS - FINAL) --- */
+/* --- 4. PAGES.CSS (ABOUT, RESULT, INSIGHTS, TEST & LEGAL) --- */
 
 /* =========================================
-   1. ABOUT PAGE STYLES
+   1. ABOUT PAGE
    ========================================= */
-
-   .about-hero {
-    /* Canlı ve Modern Gradyan */
+.about-hero {
     background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     text-align: center;
-    /* Navbar payı + Görsel boşluk */
-    padding: 100px 20px 100px 20px; 
+    padding: 80px 20px 100px 20px;
     border-bottom: 1px solid #dbeafe;
 }
-
-.about-hero h1 { 
-    margin-bottom: 15px; 
-    color: var(--secondary); 
-    /* Akıllı Tipografi */
-    font-size: clamp(2rem, 5vw, 2.8rem); 
-    line-height: 1.2;
+.about-hero h1 {
+    margin-bottom: 15px; color: var(--secondary);
+    font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.2;
 }
+.about-hero p { max-width: 700px; margin: 0 auto; color: var(--text-light); font-size: 1.15rem; }
 
-.about-hero p { 
-    max-width: 700px; 
-    margin: 0 auto; 
-    color: var(--text-light); 
-    font-size: 1.15rem; 
-}
-
-/* İstatistik Bandı */
 .stats-bar {
-    background: var(--secondary); 
-    color: white;
-    padding: 35px 20px;
-    /* Hero görselinin üzerine binmesi için negatif margin */
-    margin-top: -50px; 
+    background: var(--secondary); color: white;
+    padding: 35px 20px; margin-top: -50px;
     border-radius: var(--radius-lg);
-    max-width: 900px; 
-    margin-left: auto; 
-    margin-right: auto;
-    display: flex; 
-    justify-content: center; 
-    gap: 60px; 
-    flex-wrap: wrap;
-    position: relative; 
-    z-index: 10;
+    max-width: 900px; margin-left: auto; margin-right: auto;
+    display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+    position: relative; z-index: 10;
     box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
-
 .stat-item {
-    display: flex; 
-    align-items: center; 
-    gap: 15px; 
-    font-weight: 700; 
-    color: #e2e8f0; 
-    font-size: 1.05rem;
+    display: flex; align-items: center; gap: 15px;
+    font-weight: 700; color: #e2e8f0; font-size: 1.05rem;
+}
+.stat-item .icon {
+    width: 26px; height: 26px; color: #7dd3fc;
+    background: rgba(56, 189, 248, 0.12);
+    padding: 11px; border-radius: 50%;
+    box-sizing: content-box;
 }
 
-.stat-item i { 
-    font-size: 1.8rem; 
-    color: #38bdf8; 
-    background: rgba(56, 189, 248, 0.1); 
-    padding: 12px; 
-    border-radius: 50%;
-}
-
-/* İçerik Izgarası */
 .about-content {
-    display: grid; 
-    grid-template-columns: 1fr 1fr;
-    gap: 60px; 
-    max-width: 1100px; 
-    margin: 80px auto; 
-    padding: 0 20px; 
-    align-items: start;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; max-width: 1100px; margin: 80px auto;
+    padding: 0 20px; align-items: start;
 }
-
 .info-block { margin-bottom: 40px; }
-
 .info-block .icon-box {
-    width: 60px; height: 60px; 
+    width: 60px; height: 60px;
     background: #e0f2fe; color: var(--primary);
-    border-radius: 16px; 
+    border-radius: 16px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; margin-bottom: 20px;
+    margin-bottom: 20px;
 }
-
+.info-block .icon-box .icon { width: 27px; height: 27px; }
 .info-block h2 { font-size: 1.6rem; color: var(--secondary); margin-bottom: 15px; }
 .info-block p { font-size: 1.05rem; color: var(--text-light); line-height: 1.7; }
 
-/* Doktor Kartı */
 .doctor-card {
-    background: white; 
-    padding: 40px; 
-    border-radius: 24px;
+    background: white; padding: 40px; border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    border-top: 6px solid var(--primary); 
-    text-align: center;
-    /* Desktop'ta kayarken sabit kalsın */
-    position: sticky; top: 120px;
+    border-top: 6px solid var(--primary); text-align: center;
+    position: sticky; top: calc(var(--nav-h) + 24px);
 }
-
 .doc-img-placeholder {
-    width: 90px; height: 90px; 
+    width: 90px; height: 90px;
     background: #eff6ff; color: var(--primary);
-    border-radius: 50%; 
-    margin: 0 auto 20px auto;
-    display: flex; align-items: center; justify-content: center; 
-    font-size: 2.2rem;
+    border-radius: 50%; margin: 0 auto 20px auto;
+    display: flex; align-items: center; justify-content: center;
 }
-
+.doc-img-placeholder .icon { width: 40px; height: 40px; }
 .doc-title {
-    color: var(--primary); 
-    font-weight: 700; 
-    text-transform: uppercase;
-    font-size: 0.85rem; 
-    letter-spacing: 1px; 
-    display: block; 
-    margin-bottom: 10px;
+    color: var(--primary); font-weight: 700; text-transform: uppercase;
+    font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 10px;
 }
+.doctor-card p { color: var(--text-light); }
 
 /* =========================================
-   2. RESULT PAGE STYLES
+   2. RESULT PAGE
    ========================================= */
-
 .result-container {
-    display: grid; 
-    grid-template-columns: 1fr 1fr;
-    gap: 40px; 
-    margin-top: 40px;
-    max-width: 1200px;
-    margin-left: auto; margin-right: auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 40px; margin-top: 40px;
+    max-width: 1200px; margin-left: auto; margin-right: auto;
     padding: 0 20px;
 }
-
 .result-card, .action-card {
-    background: white; 
-    padding: 40px;
-    border-radius: var(--radius-lg); 
-    box-shadow: var(--shadow-soft);
+    background: white; padding: 40px;
+    border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);
     text-align: center;
 }
-
-/* Yuvarlak Grafik */
-.score-circle-container { display: flex; justify-content: center; margin-bottom: 25px; }
-
-.circular-progress {
-    width: 180px; height: 180px; 
-    border-radius: 50%;
-    background: conic-gradient(var(--primary) 0deg, #f1f5f9 0deg);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+.result-test-label {
+    display: block; font-size: 0.8rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--primary); margin-bottom: 18px;
 }
 
+.score-circle-container { display: flex; justify-content: center; margin-bottom: 25px; }
+.circular-progress {
+    width: 180px; height: 180px; border-radius: 50%;
+    background: conic-gradient(#e2e8f0 0deg, #f1f5f9 0deg);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: background 0.8s ease;
+}
 .circular-progress::before {
     content: ""; position: absolute; width: 150px; height: 150px;
     border-radius: 50%; background: white;
 }
-
 .progress-value {
-    position: relative; z-index: 2; 
+    position: relative; z-index: 2;
     font-size: 2.2rem; font-weight: 800; color: var(--secondary);
 }
 
-/* Risk Analiz Kutusu */
-.percentile-box {
-    background: #f8fafc; 
-    padding: 12px 18px; 
-    border-radius: 12px;
-    font-weight: 700; 
-    margin-bottom: 25px; 
-    display: inline-block;
-    border: 1px solid #e2e8f0; 
-    color: var(--secondary);
+.band-box {
+    padding: 12px 18px; border-radius: 12px;
+    font-weight: 700; margin-bottom: 22px; display: inline-block;
+    border: 1px solid var(--border); color: var(--secondary);
+    background: #f8fafc;
 }
-.risk-text { font-size: 1.1rem; line-height: 1.7; }
+.risk-text { display: block; font-size: 1.05rem; line-height: 1.75; color: var(--text-light); }
+.risk-text strong { color: var(--secondary); }
 
-/* Medikal Uyarı Kutusu */
 .medical-disclaimer {
-    margin-top: 30px; 
-    padding: 15px 20px;
-    background: #f0fdf4; 
-    border-left: 5px solid #16a34a;
-    border-radius: 8px; 
-    color: #15803d; 
-    font-weight: 600;
-    font-size: 0.95rem;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 15px; 
-    text-align: left;
+    margin-top: 30px; padding: 16px 20px;
+    background: #fffbeb; border-left: 5px solid #d97706;
+    border-radius: 8px; color: #92400e;
+    font-weight: 600; font-size: 0.92rem;
+    display: flex; align-items: center; gap: 15px; text-align: left;
+    line-height: 1.6;
 }
-
+.medical-disclaimer a { color: #92400e; }
 .disclaimer-icon {
     display: flex; align-items: center; justify-content: center;
     min-width: 40px; height: 40px;
-    background: rgba(22, 163, 74, 0.1);
-    border-radius: 50%;
-    color: #16a34a; font-size: 1.2rem;
+    background: rgba(217, 119, 6, 0.12);
+    border-radius: 50%; color: #b45309;
 }
+.disclaimer-icon .icon { width: 20px; height: 20px; }
 
-/* Aksiyon Butonları */
+.action-card h3 { color: var(--secondary); margin-top: 0; }
+.action-card p { color: var(--text-light); margin-bottom: 20px; }
+
 .result-buttons-container {
-    background: #f8fafc;
-    padding: 25px;
-    border-radius: 16px;
-    margin-top: 30px;
-    border: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    background: #f8fafc; padding: 25px; border-radius: 16px;
+    margin-top: 30px; border: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 15px;
 }
-
 .premium-btn {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); /* Gold Gradient */
+    background: var(--gold-gradient);
     color: white; border: none; padding: 16px;
     border-radius: 50px; font-weight: 700; font-size: 1rem;
-    cursor: pointer; transition: 0.2s;
+    cursor: pointer; transition: 0.2s; font-family: inherit;
     display: flex; align-items: center; justify-content: center; gap: 10px;
-    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+    box-shadow: 0 5px 15px rgba(180, 83, 9, 0.25);
+    text-decoration: none;
 }
-.premium-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4);
-}
+.premium-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(180, 83, 9, 0.35); }
+.premium-note { font-size: 0.8rem; color: var(--text-light); margin: 0; }
 
 .retry-btn {
     background: white; color: var(--text-light);
-    border: 2px solid #e2e8f0; padding: 14px;
+    border: 2px solid var(--border); padding: 14px;
     border-radius: 50px; font-weight: 700; cursor: pointer;
-    transition: 0.2s;
+    transition: 0.2s; font-family: inherit; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    text-decoration: none;
 }
-.retry-btn:hover {
-    border-color: var(--primary); color: var(--primary); background: #f0f9ff;
-}
+.retry-btn:hover { border-color: var(--primary); color: var(--primary); background: #f0f9ff; }
 
-/* Sosyal Medya */
-.share-buttons { display: flex; gap: 15px; justify-content: center; margin: 25px 0; }
+.share-buttons { display: flex; gap: 15px; justify-content: center; margin: 25px 0; flex-wrap: wrap; }
 .share-btn {
-    padding: 12px 25px; border-radius: 12px; border: none;
-    color: white; cursor: pointer; font-weight: 600;
-    transition: transform 0.2s; display: flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 12px; border: none;
+    color: white; cursor: pointer; font-weight: 600; font-family: inherit;
+    font-size: 0.95rem;
+    transition: transform 0.2s; display: inline-flex; align-items: center; gap: 8px;
 }
 .share-btn:hover { transform: scale(1.05); }
-.share-btn.twitter { background: #1da1f2; }
-.share-btn.whatsapp { background: #25d366; }
+.share-btn.x-share { background: #0f172a; }
+.share-btn.whatsapp { background: #128c7e; }
+.share-btn.native { background: var(--primary); }
+
+/* Sonuç yoksa gösterilen boş durum */
+.result-empty {
+    max-width: 620px; margin: 80px auto; padding: 50px 30px;
+    background: #fff; border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft); text-align: center;
+}
+.result-empty .icon { width: 46px; height: 46px; color: var(--primary); margin-bottom: 18px; }
+.result-empty h1 { font-size: 1.6rem; color: var(--secondary); margin: 0 0 12px; }
+.result-empty p { color: var(--text-light); margin: 0 0 28px; }
 
 /* =========================================
-   3. INSIGHTS (BLOG) STYLES
+   3. INSIGHTS (BLOG)
    ========================================= */
-
 .insights-hero {
-    background: var(--secondary);
-    color: white;
-    padding: 100px 20px 80px 20px;
-    text-align: center;
-    border-radius: 0 0 40px 40px;
-    margin-bottom: 60px;
-    background-image: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.2) 0%, transparent 40%);
+    background: var(--secondary); color: white;
+    padding: 80px 20px 80px 20px; text-align: center;
+    border-radius: 0 0 40px 40px; margin-bottom: 60px;
+    background-image: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.25) 0%, transparent 40%);
 }
 .insights-hero h1 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 15px; letter-spacing: -1px; }
-.insights-hero p { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+.insights-hero p { color: var(--text-on-dark); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
 
 .blog-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-/* Öne Çıkan Makale */
 .featured-article {
-    background: white;
-    border-radius: 24px;
-    box-shadow: var(--shadow-soft);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    overflow: hidden;
-    margin-bottom: 60px;
-    border: 1px solid #f1f5f9;
-    transition: var(--transition);
+    background: white; border-radius: 24px; box-shadow: var(--shadow-soft);
+    display: grid; grid-template-columns: 1fr 1fr;
+    overflow: hidden; margin-bottom: 60px;
+    border: 1px solid var(--border-soft); transition: var(--transition);
 }
-.featured-article:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.08); transform: translateY(-3px); }
-
+.featured-article:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
 .featured-img {
     background: #e0f2fe;
     display: flex; align-items: center; justify-content: center;
-    color: var(--primary); font-size: 4rem;
-    min-height: 350px;
+    color: var(--primary); min-height: 350px;
 }
+.featured-img .icon { width: 72px; height: 72px; }
 .featured-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
 
-/* Blog Rozetleri */
 .badge {
-    display: inline-block;
-    padding: 6px 14px;
-    border-radius: 6px;
+    display: inline-block; padding: 6px 14px; border-radius: 6px;
     font-size: 0.75rem; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.5px;
-    margin-bottom: 20px;
-    width: fit-content;
+    margin-bottom: 20px; width: fit-content;
 }
-.badge.neuro { background: #f3e8ff; color: #9333ea; }
-.badge.cardio { background: #fee2e2; color: #dc2626; }
-.badge.sleep { background: #e0f2fe; color: #0284c7; }
-.badge.diet { background: #dcfce7; color: #16a34a; }
+.badge.neuro { background: #f3e8ff; color: #7e22ce; }
+.badge.cardio { background: #fee2e2; color: #b91c1c; }
+.badge.sleep { background: #e0f2fe; color: #0369a1; }
+.badge.diet { background: #dcfce7; color: #15803d; }
 
 .featured-content h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 20px 0; color: var(--secondary); line-height: 1.2; }
-.featured-content p { color: var(--text-light); margin-bottom: 30px; font-size: 1.1rem; }
+.featured-content h2 a { color: inherit; text-decoration: none; }
+.featured-content h2 a:hover { color: var(--primary); }
+.featured-content p { color: var(--text-light); margin-bottom: 30px; font-size: 1.08rem; }
 
-/* Makale Grid */
 .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
 }
-
 .article-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    border: 1px solid #f1f5f9;
-    transition: var(--transition);
-    display: flex; flex-direction: column;
+    background: white; border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow-soft); border: 1px solid var(--border-soft);
+    transition: var(--transition); display: flex; flex-direction: column;
 }
-.article-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-    border-color: #bfdbfe;
-}
-
+.article-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: #bfdbfe; }
 .card-img-top {
-    height: 200px;
-    background: #f8fafc;
+    height: 190px; background: #f8fafc;
     display: flex; align-items: center; justify-content: center;
-    color: var(--text-light); font-size: 2.5rem;
 }
-
+.card-img-top .icon { width: 46px; height: 46px; }
 .article-body { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-.article-title { font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin: 15px 0 15px 0; }
-.article-excerpt { font-size: 0.95rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
-
+.article-title { font-size: 1.22rem; font-weight: 700; color: var(--secondary); margin: 0 0 15px 0; line-height: 1.35; }
+.article-title a { color: inherit; text-decoration: none; }
+.article-title a:hover { color: var(--primary); }
+.article-excerpt { font-size: 0.95rem; color: var(--text-light); line-height: 1.65; margin-bottom: 20px; flex-grow: 1; }
 .article-footer {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: 20px; border-top: 1px solid #f1f5f9;
-    font-size: 0.85rem; color: #94a3b8; font-weight: 600;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding-top: 20px; border-top: 1px solid var(--border-soft);
+    font-size: 0.85rem; color: var(--text-light); font-weight: 600;
 }
-
 .author-box { display: flex; align-items: center; gap: 10px; }
-.author-avatar { width: 30px; height: 30px; background: var(--primary); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
-
+.author-avatar {
+    width: 30px; height: 30px; background: var(--primary); border-radius: 50%;
+    color: white; display: flex; align-items: center; justify-content: center;
+}
+.author-avatar .icon { width: 16px; height: 16px; }
 .read-link {
     color: var(--primary); text-decoration: none; font-weight: 700;
-    display: inline-flex; align-items: center; gap: 5px;
+    display: inline-flex; align-items: center; gap: 6px;
 }
-.read-link:hover { gap: 8px; }
+.read-link:hover { text-decoration: underline; }
 
 /* =========================================
-   4. GLOBAL MOBILE RESPONSIVENESS
+   4. MAKALE & YASAL SAYFA (uzun metin)
    ========================================= */
+.doc-hero {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    padding: 64px 20px 56px; text-align: center;
+    border-bottom: 1px solid #dbeafe;
+}
+.doc-hero .badge { margin: 0 auto 18px; }
+.doc-hero h1 {
+    max-width: 820px; margin: 0 auto 16px;
+    font-size: clamp(1.9rem, 4vw, 2.6rem); color: var(--secondary); line-height: 1.25;
+}
+.doc-meta {
+    display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center;
+    color: var(--text-light); font-size: 0.88rem; font-weight: 600;
+}
+.doc-meta span { display: inline-flex; align-items: center; gap: 7px; }
 
+.prose {
+    max-width: 760px; margin: 56px auto 40px; padding: 0 20px;
+    font-size: 1.05rem; line-height: 1.85; color: var(--text-main);
+}
+.prose > p:first-of-type { font-size: 1.14rem; color: var(--text-main); }
+.prose h2 {
+    font-size: 1.5rem; color: var(--secondary);
+    margin: 48px 0 16px; line-height: 1.3;
+}
+.prose h3 { font-size: 1.15rem; color: var(--secondary); margin: 32px 0 12px; }
+.prose p { margin: 0 0 20px; color: var(--text-light); }
+.prose strong { color: var(--secondary); }
+.prose ul, .prose ol { margin: 0 0 22px; padding-left: 22px; color: var(--text-light); }
+.prose li { margin-bottom: 10px; }
+.prose a { color: var(--primary); }
+.prose hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0; }
+
+.callout {
+    background: #f8fafc; border: 1px solid var(--border);
+    border-left: 5px solid var(--primary);
+    border-radius: 12px; padding: 20px 24px; margin: 0 0 26px;
+}
+.callout p { margin: 0; color: var(--text-light); font-size: 0.97rem; }
+.callout.warn { border-left-color: #d97706; background: #fffbeb; }
+.callout.warn p { color: #92400e; }
+
+.doc-cta {
+    max-width: 760px; margin: 0 auto 80px; padding: 34px 30px;
+    background: var(--secondary); color: #fff;
+    border-radius: var(--radius-lg); text-align: center;
+}
+.doc-cta h2 { margin: 0 0 10px; font-size: 1.4rem; color: #fff; }
+.doc-cta p { margin: 0 0 22px; color: var(--text-on-dark); font-size: 0.98rem; }
+
+/* İçindekiler / yasal sayfa listesi */
+.legal-toc {
+    max-width: 760px; margin: 0 auto; padding: 0 20px;
+}
+.legal-toc ol { padding-left: 20px; color: var(--text-light); }
+
+/* =========================================
+   5. TEST TANITIM SAYFASI
+   ========================================= */
+.test-hero {
+    padding: 70px 20px 60px; text-align: center;
+    background: radial-gradient(circle at 50% 0%, #f0f9ff 0%, #ffffff 78%);
+}
+.test-hero-icon {
+    width: 88px; height: 88px; border-radius: 26px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+}
+.test-hero-icon .icon { width: 38px; height: 38px; }
+.test-hero h1 { font-size: clamp(2rem, 4.5vw, 2.9rem); color: var(--secondary); margin: 0 0 16px; line-height: 1.15; }
+.test-hero .lede { max-width: 660px; margin: 0 auto 30px; color: var(--text-light); font-size: 1.12rem; }
+
+.test-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: #fff; color: var(--secondary);
+    border: 2px solid var(--border); padding: 16px 34px;
+    border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem;
+    transition: var(--transition);
+}
+.btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+.test-meta {
+    display: flex; gap: 10px 28px; justify-content: center; flex-wrap: wrap;
+    margin-top: 26px; font-size: 0.87rem; color: var(--text-light); font-weight: 600;
+}
+.test-meta span { display: inline-flex; align-items: center; gap: 7px; }
+
+.test-section { max-width: 900px; margin: 0 auto; padding: 56px 20px 0; }
+.test-section h2 { font-size: 1.6rem; color: var(--secondary); margin: 0 0 22px; }
+
+.measure-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.measure-list li {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: #fff; border: 1px solid var(--border-soft);
+    border-radius: 14px; padding: 18px 20px;
+    color: var(--text-light); line-height: 1.65;
+}
+.measure-list .icon { width: 20px; height: 20px; color: #15803d; margin-top: 4px; }
+
+.faq-item {
+    background: #fff; border: 1px solid var(--border-soft);
+    border-radius: 14px; padding: 22px 24px; margin-bottom: 14px;
+}
+.faq-item h3 { margin: 0 0 10px; font-size: 1.05rem; color: var(--secondary); }
+.faq-item p { margin: 0; color: var(--text-light); font-size: 0.97rem; line-height: 1.75; }
+
+.related-tests { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.related-tests a {
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; border: 1px solid var(--border-soft); border-radius: 14px;
+    padding: 16px 18px; text-decoration: none; color: var(--secondary);
+    font-weight: 700; font-size: 0.95rem; transition: var(--transition);
+}
+.related-tests a:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
+.related-tests .icon { width: 20px; height: 20px; }
+
+/* 404 */
+.notfound { max-width: 600px; margin: 90px auto; padding: 0 20px; text-align: center; }
+.notfound h1 { font-size: 4rem; margin: 0; color: var(--primary); letter-spacing: -2px; }
+.notfound h2 { font-size: 1.5rem; color: var(--secondary); margin: 6px 0 14px; }
+.notfound p { color: var(--text-light); margin-bottom: 30px; }
+
+/* =========================================
+   6. MOBIL
+   ========================================= */
 @media (max-width: 900px) {
-    /* Genel Yapı - Izgaraları Tek Sütuna İndir */
-    .about-content, .result-container { 
-        grid-template-columns: 1fr; 
-        gap: 40px; 
-    }
-
-    /* Hero Alanları - Navbar Stack olduğu için üst boşluğu artır */
-    .about-hero, .insights-hero {
-        padding-top: 160px; /* Navbar dikey olduğunda içerik altta kalmasın */
-    }
-
-    /* Stats Bar - Dikey Dizilim */
-    .stats-bar { 
-        gap: 30px; 
-        flex-direction: column; 
-        margin-top: -20px;
-        padding: 30px;
-    }
-
-    /* Result Sayfası */
-    .result-container { margin-top: 60px; }
+    .about-content, .result-container { grid-template-columns: 1fr; gap: 40px; }
+    .about-hero, .insights-hero { padding-top: 56px; }
+    .stats-bar { gap: 26px; flex-direction: column; margin-top: -20px; padding: 30px; }
+    .result-container { margin-top: 30px; }
     .medical-disclaimer { flex-direction: column; text-align: center; }
-    
-    /* Blog Featured Card - Dikey */
     .featured-article { grid-template-columns: 1fr; }
-    .featured-img { min-height: 250px; font-size: 3rem; }
+    .featured-img { min-height: 220px; }
+    .featured-img .icon { width: 56px; height: 56px; }
     .featured-content { padding: 30px; }
-    
-    /* Doktor Kartı - Sticky Özelliğini Kaldır */
-    .doctor-card { 
-        position: relative; 
-        top: 0; 
-        margin-bottom: 40px; 
-    }
-
-    /* Grid Kartlar Tam Genişlik */
-    .articles-grid {
-        grid-template-columns: 1fr;
-    }
+    .doctor-card { position: relative; top: 0; margin-bottom: 40px; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .result-card, .action-card { padding: 30px 22px; }
+    .prose { margin-top: 40px; font-size: 1rem; }
+    .test-actions .cta-button, .test-actions .btn-secondary { width: 100%; }
 }

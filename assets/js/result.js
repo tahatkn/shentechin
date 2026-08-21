@@ -1,107 +1,133 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Önce "Analiz Yapılıyor" modunu simüle edelim
-    const resultContainer = document.querySelector('.result-container');
-    
-    // Eğer HTML'de bir loading elementi yoksa, varmış gibi davranıp içeriği değiştireceğiz.
-    
-    // 1.5 saniye bekle (Hesaplama süsü)
-    setTimeout(() => {
-        showResults();
-    }, 1500);
-});
+/* ShenTechin Med — sonuç sayfası.
+   Not: Eski sürümdeki "Toplumdaki Yeri: Top %X" ifadesi kaldırıldı.
+   Elimizde gerçek bir popülasyon dağılımı olmadığı için o sayı uydurmaydı;
+   yerine skorun hangi aralığa düştüğünü söyleyen dürüst bir bant etiketi kondu. */
+(function (w, d) {
+    'use strict';
 
-function showResults() {
-    // 1. Verileri LocalStorage'dan Çek
-    const score = parseInt(localStorage.getItem('quizScore')) || 0;
-    const maxScore = parseInt(localStorage.getItem('quizMaxScore')) || 250;
-    const testType = localStorage.getItem('currentTestType') || 'sleep';
-    const lang = localStorage.getItem('selectedLang') || 'en';
+    var CONTACT = 'info@shentechin.com';   // <-- kendi adresinizle değiştirin
+    var SITE = 'https://shentechin.com';
 
-    // 2. Yüzdeyi Hesapla
-    const percentage = Math.round((score / maxScore) * 100);
-
-    // 3. Renk Belirleme
-    let color = "#16a34a"; // Yeşil
-    if (percentage < 50) color = "#dc2626"; // Kırmızı
-    else if (percentage < 80) color = "#d97706"; // Turuncu
-
-    // 4. Grafiği Çiz
-    const circle = document.getElementById('score-circle');
-    const scoreText = document.getElementById('score-text');
-    const degree = 3.6 * percentage;
-    
-    circle.style.background = `conic-gradient(${color} ${degree}deg, #f1f5f9 0deg)`;
-    scoreText.textContent = `%${percentage}`;
-    scoreText.style.color = color;
-
-    // 5. Metinleri Getir (translations.js'den)
-    if (typeof uiTranslations === 'undefined') return;
-
-    const currentLangData = uiTranslations[lang];
-    const t = currentLangData.titles[testType] || currentLangData.titles['sleep'];
-
-    const titleEl = document.getElementById('result-title');
-    const descEl = document.getElementById('result-desc');
-
-    // Analiz Mantığı
-    let statusTitle = "";
-    let riskText = "";
-    let percentileText = "";
-
-    if (percentage >= 80) {
-        statusTitle = t.good;
-        riskText = t.risk_good;
-        percentileText = `${currentLangData.percentile_prefix} Top ${100 - percentage}% (Optimal)`;
-        titleEl.style.color = "#16a34a";
-    } else if (percentage >= 50) {
-        statusTitle = t.title;
-        riskText = t.risk_avg;
-        percentileText = `${currentLangData.percentile_prefix} Average`;
-        titleEl.style.color = "#d97706";
-    } else {
-        statusTitle = t.bad;
-        riskText = t.risk_bad;
-        percentileText = `${currentLangData.percentile_prefix} Bottom ${percentage}% (High Risk Group)`;
-        titleEl.style.color = "#dc2626";
+    function bandOf(pct) {
+        if (pct >= 80) return 'good';
+        if (pct >= 50) return 'mid';
+        return 'low';
     }
 
-    // 6. İçeriği Güncelle (SONSUZ YÜKLEME BURADA BİTER)
-    // Başlık "Analiz yapılıyor"dan sonuca döner
-    titleEl.innerHTML = `
-        <span style="font-size:0.8rem; opacity:0.7; display:block; margin-bottom:5px; text-transform:uppercase; letter-spacing:1px; color:#64748b;">
-            ${currentLangData.analysis_label}
-        </span>
-        ${statusTitle}
-    `;
+    var BAND_COLOR = { good: '#15803d', mid: '#b45309', low: '#b91c1c' };
 
-    // Açıklama "Lütfen bekleyin"den rapora döner
-    descEl.innerHTML = `
-        <div class="percentile-box" style="border-left: 4px solid ${titleEl.style.color}">
-            ${percentileText}
-        </div>
-        <div class="risk-text">
-            ${riskText}
-        </div>
-    `;
-
-    // Medikal Uyarı
-    const disclaimerEl = document.querySelector('.medical-disclaimer span');
-    if(disclaimerEl && currentLangData.doctor_loop_result) {
-        disclaimerEl.innerHTML = currentLangData.doctor_loop_result;
+    function readResult() {
+        try {
+            var raw = w.localStorage.getItem('stq:result');
+            if (!raw) return null;
+            var r = JSON.parse(raw);
+            if (!r || typeof r.percent !== 'number' || !r.type) return null;
+            if (r.percent < 0 || r.percent > 100) return null;
+            return r;
+        } catch (e) { return null; }
     }
-}
 
-// Share Fonksiyonu (Aynı Kalıyor)
-function shareResult(platform) {
-    const score = document.getElementById('score-text').textContent;
-    const testType = localStorage.getItem('currentTestType') || 'medical';
-    const url = "https://www.shentechin.com"; 
-    
-    let text = `My Health Score: ${score}. Check yours at ShenTechin Med!`;
-    
-    if (platform === 'twitter') {
-        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`, '_blank');
-    } else if (platform === 'whatsapp') {
-        window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + url)}`, '_blank');
+    function showEmpty() {
+        var wrap = d.querySelector('.result-container');
+        if (!wrap) return;
+        wrap.className = 'result-empty';
+        wrap.innerHTML =
+            '<h1 data-i18n="res_empty_title">No result to show yet</h1>' +
+            '<p data-i18n="res_empty_desc">Complete one of the assessments and your result will appear here.</p>' +
+            '<a class="cta-button" href="index.html" data-i18n="res_empty_btn">Choose a test</a>';
+        if (w.I18N) w.I18N.apply();
     }
-}
+
+    function texts(type) {
+        var lang = w.I18N.current();
+        var table = w.I18N_RESULTS || {};
+        var byLang = table[lang] || table.en || {};
+        return byLang[type] || (table.en || {})[type] || null;
+    }
+
+    function render(result) {
+        var t = texts(result.type);
+        if (!t) { showEmpty(); return; }
+
+        var pct = result.percent;
+        var band = bandOf(pct);
+        var color = BAND_COLOR[band];
+
+        var circle = d.getElementById('score-circle');
+        var scoreText = d.getElementById('score-text');
+        circle.style.background = 'conic-gradient(' + color + ' ' + (3.6 * pct) + 'deg, #f1f5f9 0deg)';
+        circle.setAttribute('role', 'img');
+        circle.setAttribute('aria-label', w.I18N.t('res_score_aria') + ' ' + pct + ' / 100');
+        scoreText.textContent = pct + '%';
+        scoreText.style.color = color;
+
+        var label = d.getElementById('result-test-label');
+        if (label) label.textContent = t.name;
+
+        var titleEl = d.getElementById('result-title');
+        titleEl.textContent = t.bands[band].label;
+        titleEl.style.color = color;
+
+        d.getElementById('result-desc').innerHTML =
+            '<span class="band-box" style="border-left:4px solid ' + color + '">' +
+                w.I18N.t('res_band_' + band) +
+            '</span>' +
+            '<span class="risk-text">' + t.bands[band].text + '</span>';
+
+        var premium = d.getElementById('premium-btn');
+        if (premium) {
+            premium.setAttribute('href', 'mailto:' + CONTACT +
+                '?subject=' + encodeURIComponent('ShenTechin Med — ' + t.name));
+        }
+
+        w.stAnalytics.track('result_viewed', {
+            test: result.type, mode: result.mode, percent: pct, band: band
+        });
+    }
+
+    function shareText() {
+        var r = readResult();
+        if (!r) return '';
+        var t = texts(r.type);
+        return w.I18N.t('res_share_text')
+            .replace('{score}', r.percent + '%')
+            .replace('{test}', t ? t.name : '');
+    }
+
+    function share(platform) {
+        var text = shareText();
+        w.stAnalytics.track('result_shared', { platform: platform });
+
+        if (platform === 'native' && w.navigator.share) {
+            w.navigator.share({ title: 'ShenTechin Med', text: text, url: SITE })
+                .catch(function () { /* kullanıcı vazgeçti */ });
+            return;
+        }
+        var url;
+        if (platform === 'x') {
+            url = 'https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(SITE);
+        } else {
+            url = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + SITE);
+        }
+        w.open(url, '_blank', 'noopener');
+    }
+
+    function boot() {
+        var result = readResult();
+        if (!result) { showEmpty(); return; }
+
+        render(result);
+        w.addEventListener('i18n:applied', function () { render(result); });
+
+        d.querySelectorAll('[data-share]').forEach(function (btn) {
+            btn.addEventListener('click', function () { share(btn.dataset.share); });
+        });
+
+        /* Web Share API yoksa "Paylaş" düğmesini gizle, klasik butonlar kalsın. */
+        var nativeBtn = d.querySelector('[data-share="native"]');
+        if (nativeBtn && !w.navigator.share) nativeBtn.hidden = true;
+    }
+
+    if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', boot);
+    else boot();
+})(window, document);
