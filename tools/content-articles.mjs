@@ -1,7 +1,7 @@
 /* Yazılar bölümündeki 4 makalenin tam metni. İki dil de HTML içinde durur. */
 export const ARTICLES = [
 { slug:'chronic-stress-and-the-body', featured:true, badge:'neuro', badgeKey:'badge_neuro',
-  icon:'brain', bg:'#f3e8ff', fg:'#7e22ce', date:'2026-08-21',
+  tone:'stress', relatedTest:'stress', icon:'brain', date:'2026-08-19',
   en:{ title:'What chronic stress actually does to the body',
     desc:'Stress is a hormonal loop with a beginning, a purpose and an off switch. Understanding where the switch is makes it easier to use.',
     dek:'Stress is not only a feeling. It is a hormonal loop with a beginning, a purpose and an off switch — and understanding where that switch is makes it easier to use.',
@@ -58,7 +58,7 @@ export const ARTICLES = [
 <p>Panik atak geçiriyorsanız, ruh hâliniz sürekli düşükse ya da artık hiç kapanamıyorsanız, bu bir hekime veya psikoloğa danışmak için gerekçedir. Stres dramatik anlamda tehlikeli olduğu için değil; bunlar tedavi edilebilir olduğu ve tedavi erken başlayınca daha iyi işlediği için.</p>` }},
 
 { slug:'why-calorie-counting-fails', badge:'diet', badgeKey:'badge_meta',
-  icon:'leaf', bg:'#dcfce7', fg:'#15803d', date:'2026-08-21',
+  tone:'diet', relatedTest:'diet', icon:'leaf', date:'2026-07-03',
   en:{ title:'Why calorie counting stops working for so many people',
     desc:'Calories in, calories out is not wrong — it is incomplete. Here is what the model leaves out and what to do instead.',
     dek:'Calories in, calories out is not wrong — it is just incomplete. Here is what the model leaves out, and what to do instead.',
@@ -119,7 +119,7 @@ export const ARTICLES = [
 <p>Tekrarlayan kilo verip alma döngüleriniz, düzensiz yeme geçmişiniz ya da beslenmeden etkilenen bir hastalığınız varsa — diyabet, tiroid hastalığı, böbrek hastalığı — burası yeni bir plan yerine bir diyetisyenle çalışma noktasıdır. Disiplininiz eksik olduğu için değil; bu durumlarda işe yarayan düzenlemeler özgül olduğu ve genel tavsiye onların yerini kötü doldurduğu için.</p>` }},
 
 { slug:'sleep-cycles-explained', badge:'sleep', badgeKey:'badge_sleep',
-  icon:'moon', bg:'#e0f2fe', fg:'#0369a1', date:'2026-08-21',
+  tone:'sleep', relatedTest:'sleep', icon:'moon', date:'2026-06-12',
   en:{ title:'Sleep cycles, explained without the jargon',
     desc:'Deep sleep and REM do different jobs and are not spread evenly across the night. That has practical consequences for when you go to bed.',
     dek:'Deep sleep and REM do different jobs, and they are not distributed evenly across the night. That has practical consequences for when you go to bed.',
@@ -190,7 +190,7 @@ export const ARTICLES = [
 <p>Nefes duraklamalarının eşlik ettiği yüksek horlama, boğulur gibi uyanma ya da yeterli saate rağmen ağır gün içi uyku hâli alışkanlık sorunu değildir. Bunlar, yaygın olan, sık atlanan ve saptandığında çok iyi tedavi edilen uyku apnesi için bir hekimle konuşma gerekçesidir.</p>` }},
 
 { slug:'heart-rate-variability', badge:'cardio', badgeKey:'badge_cardio',
-  icon:'heart-pulse', bg:'#fee2e2', fg:'#b91c1c', date:'2026-08-21',
+  tone:'heart', relatedTest:'heart', icon:'heart-pulse', date:'2026-07-28',
   en:{ title:'Heart rate variability: what it is and what it isn’t',
     desc:'HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.',
     dek:'HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.',

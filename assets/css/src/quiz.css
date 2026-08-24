@@ -1,0 +1,188 @@
+/* =============================================================
+   TEST EKRANI
+   ============================================================= */
+
+.quiz-shell {
+  max-width: 780px; margin-inline: auto;
+  padding: var(--sp-6) var(--sp-5) var(--sp-11);
+}
+
+/* ---------- ÜST ŞERİT ---------- */
+.quiz-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-4); margin-bottom: var(--sp-6); flex-wrap: wrap;
+}
+.quiz-saved {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--step--2); font-weight: 700; color: var(--ok);
+  opacity: 0; transition: opacity var(--dur-2) var(--ease);
+}
+.quiz-saved.is-on { opacity: 1; }
+
+/* ---------- İLERLEME ---------- */
+.progress { margin-bottom: var(--sp-7); }
+.progress__meta {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: var(--sp-3); margin-bottom: var(--sp-3); flex-wrap: wrap;
+}
+.progress__count { font-weight: 800; color: var(--fg); font-size: var(--step--1); }
+.progress__right { display: flex; gap: var(--sp-4); align-items: baseline; }
+.progress__left-time, .progress__mode {
+  font-size: var(--step--2); color: var(--fg-subtle); font-weight: 600;
+}
+
+.progress__track {
+  position: relative; height: 8px; border-radius: var(--r-pill);
+  background: var(--bg-sunken); overflow: hidden;
+}
+/* Cevaplanan oranı (dolu) ile bulunulan konum (soluk) ayrı gösterilir:
+   çubuk artık "henüz cevaplamadan" dolmuş gibi görünmez. */
+.progress__seen {
+  position: absolute; inset-block: 0; left: 0; width: 0;
+  background: var(--border-strong); opacity: .55;
+  transition: width var(--dur-3) var(--ease-out);
+}
+.progress__fill {
+  position: absolute; inset-block: 0; left: 0; width: 0;
+  background: var(--accent-gradient); border-radius: var(--r-pill);
+  transition: width var(--dur-3) var(--ease-out);
+}
+
+/* ---------- DEVAM ET ŞERİDİ ---------- */
+.resume {
+  display: none; align-items: center; gap: var(--sp-4); flex-wrap: wrap;
+  padding: var(--sp-4) var(--sp-5); margin-bottom: var(--sp-6);
+  background: var(--brand-soft); border: 1px solid var(--brand-border);
+  border-radius: var(--r-lg); color: var(--brand-ink);
+  font-size: var(--step--1); font-weight: 600;
+}
+.resume.is-on { display: flex; animation: fadeUp var(--dur-2) var(--ease-out); }
+.resume p { margin: 0; flex: 1 1 200px; }
+
+/* ---------- SORU KARTI ---------- */
+.qcard {
+  background: var(--bg-elev);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-2xl);
+  box-shadow: var(--shadow-2);
+  padding: var(--sp-9) var(--sp-8);
+  text-align: center;
+}
+.qcard__index {
+  display: block; font-size: var(--step--2); font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--brand); margin-bottom: var(--sp-4);
+}
+.qcard h2 {
+  font-size: var(--step-2); line-height: var(--lh-snug);
+  margin-bottom: var(--sp-7); font-weight: 800;
+}
+.qcard h2:focus { outline: none; }
+
+/* soru geçiş animasyonu */
+.qcard__inner { animation: qIn var(--dur-3) var(--ease-out); }
+.qcard__inner.is-back { animation-name: qInBack; }
+@keyframes qIn { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: none; } }
+@keyframes qInBack { from { opacity: 0; transform: translateX(-22px); } to { opacity: 1; transform: none; } }
+
+/* ---------- 1–10 ÖLÇEĞİ ---------- */
+.scale-legend {
+  display: flex; justify-content: space-between; gap: var(--sp-4);
+  font-size: var(--step--2); font-weight: 700; color: var(--fg-subtle);
+  margin-bottom: var(--sp-3); text-align: left;
+}
+.scale-legend span:last-child { text-align: right; }
+
+.scale {
+  display: grid; grid-template-columns: repeat(10, 1fr);
+  gap: var(--sp-2);
+}
+.scale-btn {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 1 / 1.35; min-height: 46px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-md);
+  /* sakin → yoğun: değer arttıkça zemin koyulaşır (iyi/kötü değil, miktar) */
+  background: color-mix(in srgb, var(--brand) calc(var(--i) * 4%), var(--bg-elev));
+  color: var(--fg-muted);
+  font-family: inherit; font-size: var(--step--1); font-weight: 800;
+  cursor: pointer;
+  transition: transform var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease),
+              box-shadow var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+@media (hover: hover) {
+  .scale-btn:hover {
+    border-color: var(--brand); color: var(--brand);
+    transform: translateY(-3px); box-shadow: var(--shadow-1);
+  }
+}
+.scale-btn:active { transform: scale(.95); }
+.scale-btn[aria-checked='true'] {
+  background: var(--brand); border-color: var(--brand); color: var(--brand-fg);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 24%, transparent);
+  animation: popIn var(--dur-1) var(--ease-out);
+}
+.scale-btn[aria-checked='true']::after {
+  content: ''; position: absolute; inset: -6px; border-radius: inherit;
+}
+
+.scale-hint {
+  margin-top: var(--sp-4); font-size: var(--step--2);
+  color: var(--fg-subtle); text-align: center;
+}
+.scale-hint kbd {
+  display: inline-block; padding: 1px 6px; margin: 0 2px;
+  border: 1px solid var(--border-strong); border-bottom-width: 2px;
+  border-radius: 5px; background: var(--bg-sunken);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em;
+}
+
+/* ---------- ALT KONTROLLER ---------- */
+.qfoot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-3); margin-top: var(--sp-7);
+}
+.qfoot .btn { min-width: 132px; }
+.next-btn:disabled, .prev-btn:disabled { opacity: .45; cursor: not-allowed; }
+.next-btn:disabled:hover { transform: none; box-shadow: var(--shadow-brand); }
+
+.auto-toggle {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  font-size: var(--step--2); color: var(--fg-subtle); font-weight: 600;
+  cursor: pointer; user-select: none;
+}
+.auto-toggle input { accent-color: var(--brand); width: 15px; height: 15px; cursor: pointer; }
+
+.quiz-note {
+  margin-top: var(--sp-7); text-align: center;
+  font-size: var(--step--2); color: var(--fg-subtle); line-height: var(--lh-normal);
+}
+
+/* ---------- MOBİL: yapışkan alt bar ---------- */
+@media (max-width: 640px) {
+  .quiz-shell { padding-bottom: 104px; }
+  .qcard { padding: var(--sp-6) var(--sp-4); border-radius: var(--r-xl); }
+  .qcard h2 { font-size: var(--step-1); margin-bottom: var(--sp-5); }
+
+  /* 10 sütun telefonda çok dar — iki sıra beşli */
+  .scale { grid-template-columns: repeat(5, 1fr); gap: var(--sp-2); }
+  .scale-btn { aspect-ratio: 1; min-height: 52px; font-size: var(--step-0); }
+
+  .qfoot {
+    position: fixed; inset-inline: 0; bottom: 0; z-index: 900;
+    margin: 0; padding: var(--sp-3) var(--sp-4);
+    padding-bottom: calc(var(--sp-3) + env(safe-area-inset-bottom, 0px));
+    background: color-mix(in srgb, var(--bg) 94%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+  }
+  .qfoot .btn { flex: 1; min-width: 0; padding-inline: var(--sp-4); }
+  .auto-toggle { display: none; }
+  .scale-hint { display: none; }
+}
+
+@media (max-width: 380px) {
+  .scale { gap: 6px; }
+  .scale-btn { min-height: 46px; }
+}

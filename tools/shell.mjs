@@ -1,134 +1,318 @@
 /* Ortak sayfa iskeleti: <head>, navigasyon, alt bilgi.
-   Tüm HTML dosyaları buradan üretilir; böylece 22 sayfada nav/footer/meta
-   kopyala-yapıştır ile birbirinden ayrışmaz. */
-import { icon, sprite, ALL_ICONS } from './icons.mjs';
+   Bütün HTML dosyaları buradan üretilir.
 
-export const SITE = 'https://shentechin.com';
-export const OG_IMAGE = SITE + '/assets/img/og-default.png';
+   Öne çıkan kararlar:
+   - CSS sayfaya GÖMÜLÜR. Toplam ~4 KB gzip; harici bir istek beklemeden
+     ilk boyama yapılır. Tekrar ziyaretlerde service worker devrede.
+   - <head> içinde yalnızca tek bir küçük satır içi script var (tema),
+     çünkü boyamadan önce çalışması gerekiyor. Geri kalan her şey defer.
+   - Metinler derleme sırasında yerleştirilir; sayfa tek dillidir.
+   - Her sayfa kendi Türkçe/İngilizce karşılığına hreflang ile bağlanır. */
 
-const TEST_LINKS = [
-  ['sleep', 'test_sleep_name'], ['skin', 'test_skin_name'], ['diet', 'test_diet_name'],
-  ['stress', 'test_stress_name'], ['heart', 'test_heart_name'], ['focus', 'test_focus_name'],
-  ['fitness', 'test_fitness_name'], ['immunity', 'test_immunity_name'], ['tech', 'test_tech_name']
-];
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { icon, sprite } from './icons.mjs';
+import { UI, t } from './i18n.mjs';
+import { SITE, url, absUrl } from './lib/routes.mjs';
+import { minifyCss } from './lib/minify.mjs';
 
-function nav(p, active) {
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const CSS_DIR = path.join(ROOT, 'assets/css/src');
+
+/* ---------- CSS paketleri (derleme başına bir kez küçültülür) ---------- */
+const cssCache = new Map();
+
+function cssBundle(files) {
+  const key = files.join('|');
+  if (cssCache.has(key)) return cssCache.get(key);
+  const out = minifyCss(
+    ['core.css', ...files].map((f) => fs.readFileSync(path.join(CSS_DIR, f), 'utf8')).join('\n')
+  );
+  cssCache.set(key, out);
+  return out;
+}
+
+/* ---------- yer tutucu adresler ---------- */
+export function expand(text, lang) {
+  return text
+    .replace(/%disclaimer%/g, url('disclaimer', lang))
+    .replace(/%privacy%/g, url('privacy', lang))
+    .replace(/%terms%/g, url('terms', lang))
+    .replace(/%home%/g, url('home', lang))
+    .replace(/%insights%/g, url('insights', lang))
+    .replace(/%about%/g, url('about', lang));
+}
+
+const esc = (s) => String(s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/* ---------- tema betiği ----------
+   Boyamadan ÖNCE çalışması gerektiği için sayfaya gömülü tek script budur.
+   Sıra: adresteki ?theme= > kullanıcının kaydettiği seçim > sistem tercihi.
+   Adres parametresi hem "koyu temayla bağlantı paylaşma"yı hem de
+   tools/visual.mjs'in iki temayı da ekran görüntüsüne alabilmesini sağlar. */
+const THEME_SCRIPT =
+  `(function(){try{var q=/[?&]theme=(dark|light)/.exec(location.search);` +
+  `var t=q?q[1]:localStorage.getItem('stq:theme');` +
+  `if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';` +
+  `document.documentElement.setAttribute('data-theme',t);}catch(e){}` +
+  `document.documentElement.classList.add('js-on');})()`;
+
+/* ---------- navigasyon ---------- */
+function nav(lang, active, alternate) {
   const cur = (id) => (active === id ? ' aria-current="page"' : '');
-  return `<a class="skip-link" href="#main" data-i18n="skip_link">Skip to main content</a>
+  const other = lang === 'tr' ? 'en' : 'tr';
+  const otherLabel = other === 'tr' ? 'TR' : 'EN';
+
+  return `<a class="skip-link" href="#main">${t(lang, 'skip_link')}</a>
 <nav class="navbar">
-    <a href="${p}index.html" class="logo">ShenTechin<span class="med-badge">MED</span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-i18n-attr="aria-label:nav_menu">
-        ${icon('menu', 'icon-menu')}${icon('close', 'icon-close')}
-    </button>
-    <ul class="nav-links" id="primary-nav">
-        <li><a href="${p}index.html#test-section"${cur('tests')} data-i18n="nav_tests">Tests</a></li>
-        <li><a href="${p}insights.html"${cur('insights')} data-i18n="nav_insights">Insights</a></li>
-        <li><a href="${p}about.html"${cur('about')} data-i18n="nav_about">About</a></li>
-        <li class="lang-switcher" role="group" data-i18n-attr="aria-label:lang_label">
-            <button type="button" class="lang-btn" data-lang-btn data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" class="lang-btn" data-lang-btn data-lang="tr" aria-pressed="false">TR</button>
-        </li>
-    </ul>
+<a href="${url('home', lang)}" class="logo">ShenTechin<span class="med-badge">MED</span></a>
+<ul class="nav-links" id="primary-nav">
+<li><a href="${url('home', lang)}#tests"${cur('tests')}>${t(lang, 'nav_tests')}</a></li>
+<li><a href="${url('insights', lang)}"${cur('insights')}>${t(lang, 'nav_insights')}</a></li>
+<li><a href="${url('about', lang)}"${cur('about')}>${t(lang, 'nav_about')}</a></li>
+</ul>
+<div class="nav-tools">
+<a class="lang-link" href="${alternate}" hreflang="${other}" data-lang-switch="${other}" title="${esc(t(lang, 'lang_other'))}">${otherLabel}</a>
+<button class="icon-btn theme-btn" type="button" data-theme-btn aria-pressed="false" aria-label="${esc(t(lang, 'theme_toggle'))}">
+${icon('moon', 'icon-moon')}${icon('sun', 'icon-sun')}
+</button>
+<button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="${esc(t(lang, 'nav_menu'))}">
+${icon('menu', 'icon-menu')}${icon('close', 'icon-close')}
+</button>
+</div>
 </nav>`;
 }
 
-function footer(p) {
-  const tests = TEST_LINKS
-    .map(([slug, key]) => `<li><a href="${p}tests/${slug}/" data-i18n="${key}">${slug}</a></li>`)
-    .join('\n                ');
+/* ---------- alt bilgi ---------- */
+const TEST_IDS = ['sleep', 'skin', 'diet', 'stress', 'heart', 'focus', 'fitness', 'immunity', 'tech'];
+
+function footer(lang) {
+  const tests = TEST_IDS
+    .map((id) => `<li><a href="${url('test', lang, id)}">${t(lang, `test_${id}_name`)}</a></li>`)
+    .join('\n');
+
   return `<footer>
-    <div class="footer-inner">
-        <div class="footer-brand">
-            <a href="${p}index.html" class="logo">ShenTechin<span class="med-badge">MED</span></a>
-            <p data-i18n="footer_tagline">Free, anonymous self-assessments on everyday health habits.</p>
-        </div>
-        <div class="footer-col">
-            <h4 data-i18n="footer_col_tests">Assessments</h4>
-            <ul>
-                ${tests}
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4 data-i18n="footer_col_learn">Learn</h4>
-            <ul>
-                <li><a href="${p}insights.html" data-i18n="nav_insights">Insights</a></li>
-                <li><a href="${p}about.html" data-i18n="nav_about">About</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4 data-i18n="footer_col_legal">Legal</h4>
-            <ul>
-                <li><a href="${p}disclaimer.html" data-i18n="footer_disclaimer">Medical Disclaimer</a></li>
-                <li><a href="${p}privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
-                <li><a href="${p}terms.html" data-i18n="footer_terms">Terms of Use</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <span data-i18n="footer_copy">&copy; 2026 ShenTechin Med.</span>
-        <span data-i18n="footer_note">These assessments are not medical diagnoses.</span>
-    </div>
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="${url('home', lang)}" class="logo">ShenTechin<span class="med-badge">MED</span></a>
+<p>${t(lang, 'footer_tagline')}</p>
+</div>
+<div class="footer-col">
+<h4>${t(lang, 'footer_col_tests')}</h4>
+<ul>
+${tests}
+</ul>
+</div>
+<div class="footer-col">
+<h4>${t(lang, 'footer_col_learn')}</h4>
+<ul>
+<li><a href="${url('insights', lang)}">${t(lang, 'nav_insights')}</a></li>
+<li><a href="${url('about', lang)}">${t(lang, 'nav_about')}</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>${t(lang, 'footer_col_legal')}</h4>
+<ul>
+<li><a href="${url('disclaimer', lang)}">${t(lang, 'footer_disclaimer')}</a></li>
+<li><a href="${url('privacy', lang)}">${t(lang, 'footer_privacy')}</a></li>
+<li><a href="${url('terms', lang)}">${t(lang, 'footer_terms')}</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>${t(lang, 'footer_copy')}</span>
+<span>${t(lang, 'footer_note')}</span>
+</div>
 </footer>`;
 }
 
-/* opts: { path, depth, title, desc, titleKey, descKey, css, bundles, scripts,
-           bodyClass, active, main, noindex, ogType } */
-export function page(opts) {
-  const p = '../'.repeat(opts.depth || 0);
-  const canonical = SITE + '/' + (opts.path === 'index.html' ? '' : opts.path.replace(/index\.html$/, ''));
-  const css = ['base.css', ...(opts.css || [])];
-  const bundles = ['common.js', ...(opts.bundles || [])];
+/* ---------- dil öneri şeridi ---------- */
+function langOffer(lang, alternate) {
+  const other = lang === 'tr' ? 'en' : 'tr';
+  return `<aside class="lang-offer" hidden>
+<p>${t(lang, 'lang_offer')}</p>
+<a class="btn btn--primary btn--sm" href="${alternate}" hreflang="${other}" data-lang-switch="${other}">${t(lang, 'lang_offer_btn')}</a>
+<button class="btn btn--quiet btn--sm" type="button" data-lang-dismiss>${t(lang, 'lang_offer_close')}</button>
+</aside>`;
+}
 
-  return `<!DOCTYPE html>
-<html lang="en"${opts.titleKey ? ` data-i18n-title="${opts.titleKey}"` : ''}${opts.descKey ? ` data-i18n-desc="${opts.descKey}"` : ''}>
+/* ---------- yapılandırılmış veri ---------- */
+function jsonLd(opts, lang) {
+  const graph = [];
+  const orgId = SITE + '/#org';
+  const siteId = SITE + '/#website';
+
+  graph.push({
+    '@type': 'Organization',
+    '@id': orgId,
+    name: 'ShenTechin Med',
+    url: SITE,
+    logo: SITE + '/apple-touch-icon.png',
+    description: t(lang, 'footer_tagline')
+  });
+
+  graph.push({
+    '@type': 'WebSite',
+    '@id': siteId,
+    url: SITE,
+    name: 'ShenTechin Med',
+    inLanguage: lang,
+    publisher: { '@id': orgId }
+  });
+
+  const pageId = opts.canonical + '#page';
+  graph.push({
+    '@type': 'WebPage',
+    '@id': pageId,
+    url: opts.canonical,
+    name: opts.title,
+    description: opts.desc,
+    inLanguage: lang,
+    isPartOf: { '@id': siteId },
+    ...(opts.breadcrumb ? { breadcrumb: { '@id': opts.canonical + '#crumb' } } : {})
+  });
+
+  if (opts.breadcrumb) {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': opts.canonical + '#crumb',
+      itemListElement: opts.breadcrumb.map((c, i) => ({
+        '@type': 'ListItem', position: i + 1, name: c.name,
+        ...(c.url ? { item: c.url } : {})
+      }))
+    });
+  }
+
+  if (opts.article) {
+    graph.push({
+      '@type': 'Article',
+      '@id': opts.canonical + '#article',
+      headline: opts.article.headline,
+      description: opts.desc,
+      inLanguage: lang,
+      datePublished: opts.article.date,
+      dateModified: opts.article.date,
+      author: { '@type': 'Person', name: 'Dr. ShenTechin' },
+      publisher: { '@id': orgId },
+      image: opts.ogImage,
+      mainEntityOfPage: { '@id': pageId },
+      articleSection: opts.article.section,
+      wordCount: opts.article.words
+    });
+  }
+
+  if (opts.faq && opts.faq.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': opts.canonical + '#faq',
+      mainEntity: opts.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a }
+      }))
+    });
+  }
+
+  if (opts.quiz) {
+    graph.push({
+      '@type': 'Quiz',
+      '@id': opts.canonical + '#quiz',
+      name: opts.quiz.name,
+      about: { '@type': 'Thing', name: opts.quiz.about },
+      educationalLevel: 'beginner',
+      assesses: opts.quiz.about,
+      inLanguage: lang,
+      isAccessibleForFree: true,
+      provider: { '@id': orgId },
+      numberOfQuestions: 25
+    });
+  }
+
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })
+    .replace(/</g, '\\u003c');
+}
+
+/* ---------------------------------------------------------------
+   page(opts)
+   opts = {
+     kind, lang, slug, active, title, desc, ogImage, ogType,
+     css: [...], scripts: [...], inlineJs, bodyClass, main,
+     noindex, breadcrumb, article, faq, quiz, icons: [...]
+   }
+   --------------------------------------------------------------- */
+export function page(opts) {
+  const lang = opts.lang;
+  const canonical = absUrl(opts.kind, lang, opts.slug);
+  const altEn = absUrl(opts.kind, 'en', opts.slug);
+  const altTr = absUrl(opts.kind, 'tr', opts.slug);
+  const alternate = url(opts.kind, lang === 'tr' ? 'en' : 'tr', opts.slug);
+  const ogImage = opts.ogImage || SITE + '/assets/img/og-default.png';
+
+  const css = cssBundle(opts.css || []);
+  const scripts = ['app.js', ...(opts.scripts || [])];
+
+  /* Gövdeyi önce kur, sonra içinde gerçekten kullanılan ikonları tara.
+     Böylece her sayfa 35 sembollük setin tamamını değil yalnızca
+     kendi ikonlarını taşır. */
+  const body = [
+    nav(lang, opts.active, alternate),
+    opts.main,
+    footer(lang),
+    langOffer(lang, alternate)
+  ].join('\n');
+
+  const used = [...new Set([...body.matchAll(/href="#i-([a-z0-9-]+)"/g)].map((m) => m[1]))].sort();
+
+  const head = `<!DOCTYPE html>
+<html lang="${lang}" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${opts.title}</title>
-<meta name="description" content="${opts.desc}">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${esc(opts.title)}</title>
+<meta name="description" content="${esc(opts.desc)}">
 <link rel="canonical" href="${canonical}">
-${opts.noindex ? '<meta name="robots" content="noindex, follow">\n' : ''}<meta property="og:type" content="${opts.ogType || 'website'}">
+<link rel="alternate" hreflang="en" href="${altEn}">
+<link rel="alternate" hreflang="tr" href="${altTr}">
+<link rel="alternate" hreflang="x-default" href="${altEn}">
+${opts.noindex ? '<meta name="robots" content="noindex, follow">' : ''}
+<meta name="theme-color" content="#f8fafc">
+<meta property="og:type" content="${opts.ogType || 'website'}">
 <meta property="og:site_name" content="ShenTechin Med">
-<meta property="og:title" content="${opts.title}">
-<meta property="og:description" content="${opts.desc}">
+<meta property="og:locale" content="${lang === 'tr' ? 'tr_TR' : 'en_GB'}">
+<meta property="og:title" content="${esc(opts.title)}">
+<meta property="og:description" content="${esc(opts.desc)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image" content="${ogImage}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${opts.title}">
-<meta name="twitter:description" content="${opts.desc}">
-<meta name="twitter:image" content="${OG_IMAGE}">
-<meta name="theme-color" content="#2563eb">
-
-<link rel="icon" href="${p}favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="${p}apple-touch-icon.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
-${css.map(f => `<link rel="stylesheet" href="${p}assets/css/${f}">`).join('\n')}
-
-<script>
-/* Dili ilk boyamadan önce ayarla; EN dışında bir dil seçiliyse
-   çeviri uygulanana kadar gövdeyi gizleyerek metin sıçramasını önle. */
-(function(){try{var l=localStorage.getItem('selectedLang');if(l!=='en'&&l!=='tr')l='en';
-document.documentElement.lang=l;if(l!=='en')document.documentElement.classList.add('i18n-swap');}catch(e){}})();
-</script>
-<script src="${p}assets/js/analytics.js"></script>
-<script src="${p}assets/js/i18n.js"></script>
-${bundles.map(f => `<script src="${p}assets/js/i18n/${f}"></script>`).join('\n')}
+<meta name="twitter:title" content="${esc(opts.title)}">
+<meta name="twitter:description" content="${esc(opts.desc)}">
+<meta name="twitter:image" content="${ogImage}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin>${
+    lang === 'tr'
+      ? '\n<link rel="preload" href="/assets/fonts/pjs-latin-ext.woff2" as="font" type="font/woff2" crossorigin>'
+      : ''
+  }
+<style>${css}</style>
+<script>${THEME_SCRIPT}</script>
+<script type="application/ld+json">${jsonLd({ ...opts, canonical, ogImage }, lang)}</script>
 </head>
 <body${opts.bodyClass ? ` class="${opts.bodyClass}"` : ''}>
-${sprite(ALL_ICONS)}
-${nav(p, opts.active)}
-${opts.main}
-${footer(p)}
-<script src="${p}assets/js/nav.js" defer></script>
-${(opts.scripts || []).map(f => `<script src="${p}assets/js/${f}" defer></script>`).join('\n')}
+${sprite(used)}
+${body}
+${opts.inlineJs ? `<script>${opts.inlineJs}</script>` : ''}
+${scripts.map((f) => `<script src="/assets/js/${f}" defer></script>`).join('\n')}
 </body>
 </html>
 `;
+
+  return expand(head, lang);
 }
 
-export { icon };
+export { icon, UI, t, url, absUrl, SITE };

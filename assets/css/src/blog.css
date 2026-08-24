@@ -1,0 +1,95 @@
+/* =============================================================
+   YAZILAR (LİSTE) SAYFASI
+   ============================================================= */
+
+.blog-hero {
+  padding: var(--sp-10) var(--sp-5) var(--sp-10);
+  text-align: center; color: #f1f5f9;
+  background:
+    radial-gradient(60% 90% at 12% 10%, rgba(37, 99, 235, .35) 0%, transparent 55%),
+    radial-gradient(50% 80% at 88% 0%, rgba(14, 165, 233, .25) 0%, transparent 55%),
+    #0f172a;
+  border-radius: 0 0 var(--r-2xl) var(--r-2xl);
+}
+.blog-hero h1 { color: #fff; margin-bottom: var(--sp-4); }
+.blog-hero p { color: #a9b7cb; font-size: var(--step-1); max-width: 60ch; margin-inline: auto; }
+
+.blog-wrap { max-width: var(--wrap); margin-inline: auto; padding: var(--sp-10) var(--sp-5) 0; }
+
+/* ---------- ÖNE ÇIKAN ---------- */
+.feature {
+  display: grid; grid-template-columns: .9fr 1.1fr;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-soft); border-radius: var(--r-2xl);
+  box-shadow: var(--shadow-1); overflow: hidden;
+  margin-bottom: var(--sp-9);
+  transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out);
+}
+@media (hover: hover) { .feature:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); } }
+
+.feature__art {
+  background: var(--tone-soft);
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--sp-8); min-height: 260px;
+}
+.feature__art .ill { max-width: 290px; }
+.feature__body { padding: var(--sp-8); display: flex; flex-direction: column; justify-content: center; }
+.feature__body h2 { font-size: var(--step-3); margin-bottom: var(--sp-4); }
+.feature__body h2 a { color: inherit; text-decoration: none; }
+.feature__body h2 a:hover { color: var(--tone); }
+.feature__body > p { color: var(--fg-muted); font-size: var(--step-0); margin-bottom: var(--sp-6); }
+
+.post-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-4); flex-wrap: wrap;
+  padding-top: var(--sp-5); border-top: 1px solid var(--border-soft);
+  font-size: var(--step--2); color: var(--fg-subtle); font-weight: 600;
+}
+.author { display: inline-flex; align-items: center; gap: var(--sp-2); }
+.author__avatar {
+  display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--brand); color: var(--brand-fg);
+}
+.author__avatar .icon { width: 15px; height: 15px; }
+.read-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--brand); font-weight: 700; text-decoration: none;
+}
+.read-link .icon { transition: transform var(--dur-1) var(--ease); }
+.read-link:hover .icon { transform: translateX(3px); }
+
+/* ---------- IZGARA ---------- */
+.post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--sp-6); }
+
+.post {
+  position: relative;
+  display: flex; flex-direction: column;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-soft); border-radius: var(--r-xl);
+  box-shadow: var(--shadow-1); overflow: hidden;
+  transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out),
+              border-color var(--dur-2) var(--ease);
+}
+@media (hover: hover) {
+  .post:hover { transform: translateY(-5px); box-shadow: var(--shadow-2); border-color: var(--border); }
+}
+.post__art {
+  background: var(--tone-soft); min-height: 158px;
+  display: flex; align-items: center; justify-content: center; padding: var(--sp-5);
+}
+.post__art .ill { max-width: 200px; }
+.post__body { padding: var(--sp-6); display: flex; flex-direction: column; flex: 1; }
+.post h3 { font-size: var(--step-1); margin: var(--sp-3) 0; }
+.post h3 a { color: inherit; text-decoration: none; }
+.post h3 a::after { content: ''; position: absolute; inset: 0; }
+.post h3 a:hover { color: var(--tone); }
+.post__excerpt { color: var(--fg-muted); font-size: var(--step--1); flex: 1; margin-bottom: var(--sp-5); }
+
+@media (max-width: 900px) {
+  .feature { grid-template-columns: 1fr; }
+  .feature__art { min-height: 190px; padding: var(--sp-6); }
+  .feature__art .ill { max-width: 210px; }
+  .feature__body { padding: var(--sp-6); }
+  .blog-hero { padding-block: var(--sp-8); }
+}

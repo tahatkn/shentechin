@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /quiz.html
 Disallow: /result.html
+Disallow: /tr/test.html
+Disallow: /tr/sonuc.html
 
 Sitemap: https://shentechin.com/sitemap.xml

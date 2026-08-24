@@ -1,22 +1,307 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://shentechin.com/</loc><lastmod>2026-08-21</lastmod><priority>1.0</priority></url>
-  <url><loc>https://shentechin.com/about.html</loc><lastmod>2026-08-21</lastmod><priority>0.6</priority></url>
-  <url><loc>https://shentechin.com/insights.html</loc><lastmod>2026-08-21</lastmod><priority>0.8</priority></url>
-  <url><loc>https://shentechin.com/disclaimer.html</loc><lastmod>2026-08-21</lastmod><priority>0.3</priority></url>
-  <url><loc>https://shentechin.com/privacy.html</loc><lastmod>2026-08-21</lastmod><priority>0.3</priority></url>
-  <url><loc>https://shentechin.com/terms.html</loc><lastmod>2026-08-21</lastmod><priority>0.3</priority></url>
-  <url><loc>https://shentechin.com/tests/sleep/</loc><lastmod>2026-08-21</lastmod><priority>0.9</priority></url>
-  <url><loc>https://shentechin.com/tests/skin/</loc><lastmod>2026-08-21</lastmod><priority>0.9</priority></url>
-  <url><loc>https://shentechin.com/tests/diet/</loc><lastmod>2026-08-21</lastmod><priority>0.9</priority></url>
-  <url><loc>https://shentechin.com/tests/stress/</loc><lastmod>2026-08-21</lastmod><priority>0.9</priority></url>
-  <url><loc>https://shentechin.com/tests/heart/</loc><lastmod>2026-08-21</lastmod><priority>0.9</priority></url>
-  <url><loc>https://shentechin.com/tests/focus/</loc><lastmod>2026-08-21</lastmod><priority>0.9</priority></url>
-  <url><loc>https://shentechin.com/tests/fitness/</loc><lastmod>2026-08-21</lastmod><priority>0.9</priority></url>
-  <url><loc>https://shentechin.com/tests/immunity/</loc><lastmod>2026-08-21</lastmod><priority>0.9</priority></url>
-  <url><loc>https://shentechin.com/tests/tech/</loc><lastmod>2026-08-21</lastmod><priority>0.9</priority></url>
-  <url><loc>https://shentechin.com/insights/chronic-stress-and-the-body/</loc><lastmod>2026-08-21</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shentechin.com/insights/why-calorie-counting-fails/</loc><lastmod>2026-08-21</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shentechin.com/insights/sleep-cycles-explained/</loc><lastmod>2026-08-21</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shentechin.com/insights/heart-rate-variability/</loc><lastmod>2026-08-21</lastmod><priority>0.7</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://shentechin.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/insights.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/hakkinda.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/about.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tests/sleep/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/sleep/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/uyku/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/sleep/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tests/skin/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/skin/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/cilt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/skin/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tests/diet/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/diet/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/beslenme/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/diet/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tests/stress/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/stress/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/stres/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/stress/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tests/heart/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/heart/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/kalp/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/heart/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tests/focus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/focus/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/odaklanma/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/focus/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tests/fitness/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/fitness/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/kondisyon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/fitness/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tests/immunity/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/immunity/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/bagisiklik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/immunity/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tests/tech/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/tech/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/dijital-denge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/tech/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/insights/chronic-stress-and-the-body/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights/chronic-stress-and-the-body/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar/kronik-stres-ve-beden/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights/chronic-stress-and-the-body/"/>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/insights/why-calorie-counting-fails/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights/why-calorie-counting-fails/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar/kalori-saymak-neden-yetmez/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights/why-calorie-counting-fails/"/>
+    <lastmod>2026-07-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/insights/sleep-cycles-explained/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights/sleep-cycles-explained/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar/uyku-evreleri/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights/sleep-cycles-explained/"/>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/insights/heart-rate-variability/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights/heart-rate-variability/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar/kalp-hizi-degiskenligi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights/heart-rate-variability/"/>
+    <lastmod>2026-07-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/disclaimer.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/disclaimer.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/tibbi-uyari.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/disclaimer.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/gizlilik.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/privacy.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/kullanim-kosullari.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/terms.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/yazilar.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/hakkinda.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/hakkinda.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/about.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/testler/uyku/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/sleep/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/uyku/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/sleep/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/testler/cilt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/skin/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/cilt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/skin/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/testler/beslenme/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/diet/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/beslenme/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/diet/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/testler/stres/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/stress/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/stres/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/stress/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/testler/kalp/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/heart/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/kalp/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/heart/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/testler/odaklanma/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/focus/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/odaklanma/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/focus/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/testler/kondisyon/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/fitness/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/kondisyon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/fitness/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/testler/bagisiklik/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/immunity/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/bagisiklik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/immunity/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/testler/dijital-denge/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/tests/tech/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/testler/dijital-denge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/tests/tech/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/yazilar/kronik-stres-ve-beden/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights/chronic-stress-and-the-body/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar/kronik-stres-ve-beden/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights/chronic-stress-and-the-body/"/>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/yazilar/kalori-saymak-neden-yetmez/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights/why-calorie-counting-fails/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar/kalori-saymak-neden-yetmez/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights/why-calorie-counting-fails/"/>
+    <lastmod>2026-07-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/yazilar/uyku-evreleri/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights/sleep-cycles-explained/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar/uyku-evreleri/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights/sleep-cycles-explained/"/>
+    <lastmod>2026-06-12</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/yazilar/kalp-hizi-degiskenligi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/insights/heart-rate-variability/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar/kalp-hizi-degiskenligi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights/heart-rate-variability/"/>
+    <lastmod>2026-07-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/tibbi-uyari.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/disclaimer.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/tibbi-uyari.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/disclaimer.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/gizlilik.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/gizlilik.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/privacy.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shentechin.com/tr/kullanim-kosullari.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shentechin.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/kullanim-kosullari.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shentechin.com/terms.html"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.3</priority>
+  </url>
 </urlset>

@@ -1,191 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heart rate variability: what it is and what it isn’t</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Heart rate variability: what it is and what it isn’t — ShenTechin Med</title>
 <meta name="description" content="HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.">
 <link rel="canonical" href="https://shentechin.com/insights/heart-rate-variability/">
+<link rel="alternate" hreflang="en" href="https://shentechin.com/insights/heart-rate-variability/">
+<link rel="alternate" hreflang="tr" href="https://shentechin.com/tr/yazilar/kalp-hizi-degiskenligi/">
+<link rel="alternate" hreflang="x-default" href="https://shentechin.com/insights/heart-rate-variability/">
+<meta name="theme-color" content="#f8fafc">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="ShenTechin Med">
-<meta property="og:title" content="Heart rate variability: what it is and what it isn’t">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Heart rate variability: what it is and what it isn’t — ShenTechin Med">
 <meta property="og:description" content="HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.">
 <meta property="og:url" content="https://shentechin.com/insights/heart-rate-variability/">
-<meta property="og:image" content="https://shentechin.com/assets/img/og-default.png">
+<meta property="og:image" content="https://shentechin.com/assets/og/art-heart-rate-variability-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Heart rate variability: what it is and what it isn’t">
+<meta name="twitter:title" content="Heart rate variability: what it is and what it isn’t — ShenTechin Med">
 <meta name="twitter:description" content="HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.">
-<meta name="twitter:image" content="https://shentechin.com/assets/img/og-default.png">
-<meta name="theme-color" content="#2563eb">
-
-<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="../../assets/css/base.css">
-<link rel="stylesheet" href="../../assets/css/home.css">
-<link rel="stylesheet" href="../../assets/css/pages.css">
-
-<script>
-/* Dili ilk boyamadan önce ayarla; EN dışında bir dil seçiliyse
-   çeviri uygulanana kadar gövdeyi gizleyerek metin sıçramasını önle. */
-(function(){try{var l=localStorage.getItem('selectedLang');if(l!=='en'&&l!=='tr')l='en';
-document.documentElement.lang=l;if(l!=='en')document.documentElement.classList.add('i18n-swap');}catch(e){}})();
-</script>
-<script src="../../assets/js/analytics.js"></script>
-<script src="../../assets/js/i18n.js"></script>
-<script src="../../assets/js/i18n/common.js"></script>
+<meta name="twitter:image" content="https://shentechin.com/assets/og/art-heart-rate-variability-en.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:300 800;font-display:swap;src:url('/assets/fonts/pjs-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:300 800;font-display:swap;src:url('/assets/fonts/pjs-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'PJS Fallback';src:local('Helvetica Neue'),local('Arial'),local('Segoe UI'),local('Roboto');size-adjust:105%;ascent-override:95%;descent-override:24%;line-gap-override:0%}:root{color-scheme:light;--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;--sp-7:32px;--sp-8:40px;--sp-9:56px;--sp-10:72px;--sp-11:96px;--sp-12:128px;--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-2xl:32px;--r-pill:999px;--step--2:clamp(0.72rem,0.70rem + 0.08vw,0.78rem);--step--1:clamp(0.82rem,0.79rem + 0.12vw,0.90rem);--step-0:clamp(1.00rem,0.97rem + 0.15vw,1.06rem);--step-1:clamp(1.10rem,1.04rem + 0.30vw,1.28rem);--step-2:clamp(1.28rem,1.15rem + 0.60vw,1.60rem);--step-3:clamp(1.45rem,1.22rem + 1.05vw,2.05rem);--step-4:clamp(1.75rem,1.32rem + 2.00vw,2.70rem);--step-5:clamp(2.10rem,1.36rem + 3.40vw,3.90rem);--lh-tight:1.12;--lh-snug:1.3;--lh-normal:1.62;--lh-loose:1.8;--brand:#2563eb;--brand-strong:#1d4ed8;--brand-ink:#1e3a8a;--brand-fg:#ffffff;--brand-soft:#eff6ff;--brand-border:#bfdbfe;--brand-gradient:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);--accent-gradient:linear-gradient(135deg,#0ea5e9 0%,#6366f1 100%);--bg:#f8fafc;--bg-elev:#ffffff;--bg-sunken:#f1f5f9;--bg-inverse:#0f172a;--fg-inverse:#e2e8f0;--fg:#16233b;--fg-muted:#475569;--fg-subtle:#64748b;--fg-on-dark:#cbd5e1;--border:#e2e8f0;--border-soft:#f1f5f9;--border-strong:#cbd5e1;--ok:#15803d;--ok-soft:#dcfce7;--ok-ink:#14532d;--warn:#b45309;--warn-soft:#fffbeb;--warn-ink:#92400e;--danger:#b91c1c;--danger-soft:#fee2e2;--danger-ink:#7f1d1d;--shadow-1:0 1px 2px rgba(15,23,42,.06),0 2px 8px rgba(15,23,42,.04);--shadow-2:0 10px 30px -12px rgba(15,23,42,.16),0 2px 8px rgba(15,23,42,.04);--shadow-3:0 24px 50px -18px rgba(15,23,42,.26);--shadow-brand:0 10px 28px -10px rgba(37,99,235,.45);--ring-1a:#60a5fa;--ring-1b:#2563eb;--ring-2a:#38bdf8;--ring-2b:#0ea5e9;--ring-3a:#818cf8;--ring-3b:#6366f1;--ease:cubic-bezier(.25,.8,.25,1);--ease-out:cubic-bezier(.16,1,.3,1);--dur-1:.16s;--dur-2:.28s;--dur-3:.45s;--nav-h:68px;--wrap:1180px;--measure:68ch}:root[data-theme='dark']{color-scheme:dark;--brand:#60a5fa;--brand-strong:#3b82f6;--brand-ink:#bfdbfe;--brand-fg:#071120;--brand-soft:#16243d;--brand-border:#1e3a5f;--brand-gradient:linear-gradient(135deg,#3b82f6 0%,#2563eb 100%);--accent-gradient:linear-gradient(135deg,#38bdf8 0%,#818cf8 100%);--bg:#0b1220;--bg-elev:#131c2e;--bg-sunken:#0f1828;--bg-inverse:#e2e8f0;--fg-inverse:#16233b;--fg:#e8eef7;--fg-muted:#a9b7cb;--fg-subtle:#8b9ab1;--fg-on-dark:#a9b7cb;--border:#24314a;--border-soft:#1a2438;--border-strong:#35455f;--ok:#4ade80;--ok-soft:#10281a;--ok-ink:#bbf7d0;--warn:#fbbf24;--warn-soft:#2a2010;--warn-ink:#fde68a;--danger:#f87171;--danger-soft:#2c1516;--danger-ink:#fecaca;--shadow-1:0 1px 2px rgba(0,0,0,.5);--shadow-2:0 12px 30px -14px rgba(0,0,0,.7);--shadow-3:0 28px 56px -20px rgba(0,0,0,.8);--shadow-brand:0 10px 28px -12px rgba(59,130,246,.5);--ring-1a:#93c5fd;--ring-1b:#3b82f6;--ring-2a:#7dd3fc;--ring-2b:#0ea5e9;--ring-3a:#c4b5fd;--ring-3b:#818cf8}[data-tone='sleep']{--tone:#0369a1;--tone-soft:#e0f2fe}[data-tone='skin']{--tone:#be185d;--tone-soft:#fce7f3}[data-tone='diet']{--tone:#15803d;--tone-soft:#dcfce7}[data-tone='stress']{--tone:#b45309;--tone-soft:#fef3c7}[data-tone='heart']{--tone:#b91c1c;--tone-soft:#fee2e2}[data-tone='focus']{--tone:#7e22ce;--tone-soft:#f3e8ff}[data-tone='fitness']{--tone:#c2410c;--tone-soft:#ffedd5}[data-tone='immunity']{--tone:#4d7c0f;--tone-soft:#ecfccb}[data-tone='tech']{--tone:#4338ca;--tone-soft:#e0e7ff}:root[data-theme='dark'] [data-tone='sleep']{--tone:#7dd3fc;--tone-soft:rgba(56,189,248,.12)}:root[data-theme='dark'] [data-tone='skin']{--tone:#f9a8d4;--tone-soft:rgba(244,114,182,.12)}:root[data-theme='dark'] [data-tone='diet']{--tone:#86efac;--tone-soft:rgba(74,222,128,.12)}:root[data-theme='dark'] [data-tone='stress']{--tone:#fcd34d;--tone-soft:rgba(251,191,36,.12)}:root[data-theme='dark'] [data-tone='heart']{--tone:#fca5a5;--tone-soft:rgba(248,113,113,.12)}:root[data-theme='dark'] [data-tone='focus']{--tone:#d8b4fe;--tone-soft:rgba(192,132,252,.12)}:root[data-theme='dark'] [data-tone='fitness']{--tone:#fdba74;--tone-soft:rgba(251,146,60,.12)}:root[data-theme='dark'] [data-tone='immunity']{--tone:#bef264;--tone-soft:rgba(163,230,53,.12)}:root[data-theme='dark'] [data-tone='tech']{--tone:#a5b4fc;--tone-soft:rgba(129,140,248,.12)}*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + var(--sp-5));-webkit-text-size-adjust:100%}body{margin:0;font-family:'Plus Jakarta Sans','PJS Fallback',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:var(--step-0);line-height:var(--lh-normal);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;font-synthesis-weight:none}h1,h2,h3,h4{line-height:var(--lh-snug);color:var(--fg);text-wrap:balance;margin:0;font-weight:800;letter-spacing:-.015em}h1{font-size:var(--step-4);line-height:var(--lh-tight);letter-spacing:-.03em}h2{font-size:var(--step-3);letter-spacing:-.02em}h3{font-size:var(--step-1)}p{margin:0;text-wrap:pretty}a{color:var(--brand)}img,svg,video{max-width:100%}[hidden]{display:none!important}button,input,select,textarea{font:inherit;color:inherit}::selection{background:var(--brand);color:var(--brand-fg)}:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:4px}:focus:not(:focus-visible){outline:none}.skip-link{position:absolute;left:var(--sp-2);top:-80px;background:var(--bg-inverse);color:var(--fg-inverse);padding:var(--sp-3) var(--sp-5);border-radius:0 0 var(--r-md) var(--r-md);z-index:2000;text-decoration:none;font-weight:700;transition:top var(--dur-1) var(--ease)}.skip-link:focus{top:0}.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}.icon{width:1em;height:1em;display:inline-block;vertical-align:-.125em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.icon--solid{fill:currentColor;stroke:none}.icon-sprite{position:absolute;width:0;height:0;overflow:hidden}.ill{width:100%;height:auto;display:block;color:var(--tone)}.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--sp-5)}.section{padding-block:var(--sp-11)}.section--tight{padding-block:var(--sp-9)}.section-head{text-align:center;max-width:62ch;margin:0 auto var(--sp-9)}.section-head h2{margin-bottom:var(--sp-3)}.section-head p{color:var(--fg-muted);font-size:var(--step-1)}.eyebrow{display:inline-block;font-size:var(--step--1);font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:var(--sp-3)}.navbar{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);min-height:var(--nav-h);padding-inline:max(var(--sp-5),calc((100vw - var(--wrap)) / 2 + var(--sp-5)));background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid transparent;transition:border-color var(--dur-2) var(--ease),background var(--dur-2) var(--ease)}.navbar.is-scrolled{border-bottom-color:var(--border);background:color-mix(in srgb,var(--bg) 96%,transparent)}@supports not (backdrop-filter:blur(1px)){.navbar{background:var(--bg)}}.logo{display:inline-flex;align-items:center;gap:var(--sp-2);font-size:1.35rem;font-weight:800;letter-spacing:-.03em;color:var(--fg);text-decoration:none;white-space:nowrap;view-transition-name:brand}.logo:hover{color:var(--brand)}.med-badge{background:var(--accent-gradient);color:#fff;font-size:.62rem;font-weight:800;letter-spacing:.08em;padding:4px 7px;border-radius:var(--r-sm)}.nav-links{list-style:none;display:flex;align-items:center;gap:var(--sp-6);margin:0;padding:0}.nav-links a:not(.btn){position:relative;padding:6px 0;color:var(--fg-muted);text-decoration:none;font-weight:600;font-size:var(--step--1);transition:color var(--dur-1) var(--ease)}.nav-links a:not(.btn)::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--brand);transform:scaleX(0);transform-origin:right;transition:transform var(--dur-2) var(--ease-out)}.nav-links a:not(.btn):hover{color:var(--fg)}.nav-links a:not(.btn):hover::after,.nav-links a[aria-current='page']:not(.btn)::after{transform:scaleX(1);transform-origin:left}.nav-links a[aria-current='page']:not(.btn){color:var(--fg)}.nav-tools{display:flex;align-items:center;gap:var(--sp-2)}.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg-elev);color:var(--fg-muted);cursor:pointer;line-height:0;transition:color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease),transform var(--dur-1) var(--ease)}.icon-btn .icon{width:19px;height:19px}.icon-btn:hover{color:var(--fg);border-color:var(--border-strong)}.icon-btn:active{transform:scale(.94)}.nav-toggle .icon-close{display:none}.nav-toggle[aria-expanded='true'] .icon-close{display:inline-block}.nav-toggle[aria-expanded='true'] .icon-menu{display:none}.theme-btn .icon-sun{display:none}:root[data-theme='dark'] .theme-btn .icon-sun{display:block}:root[data-theme='dark'] .theme-btn .icon-moon{display:none}.lang-link{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 var(--sp-3);border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg-elev);color:var(--fg-muted);font-size:var(--step--1);font-weight:700;text-decoration:none;transition:color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease)}.lang-link:hover{color:var(--fg);border-color:var(--border-strong)}.nav-toggle{display:none}.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);padding:var(--sp-4) var(--sp-7);border:1px solid transparent;border-radius:var(--r-pill);font-weight:700;font-size:var(--step-0);font-family:inherit;text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform var(--dur-1) var(--ease),box-shadow var(--dur-2) var(--ease),background var(--dur-1) var(--ease),color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease)}.btn:active{transform:translateY(1px) scale(.99)}.btn--primary{background:var(--brand-gradient);color:var(--brand-fg);box-shadow:var(--shadow-brand)}@media (hover:hover){.btn--primary:hover{transform:translateY(-2px);box-shadow:0 18px 38px -12px rgba(37,99,235,.55)}}.btn--ghost{background:var(--bg-elev);color:var(--fg);border-color:var(--border-strong)}@media (hover:hover){.btn--ghost:hover{border-color:var(--brand);color:var(--brand)}}.btn--quiet{background:transparent;color:var(--fg-muted);border-color:var(--border);padding:var(--sp-3) var(--sp-5);font-size:var(--step--1)}@media (hover:hover){.btn--quiet:hover{color:var(--fg);border-color:var(--border-strong)}}.btn--sm{padding:var(--sp-3) var(--sp-5);font-size:var(--step--1)}.btn--block{width:100%}.card{background:var(--bg-elev);border:1px solid var(--border-soft);border-radius:var(--r-xl);box-shadow:var(--shadow-1)}.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:var(--r-sm);background:var(--tone-soft,var(--brand-soft));color:var(--tone,var(--brand));font-size:var(--step--2);font-weight:800;text-transform:uppercase;letter-spacing:.07em;width:fit-content}.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:var(--r-pill);background:var(--bg-elev);border:1px solid var(--border);font-size:var(--step--1);font-weight:600;color:var(--fg-muted)}.callout{background:var(--bg-sunken);border:1px solid var(--border);border-left:4px solid var(--brand);border-radius:var(--r-md);padding:var(--sp-5) var(--sp-6);margin-block:var(--sp-6)}.callout p{margin:0;color:var(--fg-muted);font-size:var(--step--1)}.callout--warn{border-left-color:var(--warn);background:var(--warn-soft);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}.callout--warn p{color:var(--warn-ink)}.callout--warn a{color:var(--warn-ink)}.meta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-3) var(--sp-7);color:var(--fg-muted);font-size:var(--step--1);font-weight:600}.meta-row span{display:inline-flex;align-items:center;gap:7px}.meta-row .icon{color:var(--brand)}.mt-4{margin-top:var(--sp-4)}.mt-6{margin-top:var(--sp-6)}.pb-10{padding-bottom:var(--sp-10)}@supports (content-visibility:auto){.group,.post-grid,.related-grid{content-visibility:auto;contain-intrinsic-size:auto 640px}}.figure{margin:var(--sp-8) 0}.figure figcaption{margin-top:var(--sp-4);text-align:center;color:var(--fg-subtle);font-size:var(--step--1);line-height:var(--lh-normal)}.diagram{width:100%;height:auto;display:block;background:var(--bg-elev);border:1px solid var(--border-soft);border-radius:var(--r-lg);padding:var(--sp-4)}.dg-axis{stroke:var(--border-strong);stroke-width:1.5}.dg-grid{stroke:var(--border);stroke-width:1;stroke-dasharray:3 5}.dg-line{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.dg-line--1{stroke:var(--brand)}.dg-line--2{stroke:var(--warn)}.dg-line--dash{stroke-dasharray:7 7;stroke-width:2.5}.dg-tick{fill:var(--fg-subtle);font-size:12px;font-weight:600}.dg-axis-label{fill:var(--fg-muted);font-size:12px;font-weight:700}.dg-zone-label{fill:var(--fg-subtle);font-size:11px;font-weight:700;text-anchor:middle;letter-spacing:.04em}.dg-zone--deep{fill:var(--brand);opacity:.06}.dg-zone--rem{fill:var(--warn);opacity:.07}.dg-gap-line{stroke:var(--fg-subtle);stroke-width:1.5;stroke-dasharray:2 4}.dg-arrow{stroke:var(--fg-muted);stroke-width:1.5}.dg-band{opacity:.9}.dg-band--low{fill:var(--danger-soft);stroke:var(--danger);stroke-width:1.5}.dg-band--mid{fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.5}.dg-band--good{fill:var(--ok-soft);stroke:var(--ok);stroke-width:1.5}.dg-label{font-size:13px;font-weight:800;text-anchor:middle;fill:var(--fg)}footer{margin-top:var(--sp-11);padding:var(--sp-10) var(--sp-5) var(--sp-8);background:var(--bg-elev);border-top:1px solid var(--border);color:var(--fg-muted);font-size:var(--step--1)}.footer-inner{max-width:var(--wrap);margin-inline:auto;display:grid;gap:var(--sp-8) var(--sp-9);grid-template-columns:minmax(230px,1.4fr) repeat(3,minmax(140px,1fr))}.footer-brand .logo{font-size:1.2rem;margin-bottom:var(--sp-3)}.footer-brand p{font-size:var(--step--1);line-height:var(--lh-loose);max-width:34ch}.footer-col h4{font-size:var(--step--2);text-transform:uppercase;letter-spacing:.1em;color:var(--fg);margin-bottom:var(--sp-4);font-weight:800}.footer-col ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-3)}.footer-col a{color:var(--fg-muted);text-decoration:none}.footer-col a:hover{color:var(--brand);text-decoration:underline}.footer-bottom{max-width:var(--wrap);margin:var(--sp-8) auto 0;padding-top:var(--sp-6);border-top:1px solid var(--border-soft);display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-6);justify-content:space-between;color:var(--fg-subtle);font-size:var(--step--2)}.result-empty{max-width:560px;margin:var(--sp-11) auto;padding:var(--sp-9) var(--sp-6);background:var(--bg-elev);border:1px solid var(--border-soft);border-radius:var(--r-2xl);box-shadow:var(--shadow-1);text-align:center}.result-empty h1{font-size:var(--step-2);margin-bottom:var(--sp-3)}.result-empty p{color:var(--fg-muted);margin-bottom:var(--sp-7)}.lang-offer{position:fixed;right:var(--sp-4);bottom:var(--sp-4);left:auto;z-index:1200;max-width:380px;display:flex;align-items:center;gap:var(--sp-3);flex-wrap:wrap;padding:var(--sp-4) var(--sp-5);background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-3);font-size:var(--step--1);animation:slideUp var(--dur-3) var(--ease-out) both}.lang-offer p{margin:0;flex:1 1 100%;color:var(--fg-muted)}@media (max-width:520px){.lang-offer{left:var(--sp-3);right:var(--sp-3);max-width:none}}@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}@keyframes popIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}@keyframes spinSlow{to{transform:rotate(360deg)}}@keyframes drawIn{from{stroke-dashoffset:var(--dash,400)}to{stroke-dashoffset:0}}.js-on .reveal{opacity:0;transform:translateY(18px)}.js-on .reveal.is-in{animation:fadeUp var(--dur-3) var(--ease-out) forwards;animation-delay:var(--reveal-delay,0ms)}@view-transition{navigation:auto}::view-transition-old(root){animation:none;opacity:1}::view-transition-new(root){animation:fadeUp var(--dur-2) var(--ease-out)}@media (max-width:900px){:root{--nav-h:60px}.navbar{flex-wrap:wrap;padding-inline:var(--sp-5)}.nav-toggle{display:inline-flex;order:3}.nav-tools{order:2;margin-left:auto}.nav-links{order:4;display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;padding-bottom:var(--sp-4);border-top:1px solid var(--border-soft)}.nav-links.is-open{display:flex;animation:fadeUp var(--dur-2) var(--ease-out)}.nav-links li{width:100%}.nav-links a:not(.btn){display:block;padding:var(--sp-4) 2px;font-size:var(--step-0);border-bottom:1px solid var(--border-soft)}.nav-links a:not(.btn)::after{display:none}.section{padding-block:var(--sp-9)}.footer-inner{grid-template-columns:1fr 1fr;gap:var(--sp-7)}.footer-brand{grid-column:1 / -1}}@media (max-width:520px){.footer-inner{grid-template-columns:1fr}.wrap{padding-inline:var(--sp-4)}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js-on .reveal{opacity:1;transform:none}@view-transition{navigation:none}}@media print{.navbar,footer,.skip-link,.lang-offer,.no-print{display:none!important}body{background:#fff;color:#000;font-size:11pt}.card,.diagram{box-shadow:none;border:1px solid #ccc;break-inside:avoid}a[href^='http']::after{content:' (' attr(href) ')';font-size:9pt;color:#555}}.doc-hero{position:relative;padding:var(--sp-9) var(--sp-5) var(--sp-8);text-align:center;background:radial-gradient(70% 80% at 50% 0%,var(--brand-soft) 0%,transparent 72%),var(--bg);border-bottom:1px solid var(--border-soft)}.doc-hero__inner{max-width:62ch;margin-inline:auto}.doc-hero .badge{margin:0 auto var(--sp-4)}.doc-hero h1{margin-bottom:var(--sp-4)}.doc-hero .lede{color:var(--fg-muted);font-size:var(--step-1)}.doc-meta{display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-6);justify-content:center;margin-top:var(--sp-5);color:var(--fg-subtle);font-size:var(--step--1);font-weight:600}.doc-meta span{display:inline-flex;align-items:center;gap:7px}.read-progress{position:fixed;inset-inline:0;top:0;height:3px;z-index:1100;background:var(--accent-gradient);transform:scaleX(0);transform-origin:left;will-change:transform}.article-layout{max-width:var(--wrap);margin-inline:auto;padding:var(--sp-9) var(--sp-5) 0;display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:var(--sp-9);align-items:start}.article-layout--plain{grid-template-columns:minmax(0,1fr);max-width:820px}.toc{position:sticky;top:calc(var(--nav-h) + var(--sp-6));padding:var(--sp-5);border-radius:var(--r-lg);background:var(--bg-elev);border:1px solid var(--border-soft);font-size:var(--step--1)}.toc h2{font-size:var(--step--2);text-transform:uppercase;letter-spacing:.1em;color:var(--fg-subtle);margin-bottom:var(--sp-4);font-weight:800}.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-3)}.toc a{display:block;color:var(--fg-muted);text-decoration:none;padding-left:var(--sp-3);border-left:2px solid var(--border);line-height:var(--lh-snug);transition:color var(--dur-1) var(--ease),border-color var(--dur-1) var(--ease)}.toc a:hover{color:var(--fg);border-color:var(--border-strong)}.toc a.is-active{color:var(--brand);border-color:var(--brand);font-weight:700}.prose{max-width:var(--measure);font-size:var(--step-0);line-height:var(--lh-loose);color:var(--fg-muted)}.prose>p:first-of-type{font-size:var(--step-1);color:var(--fg);line-height:var(--lh-normal)}.prose h2{font-size:var(--step-2);color:var(--fg);margin:var(--sp-10) 0 var(--sp-4);scroll-margin-top:calc(var(--nav-h) + var(--sp-6))}.prose h3{font-size:var(--step-1);color:var(--fg);margin:var(--sp-8) 0 var(--sp-3)}.prose p{margin:0 0 var(--sp-5)}.prose strong{color:var(--fg);font-weight:700}.prose em{color:var(--fg)}.prose ul,.prose ol{margin:0 0 var(--sp-6);padding-left:var(--sp-6)}.prose li{margin-bottom:var(--sp-3)}.prose li::marker{color:var(--brand)}.prose a{color:var(--brand);text-underline-offset:3px}.prose hr{border:0;border-top:1px solid var(--border);margin:var(--sp-9) 0}.prose blockquote{margin:var(--sp-7) 0;padding-left:var(--sp-6);border-left:3px solid var(--brand);color:var(--fg);font-size:var(--step-1)}.doc-cta{max-width:var(--measure);margin:var(--sp-9) 0 0;padding:var(--sp-8) var(--sp-7);border-radius:var(--r-2xl);background:var(--bg-inverse);color:var(--fg-inverse);text-align:center}.doc-cta h2{color:inherit;font-size:var(--step-2);margin-bottom:var(--sp-3)}.doc-cta p{color:inherit;opacity:.8;margin-bottom:var(--sp-6);font-size:var(--step--1)}.next-article{max-width:var(--measure);margin:var(--sp-8) 0 var(--sp-11);display:block;padding:var(--sp-6);background:var(--bg-elev);border:1px solid var(--border-soft);border-radius:var(--r-xl);text-decoration:none;transition:border-color var(--dur-2) var(--ease),transform var(--dur-2) var(--ease-out)}@media (hover:hover){.next-article:hover{border-color:var(--brand);transform:translateY(-3px)}}.next-article__label{display:block;font-size:var(--step--2);font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-subtle);margin-bottom:var(--sp-2)}.next-article h3{color:var(--fg);font-size:var(--step-1);margin-bottom:var(--sp-2)}.next-article p{color:var(--fg-muted);font-size:var(--step--1)}.test-hero{padding:var(--sp-9) var(--sp-5) var(--sp-8);text-align:center;background:radial-gradient(65% 80% at 50% 0%,var(--tone-soft) 0%,transparent 70%),var(--bg)}.test-hero__art{width:min(320px,74%);margin:0 auto var(--sp-5)}.test-hero h1{font-size:var(--step-4);margin-bottom:var(--sp-4)}.test-hero .lede{max-width:58ch;margin:0 auto var(--sp-7);color:var(--fg-muted);font-size:var(--step-1)}.test-actions{display:flex;gap:var(--sp-3);justify-content:center;flex-wrap:wrap;margin-bottom:var(--sp-6)}.doc-section{max-width:820px;margin-inline:auto;padding:var(--sp-9) var(--sp-5) 0}.doc-section h2{font-size:var(--step-2);margin-bottom:var(--sp-5)}.doc-section>p{color:var(--fg-muted);line-height:var(--lh-loose)}.measure-list{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-3)}.measure-list li{display:flex;gap:var(--sp-4);align-items:flex-start;padding:var(--sp-4) var(--sp-5);background:var(--bg-elev);border:1px solid var(--border-soft);border-radius:var(--r-md);color:var(--fg-muted);font-size:var(--step--1);line-height:var(--lh-normal)}.measure-list .icon{color:var(--ok);width:19px;height:19px;margin-top:3px;flex-shrink:0}.sample-q{padding:var(--sp-6);border-radius:var(--r-xl);background:var(--bg-elev);border:1px solid var(--border-soft);box-shadow:var(--shadow-1)}.sample-q__text{font-size:var(--step-1);font-weight:700;color:var(--fg);text-align:center;margin-bottom:var(--sp-5)}.sample-q__legend{display:flex;justify-content:space-between;font-size:var(--step--2);font-weight:700;color:var(--fg-subtle);margin-bottom:var(--sp-2)}.sample-q__scale{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}.sample-cell{display:flex;align-items:center;justify-content:center;aspect-ratio:1;border-radius:var(--r-sm);border:1.5px solid var(--border);color:var(--fg-subtle);font-size:var(--step--2);font-weight:800}.sample-cell.is-on{background:var(--brand);border-color:var(--brand);color:var(--brand-fg)}.sample-note{margin-top:var(--sp-4);font-size:var(--step--2);color:var(--fg-subtle);text-align:center}.faq-item{background:var(--bg-elev);border:1px solid var(--border-soft);border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-6);margin-bottom:var(--sp-3)}.faq-item h3{font-size:var(--step-0);margin-bottom:var(--sp-3)}.faq-item p{color:var(--fg-muted);font-size:var(--step--1);line-height:var(--lh-loose)}.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:var(--sp-3)}.related-grid a{display:flex;align-items:center;gap:var(--sp-3);padding:var(--sp-4) var(--sp-5);background:var(--bg-elev);border:1px solid var(--border-soft);border-radius:var(--r-md);text-decoration:none;color:var(--fg);font-weight:700;font-size:var(--step--1);transition:border-color var(--dur-1) var(--ease),transform var(--dur-1) var(--ease-out)}.related-grid a .icon{color:var(--tone);width:20px;height:20px}@media (hover:hover){.related-grid a:hover{border-color:var(--tone);transform:translateY(-3px)}}.stats-bar{position:relative;z-index:5;max-width:900px;margin:calc(var(--sp-8) * -1) auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-5) var(--sp-9);padding:var(--sp-7) var(--sp-6);background:var(--bg-inverse);color:var(--fg-inverse);border-radius:var(--r-2xl);box-shadow:var(--shadow-3)}.stat-item{display:flex;align-items:center;gap:var(--sp-4);font-weight:700;font-size:var(--step--1)}.stat-item .icon{width:22px;height:22px;color:var(--ring-2a);padding:10px;box-sizing:content-box;background:color-mix(in srgb,var(--ring-2a) 16%,transparent);border-radius:50%}:root[data-theme='dark'] .stats-bar{background:var(--bg-elev);color:var(--fg);border:1px solid var(--border)}:root[data-theme='dark'] .doc-cta{background:var(--bg-elev);color:var(--fg);border:1px solid var(--border)}.about-grid{max-width:var(--wrap);margin:var(--sp-10) auto;padding-inline:var(--sp-5);display:grid;grid-template-columns:1fr .82fr;gap:var(--sp-9);align-items:start}.info-block{margin-bottom:var(--sp-8)}.info-block__icon{display:flex;align-items:center;justify-content:center;width:52px;height:52px;margin-bottom:var(--sp-4);border-radius:var(--r-lg);background:var(--brand-soft);color:var(--brand)}.info-block__icon .icon{width:24px;height:24px}.info-block h2{font-size:var(--step-2);margin-bottom:var(--sp-3)}.info-block p{color:var(--fg-muted);line-height:var(--lh-loose)}.method-card{position:sticky;top:calc(var(--nav-h) + var(--sp-6));padding:var(--sp-7);border-radius:var(--r-2xl);background:var(--bg-elev);border:1px solid var(--border-soft);border-top:4px solid var(--brand);box-shadow:var(--shadow-2)}.method-card .eyebrow{margin-bottom:var(--sp-2)}.method-card h3{font-size:var(--step-1);margin-bottom:var(--sp-4)}.method-card p{color:var(--fg-muted);font-size:var(--step--1);line-height:var(--lh-loose)}.band-list{list-style:none;margin:var(--sp-5) 0 0;padding:0;display:grid;gap:var(--sp-3)}.band-list li{display:grid;grid-template-columns:auto 1fr;gap:var(--sp-2) var(--sp-4);padding:var(--sp-4);border-radius:var(--r-md);border:1px solid var(--border-soft);background:var(--bg-sunken)}.band-list__name{font-weight:800;color:var(--fg);font-size:var(--step--1)}.band-list__range{font-size:var(--step--2);font-weight:800;color:var(--band-ink);background:var(--band-bg);padding:3px 9px;border-radius:var(--r-sm);font-variant-numeric:tabular-nums}.band-list__desc{grid-column:1 / -1;color:var(--fg-muted);font-size:var(--step--2);line-height:var(--lh-normal)}.band-list li[data-band='low']{--band-bg:var(--danger-soft);--band-ink:var(--danger-ink)}.band-list li[data-band='mid']{--band-bg:var(--warn-soft);--band-ink:var(--warn-ink)}.band-list li[data-band='good']{--band-bg:var(--ok-soft);--band-ink:var(--ok-ink)}.notfound{max-width:560px;margin:var(--sp-12) auto;padding-inline:var(--sp-5);text-align:center}.notfound__code{font-size:clamp(4rem,14vw,7rem);font-weight:800;line-height:1;letter-spacing:-.05em;color:var(--brand);margin-bottom:var(--sp-4)}.notfound h1{font-size:var(--step-2);margin-bottom:var(--sp-3)}.notfound p{color:var(--fg-muted);margin-bottom:var(--sp-7)}@media (max-width:980px){.article-layout{grid-template-columns:minmax(0,1fr);gap:var(--sp-6)}.toc{position:static;order:-1;max-width:var(--measure)}:root[data-theme='dark'] .stats-bar{background:var(--bg-elev);color:var(--fg);border:1px solid var(--border)}:root[data-theme='dark'] .doc-cta{background:var(--bg-elev);color:var(--fg);border:1px solid var(--border)}.about-grid{grid-template-columns:1fr;gap:var(--sp-7)}.method-card{position:static}}@media (max-width:620px){.doc-hero{padding-block:var(--sp-7) var(--sp-7)}.test-actions .btn{width:100%}.sample-q__scale{grid-template-columns:repeat(5,1fr)}.stats-bar{flex-direction:column;align-items:flex-start;margin-top:calc(var(--sp-6) * -1)}.prose>p:first-of-type{font-size:var(--step-0)}}</style>
+<script>(function(){try{var q=/[?&]theme=(dark|light)/.exec(location.search);var t=q?q[1]:localStorage.getItem('stq:theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}document.documentElement.classList.add('js-on');})()</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://shentechin.com/#org","name":"ShenTechin Med","url":"https://shentechin.com","logo":"https://shentechin.com/apple-touch-icon.png","description":"Free, anonymous self-assessments on everyday health habits. Educational only — never a diagnosis."},{"@type":"WebSite","@id":"https://shentechin.com/#website","url":"https://shentechin.com","name":"ShenTechin Med","inLanguage":"en","publisher":{"@id":"https://shentechin.com/#org"}},{"@type":"WebPage","@id":"https://shentechin.com/insights/heart-rate-variability/#page","url":"https://shentechin.com/insights/heart-rate-variability/","name":"Heart rate variability: what it is and what it isn’t — ShenTechin Med","description":"HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.","inLanguage":"en","isPartOf":{"@id":"https://shentechin.com/#website"},"breadcrumb":{"@id":"https://shentechin.com/insights/heart-rate-variability/#crumb"}},{"@type":"BreadcrumbList","@id":"https://shentechin.com/insights/heart-rate-variability/#crumb","itemListElement":[{"@type":"ListItem","position":1,"name":"ShenTechin Med","item":"https://shentechin.com/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://shentechin.com/insights.html"},{"@type":"ListItem","position":3,"name":"Heart rate variability: what it is and what it isn’t"}]},{"@type":"Article","@id":"https://shentechin.com/insights/heart-rate-variability/#article","headline":"Heart rate variability: what it is and what it isn’t","description":"HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.","inLanguage":"en","datePublished":"2026-07-28","dateModified":"2026-07-28","author":{"@type":"Person","name":"Dr. ShenTechin"},"publisher":{"@id":"https://shentechin.com/#org"},"image":"https://shentechin.com/assets/og/art-heart-rate-variability-en.png","mainEntityOfPage":{"@id":"https://shentechin.com/insights/heart-rate-variability/#page"},"articleSection":"Heart","wordCount":547}]}</script>
 </head>
 <body>
-<svg class="icon-sprite" aria-hidden="true"><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-list-checks" viewBox="0 0 24 24"><path d="M3 5h1.5L6 6.5 8.5 4M3 12h1.5L6 13.5 8.5 11M3 19h1.5L6 20.5 8.5 18M12 5h9M12 12h9M12 19h9"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="M9 13h6M9 17h6"/></symbol><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3Z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol><symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M4 3v6a5 5 0 0 0 10 0V3"/><path d="M4 3H2.5M14 3h1.5"/><path d="M9 14v2a5 5 0 0 0 10 0v-1.5"/><circle cx="19" cy="12" r="2.5"/></symbol><symbol id="i-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.4-6.4 2.1 2.1-6.4z"/></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11 3l1.8 4.4L17 9l-4.2 1.6L11 15l-1.8-4.4L5 9l4.2-1.6L11 3Z"/><path d="M18.5 14.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1Z"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></symbol><symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 4A2.5 2.5 0 0 0 7 6.5c0 .3 0 .5.1.8A3 3 0 0 0 5 10a3 3 0 0 0 .8 2 3 3 0 0 0 .7 4.5A2.5 2.5 0 0 0 9.5 20a2.5 2.5 0 0 0 2.5-2.5v-11A2.5 2.5 0 0 0 9.5 4Z"/><path d="M14.5 4A2.5 2.5 0 0 1 17 6.5c0 .3 0 .5-.1.8A3 3 0 0 1 19 10a3 3 0 0 1-.8 2 3 3 0 0 1-.7 4.5A2.5 2.5 0 0 1 14.5 20 2.5 2.5 0 0 1 12 17.5v-11A2.5 2.5 0 0 1 14.5 4Z"/></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/><path d="M3.2 13h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3"/></symbol><symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/></symbol><symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M4 9v6M8 6v12M16 6v12M20 9v6M8 12h8"/></symbol><symbol id="i-smartphone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/></symbol><symbol id="i-x-brand" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.9 2H22l-7.1 8.1L23 22h-6.4l-5-6.6L5.8 22H2.7l7.6-8.7L1.6 2h6.6l4.5 6 5.3-6zm-1.1 18h1.7L7.3 3.8H5.5L17.8 20z"/></symbol><symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.2 13.9c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6a11 11 0 0 1-4.3-4.3c-.4-.7-.7-1.4-.7-2 0-.7.3-1.3.6-1.6.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.4l.8 1.9c.1.2 0 .4-.1.5l-.3.4c-.1.2-.3.3-.1.6.5.9 1.1 1.6 2 2.2.4.3.7.4.9.2l.6-.7c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.6 0 1z"/></symbol></svg>
-<a class="skip-link" href="#main" data-i18n="skip_link">Skip to main content</a>
+<svg class="icon-sprite" aria-hidden="true"><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2 12h2.4M19.6 12H22M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></symbol><symbol id="i-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol></svg>
+<a class="skip-link" href="#main">Skip to main content</a>
 <nav class="navbar">
-    <a href="../../index.html" class="logo">ShenTechin<span class="med-badge">MED</span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-i18n-attr="aria-label:nav_menu">
-        <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg><svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
-    </button>
-    <ul class="nav-links" id="primary-nav">
-        <li><a href="../../index.html#test-section" data-i18n="nav_tests">Tests</a></li>
-        <li><a href="../../insights.html" aria-current="page" data-i18n="nav_insights">Insights</a></li>
-        <li><a href="../../about.html" data-i18n="nav_about">About</a></li>
-        <li class="lang-switcher" role="group" data-i18n-attr="aria-label:lang_label">
-            <button type="button" class="lang-btn" data-lang-btn data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" class="lang-btn" data-lang-btn data-lang="tr" aria-pressed="false">TR</button>
-        </li>
-    </ul>
+<a href="/" class="logo">ShenTechin<span class="med-badge">MED</span></a>
+<ul class="nav-links" id="primary-nav">
+<li><a href="/#tests">Tests</a></li>
+<li><a href="/insights.html" aria-current="page">Insights</a></li>
+<li><a href="/about.html">About</a></li>
+</ul>
+<div class="nav-tools">
+<a class="lang-link" href="/tr/yazilar/kalp-hizi-degiskenligi/" hreflang="tr" data-lang-switch="tr" title="Türkçe">TR</a>
+<button class="icon-btn theme-btn" type="button" data-theme-btn aria-pressed="false" aria-label="Switch colour theme">
+<svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg><svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-sun"/></svg>
+</button>
+<button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+<svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg><svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
+</button>
+</div>
 </nav>
-<main id="main"><div data-lang-block="en">
-    <header class="doc-hero">
-        <span class="badge cardio">Heart</span>
-        <h1>Heart rate variability: what it is and what it isn’t</h1>
-        <div class="doc-meta">
-            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-user-round"/></svg> Dr. ShenTechin</span>
-            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg> 21 August 2026</span>
-        </div>
-    </header>
-    <article class="prose">
-        <p><strong>HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.</strong></p>
-        <p>A healthy heart does not beat like a metronome. Even at complete rest the interval between beats varies slightly from one to the next, and heart rate variability — HRV — is simply a measure of how much. Counter-intuitively, more variation is generally the better sign.</p>
-
-<h2>Why variation is good</h2>
+<div class="read-progress" aria-hidden="true"></div>
+<header class="doc-hero" data-tone="heart">
+<div class="doc-hero__inner">
+<span class="badge">Heart</span>
+<h1>Heart rate variability: what it is and what it isn’t</h1>
+<div class="doc-meta">
+<span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-user-round"/></svg> Dr. ShenTechin</span>
+<span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg> 28 July 2026</span>
+<span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-book-open"/></svg> 3 min read</span>
+</div>
+</div>
+</header>
+<main id="main">
+<div class="article-layout">
+<article class="prose">
+<p><strong>HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.</strong></p>
+<p>A healthy heart does not beat like a metronome. Even at complete rest the interval between beats varies slightly from one to the next, and heart rate variability — HRV — is simply a measure of how much. Counter-intuitively, more variation is generally the better sign.</p>
+<figure class="figure">
+<svg class="diagram" viewBox="0 0 480 190" role="img" aria-labelledby="hv-t">
+<title id="hv-t">Two heartbeat strips with the same average rate: the metronome-like one has low variability, the uneven one has high variability.</title>
+<text class="dg-axis-label" x="12" y="40">Low HRV</text>
+<line class="dg-grid" x1="96" y1="56" x2="466" y2="56"/>
+<path class="dg-line dg-line--1" d="M110 56l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M160 56l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M210 56l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M260 56l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M310 56l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M360 56l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M410 56l4-8 5 20 5-16 4 4"/>
+<line class="dg-gap-line" x1="119" y1="80" x2="169" y2="80"/><line class="dg-gap-line" x1="169" y1="80" x2="219" y2="80"/><line class="dg-gap-line" x1="219" y1="80" x2="269" y2="80"/><line class="dg-gap-line" x1="269" y1="80" x2="319" y2="80"/><line class="dg-gap-line" x1="319" y1="80" x2="369" y2="80"/><line class="dg-gap-line" x1="369" y1="80" x2="419" y2="80"/>
+<text class="dg-tick" x="96" y="98">intervals nearly identical</text>
+<text class="dg-axis-label" x="12" y="120">High HRV</text>
+<line class="dg-grid" x1="96" y1="136" x2="466" y2="136"/>
+<path class="dg-line dg-line--1" d="M110 136l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M148 136l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M206 136l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M246 136l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M316 136l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M358 136l4-8 5 20 5-16 4 4"/><path class="dg-line dg-line--1" d="M424 136l4-8 5 20 5-16 4 4"/>
+<line class="dg-gap-line" x1="119" y1="160" x2="157" y2="160"/><line class="dg-gap-line" x1="157" y1="160" x2="215" y2="160"/><line class="dg-gap-line" x1="215" y1="160" x2="255" y2="160"/><line class="dg-gap-line" x1="255" y1="160" x2="325" y2="160"/><line class="dg-gap-line" x1="325" y1="160" x2="367" y2="160"/><line class="dg-gap-line" x1="367" y1="160" x2="433" y2="160"/>
+<text class="dg-tick" x="96" y="180">intervals vary beat to beat</text>
+</svg>
+<figcaption>Same average heart rate, different nervous systems. More variation is generally the better sign.</figcaption>
+</figure><h2 id="s-1">Why variation is good</h2>
 <p>Your heart rate is under continuous adjustment from two branches of the autonomic nervous system. The sympathetic branch speeds things up; the parasympathetic branch, working mainly through the vagus nerve, slows things down. The two are constantly negotiating, and the beat-to-beat variation is the visible residue of that negotiation.</p>
 <p>When the parasympathetic side has good influence — you are rested, recovered, not under acute pressure — the adjustments are frequent and fine-grained, and variability is higher. Under stress, illness, or after hard training, sympathetic activity dominates, the negotiation stops, and the rhythm becomes more uniform. A very steady resting heartbeat is not a sign of a well-tuned engine; it is closer to the opposite.</p>
-
-<h2>What it can reasonably tell you</h2>
+<h2 id="s-2">What it can reasonably tell you</h2>
 <p>HRV is genuinely responsive to things worth noticing. It tends to drop with poor sleep, alcohol, acute illness, and heavy training load, and to recover as those resolve. Used as a <strong>personal trend</strong>, tracked at a consistent time — typically overnight or first thing in the morning — it can be a useful early signal that you are more depleted than you feel.</p>
-
 <div class="callout warn"><p>What it cannot do is compare you meaningfully to anyone else. Absolute HRV values vary enormously between individuals, and they decline with age. Someone else's number tells you nothing about yours.</p></div>
-
-<h2>Where the apps overreach</h2>
+<h2 id="s-3">Where the apps overreach</h2>
 <p>Three things are worth knowing before you take a daily HRV score seriously.</p>
 <ul>
 <li><strong>Measurement method matters.</strong> Chest straps read electrical activity directly. Wrist and finger devices infer beat timing optically, through blood flow. The optical approach is more convenient and less precise, and precision is exactly what a variability measure depends on.</li>
 <li><strong>Context dominates.</strong> Body position, breathing rate, time of day, caffeine, and how well you slept all move HRV substantially. Comparing this morning to yesterday morning only works if the conditions were similar.</li>
 <li><strong>A "readiness score" is an interpretation, not a measurement.</strong> The underlying number may be real; the recommendation built on top of it is a proprietary guess about what it means for you.</li>
 </ul>
-
-<h2>A sensible way to use it</h2>
+<h2 id="s-4">A sensible way to use it</h2>
 <p>If you already have a device, treat HRV as one input among several, and give more weight to the obvious ones: how you slept, how you feel, whether you are getting ill. Watch the multi-day direction rather than any single reading. And do not let a low number talk you out of a walk — light activity almost always helps recovery rather than hindering it.</p>
 <p>If you do not have a device, you are not missing much. Sleep duration and consistency, resting heart rate, and simply how you feel on stairs carry most of the same information for free.</p>
-
-<h2>What HRV is not</h2>
+<h2 id="s-5">What HRV is not</h2>
 <p>HRV is not a diagnostic test and it is not a screening tool for heart disease. An irregular pulse, palpitations, chest tightness, breathlessness on mild effort or fainting are all reasons to see a doctor directly — they are assessed with an ECG and a clinical examination, not with a wearable's daily score.</p>
-        <div class="callout warn"><p>This article is general information, not medical advice, and it is not a substitute for seeing a healthcare professional about your own situation.</p></div>
-    </article>
-    <section class="doc-cta">
-        <h2>Curious where you stand?</h2>
-        <p>Take the related self-assessment — 10 questions, about two minutes.</p>
-        <a class="cta-button" href="../../tests/heart/">Go to the assessment <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
-    </section></div>
-<div data-lang-block="tr" hidden>
-    <header class="doc-hero">
-        <span class="badge cardio">Kalp</span>
-        <h1>Kalp hızı değişkenliği (HRV): ne olduğu ve ne olmadığı</h1>
-        <div class="doc-meta">
-            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-user-round"/></svg> Dr. ShenTechin</span>
-            <span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg> 21 Ağustos 2026</span>
-        </div>
-    </header>
-    <article class="prose">
-        <p><strong>HRV her akıllı saatin manşet sayısı hâline geldi. Gerçek bir şey söylüyor — ama uygulamaların ima ettiğinden çok daha az kesinlikle.</strong></p>
-        <p>Sağlıklı bir kalp metronom gibi atmaz. Tam dinlenme hâlinde bile atımlar arasındaki aralık birinden diğerine biraz değişir; kalp hızı değişkenliği — HRV — bunun ne kadar olduğunun ölçüsüdür. Sezgiye aykırı biçimde, daha fazla değişkenlik genellikle daha iyi işarettir.</p>
-
-<h2>Değişkenlik neden iyi</h2>
-<p>Kalp hızınız otonom sinir sisteminin iki kolundan sürekli ayar alır. Sempatik kol hızlandırır; ağırlıklı olarak vagus siniri üzerinden çalışan parasempatik kol yavaşlatır. İkisi sürekli pazarlık hâlindedir ve atımdan atıma değişkenlik, bu pazarlığın görünür tortusudur.</p>
-<p>Parasempatik taraf iyi etkiliyken — dinlenmişken, toparlanmışken, akut baskı altında değilken — ayarlar sık ve ince olur, değişkenlik yükselir. Stres, hastalık ya da ağır antrenman sonrasında sempatik etkinlik baskın gelir, pazarlık durur ve ritim tekdüzeleşir. Çok düzenli bir dinlenme nabzı iyi ayarlanmış bir motorun işareti değildir; tersine yakındır.</p>
-
-<h2>Makul olarak ne söyleyebilir</h2>
-<p>HRV, fark edilmeye değer şeylere gerçekten duyarlıdır. Kötü uyku, alkol, akut hastalık ve ağır antrenman yüküyle düşme, bunlar geçtikçe toparlanma eğilimindedir. Tutarlı bir saatte — genellikle gece boyunca ya da sabah ilk iş — ölçülen <strong>kişisel bir eğilim</strong> olarak kullanıldığında, hissettiğinizden daha tükenmiş olduğunuza dair faydalı bir erken sinyal olabilir.</p>
-
-<div class="callout warn"><p>Yapamayacağı şey, sizi başkasıyla anlamlı biçimde karşılaştırmaktır. Mutlak HRV değerleri kişiden kişiye muazzam ölçüde değişir ve yaşla düşer. Başkasının sayısı sizinki hakkında hiçbir şey söylemez.</p></div>
-
-<h2>Uygulamalar nerede fazla ileri gidiyor</h2>
-<p>Günlük bir HRV skorunu ciddiye almadan önce bilinmeye değer üç şey var.</p>
-<ul>
-<li><strong>Ölçüm yöntemi önemlidir.</strong> Göğüs bantları elektriksel etkinliği doğrudan okur. Bilek ve parmak cihazları atım zamanlamasını kan akışı üzerinden optik olarak çıkarır. Optik yaklaşım daha pratik ve daha az hassastır; hassasiyet ise bir değişkenlik ölçümünün tam da dayandığı şeydir.</li>
-<li><strong>Bağlam belirleyicidir.</strong> Vücut pozisyonu, solunum hızı, günün saati, kafein ve ne kadar iyi uyuduğunuz HRV'yi ciddi biçimde oynatır. Bu sabahı dün sabahla karşılaştırmak ancak koşullar benzerse işe yarar.</li>
-<li><strong>"Hazır olma skoru" bir ölçüm değil bir yorumdur.</strong> Altındaki sayı gerçek olabilir; üzerine kurulan öneri, onun sizin için ne anlama geldiğine dair tescilli bir tahmindir.</li>
-</ul>
-
-<h2>Makul bir kullanım biçimi</h2>
-<p>Halihazırda bir cihazınız varsa, HRV'yi birkaç girdiden biri olarak görün ve bariz olanlara daha fazla ağırlık verin: nasıl uyuduğunuza, nasıl hissettiğinize, hastalanıp hastalanmadığınıza. Tek bir ölçüm yerine birkaç günlük yönü izleyin. Ve düşük bir sayının sizi yürüyüşten vazgeçirmesine izin vermeyin — hafif aktivite toparlanmayı neredeyse her zaman engellemek yerine destekler.</p>
-<p>Cihazınız yoksa çok şey kaçırmıyorsunuz. Uyku süresi ve düzeni, dinlenme nabzı ve merdivende nasıl hissettiğiniz aynı bilginin çoğunu ücretsiz taşır.</p>
-
-<h2>HRV ne değildir</h2>
-<p>HRV bir tanı testi değildir ve kalp hastalığı için bir tarama aracı değildir. Düzensiz nabız, çarpıntı, göğüste sıkışma, hafif eforda nefes darlığı veya bayılma doğrudan hekime başvurma gerekçesidir — bunlar bir akıllı saatin günlük skoruyla değil, EKG ve klinik muayeneyle değerlendirilir.</p>
-        <div class="callout warn"><p>Bu yazı genel bilgidir, tıbbi tavsiye değildir ve kendi durumunuz için bir sağlık profesyoneline başvurmanın yerini tutmaz.</p></div>
-    </article>
-    <section class="doc-cta">
-        <h2>Kendi durumunuzu merak ettiniz mi?</h2>
-        <p>İlgili öz-değerlendirmeyi yapın — 10 soru, yaklaşık iki dakika.</p>
-        <a class="cta-button" href="../../tests/heart/">Değerlendirmeye git <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
-    </section></div></main>
+<div class="callout callout--warn"><p>This article is general information, not medical advice, and it is not a substitute for seeing a healthcare professional about your own situation.</p></div>
+<section class="doc-cta">
+<h2>Curious where you stand?</h2>
+<p>Take the related self-assessment — 10 questions, about two minutes.</p>
+<a class="btn btn--primary" href="/tests/heart/">Go to the assessment <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
+</section>
+<a class="next-article" href="/insights/chronic-stress-and-the-body/">
+<span class="next-article__label">Read next</span>
+<h3>What chronic stress actually does to the body</h3>
+<p>Stress is a hormonal loop with a beginning, a purpose and an off switch. Understanding where the switch is makes it easier to use.</p>
+</a>
+</article>
+<nav class="toc" aria-label="On this page">
+<h2>On this page</h2>
+<ol>
+<li><a href="#s-1">Why variation is good</a></li>
+<li><a href="#s-2">What it can reasonably tell you</a></li>
+<li><a href="#s-3">Where the apps overreach</a></li>
+<li><a href="#s-4">A sensible way to use it</a></li>
+<li><a href="#s-5">What HRV is not</a></li>
+</ol>
+</nav>
+</div>
+</main>
 <footer>
-    <div class="footer-inner">
-        <div class="footer-brand">
-            <a href="../../index.html" class="logo">ShenTechin<span class="med-badge">MED</span></a>
-            <p data-i18n="footer_tagline">Free, anonymous self-assessments on everyday health habits.</p>
-        </div>
-        <div class="footer-col">
-            <h4 data-i18n="footer_col_tests">Assessments</h4>
-            <ul>
-                <li><a href="../../tests/sleep/" data-i18n="test_sleep_name">sleep</a></li>
-                <li><a href="../../tests/skin/" data-i18n="test_skin_name">skin</a></li>
-                <li><a href="../../tests/diet/" data-i18n="test_diet_name">diet</a></li>
-                <li><a href="../../tests/stress/" data-i18n="test_stress_name">stress</a></li>
-                <li><a href="../../tests/heart/" data-i18n="test_heart_name">heart</a></li>
-                <li><a href="../../tests/focus/" data-i18n="test_focus_name">focus</a></li>
-                <li><a href="../../tests/fitness/" data-i18n="test_fitness_name">fitness</a></li>
-                <li><a href="../../tests/immunity/" data-i18n="test_immunity_name">immunity</a></li>
-                <li><a href="../../tests/tech/" data-i18n="test_tech_name">tech</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4 data-i18n="footer_col_learn">Learn</h4>
-            <ul>
-                <li><a href="../../insights.html" data-i18n="nav_insights">Insights</a></li>
-                <li><a href="../../about.html" data-i18n="nav_about">About</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4 data-i18n="footer_col_legal">Legal</h4>
-            <ul>
-                <li><a href="../../disclaimer.html" data-i18n="footer_disclaimer">Medical Disclaimer</a></li>
-                <li><a href="../../privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
-                <li><a href="../../terms.html" data-i18n="footer_terms">Terms of Use</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <span data-i18n="footer_copy">&copy; 2026 ShenTechin Med.</span>
-        <span data-i18n="footer_note">These assessments are not medical diagnoses.</span>
-    </div>
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="/" class="logo">ShenTechin<span class="med-badge">MED</span></a>
+<p>Free, anonymous self-assessments on everyday health habits. Educational only — never a diagnosis.</p>
+</div>
+<div class="footer-col">
+<h4>Assessments</h4>
+<ul>
+<li><a href="/tests/sleep/">Sleep Quality</a></li>
+<li><a href="/tests/skin/">Skin Profile</a></li>
+<li><a href="/tests/diet/">Nutrition Habits</a></li>
+<li><a href="/tests/stress/">Stress Load</a></li>
+<li><a href="/tests/heart/">Heart Health Habits</a></li>
+<li><a href="/tests/focus/">Focus & Attention</a></li>
+<li><a href="/tests/fitness/">Physical Condition</a></li>
+<li><a href="/tests/immunity/">Immune Resilience</a></li>
+<li><a href="/tests/tech/">Digital Balance</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Learn</h4>
+<ul>
+<li><a href="/insights.html">Insights</a></li>
+<li><a href="/about.html">About</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="/disclaimer.html">Medical Disclaimer</a></li>
+<li><a href="/privacy.html">Privacy Policy</a></li>
+<li><a href="/terms.html">Terms of Use</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<span>&copy; 2026 ShenTechin Med.</span>
+<span>These assessments are not medical diagnoses and do not replace a consultation with a healthcare professional.</span>
+</div>
 </footer>
-<script src="../../assets/js/nav.js" defer></script>
-
+<aside class="lang-offer" hidden>
+<p>Bu sayfa Türkçe olarak da mevcut.</p>
+<a class="btn btn--primary btn--sm" href="/tr/yazilar/kalp-hizi-degiskenligi/" hreflang="tr" data-lang-switch="tr">Türkçeye geç</a>
+<button class="btn btn--quiet btn--sm" type="button" data-lang-dismiss>Kapat</button>
+</aside>
+<script src="/assets/js/app.js" defer></script>
 </body>
 </html>

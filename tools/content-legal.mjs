@@ -85,18 +85,19 @@ export const LEGAL = [
 <p>This data stays on your device, is readable only by this website, and can be removed at any time by clearing site data in your browser settings. Using private/incognito mode clears it when you close the window.</p>
 
 <h2>Third parties</h2>
-<p>Two third parties necessarily see a technical record of your visit:</p>
+<p>One third party necessarily sees a technical record of your visit:</p>
 <ul>
 <li><strong>GitHub Pages</strong> hosts this site. As with any web host, GitHub's servers process your IP address and browser user-agent in order to deliver the pages, and may retain them in server logs. We have no access to those logs.</li>
-<li><strong>Google Fonts</strong> supplies the typeface. Your browser requests font files from <code>fonts.googleapis.com</code> and <code>fonts.gstatic.com</code>, which means Google receives your IP address and user-agent. We do not send Google anything else, and no font request contains your answers.</li>
 </ul>
+<p>The typeface is served from this domain, not from Google Fonts, so loading a page contacts no other company. There are no embedded videos, maps, comment systems or social widgets.</p>
 <p>We do not run advertising, we do not embed social media widgets, and we do not use tracking pixels.</p>
 
 <h2>Analytics</h2>
 <p>The site contains an internal event layer that records actions such as "an assessment was started" in the page's memory. <strong>At the time of writing, no analytics provider is connected</strong>, so these events are not transmitted anywhere and disappear when you close the tab. If we ever connect one, this policy will be updated before it goes live and the relevant consent requirements will be met.</p>
 
 <h2>Sharing</h2>
-<p>The result page offers buttons to share your score on X or WhatsApp, or through your device's own share sheet. Nothing is shared unless you press one of those buttons, and the share text contains only your score and the test name.</p>
+<p>The result page offers buttons to share your score on X or WhatsApp, through your device's own share sheet, or as a copied link. Nothing is shared unless you press one of those buttons.</p>
+<p>A shared link carries your answers encoded in the part of the address after the <code>#</code>. Browsers never transmit that part to a server, so the answers travel only inside the message you send &mdash; but anyone holding the link can open the same result. Treat it like any other personal message. The &ldquo;save as image&rdquo; button draws the card in your browser and saves it to your device; it is not uploaded anywhere.</p>
 
 <h2>Your rights</h2>
 <p>Under Turkish data protection law (KVKK) and, for visitors in the EU/EEA, the GDPR, you have rights of access, rectification, erasure and objection regarding personal data held about you. Because we hold no personal data about you on any server, there is nothing for us to retrieve, correct or delete — and you can erase everything this site has stored by clearing your browser data. If you would like to exercise a right or ask a question, write to <a href="mailto:${CONTACT}">${CONTACT}</a>.</p>
@@ -124,18 +125,19 @@ export const LEGAL = [
 <p>Bu veriler cihazınızda kalır, yalnızca bu web sitesi tarafından okunabilir ve tarayıcı ayarlarınızdan site verilerini temizleyerek istediğiniz an silinebilir. Gizli sekme kullanırsanız pencereyi kapattığınızda temizlenir.</p>
 
 <h2>Üçüncü taraflar</h2>
-<p>Ziyaretinizin teknik kaydını zorunlu olarak iki üçüncü taraf görür:</p>
+<p>Ziyaretinizin teknik kaydını zorunlu olarak tek bir üçüncü taraf görür:</p>
 <ul>
 <li><strong>GitHub Pages</strong> bu siteyi barındırıyor. Her web barındırıcısında olduğu gibi, GitHub'ın sunucuları sayfaları iletebilmek için IP adresinizi ve tarayıcı bilgisinizi işler ve sunucu kayıtlarında tutabilir. Bu kayıtlara erişimimiz yok.</li>
-<li><strong>Google Fonts</strong> yazı tipini sağlıyor. Tarayıcınız <code>fonts.googleapis.com</code> ve <code>fonts.gstatic.com</code> adreslerinden font dosyaları ister; bu da Google'ın IP adresinizi ve tarayıcı bilginizi almasına yol açar. Google'a başka hiçbir şey göndermiyoruz ve hiçbir font isteği cevaplarınızı içermiyor.</li>
 </ul>
+<p>Yazı tipi Google Fonts'tan değil, bu alan adından sunuluyor; dolayısıyla bir sayfayı açmak başka hiçbir şirketle iletişim kurmuyor. Gömülü video, harita, yorum sistemi veya sosyal medya bileşeni yok.</p>
 <p>Reklam yayınlamıyoruz, sosyal medya bileşeni gömmüyoruz ve izleme pikseli kullanmıyoruz.</p>
 
 <h2>Analitik</h2>
 <p>Sitede, "bir değerlendirme başlatıldı" gibi eylemleri sayfanın belleğine kaydeden dâhilî bir olay katmanı var. <strong>Bu yazının yazıldığı tarihte bağlı bir analitik sağlayıcı yoktur</strong>; dolayısıyla bu olaylar hiçbir yere iletilmiyor ve sekmeyi kapattığınızda kayboluyor. İleride bir sağlayıcı bağlarsak, yayına alınmadan önce bu politika güncellenecek ve ilgili açık rıza gereklilikleri karşılanacaktır.</p>
 
 <h2>Paylaşım</h2>
-<p>Sonuç sayfasında puanınızı X veya WhatsApp üzerinden ya da cihazınızın kendi paylaşım menüsüyle paylaşma düğmeleri var. Siz bu düğmelerden birine basmadıkça hiçbir şey paylaşılmaz ve paylaşım metni yalnızca puanınızı ve test adını içerir.</p>
+<p>Sonuç sayfasında puanınızı X veya WhatsApp üzerinden, cihazınızın kendi paylaşım menüsüyle ya da kopyalanan bir bağlantı olarak paylaşma düğmeleri var. Siz bu düğmelerden birine basmadıkça hiçbir şey paylaşılmaz.</p>
+<p>Paylaşılan bağlantı, cevaplarınızı adresin <code>#</code> işaretinden sonraki bölümünde kodlanmış olarak taşır. Tarayıcılar bu bölümü hiçbir sunucuya iletmez; yani cevaplar yalnızca gönderdiğiniz mesajın içinde yolculuk eder &mdash; ama bağlantıya sahip olan herkes aynı sonucu açabilir. Onu da diğer kişisel mesajlarınız gibi değerlendirin. &ldquo;Görsel olarak kaydet&rdquo; düğmesi kartı tarayıcınızda çizip cihazınıza kaydeder; hiçbir yere yüklenmez.</p>
 
 <h2>Haklarınız</h2>
 <p>6698 sayılı KVKK ve AB/AEA'daki ziyaretçiler için GDPR kapsamında; hakkınızda tutulan kişisel verilere erişme, düzeltme, silme ve itiraz etme haklarına sahipsiniz. Hiçbir sunucuda hakkınızda kişisel veri tutmadığımız için getirecek, düzeltecek veya silecek bir şeyimiz yok — bu sitenin sakladığı her şeyi tarayıcı verilerinizi temizleyerek silebilirsiniz. Bir hakkınızı kullanmak veya soru sormak isterseniz <a href="mailto:${CONTACT}">${CONTACT}</a> adresine yazın.</p>
@@ -170,7 +172,7 @@ export const LEGAL = [
 <p>To the fullest extent permitted by applicable law, we accept no liability for any loss or damage arising from your use of, or reliance on, this website or its content — including any decision to seek, delay or not seek medical care. Nothing in these terms limits liability that cannot lawfully be limited.</p>
 
 <h2>5. Intellectual property</h2>
-<p>The text, questionnaires, design and code of this site belong to ShenTechin Med unless stated otherwise. The typeface is supplied by Google Fonts under its own licence.</p>
+<p>The text, questionnaires, design and code of this site belong to ShenTechin Med unless stated otherwise. The typeface, Plus Jakarta Sans, is used under the SIL Open Font License and is served from this domain.</p>
 
 <h2>6. External links</h2>
 <p>Where we link to other websites, we do so for convenience. We do not control them and are not responsible for their content, accuracy or privacy practices.</p>
@@ -206,7 +208,7 @@ export const LEGAL = [
 <p>Yürürlükteki hukukun izin verdiği azami ölçüde; bu web sitesini veya içeriğini kullanmanızdan ya da ona güvenmenizden doğan hiçbir zarardan — tıbbi bakıma başvurma, geciktirme veya başvurmama kararı dâhil — sorumluluk kabul etmiyoruz. Bu koşullardaki hiçbir hüküm, hukuken sınırlandırılamayacak sorumluluğu sınırlandırmaz.</p>
 
 <h2>5. Fikrî mülkiyet</h2>
-<p>Bu sitenin metinleri, anketleri, tasarımı ve kodu, aksi belirtilmedikçe ShenTechin Med'e aittir. Yazı tipi, kendi lisansı kapsamında Google Fonts tarafından sağlanmaktadır.</p>
+<p>Bu sitenin metinleri, anketleri, tasarımı ve kodu, aksi belirtilmedikçe ShenTechin Med'e aittir. Yazı tipi Plus Jakarta Sans, SIL Open Font License kapsamında kullanılmakta ve bu alan adından sunulmaktadır.</p>
 
 <h2>6. Dış bağlantılar</h2>
 <p>Başka web sitelerine verdiğimiz bağlantılar kolaylık amaçlıdır. Bu siteler bizim denetimimizde değildir; içeriklerinden, doğruluklarından veya gizlilik uygulamalarından sorumlu değiliz.</p>
