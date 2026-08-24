@@ -1,4 +1,4 @@
-/* ShenTechin Med — her sayfada çalışan küçük arayüz katmanı.
+/* ShenTechin MED — her sayfada çalışan küçük arayüz katmanı.
    Her bölüm kendi DOM'u yoksa sessizce atlanır, böylece tek dosya
    bütün sayfa tiplerine hizmet eder. Sayfa JavaScript olmadan da
    tam olarak okunabilir; buradaki her şey ek konfor. */

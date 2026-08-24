@@ -234,3 +234,80 @@
   .med-note { flex-direction: column; align-items: flex-start; }
   .ring { width: 176px; height: 176px; }
 }
+
+/* ---------- KİŞİYE ÖZEL EYLEM PLANI ---------- */
+/* Raporun en önemli kutusu; kenar rengi o cevabın bandını taşır. */
+.panel--plan { border-color: var(--border); }
+
+.plan { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-4); }
+.plan__item {
+  display: flex; gap: var(--sp-4); align-items: flex-start;
+  padding: var(--sp-5);
+  background: var(--bg-sunken);
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--plan-color, var(--brand));
+  border-radius: var(--r-md);
+}
+.plan__item[data-band='good'] { --plan-color: var(--ok); }
+.plan__item[data-band='mid']  { --plan-color: var(--warn); }
+.plan__item[data-band='low']  { --plan-color: var(--danger); }
+
+.plan__rank {
+  display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%;
+  background: var(--plan-color, var(--brand)); color: #fff;
+  font-size: var(--step--2); font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.plan__body { min-width: 0; }
+.plan__do {
+  font-size: var(--step-0); font-weight: 800; line-height: var(--lh-tight);
+  margin-bottom: var(--sp-2); color: var(--fg);
+}
+.plan__why {
+  font-size: var(--step--1); color: var(--fg-muted);
+  line-height: var(--lh-normal); margin-bottom: var(--sp-3);
+}
+.plan__from {
+  display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap;
+  font-size: var(--step--2); color: var(--fg-subtle);
+  padding-top: var(--sp-3); border-top: 1px dashed var(--border-soft);
+}
+.plan__chip {
+  padding: 2px 8px; border-radius: var(--r-sm);
+  background: var(--bg-elev); border: 1px solid var(--border-soft);
+  font-weight: 800; font-variant-numeric: tabular-nums; color: var(--fg-muted);
+}
+
+/* ---------- HEKİME GÖTÜRÜLECEK İŞARETLER ---------- */
+.panel--flag { border-color: color-mix(in srgb, var(--warn) 40%, var(--border-soft)); }
+.flags { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+.flag {
+  display: flex; gap: var(--sp-4); align-items: flex-start;
+  padding: var(--sp-5); border-radius: var(--r-md);
+  background: var(--warn-soft); border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent);
+}
+.flag__mark {
+  display: flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%;
+  background: var(--warn); color: #fff; font-weight: 800; font-size: var(--step--1);
+}
+.flag p { font-size: var(--step--1); color: var(--warn-ink); line-height: var(--lh-normal); }
+
+/* ---------- ALAN AÇIKLAMALARI ---------- */
+.theme-row__why {
+  font-size: var(--step--2); color: var(--fg-subtle);
+  line-height: var(--lh-normal); margin-top: var(--sp-2);
+}
+.theme-row__todo {
+  font-size: var(--step--2); color: var(--fg-muted);
+  line-height: var(--lh-normal);
+  padding: var(--sp-3) var(--sp-4); margin-top: var(--sp-2);
+  background: var(--bg-sunken); border-radius: var(--r-sm);
+  border-left: 3px solid var(--row-color, var(--brand));
+}
+.themes { gap: var(--sp-6); }
+
+/* ---------- KANIT PANELİ ---------- */
+.panel--evidence .basis { margin-bottom: var(--sp-4); }
+.panel--evidence .refs__title { margin-top: var(--sp-5); }

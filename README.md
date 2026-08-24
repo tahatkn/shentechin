@@ -1,4 +1,4 @@
-# ShenTechin Med
+# ShenTechin MED
 
 Statik site, GitHub Pages üzerinde `shentechin.com` adresinde yayında.
 Sunucuda derleme adımı yok — depoya konan HTML doğrudan yayınlanır.
@@ -23,23 +23,25 @@ Faydalı adres parametreleri:
 |---|---|
 | `?theme=dark` / `?theme=light` | Temayı zorlar (paylaşım ve test için) |
 | `?stdebug=1` | Olay katmanını konsola yazar |
-| `quiz.html?type=sleep&mode=full` | 25 soruluk sürüm |
+| `quiz.html?type=sleep` | 25 soruluk tam sürüm (varsayılan) |
+| `quiz.html?type=sleep&mode=quick` | 10 soruluk kısa sürüm |
+| `result.html#r=sleep.f.<25 karakter>` | Hazır bir rapor açar |
 
 ## Günlük iş akışı
 
 ```bash
 node tools/build.mjs          # bütün sayfaları üret   (~1 sn)
-node --test tools/check.mjs   # 33 doğrulama testi     (~1 sn)
+node --test tools/check.mjs   # 53 doğrulama testi     (~1 sn)
 node tools/visual.mjs --smoke # gerçek tarayıcıda duman testi (~40 sn)
 ```
 
 Bir şeyi değiştirdikten sonra bu üçünü çalıştırın. `check.mjs` yeşilse
-puanlama, çeviriler, bağlantılar, meta etiketler ve performans bütçesi
-yerindedir.
+puanlama, çeviriler, bağlantılar, meta etiketler, ikonlar, bilimsel katman
+ve performans bütçesi yerindedir.
 
 ## Sayfalar nereden üretiliyor
 
-`nav`, `footer`, `<head>`, ikon seti ve gömülü CSS 44 sayfada tekrar ettiği
+`nav`, `footer`, `<head>`, ikon seti ve gömülü CSS 46 sayfada tekrar ettiği
 için HTML dosyaları elle değil bir üreticiyle yazılıyor.
 
 | Dosya | İçerik |
@@ -47,19 +49,23 @@ için HTML dosyaları elle değil bir üreticiyle yazılıyor.
 | `tools/build.mjs` | Sayfa şablonları ve hangi sayfanın üretileceği |
 | `tools/shell.mjs` | Ortak `<head>`, nav, alt bilgi, meta/OG/JSON-LD |
 | `tools/i18n.mjs` | Bütün arayüz metinleri (EN + TR) |
-| `tools/illustrations.mjs` | Kategori çizimleri, hero animasyonu, makale diyagramları |
-| `tools/icons.mjs` | Satır içi SVG ikon seti |
+| `tools/content-questions.mjs` | **9 testin 25'er sorusu — tek doğruluk kaynağı** |
+| `tools/content-science.mjs` | **Alan analizleri, soru başına eylem, uyarı kuralları, kaynaklar** |
 | `tools/content-tests.mjs` | 9 test tanıtım sayfasının iki dilli metni |
-| `tools/content-articles.mjs` | 4 makalenin iki dilli tam metni |
+| `tools/content-articles.mjs` | 4 makalenin iki dilli tam metni ve kaynakları |
 | `tools/content-legal.mjs` | Gizlilik, kullanım koşulları, tıbbi uyarı |
 | `tools/content-results.mjs` | Sonuç ekranındaki bant metinleri |
+| `tools/illustrations.mjs` | Kategori çizimleri, hero animasyonu, makale diyagramları |
+| `tools/icons.mjs` | Satır içi SVG ikon seti |
+| `tools/favicon.mjs` | favicon.ico ve PNG ikon seti üretici (isteğe bağlı adım) |
 | `tools/lib/routes.mjs` | İki dilli adres haritası (tek doğruluk kaynağı) |
 | `tools/lib/minify.mjs` | Bağımlılıksız CSS/JS/HTML küçültücü |
-| `tools/lib/questions.mjs` | Soru bankalarını derleme sırasında okur |
+| `tools/lib/questions.mjs` | Soru bankasını tarayıcı biçimine çevirir |
 
 **Önemli:** İçeriği `tools/` altındaki dosyalardan düzenleyin. Üretilen
-`.html` dosyalarını doğrudan düzenlerseniz `build.mjs` bir sonraki
-çalıştırmada değişikliğinizi siler.
+`.html`, `assets/js/data/*.js` ve `assets/js/results/*.js` dosyalarını
+doğrudan düzenlerseniz `build.mjs` bir sonraki çalıştırmada değişikliğinizi
+siler — `check.mjs` bunu ayrıca bir hata olarak bildirir.
 
 `build.mjs` ayrıca `sitemap.xml`, `robots.txt`, `sw.js` ve
 `site.webmanifest` dosyalarını da üretir.
@@ -88,44 +94,94 @@ ilgili sayfaya küçük bir sözlük olarak gömülür: `RUNTIME_KEYS`.
 
 ## Soru bankası ve puanlama
 
-Her testin soruları `assets/js/data/<test>.js` içinde:
+Kaynak `tools/content-questions.mjs`. Her testte **5 alan × 5 soru = 25 soru**
+var; kısa sürüm her alandan 2 soru alır (10 soru). Soru başına tek bir nesne
+tutulur:
 
 ```js
-window.QUIZ_DATA = {
-  id: "sleep",
-  reverse: [0, 1, 3, ...],      // yüksek cevabın SAĞLIK AÇISINDAN OLUMSUZ olduğu sorular
-  quick:   [0, 1, 2, ...],      // kısa sürümde sorulan 10 sorunun indeksi
-  anchors: ["freq", null, ...], // her sorunun 1 ve 10 uçlarının adı
-  anchorText: { 0: { en: {low, high}, tr: {low, high} } },  // soruya özel uçlar
-  groups:  ["onset", "room", ...],   // sonuç ekranındaki alan kırılımı
-  groupNames: { en: {...}, tr: {...} },
-  q: { en: [...25 soru], tr: [...25 soru] }
-};
+{ d:'onset',            // alan (sonuç ekranındaki kırılım)
+  a:'freq',             // ölçek ucu: i18n anahtarı ya da {en:{low,high},tr:{…}}
+  r:true,               // ters kodlu: yüksek cevap SAĞLIK AÇISINDAN OLUMSUZ
+  k:true,               // kısa sürümde de sorulur
+  src:'ISI madde 2',    // dayandığı ölçek — sayfada görünmez
+  en:'…', tr:'…' }
 ```
 
-`reverse` listesindeki sorular puanlanırken `11 - cevap` olarak çevrilir; bu
-sayede "horlar mısınız?" ile "dinç uyanır mısınız?" aynı yöne bakar. Toplam
-`(ham - n) / (9n)` ile 0–100 aralığına normalize edilir, yani tüm cevaplar 1
-iken sonuç %10 değil %0 olur.
+`build.mjs` bunu `assets/js/data/<test>.js` içindeki paralel dizi biçimine
+çevirir. `reverse` ve `quick` indeksleri **elle yazılmaz**, `r` ve `k`
+bayraklarından türetilir — eskiden puanı sessizce ters çeviren en büyük
+risk buydu.
 
-`anchors` değerleri `tools/i18n.mjs` içindeki `scale_<ad>_low/high`
-anahtarlarına karşılık gelir: `freq`, `amount`, `quality`, `agree`,
-`regular`, `long`, `easy`, `comfort`, `lowhigh`, `speed`.
+Puanlama: ters kodlu sorular `11 - cevap` olarak çevrilir, toplam
+`(ham - n) / (9n)` ile 0–100 aralığına normalize edilir. `check.mjs` yönü
+(ters soruda yüksek cevap puanı düşürmeli) ve uç değerleri denetler.
 
-Soru metinlerini değiştirirseniz `reverse` listesinin hâlâ doğru olduğundan
-emin olun — yanlış bir indeks sessizce yanlış puan üretir. `check.mjs`
-yönü (ters soruda yüksek cevap puanı düşürmeli) ve uç değerleri
-(hepsi 1 → %0, hepsi 10 → %100) denetler.
+`a` değerleri `tools/i18n.mjs` içindeki `scale_<ad>_low/high` anahtarlarına
+karşılık gelir: `freq`, `amount`, `quality`, `agree`, `regular`, `long`,
+`easy`, `comfort`, `lowhigh`, `speed`.
+
+## Bilimsel katman
+
+`tools/content-science.mjs` raporun kişiye özel kısmını taşır. Test başına:
+
+| Alan | İçerik |
+|---|---|
+| `basis` | Testin hangi ölçeklerden uyarlandığı (PSQI, ISI, ESS, PSS-10, MEDAS, LE8 …) |
+| `refs` | PubMed kimliğiyle kaynaklar — **57 PMID'in tamamı E-utilities ile doğrulandı** |
+| `domains` | Alan başına: ne ölçüyor, düşükse ne yapılır, yüksekse ne korunur |
+| `actions` | **Soru başına** eylem (`do`) ve gerekçe (`why`) |
+| `flags` | Belirli cevap bileşimlerinde hekime yönlendirme |
+
+Sonuç sayfası, puanı en çok düşüren cevapları alır ve **yalnızca onların**
+eylemini gösterir; raporun kişiye özel olmasının sebebi budur. İki kişi aynı
+toplam puanı alsa bile farklı bir plan görür.
+
+`flags` biçimi: `{ q:[soru indeksleri], at:eşik, need:kaç tanesi }`. Eşik
+puanlanmış değere göredir (ters kodlu sorular çevrildikten sonra; 1 en kötü,
+10 en iyi). Kısa sürümde sorulmamış sorular sayıma girmez.
+
+**Kural:** kaynağı olmayan sayısal iddia yazmayın. Bir sayı veriliyorsa
+(dakika, saat, porsiyon, eşik) arkasında `refs` içindeki bir çalışma ya da
+kılavuz olmalı. `check.mjs` PMID biçimini, tekrarı ve künyede yıl olmasını
+denetler; yeni bir PMID eklerken gerçekten var olduğunu doğrulayın:
+
+```bash
+curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=26039963" | head
+```
 
 ## Sonuç sayfası
 
-- Cevaplar sonuç sayfasına taşınır; puanın hangi alanlardan geldiği ve
-  puanı en çok düşüren üç cevap oradan çıkar.
+- **Eylem planı** — en zayıf 5 cevap, her biri için ne yapılacağı ve neden.
+- **Hekime danışmaya değer** — kural tabanlı; tanı koymaz, örüntü eşler.
+- **Puan nereden geldi** — 5 alanın her biri için puan, ne ölçtüğü ve o
+  düzeyde ne yapılacağı.
+- **Lehinize çalışanlar** — 8 ve üzeri puan alan cevaplar.
+- **Bu değerlendirme neye dayanıyor** — ölçek listesi ve PubMed bağlantıları.
 - Sonuç bağlantısı cevapları adresin `#` sonrasında kodlar
-  (`#r=sleep.q.8735a27615`). Tarayıcılar bu bölümü sunucuya göndermez;
-  paylaşım tamamen istemci tarafındadır. Bunu gizlilik politikası anlatıyor.
+  (`#r=sleep.f.3666686668699669662296664`). Tarayıcılar bu bölümü sunucuya
+  göndermez; paylaşım tamamen istemci tarafındadır.
 - "Görsel olarak kaydet" kartı `<canvas>` ile tarayıcıda çizilir.
 - Geçmiş `localStorage`'da, test başına en fazla 12 kayıt tutulur.
+
+## İkonlar (arama sonucundaki site ikonu)
+
+Google, arama sonucunda ikon gösterebilmek için `/favicon.ico` adresinde
+gerçek bir dosya ve 48 pikselin katı boyutlarda PNG bekler. Yalnızca SVG
+ikonu olan siteler çoğu zaman ikonsuz çıkar.
+
+```bash
+node tools/favicon.mjs   # Chrome + ImageMagick gerektirir
+```
+
+Üretilenler (hepsi depoya işlenir, derleme bunlara bağımlı değildir):
+`favicon.ico` (16+32+48), `favicon-96x96.png`, `icon-192.png`,
+`icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`,
+`favicon.svg`.
+
+`check.mjs` altı ayrı testle şunu denetler: dosyalar diskte mi, ICO gerçekten
+48 pikseli içeriyor mu, her sayfa doğru `<link>` etiketlerini taşıyor mu,
+manifest var olmayan bir dosyayı gösteriyor mu ve `robots.txt` ikonları
+engelliyor mu.
 
 ## Görseller
 
@@ -141,10 +197,6 @@ Sosyal paylaşım görselleri **isteğe bağlı** bir adımla üretilir:
 node tools/og.mjs      # ImageMagick + tools/fonts/*.ttf gerektirir
 node tools/build.mjs   # sayfalar üretilen görselleri kullanmaya başlar
 ```
-
-`build.mjs` bu görselleri üretmez, yalnızca diskte varsa kullanır; yoksa
-`assets/img/og-default.png` dosyasına düşer. Böylece site ImageMagick
-kurulu olmayan bir makinede de derlenir.
 
 ## Tema
 
@@ -170,16 +222,20 @@ verilip arka planda tazelenir.
 node --test tools/check.mjs
 ```
 
-33 test; puanlama, soru bankası bütünlüğü, çeviri paritesi, üretilen
-sayfaların meta etiketleri, iç bağlantılar, sitemap, erişilebilirlik
-işaretleri ve performans bütçesi.
+53 test; puanlama, soru bankası yapısı, bilimsel katmanın bütünlüğü,
+üretilen dosyaların kaynakla eşleşmesi, çeviri paritesi, meta etiketler,
+ikonlar, iç bağlantılar, sitemap, erişilebilirlik ve performans bütçesi.
 
 Performans bütçesi (aşılırsa test kırmızı olur):
 
 | Ölçü | Sınır |
 |---|---|
 | Sayfa (gzip, CSS gömülü) | 16 KB |
-| Tek JS dosyası (gzip) | 8 KB |
+| `app.js` (gzip) | 4,5 KB |
+| `quiz.js` (gzip) | 6 KB |
+| `result.js` (gzip) | 12 KB |
+| Test başına soru bankası (gzip) | 4 KB |
+| Test başına rapor metni (gzip) | 8 KB |
 | İki yazı tipi alt kümesi | 60 KB |
 | Sosyal görsel | 40 KB |
 | `<head>` içinde engelleyici script | 0 |
@@ -189,24 +245,26 @@ Performans bütçesi (aşılırsa test kırmızı olur):
 
 ```bash
 node tools/visual.mjs --smoke    # yalnızca DOM denetimleri (hızlı)
-node tools/visual.mjs            # referanslarla piksel karşılaştırması
+node tools/visual.mjs            # 80 referansla piksel karşılaştırması
 node tools/visual.mjs --update   # referansları yenile
-node tools/visual.mjs --only=quiz,result
+node tools/visual.mjs --only=report,quiz
 ```
 
 Playwright kurmaz; makinede zaten yüklü olan Chrome'u headless çağırır ve
 PNG karşılaştırmasını kendi içinde yapar. Referanslar `tools/baseline/`
-altında; ilk çalıştırmada üretilir.
+altında.
+
+DOM duman testleri ayrıca şunları denetler: tam raporun eylem planını ve
+kaynakları çizmesi, hekim uyarısının doğru cevap bileşiminde tetiklenmesi
+ve temiz cevaplarda tetiklenmemesi.
 
 Bilinen sınır: macOS'ta headless Chrome görüntü alanını 500 CSS pikselin
-altına indirmiyor, bu yüzden "dar" sütun 500 px. 500 px, `≤900` ve `≤620`
-kırılımlarını tetikler; yalnızca `≤380`e özel kurallar burada denetlenmez.
+altına indirmiyor, bu yüzden "dar" sütun 500 px.
 
 ## Analitik
 
 `assets/js/app.js` içindeki olay katmanı olayları toplar ama **varsayılan
-olarak hiçbir yere göndermez.** Sayfaya Plausible, GA4 veya PostHog
-snippet'i eklerseniz olaylar otomatik oraya akar. Bir izleyici eklerseniz
+olarak hiçbir yere göndermez.** Bir izleyici eklerseniz
 `tools/content-legal.mjs` içindeki gizlilik politikasını da güncelleyin —
 şu an "üçüncü taraf yok" diyor.
 

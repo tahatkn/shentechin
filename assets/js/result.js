@@ -1,4 +1,4 @@
-/* ShenTechin Med — sonuç sayfası.
+/* ShenTechin MED — sonuç sayfası.
 
    Yeni: puanın nereden geldiğini gösteren alan kırılımı, en zayıf üç cevap,
    tarayıcıda tutulan geçmiş, paylaşılabilir bağlantı (cevaplar adres
@@ -195,7 +195,7 @@
     w.setTimeout(function () { num.textContent = pct(value); }, dur + 200);
   }
 
-  function renderBreakdown(data, pairs) {
+  function renderBreakdown(data, texts, pairs) {
     var host = el('breakdown');
     if (!host || !data.groups || !data.groupNames) return;
 
@@ -236,6 +236,20 @@
       bar.appendChild(fill);
 
       wrapper.append(top, bar);
+
+      /* Alanın ne ölçtüğü ve bu puanda ne yapılacağı. Metin derleme
+         zamanı sabitidir; 70 eşiği "koru" ile "üzerinde çalış" ayrımı. */
+      var note = texts && texts.domains && texts.domains[row.key];
+      if (note) {
+        var why = d.createElement('p');
+        why.className = 'theme-row__why';
+        why.textContent = note.why;
+        var todo = d.createElement('p');
+        todo.className = 'theme-row__todo';
+        todo.textContent = row.pct >= 70 ? note.high : note.low;
+        wrapper.append(why, todo);
+      }
+
       host.appendChild(wrapper);
 
       /* Çubuklar sırayla dolar. Hareketi azaltma tercihi varsa bekletmeden
@@ -284,10 +298,165 @@
       });
     }
 
-    /* Yalnızca gerçekten zayıf olanları göster; her cevabı 9-10 olan birine
-       "en kötü üçü" diye bir liste sunmak yanıltıcı olurdu. */
-    list('worst', scored.filter(function (x) { return x.score <= 6; }).slice(0, 3), false);
-    list('best', scored.slice().reverse().filter(function (x) { return x.score >= 8; }).slice(0, 2), true);
+    /* Zayıf cevaplar artık eylem planında, gerekçesiyle birlikte duruyor;
+       burada yalnızca lehine çalışanlar kalır. Eşik 8: gerçekten güçlü
+       olmayan bir cevabı "güçlü yanınız" diye sunmak yanıltıcı olurdu. */
+    list('best', scored.slice().reverse().filter(function (x) { return x.score >= 8; }).slice(0, 3), true);
+  }
+
+  /* ---------------------------------------------------------
+     4b. KİŞİYE ÖZEL EYLEM PLANI
+
+     Puanı en çok düşüren cevaplar alınır ve YALNIZCA onların
+     eylemi gösterilir. Raporun kişiye özel olan kısmı budur:
+     iki kişi aynı toplam puanı alsa bile farklı bir plan görür.
+     --------------------------------------------------------- */
+
+  function weakest(data, pairs, limit) {
+    var scored = pairs.map(function (p) {
+      return { qi: p[0], raw: p[1], score: scoreOf(data, p[0], p[1]) };
+    }).sort(function (a, b) { return a.score - b.score; });
+
+    /* Zaten iyi olan cevaplar için "eylem" göstermek yanıltıcı olur;
+       ama plan da tamamen boş kalmasın diye en az üç madde tutulur. */
+    var weak = scored.filter(function (x) { return x.score <= 8; });
+    return (weak.length >= 3 ? weak : scored).slice(0, limit);
+  }
+
+  function renderPlan(data, texts, pairs) {
+    var host = el('plan');
+    if (!host || !texts || !texts.actions) return;
+    var panel = host.closest('.panel');
+
+    var items = weakest(data, pairs, 5);
+    if (!items.length) { if (panel) panel.hidden = true; return; }
+
+    var qtext = data.q[lang()] || data.q.en;
+    host.textContent = '';
+
+    items.forEach(function (it, i) {
+      var action = texts.actions[it.qi] || texts.actions[String(it.qi)];
+      if (!action) return;
+
+      var li = d.createElement('li');
+      li.className = 'plan__item';
+      li.setAttribute('data-band', bandOf(Math.round(((it.score - 1) / 9) * 100)));
+
+      var rank = d.createElement('span');
+      rank.className = 'plan__rank';
+      rank.textContent = String(i + 1);
+
+      var body = d.createElement('div');
+      body.className = 'plan__body';
+
+      var doEl = d.createElement('h3');
+      doEl.className = 'plan__do';
+      doEl.textContent = action.do;
+
+      var whyEl = d.createElement('p');
+      whyEl.className = 'plan__why';
+      whyEl.textContent = action.why;
+
+      var from = d.createElement('p');
+      from.className = 'plan__from';
+      var chip = d.createElement('span');
+      chip.className = 'plan__chip';
+      chip.textContent = it.raw + '/' + MAX;
+      var q = d.createElement('span');
+      q.textContent = qtext[it.qi];
+      from.append(chip, q);
+
+      body.append(doEl, whyEl, from);
+      li.append(rank, body);
+      host.appendChild(li);
+    });
+
+    if (panel) panel.hidden = !host.childNodes.length;
+  }
+
+  /* ---------------------------------------------------------
+     4c. HEKİME GÖTÜRÜLECEK İŞARETLER
+
+     Kural tabanlı. Tanı KOYMAZ: belirli cevaplar bir arada
+     düştüğünde "bu tabloyu bir hekime gösterin" der.
+     Kısa sürümde sorulmayan sorular sayıma girmez; bu yüzden
+     eşiğe ulaşacak kadar soru sorulmadıysa uyarı hiç çıkmaz.
+     --------------------------------------------------------- */
+
+  function renderFlags(data, texts, pairs) {
+    var host = el('flags');
+    if (!host || !texts || !texts.flags || !texts.flags.length) return;
+    var panel = el('flags-panel');
+
+    var byIndex = {};
+    pairs.forEach(function (p) { byIndex[p[0]] = scoreOf(data, p[0], p[1]); });
+
+    var hits = texts.flags.filter(function (f) {
+      var asked = f.q.filter(function (qi) { return byIndex[qi] !== undefined; });
+      if (asked.length < f.n) return false;
+      var below = asked.filter(function (qi) { return byIndex[qi] <= f.at; });
+      return below.length >= f.n;
+    });
+
+    if (!hits.length) { if (panel) panel.hidden = true; return; }
+
+    host.textContent = '';
+    hits.forEach(function (f) {
+      var li = d.createElement('li');
+      li.className = 'flag';
+      var ic = d.createElement('span');
+      ic.className = 'flag__mark';
+      ic.setAttribute('aria-hidden', 'true');
+      ic.textContent = '!';
+      var txt = d.createElement('p');
+      txt.textContent = f.t;
+      li.append(ic, txt);
+      host.appendChild(li);
+    });
+    if (panel) panel.hidden = false;
+  }
+
+  /* ---------------------------------------------------------
+     4d. BİLİMSEL TEMEL VE KAYNAKLAR
+
+     PubMed kimlikleri derleme zamanı sabitidir; bağlantılar
+     doğrudan ilgili kaydı açar.
+     --------------------------------------------------------- */
+
+  function renderEvidence(texts) {
+    var basisHost = el('basis');
+    var refHost = el('refs');
+    if (!texts) return;
+
+    if (basisHost && texts.basis && texts.basis.length) {
+      basisHost.textContent = '';
+      texts.basis.forEach(function (b) {
+        var li = d.createElement('li');
+        li.className = 'basis__item';
+        li.textContent = b;
+        basisHost.appendChild(li);
+      });
+    }
+
+    if (refHost && texts.refs && texts.refs.length) {
+      refHost.textContent = '';
+      texts.refs.forEach(function (r) {
+        var li = d.createElement('li');
+        var a = d.createElement('a');
+        a.href = 'https://pubmed.ncbi.nlm.nih.gov/' + encodeURIComponent(r.p) + '/';
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = r.t;
+        var id = d.createElement('span');
+        id.className = 'ref__id';
+        id.textContent = 'PMID ' + r.p;
+        li.append(a, id);
+        refHost.appendChild(li);
+      });
+    } else {
+      var panel = el('evidence-panel');
+      if (panel) panel.hidden = true;
+    }
   }
 
   /* ---------------------------------------------------------
@@ -446,7 +615,7 @@
       score: pct(result.percent), test: testName, url: w.location.origin
     });
     return [
-      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//ShenTechin Med//EN',
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//ShenTechin MED//EN',
       'BEGIN:VEVENT',
       'UID:' + result.type + '-' + Date.now() + '@shentechin.com',
       'DTSTAMP:' + stamp, 'DTSTART:' + stamp, 'DTEND:' + end,
@@ -516,7 +685,7 @@
         var text = shareText(result, testName);
 
         if (kind === 'native' && w.navigator.share) {
-          w.navigator.share({ title: 'ShenTechin Med', text: text, url: url }).catch(function () {});
+          w.navigator.share({ title: 'ShenTechin MED', text: text, url: url }).catch(function () {});
         } else if (kind === 'x') {
           w.open('https://x.com/intent/post?text=' + encodeURIComponent(text) +
             '&url=' + encodeURIComponent(url), '_blank', 'noopener');
@@ -625,13 +794,18 @@
 
       paintRing(result.percent, band);
 
+      renderEvidence(texts);
+
       if (pairs.length) {
-        renderBreakdown(data, pairs);
+        renderPlan(data, texts, pairs);
+        renderFlags(data, texts, pairs);
+        renderBreakdown(data, texts, pairs);
         renderAnswers(data, pairs);
       } else {
-        ['breakdown', 'worst', 'best'].forEach(function (id) {
+        ['plan', 'breakdown', 'best'].forEach(function (id) {
           var n = el(id); if (n && n.closest('.panel')) n.closest('.panel').hidden = true;
         });
+        var fp = el('flags-panel'); if (fp) fp.hidden = true;
       }
 
       if (shared) {
@@ -647,7 +821,7 @@
       var mail = el('mail-btn');
       if (mail) {
         mail.setAttribute('href', 'mailto:' + CONTACT + '?subject=' +
-          encodeURIComponent('ShenTechin Med — ' + testName));
+          encodeURIComponent('ShenTechin MED — ' + testName));
       }
 
       var retake = el('retake-btn');

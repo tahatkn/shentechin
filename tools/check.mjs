@@ -17,7 +17,9 @@ import { fileURLToPath } from 'node:url';
 
 import { UI, RUNTIME_KEYS, t } from './i18n.mjs';
 import { LANGS, SITE, url, filePath, TEST_TR_SLUG, ARTICLE_TR_SLUG } from './lib/routes.mjs';
-import { QUESTIONS, TEST_IDS } from './lib/questions.mjs';
+import { QUESTIONS, TEST_IDS, dataFile } from './lib/questions.mjs';
+import { BANKS } from './content-questions.mjs';
+import { SCIENCE } from './content-science.mjs';
 import { TESTS } from './content-tests.mjs';
 import { ARTICLES } from './content-articles.mjs';
 import { LEGAL } from './content-legal.mjs';
@@ -322,6 +324,321 @@ test('varlık: her testin veri ve sonuç metni dosyası var', () => {
   }
 });
 
+/* ---------------------------------------------------------------
+   İkonlar (arama sonucundaki site ikonu)
+
+   Google, arama sonucunda ikon gösterebilmek için ikonu KENDİ tarayıp
+   indirebilmeli. Sessizce bozulan üç şey var ve üçü de burada denetlenir:
+   dosyanın gerçekten diskte olması, sayfadaki <link> hedeflerinin var
+   olması ve manifest'in var olmayan bir dosyayı göstermemesi.
+   --------------------------------------------------------------- */
+
+const bin = (p) => fs.readFileSync(path.join(ROOT, p));
+
+/* PNG boyutu IHDR'den okunur: 8 bayt imza + 4 uzunluk + 4 tip + 4 en + 4 boy */
+function pngSize(rel) {
+  const b = bin(rel);
+  assert.equal(b.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', `${rel}: PNG değil`);
+  return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) };
+}
+
+/* ICO dizini: 2 bayt ayrılmış + 2 bayt tip(1) + 2 bayt adet, sonra 16'şar bayt */
+function icoSizes(rel) {
+  const b = bin(rel);
+  assert.equal(b.readUInt16LE(0), 0, `${rel}: ICO başlığı bozuk`);
+  assert.equal(b.readUInt16LE(2), 1, `${rel}: ICO tipi ikon değil`);
+  const n = b.readUInt16LE(4);
+  assert.ok(n >= 1, `${rel}: ICO boş`);
+  return Array.from({ length: n }, (_, i) => {
+    const at = 6 + i * 16;
+    return (b[at] === 0 ? 256 : b[at]) + 'x' + (b[at + 1] === 0 ? 256 : b[at + 1]);
+  });
+}
+
+const ICON_FILES = {
+  'favicon-96x96.png': 96,
+  'icon-192.png': 192,
+  'icon-512.png': 512,
+  'icon-maskable-512.png': 512,
+  'apple-touch-icon.png': 180
+};
+
+test('ikon: favicon.ico var ve 48 pikseli içeriyor', () => {
+  assert.ok(exists('favicon.ico'), 'favicon.ico yok — Googlebot etiket bulamazsa doğrudan buraya bakar');
+  const sizes = icoSizes('favicon.ico');
+  assert.ok(sizes.includes('48x48'), `favicon.ico 48x48 içermiyor: ${sizes.join(', ')}`);
+  assert.ok(sizes.includes('32x32'), `favicon.ico 32x32 içermiyor: ${sizes.join(', ')}`);
+  assert.ok(sizes.includes('16x16'), `favicon.ico 16x16 içermiyor: ${sizes.join(', ')}`);
+});
+
+test('ikon: PNG ikonlar diskte ve kare, boyutları 48in katı', () => {
+  for (const [file, size] of Object.entries(ICON_FILES)) {
+    assert.ok(exists(file), `${file} yok`);
+    const { w, h } = pngSize(file);
+    assert.equal(w, size, `${file}: en ${w}, beklenen ${size}`);
+    assert.equal(h, size, `${file}: boy ${h}, beklenen ${size}`);
+  }
+  /* Google arama sonucu ikonu için 48'in katı olan en az bir boyut şart. */
+  const multiples = Object.values(ICON_FILES).filter((n) => n % 48 === 0);
+  assert.ok(multiples.length >= 2, '48in katı olan yeterli PNG ikon yok (96, 192)');
+});
+
+test('ikon: favicon.svg geçerli ve tek renk kaynağına bağlı değil', () => {
+  const svg = read('favicon.svg');
+  assert.ok(/^<svg[\s\S]*<\/svg>\s*$/.test(svg.trim()), 'favicon.svg gövdesi bozuk');
+  assert.ok(svg.includes('viewBox="0 0 64 64"'), 'favicon.svg viewBox kare değil');
+  assert.ok(!svg.includes('currentColor'), 'favicon.svg currentColor kullanamaz — bağlamsız indirilir');
+});
+
+test('ikon: her sayfa ikon etiketlerini taşıyor ve hedefler diskte', () => {
+  const required = [
+    '<link rel="icon" href="/favicon.ico" sizes="48x48">',
+    '<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">',
+    '<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">',
+    '<link rel="manifest" href="/site.webmanifest">'
+  ];
+  const missing = [];
+  for (const p of PAGES) {
+    const html = read(p.file);
+    for (const tag of required) if (!html.includes(tag)) missing.push(`${p.file} → ${tag}`);
+    for (const m of html.matchAll(/<link rel="(?:icon|apple-touch-icon|manifest)"[^>]*href="(\/[^"]+)"/g)) {
+      if (!exists(m[1].slice(1))) missing.push(`${p.file} → hedef yok: ${m[1]}`);
+    }
+  }
+  assert.deepEqual(missing, [], 'ikon etiketi eksik ya da hedefi yok');
+});
+
+test('ikon: manifest ikonlarının hepsi diskte ve bildirdiği boyutta', () => {
+  const mf = JSON.parse(read('site.webmanifest'));
+  assert.ok(Array.isArray(mf.icons) && mf.icons.length >= 4, 'manifest ikon listesi yetersiz');
+  for (const ic of mf.icons) {
+    const rel = ic.src.slice(1);
+    assert.ok(exists(rel), `manifest: ${ic.src} diskte yok`);
+    if (rel.endsWith('.png')) {
+      const { w, h } = pngSize(rel);
+      assert.ok(ic.sizes.split(' ').includes(`${w}x${h}`),
+        `manifest: ${ic.src} gerçekte ${w}x${h}, bildirilen "${ic.sizes}"`);
+    }
+  }
+  assert.ok(mf.icons.some((i) => i.purpose === 'maskable'), 'manifest maskable ikon içermiyor');
+});
+
+test('ikon: robots.txt ikon dosyalarını engellemiyor', () => {
+  const rules = read('robots.txt')
+    .split(/\r?\n/)
+    .filter((l) => /^Disallow:/i.test(l))
+    .map((l) => l.split(':')[1].trim())
+    .filter(Boolean);
+  const icons = ['/favicon.ico', '/favicon.svg', '/favicon-96x96.png', '/icon-192.png',
+    '/icon-512.png', '/icon-maskable-512.png', '/apple-touch-icon.png', '/site.webmanifest'];
+  for (const icon of icons) {
+    for (const rule of rules) {
+      assert.ok(!icon.startsWith(rule), `robots.txt ${icon} dosyasını engelliyor (${rule})`);
+    }
+  }
+});
+
+/* ---------------------------------------------------------------
+   Soru bankası yapısı ve bilimsel katman
+
+   Buradaki testler içeriğin sessizce çürümesini engelliyor: kayan bir
+   alan anahtarı, eksik kalan bir eylem metni ya da elle düzenlenmiş
+   (ve bir sonraki derlemede silinecek) bir üretilmiş dosya.
+   --------------------------------------------------------------- */
+
+test('soru bankası: her testte 5 alan × 5 soru, kısa sürümde alan başına 2', () => {
+  for (const id of TEST_IDS) {
+    const bank = BANKS[id];
+    const doms = Object.keys(bank.domains);
+    assert.equal(doms.length, 5, `${id}: 5 alan bekleniyordu, ${doms.length} var`);
+    assert.equal(bank.q.length, 25, `${id}: 25 soru bekleniyordu, ${bank.q.length} var`);
+    for (const d of doms) {
+      const all = bank.q.filter((q) => q.d === d).length;
+      const quick = bank.q.filter((q) => q.d === d && q.k).length;
+      assert.equal(all, 5, `${id}.${d}: 5 soru bekleniyordu, ${all} var`);
+      assert.equal(quick, 2, `${id}.${d}: kısa sürümde 2 soru bekleniyordu, ${quick} var`);
+    }
+    for (const q of bank.q) {
+      assert.ok(bank.domains[q.d], `${id}: bilinmeyen alan "${q.d}"`);
+      assert.ok(q.a, `${id}: ölçek ucu tanımsız`);
+      for (const lang of LANGS) assert.ok(q[lang] && q[lang].length > 10, `${id}.${lang}: soru metni eksik`);
+    }
+    for (const lang of LANGS) {
+      const texts = bank.q.map((q) => q[lang]);
+      const dup = texts.filter((x, i) => texts.indexOf(x) !== i);
+      assert.deepEqual(dup, [], `${id}.${lang}: aynı soru iki kez var`);
+    }
+  }
+});
+
+test('bilimsel katman: her soruya bir eylem, her alana bir açıklama var', () => {
+  for (const id of TEST_IDS) {
+    const sci = SCIENCE[id];
+    assert.ok(sci, `${id}: bilimsel katman yok`);
+    for (const d of Object.keys(BANKS[id].domains)) {
+      const dom = sci.domains[d];
+      assert.ok(dom, `${id}.${d}: alan metni yok`);
+      for (const lang of LANGS) {
+        for (const part of ['why', 'low', 'high']) {
+          assert.ok(dom[lang] && dom[lang][part] && dom[lang][part].length > 40,
+            `${id}.${d}.${lang}.${part}: metin eksik ya da çok kısa`);
+        }
+      }
+    }
+    for (let i = 0; i < 25; i++) {
+      const a = sci.actions[i];
+      assert.ok(a, `${id} q${i}: eylem yok`);
+      for (const lang of LANGS) {
+        assert.ok(a[lang] && a[lang].do && a[lang].do.length > 15, `${id} q${i}.${lang}: eylem metni eksik`);
+        assert.ok(a[lang] && a[lang].why && a[lang].why.length > 30, `${id} q${i}.${lang}: gerekçe eksik`);
+      }
+    }
+    for (const lang of LANGS) {
+      assert.ok(Array.isArray(sci.basis[lang]) && sci.basis[lang].length >= 3,
+        `${id}.${lang}: bilimsel temel listesi yetersiz`);
+    }
+  }
+});
+
+test('bilimsel katman: kaynaklar geçerli PMID taşıyor ve iki dilde yazılı', () => {
+  for (const id of TEST_IDS) {
+    const refs = SCIENCE[id].refs;
+    assert.ok(refs.length >= 5, `${id}: en az 5 kaynak bekleniyordu, ${refs.length} var`);
+    const seen = new Set();
+    for (const r of refs) {
+      assert.match(r.pmid, /^[0-9]{6,8}$/, `${id}: geçersiz PMID "${r.pmid}"`);
+      assert.ok(!seen.has(r.pmid), `${id}: aynı kaynak iki kez (${r.pmid})`);
+      seen.add(r.pmid);
+      for (const lang of LANGS) {
+        assert.ok(r[lang] && r[lang].length > 25, `${id}.${lang}: kaynak künyesi eksik (${r.pmid})`);
+        assert.match(r[lang], /\b(19|20)[0-9]{2}\b/, `${id}.${lang}: kaynakta yıl yok (${r.pmid})`);
+      }
+    }
+  }
+});
+
+test('bilimsel katman: uyarı kuralları var olan sorulara bağlı ve tetiklenebilir', () => {
+  for (const id of TEST_IDS) {
+    const flags = SCIENCE[id].flags;
+    assert.ok(flags.length >= 1, `${id}: hiç uyarı kuralı yok`);
+    for (const f of flags) {
+      assert.ok(Array.isArray(f.q) && f.q.length, `${id}: uyarı soru listesi boş`);
+      for (const qi of f.q) {
+        assert.ok(Number.isInteger(qi) && qi >= 0 && qi < 25, `${id}: geçersiz uyarı indeksi ${qi}`);
+      }
+      assert.ok(f.at >= 1 && f.at <= 9, `${id}: uyarı eşiği aralık dışı (${f.at})`);
+      assert.ok(f.need >= 1 && f.need <= f.q.length, `${id}: uyarı "need" değeri tutarsız`);
+      for (const lang of LANGS) {
+        assert.ok(f[lang] && f[lang].length > 80, `${id}.${lang}: uyarı metni eksik`);
+      }
+    }
+  }
+});
+
+test('bilimsel katman: her uyarı kuralı tetiklenebiliyor ve sağlıklı cevapta susuyor', () => {
+  /* Sonuç sayfasındaki kuralın aynısı. Buradaki asıl risk hiç tetiklenmeyen
+     (ölü) ya da her sonuçta tetiklenen (gürültü) bir kural. */
+  const fires = (data, flag, answers) => {
+    const byIndex = {};
+    answers.forEach((v, qi) => { byIndex[qi] = scoreOf(data, qi, v); });
+    const asked = flag.q.filter((qi) => byIndex[qi] !== undefined);
+    if (asked.length < flag.need) return false;
+    return asked.filter((qi) => byIndex[qi] <= flag.at).length >= flag.need;
+  };
+
+  for (const id of TEST_IDS) {
+    const data = QUESTIONS[id];
+    /* Sağlıklı cevap: ters kodlu soruda 1, diğerlerinde 10 — ikisi de en iyi puan. */
+    const best = data.q.en.map((_, qi) => (data.reverse.includes(qi) ? 1 : MAX));
+    /* En kötü cevap: tam tersi. */
+    const worst = data.q.en.map((_, qi) => (data.reverse.includes(qi) ? MAX : 1));
+
+    for (const flag of SCIENCE[id].flags) {
+      assert.ok(fires(data, flag, worst),
+        `${id}: uyarı hiç tetiklenmiyor (q=${flag.q.join(',')}, at=${flag.at}, need=${flag.need})`);
+      assert.ok(!fires(data, flag, best),
+        `${id}: uyarı sağlıklı cevaplarda da tetikleniyor (q=${flag.q.join(',')})`);
+    }
+    /* Tam sürümde en az bir kural tetiklenebilmeli, hepsi birden değil. */
+    const allFire = SCIENCE[id].flags.every((f) => fires(data, f, worst));
+    assert.ok(allFire, `${id}: en kötü cevaplarda bile bazı uyarılar sessiz`);
+  }
+});
+
+test('üretim: assets altındaki soru bankaları kaynakla birebir aynı', () => {
+  for (const id of TEST_IDS) {
+    const onDisk = read(`assets/js/data/${id}.js`);
+    assert.equal(onDisk, dataFile(id),
+      `assets/js/data/${id}.js elle düzenlenmiş ya da eski — node tools/build.mjs çalıştırın`);
+  }
+});
+
+test('rapor metni: üretilen dosya iki dilde de eksiksiz ve çalıştırılabilir', () => {
+  for (const id of TEST_IDS) {
+    for (const lang of LANGS) {
+      const src = read(`assets/js/results/${id}.${lang}.js`);
+      const win = {};
+      new Function('window', src)(win);
+      const r = win.RESULT_TEXT;
+      assert.ok(r && r.name, `${id}.${lang}: RESULT_TEXT yok`);
+      for (const band of ['good', 'mid', 'low']) {
+        assert.ok(r.bands[band] && r.bands[band].label && r.bands[band].text,
+          `${id}.${lang}: ${band} bandı eksik`);
+      }
+      assert.equal(Object.keys(r.actions).length, 25, `${id}.${lang}: 25 eylem bekleniyordu`);
+      assert.equal(Object.keys(r.domains).length, 5, `${id}.${lang}: 5 alan bekleniyordu`);
+      assert.ok(r.refs.length >= 5 && r.refs.every((x) => x.p && x.t), `${id}.${lang}: kaynaklar eksik`);
+      assert.ok(r.flags.every((f) => Array.isArray(f.q) && f.at && f.n && f.t),
+        `${id}.${lang}: uyarı kuralı eksik alan içeriyor`);
+      /* Alan anahtarları soru bankasındakilerle aynı olmalı. */
+      for (const key of Object.keys(r.domains)) {
+        assert.ok(QUESTIONS[id].groups.includes(key), `${id}.${lang}: kullanılmayan alan "${key}"`);
+      }
+    }
+  }
+});
+
+test('sonuç sayfası: kişiye özel bölümlerin kapları iki dilde de var', () => {
+  for (const lang of LANGS) {
+    const html = read(filePath('result', lang));
+    for (const id of ['plan', 'flags', 'flags-panel', 'breakdown', 'basis', 'refs', 'evidence-panel']) {
+      assert.ok(html.includes(`id="${id}"`), `${lang} sonuç sayfası: #${id} yok`);
+    }
+  }
+});
+
+test('test tanıtım sayfası: bilimsel temel ve kaynaklar basılı', () => {
+  for (const x of TESTS) {
+    for (const lang of LANGS) {
+      const html = read(filePath('test', lang, x.id));
+      const links = (html.match(/pubmed\.ncbi\.nlm\.nih\.gov\/[0-9]+\//g) || []);
+      assert.ok(links.length >= 5, `${x.id}.${lang}: PubMed bağlantısı yetersiz (${links.length})`);
+      assert.ok(html.includes('class="basis__item"'), `${x.id}.${lang}: bilimsel temel listesi yok`);
+      /* Bağlantılar yeni sekmede açılıyorsa rel zorunlu. */
+      for (const m of html.matchAll(/<a href="https:\/\/pubmed[^"]+"([^>]*)>/g)) {
+        assert.match(m[1], /rel="noopener noreferrer"/, `${x.id}.${lang}: PubMed bağlantısında rel eksik`);
+      }
+    }
+  }
+});
+
+test('varsayılan sürüm 25 soruluk tam değerlendirme', () => {
+  for (const lang of LANGS) {
+    const home = read(filePath('home', lang));
+    assert.ok(!/mode=quick/.test(home), `${lang} ana sayfa: kart hâlâ kısa sürüme gidiyor`);
+    assert.equal((home.match(/mode=full/g) || []).length, TESTS.length,
+      `${lang} ana sayfa: dokuz kartın hepsi tam sürüme gitmiyor`);
+    for (const x of TESTS) {
+      const page = read(filePath('test', lang, x.id));
+      const primary = /<a class="btn btn--primary" href="[^"]*mode=full"/.test(page);
+      assert.ok(primary, `${x.id}.${lang}: birincil düğme tam sürüme gitmiyor`);
+    }
+  }
+  const quiz = read('assets/js/quiz.js');
+  assert.match(quiz, /params\.get\('mode'\) === 'quick' \? 'quick' : 'full'/,
+    'quiz.js varsayılanı hâlâ kısa sürüm');
+});
+
 test('sitemap: bütün adresler diskte var ve gizli sayfa içermiyor', () => {
   const xml = read('sitemap.xml');
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
@@ -370,6 +687,37 @@ test('içerik: makaleler iki dilde eksiksiz ve tarihleri geçerli', () => {
   assert.equal(ARTICLES.filter((a) => a.featured).length, 1, 'tam olarak bir öne çıkan makale olmalı');
 });
 
+test('içerik: her makale doğrulanmış kaynak listesi taşıyor', () => {
+  for (const a of ARTICLES) {
+    assert.ok(Array.isArray(a.refs) && a.refs.length >= 4, `${a.slug}: en az 4 kaynak bekleniyordu`);
+    const seen = new Set();
+    for (const r of a.refs) {
+      assert.match(r.pmid, /^[0-9]{6,8}$/, `${a.slug}: geçersiz PMID "${r.pmid}"`);
+      assert.ok(!seen.has(r.pmid), `${a.slug}: aynı kaynak iki kez (${r.pmid})`);
+      seen.add(r.pmid);
+      for (const lang of LANGS) {
+        assert.ok(r[lang] && r[lang].length > 25, `${a.slug}.${lang}: kaynak künyesi eksik`);
+      }
+    }
+    assert.match(a.modified || a.date, /^\d{4}-\d{2}-\d{2}$/, `${a.slug}: gözden geçirme tarihi geçersiz`);
+    assert.ok((a.modified || a.date) >= a.date, `${a.slug}: gözden geçirme tarihi yayından önce`);
+
+    for (const lang of LANGS) {
+      const html = read(filePath('article', lang, a.slug));
+      for (const r of a.refs) {
+        assert.ok(html.includes(`pubmed.ncbi.nlm.nih.gov/${r.pmid}/`),
+          `${a.slug}.${lang}: ${r.pmid} sayfada yok`);
+      }
+      const ld = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]
+        .replace(/\\u003c/g, '<'));
+      const art = ld['@graph'].find((n) => n['@type'] === 'Article');
+      assert.ok(art, `${a.slug}.${lang}: Article düğümü yok`);
+      assert.equal(art.citation.length, a.refs.length, `${a.slug}.${lang}: JSON-LD kaynak sayısı farklı`);
+      assert.equal(art.dateModified, a.modified || a.date, `${a.slug}.${lang}: dateModified yanlış`);
+    }
+  }
+});
+
 test('içerik: makale sayfalarında diyagram ve içindekiler var', () => {
   for (const a of ARTICLES) {
     for (const lang of LANGS) {
@@ -400,8 +748,14 @@ const BUDGET = {
   pageGzip: 16 * 1024,      /* tek sayfa, gzip sonrası (CSS gömülü) */
   cssMin: 40 * 1024,        /* en büyük CSS paketi */
   /* Dosya başına gzip sınırı. app.js her sayfada olduğu için en sıkısı;
-     result.js yalnızca sonuç ekranında ve defer ile yükleniyor. */
-  jsGzip: { 'app.js': 4.5 * 1024, 'quiz.js': 6 * 1024, 'result.js': 9 * 1024 },
+     result.js yalnızca sonuç ekranında ve defer ile yükleniyor — kişiye
+     özel plan, alan analizi, uyarı kuralları ve kaynak listesi orada
+     çizildiği için sınırı daha geniş. */
+  jsGzip: { 'app.js': 4.5 * 1024, 'quiz.js': 6 * 1024, 'result.js': 12 * 1024 },
+  /* Test başına yüklenen iki dosya: soru bankası ve o testin rapor metni.
+     İkisi de yalnızca ilgili test açıldığında iniyor. */
+  dataGzip: 4 * 1024,
+  resultTextGzip: 8 * 1024,
   fontTotal: 60 * 1024,     /* iki alt küme birlikte */
   ogImage: 40 * 1024        /* tek sosyal görsel */
 };
@@ -426,6 +780,21 @@ test('bütçe: JavaScript ve font dosyaları sınır içinde', async () => {
   const fonts = ['assets/fonts/pjs-latin.woff2', 'assets/fonts/pjs-latin-ext.woff2']
     .reduce((a, f) => a + fs.statSync(path.join(ROOT, f)).size, 0);
   assert.ok(fonts <= BUDGET.fontTotal, `fontlar: ${(fonts / 1024).toFixed(1)} KB`);
+});
+
+test('bütçe: soru bankası ve rapor metni dosyaları sınır içinde', async () => {
+  const { gzipSync } = await import('node:zlib');
+  const gz = (rel) => gzipSync(fs.readFileSync(path.join(ROOT, rel)), { level: 9 }).length;
+  const over = [];
+  for (const id of TEST_IDS) {
+    const d = gz(`assets/js/data/${id}.js`);
+    if (d > BUDGET.dataGzip) over.push(`data/${id}.js: ${(d / 1024).toFixed(1)} KB`);
+    for (const lang of LANGS) {
+      const r = gz(`assets/js/results/${id}.${lang}.js`);
+      if (r > BUDGET.resultTextGzip) over.push(`results/${id}.${lang}.js: ${(r / 1024).toFixed(1)} KB`);
+    }
+  }
+  assert.deepEqual(over, [], 'test başına dosya bütçesi aşıldı');
 });
 
 test('bütçe: sosyal görseller sınır içinde', () => {

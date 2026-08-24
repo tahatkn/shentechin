@@ -1,4 +1,4 @@
-/* ShenTechin Med — test motoru.
+/* ShenTechin MED — test motoru.
 
    Puanlama kuralı (değişmedi): `reverse` listesindeki sorular 11 - cevap
    olarak çevrilir, toplam 0-100 aralığına normalize edilir.
@@ -18,10 +18,12 @@
   var T = w.T || {};
   var TYPES = ['sleep', 'skin', 'diet', 'stress', 'heart', 'focus', 'fitness', 'immunity', 'tech'];
   var MAX = 10;
-  var SEC_PER_Q = 5;
+  /* Soru başına saniye — 25 soruluk sürümde "yaklaşık 6 dakika" derken
+     dayandığımız sayı bu. Metinleri değiştirirseniz bunu da değiştirin. */
+  var SEC_PER_Q = 14;
 
   var state = {
-    type: 'sleep', mode: 'quick',
+    type: 'sleep', mode: 'full',
     indices: [], answers: [], pos: 0, data: null,
     dir: 1, auto: true
   };
@@ -339,7 +341,8 @@
     var params = new w.URLSearchParams(w.location.search);
     var t = params.get('type');
     state.type = TYPES.indexOf(t) === -1 ? 'sleep' : t;
-    state.mode = params.get('mode') === 'full' ? 'full' : 'quick';
+    /* Varsayılan 25 soruluk tam sürüm; kısa sürüm ancak açıkça istenirse. */
+    state.mode = params.get('mode') === 'quick' ? 'quick' : 'full';
 
     try { state.auto = w.localStorage.getItem('stq:auto') !== '0'; } catch (e) {}
 

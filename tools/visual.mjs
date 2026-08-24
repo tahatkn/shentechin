@@ -302,8 +302,11 @@ const CASES = [
   { id: 'insights', path: (l) => url('insights', l) },
   { id: 'test', path: (l) => url('test', l, 'sleep') },
   { id: 'article', path: (l) => url('article', l, 'sleep-cycles-explained') },
-  { id: 'quiz', path: (l) => `${url('quiz', l)}?type=sleep&mode=quick` },
+  { id: 'quiz', path: (l) => `${url('quiz', l)}?type=sleep&mode=full` },
   { id: 'result', path: (l) => `${url('result', l)}#r=sleep.q.8735a27615` },
+  /* 25 soruluk sürüm: eylem planı, hekim uyarısı ve alan açıklamaları
+     yalnızca burada tam hâliyle çiziliyor. */
+  { id: 'report', path: (l) => `${url('result', l)}#r=sleep.f.3666686668699669662296664` },
   { id: 'legal', path: (l) => url('privacy', l) },
   { id: 'notfound', path: (l) => url('notfound', l) }
 ];
@@ -345,6 +348,37 @@ const SMOKE = [
       if (!/id="shared-note"(?![^>]*hidden)/.test(dom)) return 'paylaşılan sonuç şeridi görünmüyor';
       return null;
     }
+  },
+  {
+    name: 'tam rapor eylem planını ve kaynakları çiziyor',
+    url: (l) => `${url('result', l)}#r=sleep.f.3666686668699669662296664`,
+    check: (dom) => {
+      const steps = (dom.match(/class="plan__item"/g) || []).length;
+      if (steps < 3) return `eylem planında 3+ madde bekleniyordu, ${steps} bulundu`;
+      if (!/class="plan__why"/.test(dom)) return 'eylem gerekçesi yok';
+      const refs = (dom.match(/pubmed\.ncbi\.nlm\.nih\.gov\/[0-9]+\//g) || []).length;
+      if (refs < 5) return `kaynak listesi eksik (${refs})`;
+      if (!/class="basis__item"/.test(dom)) return 'bilimsel temel listesi yok';
+      const rows = (dom.match(/class="theme-row__todo"/g) || []).length;
+      if (rows !== 5) return `5 alan açıklaması bekleniyordu, ${rows} bulundu`;
+      return null;
+    }
+  },
+  {
+    name: 'hekim uyarısı doğru cevap bileşiminde tetikleniyor',
+    url: (l) => `${url('result', l)}#r=sleep.f.3666686668699669662296664`,
+    check: (dom) => {
+      if (!/id="flags-panel"(?![^>]*hidden)/.test(dom)) return 'uyarı paneli açılmadı';
+      const flags = (dom.match(/class="flag"/g) || []).length;
+      return flags >= 1 ? null : 'uyarı metni basılmamış';
+    }
+  },
+  {
+    name: 'temiz cevaplarda hekim uyarısı çıkmıyor',
+    /* Yön farkına dikkat: ters kodlu sorularda 1, diğerlerinde 10 —
+       "hepsine 10" demek horlamaya da 10 demek olurdu. Bu dizi %100. */
+    url: (l) => `${url('result', l)}#r=sleep.f.aa11a11111a1111aaaaa1111a`,
+    check: (dom) => (/id="flags-panel"[^>]*hidden/.test(dom) ? null : 'uyarı paneli gereksiz açıldı')
   },
   {
     name: 'sonuç yokken boş durum gösteriliyor',

@@ -1,8 +1,8 @@
-/* ShenTechin Med — çevrimdışı desteği ve tekrar ziyaretlerde anında açılış.
+/* ShenTechin MED — çevrimdışı desteği ve tekrar ziyaretlerde anında açılış.
    Bu dosya tools/sw.mjs tarafından üretilir; elle düzenlemeyin. */
 'use strict';
 
-var VERSION = '11047-13336-24847-24402-28499';
+var VERSION = '11047-13589-30893-26237-31890';
 var CACHE = 'stq-' + VERSION;
 
 /* Kabuk: ilk kurulumda indirilenler. Sayfa HTML'leri buraya girmez,
@@ -16,6 +16,8 @@ var PRECACHE = [
   "/assets/fonts/pjs-latin.woff2",
   "/assets/fonts/pjs-latin-ext.woff2",
   "/favicon.svg",
+  "/favicon-96x96.png",
+  "/icon-192.png",
   "/site.webmanifest"
 ];
 

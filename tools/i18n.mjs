@@ -40,7 +40,7 @@ export const UI = {
     footer_privacy: 'Privacy Policy',
     footer_terms: 'Terms of Use',
     footer_disclaimer: 'Medical Disclaimer',
-    footer_copy: '&copy; 2026 ShenTechin Med.',
+    footer_copy: '&copy; 2026 ShenTechin MED.',
     footer_note: 'These assessments are not medical diagnoses and do not replace a consultation with a healthcare professional.',
 
     lang_offer: 'Bu sayfa Türkçe olarak da mevcut.',
@@ -48,7 +48,7 @@ export const UI = {
     lang_offer_close: 'Kapat',
 
     /* ---------- ana sayfa ---------- */
-    home_doc_title: 'ShenTechin Med — Free health habit self-assessments',
+    home_doc_title: 'ShenTechin MED — Free health habit self-assessments',
     home_doc_desc: 'Nine free, anonymous self-assessments on sleep, skin, nutrition, stress, heart habits, focus, fitness, immunity and screen time. Written by a medical doctor. Not a diagnosis.',
     hero_badge: 'Written and reviewed by a medical doctor',
     hero_title: 'Understand your everyday health habits',
@@ -57,7 +57,7 @@ export const UI = {
     hero_btn2: 'How scoring works',
     trust_1: 'Free, no sign-up',
     trust_2: 'Answers stay in your browser',
-    trust_3: '10 questions, ~2 minutes',
+    trust_3: '25 questions, ~6 minutes',
 
     finder_title: 'Not sure where to start?',
     finder_desc: 'Pick the line that sounds most like you right now.',
@@ -91,14 +91,14 @@ export const UI = {
     card_immunity_desc: 'Sleep, nutrition and habits behind how often you get ill.',
     card_tech_desc: 'Screen time and how technology fits into your day.',
 
-    card_meta: '10 questions · 2 min',
-    btn_start: 'Start quick test',
+    card_meta: '25 questions · about 6 min',
+    btn_start: 'Start the assessment',
     btn_details: 'About this test',
     home_note: 'These assessments are educational self-checks, not medical tests. They score the answers you give — nothing else — and cannot diagnose anything. Read the <a href="%disclaimer%">medical disclaimer</a> before you start.',
 
     /* ---------- hakkımızda ---------- */
-    about_doc_title: 'About — ShenTechin Med',
-    about_doc_desc: 'Who makes ShenTechin Med, how the assessments are built and scored, and what they deliberately do not claim to do.',
+    about_doc_title: 'About — ShenTechin MED',
+    about_doc_desc: 'Who makes ShenTechin MED, how the assessments are built and scored, and what they deliberately do not claim to do.',
     about_hero_title: 'What this site is — and what it isn’t',
     about_hero_desc: 'A small, free collection of health-habit self-assessments, written by a medical doctor and kept deliberately modest about what a questionnaire can tell you.',
     stat_1: 'Written by a doctor',
@@ -110,9 +110,11 @@ export const UI = {
     privacy_desc: 'There are no accounts and no sign-up. Your answers and your score are stored only in your own browser and never sent to us or anyone else. Fonts are served from this domain, so no third party sees your visit. The <a href="%privacy%">privacy policy</a> has the details.',
     honest_title: 'What we don’t claim',
     honest_desc: 'These are self-assessments, not clinical instruments. They are not validated questionnaires, they are not diagnostic tools, and there is no AI interpreting your answers — the score is arithmetic. We also don’t compare you to a population, because we have no population data to compare you against. Anything that reads like a medical conclusion here is a habit summary, nothing more.',
+    evidence_title: 'Where the questions come from',
+    evidence_desc: 'Each assessment is built around the domains that published instruments and guidelines already cover — the Pittsburgh Sleep Quality Index, the Insomnia Severity Index, the Epworth Sleepiness Scale, the Perceived Stress Scale, the Mediterranean diet adherence screener, the WHO physical activity guidelines, the American Heart Association’s Life’s Essential 8, and others. Every number a report quotes — minutes, hours, portions, thresholds — links to the paper or guideline it came from, with its PubMed identifier, so you can check it rather than take our word for it.',
     method_title: 'Method',
     method_name: 'How scoring works',
-    method_desc: 'Each assessment has 25 questions rated 1–10; the short version uses 10 of them. Questions where a high answer is unfavourable — “do you snore?”, “do you skip meals?” — are reversed before scoring, so the total always points the same way. The result is normalised to 0–100 and mapped to one of three bands.',
+    method_desc: 'Each assessment has 25 questions rated 1–10; the short version uses 10 of them. Questions where a high answer is unfavourable — “do you snore?”, “do you skip meals?” — are reversed before scoring, so the total always points the same way. The result is normalised to 0–100 and mapped to one of three bands. The report does not stop at the score: it builds a personalised action plan from the answers that cost you the most, breaks the score down by domain, and flags the specific answer combinations that are worth taking to a doctor.',
     bands_title: 'The three bands',
     band_low_name: 'Needs attention',
     band_mid_name: 'Mixed',
@@ -122,7 +124,7 @@ export const UI = {
     band_good_about: 'The habits that matter most are largely in place. Keeping them is the job.',
 
     /* ---------- yazılar ---------- */
-    blog_doc_title: 'Insights — ShenTechin Med',
+    blog_doc_title: 'Insights — ShenTechin MED',
     blog_doc_desc: 'Plain-language explainers on stress, sleep, metabolism and heart rate variability, written by a medical doctor.',
     blog_hero_title: 'Plain-language health explainers',
     blog_hero_desc: 'Short pieces on the mechanisms behind the habits our assessments ask about — written to be understood, not to impress.',
@@ -138,18 +140,21 @@ export const UI = {
     /* ---------- makale sayfası ---------- */
     art_reading_time: '{n} min read',
     art_toc: 'On this page',
+    art_refs: 'Sources',
+    art_refs_desc: 'Every claim in this piece that carries a number or a mechanism traces back to one of these. Each link opens the record on PubMed.',
+    art_updated: 'Reviewed {date}',
     art_next: 'Read next',
     art_back: 'All insights',
     art_cta_title: 'Curious where you stand?',
-    art_cta_desc: 'Take the related self-assessment — 10 questions, about two minutes.',
+    art_cta_desc: 'Take the related self-assessment — 25 questions, about six minutes, with a personalised report at the end.',
     art_cta_btn: 'Go to the assessment',
     art_disclaimer: 'This article is general information, not medical advice, and it is not a substitute for seeing a healthcare professional about your own situation.',
 
     /* ---------- test tanıtım sayfası ---------- */
-    test_start_quick: 'Start short version',
-    test_start_full: 'Detailed version',
-    test_meta_quick: '10 questions · about 2 minutes',
-    test_meta_full: '25 questions in the detailed version',
+    test_start_quick: 'Short version · 10 questions',
+    test_start_full: 'Start the assessment',
+    test_meta_len: '25 questions · about 6 minutes',
+    test_meta_short: 'A 10-question short version is also available',
     test_meta_free: 'Free and anonymous',
     test_measures: 'What it looks at',
     test_who: 'Who it is for',
@@ -157,6 +162,9 @@ export const UI = {
     test_sample_note: 'Every question is answered on the same 1–10 scale. Questions where a high answer is unfavourable are reversed before scoring.',
     test_bands: 'How the result is reported',
     test_faq: 'Common questions',
+    test_basis: 'Scientific basis',
+    test_basis_desc: 'The questions in this assessment are adapted from the domains these validated instruments and guidelines cover.',
+    test_refs: 'Sources',
     test_related: 'Other assessments',
     test_warn: 'This is an educational self-assessment, not a medical test. It cannot diagnose anything. Read the <a href="%disclaimer%">medical disclaimer</a> before you start.',
 
@@ -166,7 +174,7 @@ export const UI = {
     nf_btn: 'All assessments',
 
     /* ---------- test ekranı (JS'e gömülür) ---------- */
-    quiz_doc_title: 'Assessment — ShenTechin Med',
+    quiz_doc_title: 'Assessment — ShenTechin MED',
     quiz_doc_desc: 'Answer the questions to see your habit summary.',
     quiz_back: 'Save & exit',
     quiz_next: 'Next',
@@ -177,7 +185,7 @@ export const UI = {
     quiz_left_min: '~{n} min left',
     quiz_left_short: 'Almost done',
     quiz_mode_quick: 'Short version · 10 questions',
-    quiz_mode_full: 'Detailed version · 25 questions',
+    quiz_mode_full: 'Full assessment · 25 questions',
     quiz_resume_text: 'You have an unfinished attempt at this assessment.',
     quiz_resume_yes: 'Continue',
     quiz_resume_no: 'Start over',
@@ -212,7 +220,7 @@ export const UI = {
     scale_speed_high: 'Very fast',
 
     /* ---------- sonuç ekranı ---------- */
-    res_doc_title: 'Your result — ShenTechin Med',
+    res_doc_title: 'Your result — ShenTechin MED',
     res_doc_desc: 'Your habit summary from the assessment you just completed.',
     res_analyzing: 'Preparing your summary…',
     res_score_aria: 'Your score:',
@@ -221,13 +229,20 @@ export const UI = {
     res_band_low: 'Score band: 0–49 · needs attention',
     res_of100: 'out of 100',
     res_mode_quick: 'short version',
-    res_mode_full: 'detailed version',
+    res_mode_full: 'full assessment',
     res_from: 'From the {mode}, {n} questions',
 
+    res_plan_title: 'Your action plan',
+    res_plan_desc: 'Built from the answers that pulled your score down most. Each step says what to change and the evidence behind why it works.',
+    res_plan_empty: 'Nothing here needs changing — these are simply your lowest answers.',
+    res_flags_title: 'Worth raising with a doctor',
+    res_flags_desc: 'These are pattern matches, not diagnoses. They appear because a specific combination of your answers is one that screening tools are built to catch.',
+    res_basis_title: 'What this assessment is based on',
+    res_basis_desc: 'The questions are adapted from the domains these validated instruments and guidelines cover. This is an educational self-assessment, not the instruments themselves.',
+    res_refs_title: 'Sources',
+    res_refs_desc: 'Every figure quoted on this page traces back to one of these. Each link opens the record on PubMed.',
     res_breakdown_title: 'Where the score came from',
     res_breakdown_desc: 'Each area below is scored the same way as the total: higher is better.',
-    res_worst_title: 'Three answers that pulled the score down most',
-    res_worst_desc: 'These are the habits with the most room to move. Pick one.',
     res_best_title: 'Working in your favour',
     res_answer_label: 'You answered',
 
@@ -240,7 +255,7 @@ export const UI = {
     res_copied: 'Link copied',
     res_image: 'Save as image',
     res_image_hint: 'Creates a square card you can post.',
-    res_share_text: 'My {test} score on ShenTechin Med: {score}. Check yours:',
+    res_share_text: 'My {test} score on ShenTechin MED: {score}. Check yours:',
 
     res_expert: 'Questions about your result?',
     res_expert_desc: 'Write to us and we’ll point you to the right reading — or the right kind of specialist.',
@@ -299,7 +314,7 @@ export const UI = {
     footer_privacy: 'Gizlilik Politikası',
     footer_terms: 'Kullanım Koşulları',
     footer_disclaimer: 'Tıbbi Uyarı',
-    footer_copy: '&copy; 2026 ShenTechin Med.',
+    footer_copy: '&copy; 2026 ShenTechin MED.',
     footer_note: 'Bu değerlendirmeler tıbbi teşhis değildir ve bir sağlık profesyoneline danışmanın yerini tutmaz.',
 
     lang_offer: 'This page is also available in English.',
@@ -307,7 +322,7 @@ export const UI = {
     lang_offer_close: 'Close',
 
     /* ---------- ana sayfa ---------- */
-    home_doc_title: 'ShenTechin Med — Ücretsiz sağlık alışkanlığı testleri',
+    home_doc_title: 'ShenTechin MED — Ücretsiz sağlık alışkanlığı testleri',
     home_doc_desc: 'Uyku, cilt, beslenme, stres, kalp alışkanlıkları, odaklanma, kondisyon, bağışıklık ve ekran süresi üzerine dokuz ücretsiz ve anonim öz-değerlendirme. Bir hekim tarafından yazıldı. Teşhis değildir.',
     hero_badge: 'Bir hekim tarafından yazıldı ve gözden geçirildi',
     hero_title: 'Günlük sağlık alışkanlıklarınızı anlayın',
@@ -316,7 +331,7 @@ export const UI = {
     hero_btn2: 'Puanlama nasıl işliyor',
     trust_1: 'Ücretsiz, kayıt yok',
     trust_2: 'Cevaplar tarayıcınızda kalır',
-    trust_3: '10 soru, ~2 dakika',
+    trust_3: '25 soru, ~6 dakika',
 
     finder_title: 'Nereden başlayacağınızdan emin değil misiniz?',
     finder_desc: 'Şu an size en çok benzeyen cümleyi seçin.',
@@ -350,14 +365,14 @@ export const UI = {
     card_immunity_desc: 'Ne sıklıkla hastalandığınızın ardındaki uyku, beslenme ve alışkanlıklar.',
     card_tech_desc: 'Ekran süresi ve teknolojinin gününüze nasıl yerleştiği.',
 
-    card_meta: '10 soru · 2 dk',
-    btn_start: 'Kısa testi başlat',
+    card_meta: '25 soru · yaklaşık 6 dk',
+    btn_start: 'Değerlendirmeyi başlat',
     btn_details: 'Bu test hakkında',
     home_note: 'Bu değerlendirmeler eğitim amaçlı öz-kontrollerdir, tıbbi test değildir. Yalnızca verdiğiniz cevapları puanlarlar ve hiçbir şeye teşhis koyamazlar. Başlamadan önce <a href="%disclaimer%">tıbbi uyarıyı</a> okuyun.',
 
     /* ---------- hakkımızda ---------- */
-    about_doc_title: 'Hakkımızda — ShenTechin Med',
-    about_doc_desc: 'ShenTechin Med’i kimin hazırladığı, değerlendirmelerin nasıl kurulup puanlandığı ve kasıtlı olarak neyi iddia etmediği.',
+    about_doc_title: 'Hakkımızda — ShenTechin MED',
+    about_doc_desc: 'ShenTechin MED’i kimin hazırladığı, değerlendirmelerin nasıl kurulup puanlandığı ve kasıtlı olarak neyi iddia etmediği.',
     about_hero_title: 'Bu site nedir — ve ne değildir',
     about_hero_desc: 'Bir hekim tarafından yazılmış, bir anketin size ne söyleyebileceği konusunda bilinçli olarak alçakgönüllü kalan, küçük ve ücretsiz bir sağlık alışkanlığı değerlendirmeleri derlemesi.',
     stat_1: 'Bir hekim tarafından yazıldı',
@@ -369,9 +384,11 @@ export const UI = {
     privacy_desc: 'Hesap yok, kayıt yok. Cevaplarınız ve puanınız yalnızca kendi tarayıcınızda saklanır; bize veya başka birine hiçbir zaman gönderilmez. Yazı tipleri de bu alan adından sunulur, dolayısıyla ziyaretinizi üçüncü bir taraf görmez. Ayrıntılar <a href="%privacy%">gizlilik politikasında</a>.',
     honest_title: 'Neyi iddia etmiyoruz',
     honest_desc: 'Bunlar öz-değerlendirmedir, klinik ölçüm aracı değil. Doğrulanmış (valide) ölçekler değildir, tanı aracı değildir ve cevaplarınızı yorumlayan bir yapay zekâ yoktur — puan aritmetiktir. Sizi bir toplumla da karşılaştırmıyoruz, çünkü karşılaştıracak toplum verimiz yok. Buradaki tıbbi bir sonuç gibi okunan her şey bir alışkanlık özetidir, fazlası değil.',
+    evidence_title: 'Sorular nereden geliyor',
+    evidence_desc: 'Her değerlendirme, yayımlanmış ölçek ve kılavuzların zaten kapsadığı alanlar üzerine kuruluyor — Pittsburgh Uyku Kalitesi İndeksi, Uykusuzluk Şiddeti İndeksi, Epworth Uykululuk Ölçeği, Algılanan Stres Ölçeği, Akdeniz diyeti uyum ölçeği, DSÖ fiziksel aktivite kılavuzu, Amerikan Kalp Derneği’nin Life’s Essential 8 çerçevesi ve diğerleri. Raporun verdiği her sayı — dakika, saat, porsiyon, eşik — geldiği çalışmaya ya da kılavuza PubMed kimliğiyle bağlanıyor; bize güvenmek yerine kontrol edebilirsiniz.',
     method_title: 'Yöntem',
     method_name: 'Puanlama nasıl işliyor',
-    method_desc: 'Her değerlendirmede 1–10 arası puanlanan 25 soru var; kısa sürüm bunların 10’unu kullanıyor. Yüksek cevabın olumsuz olduğu sorular — “horlar mısınız?”, “öğün atlar mısınız?” — puanlamadan önce ters çevriliyor, böylece toplam her zaman aynı yönü gösteriyor. Sonuç 0–100 aralığına normalize edilip üç banttan birine eşleniyor.',
+    method_desc: 'Her değerlendirmede 1–10 arası puanlanan 25 soru var; kısa sürüm bunların 10’unu kullanıyor. Yüksek cevabın olumsuz olduğu sorular — “horlar mısınız?”, “öğün atlar mısınız?” — puanlamadan önce ters çevriliyor, böylece toplam her zaman aynı yönü gösteriyor. Sonuç 0–100 aralığına normalize edilip üç banttan birine eşleniyor. Rapor puanla bitmiyor: size en pahalıya mal olan cevaplardan kişiye özel bir eylem planı çıkarıyor, puanı alan alan ayırıyor ve bir hekime götürmeye değer belirli cevap bileşimlerini işaretliyor.',
     bands_title: 'Üç bant',
     band_low_name: 'Dikkat gerekiyor',
     band_mid_name: 'Karışık',
@@ -381,7 +398,7 @@ export const UI = {
     band_good_about: 'En çok işe yarayan alışkanlıklar büyük ölçüde yerinde. İş, onları korumak.',
 
     /* ---------- yazılar ---------- */
-    blog_doc_title: 'Yazılar — ShenTechin Med',
+    blog_doc_title: 'Yazılar — ShenTechin MED',
     blog_doc_desc: 'Stres, uyku, metabolizma ve kalp hızı değişkenliği üzerine bir hekim tarafından yazılmış sade dilli açıklamalar.',
     blog_hero_title: 'Sade dille sağlık yazıları',
     blog_hero_desc: 'Değerlendirmelerimizin sorduğu alışkanlıkların ardındaki mekanizmalar üzerine kısa yazılar — etkilemek için değil, anlaşılmak için yazıldı.',
@@ -397,18 +414,21 @@ export const UI = {
     /* ---------- makale sayfası ---------- */
     art_reading_time: '{n} dakikalık okuma',
     art_toc: 'Bu sayfada',
+    art_refs: 'Kaynaklar',
+    art_refs_desc: 'Bu yazıda sayı ya da mekanizma içeren her iddia bunlardan birine dayanıyor. Her bağlantı ilgili kaydı PubMed üzerinde açar.',
+    art_updated: '{date} tarihinde gözden geçirildi',
     art_next: 'Sıradaki yazı',
     art_back: 'Tüm yazılar',
     art_cta_title: 'Kendi durumunuzu merak ettiniz mi?',
-    art_cta_desc: 'İlgili öz-değerlendirmeyi yapın — 10 soru, yaklaşık iki dakika.',
+    art_cta_desc: 'İlgili öz-değerlendirmeyi yapın — 25 soru, yaklaşık altı dakika, sonunda kişiye özel bir rapor.',
     art_cta_btn: 'Değerlendirmeye git',
     art_disclaimer: 'Bu yazı genel bilgidir, tıbbi tavsiye değildir ve kendi durumunuz için bir sağlık profesyoneline başvurmanın yerini tutmaz.',
 
     /* ---------- test tanıtım sayfası ---------- */
-    test_start_quick: 'Kısa sürümü başlat',
-    test_start_full: 'Detaylı sürüm',
-    test_meta_quick: '10 soru · yaklaşık 2 dakika',
-    test_meta_full: 'Detaylı sürümde 25 soru',
+    test_start_quick: 'Kısa sürüm · 10 soru',
+    test_start_full: 'Değerlendirmeyi başlat',
+    test_meta_len: '25 soru · yaklaşık 6 dakika',
+    test_meta_short: '10 soruluk kısa bir sürüm de var',
     test_meta_free: 'Ücretsiz ve anonim',
     test_measures: 'Neye bakıyor',
     test_who: 'Kimin için',
@@ -416,6 +436,9 @@ export const UI = {
     test_sample_note: 'Her soru aynı 1–10 ölçeğiyle cevaplanır. Yüksek cevabın olumsuz olduğu sorular puanlamadan önce ters çevrilir.',
     test_bands: 'Sonuç nasıl bildiriliyor',
     test_faq: 'Sık sorulanlar',
+    test_basis: 'Bilimsel temel',
+    test_basis_desc: 'Bu değerlendirmedeki sorular, aşağıdaki doğrulanmış ölçek ve kılavuzların kapsadığı alanlardan uyarlandı.',
+    test_refs: 'Kaynaklar',
     test_related: 'Diğer değerlendirmeler',
     test_warn: 'Bu, eğitim amaçlı bir öz-değerlendirmedir, tıbbi test değildir. Hiçbir şeye teşhis koyamaz. Başlamadan önce <a href="%disclaimer%">tıbbi uyarıyı</a> okuyun.',
 
@@ -425,7 +448,7 @@ export const UI = {
     nf_btn: 'Tüm değerlendirmeler',
 
     /* ---------- test ekranı ---------- */
-    quiz_doc_title: 'Değerlendirme — ShenTechin Med',
+    quiz_doc_title: 'Değerlendirme — ShenTechin MED',
     quiz_doc_desc: 'Soruları cevaplayın, alışkanlık özetinizi görün.',
     quiz_back: 'Kaydet ve çık',
     quiz_next: 'Sonraki',
@@ -436,7 +459,7 @@ export const UI = {
     quiz_left_min: '~{n} dk kaldı',
     quiz_left_short: 'Neredeyse bitti',
     quiz_mode_quick: 'Kısa sürüm · 10 soru',
-    quiz_mode_full: 'Detaylı sürüm · 25 soru',
+    quiz_mode_full: 'Tam değerlendirme · 25 soru',
     quiz_resume_text: 'Bu değerlendirmede yarım kalmış bir denemeniz var.',
     quiz_resume_yes: 'Devam et',
     quiz_resume_no: 'Baştan başla',
@@ -471,7 +494,7 @@ export const UI = {
     scale_speed_high: 'Çok hızlı',
 
     /* ---------- sonuç ekranı ---------- */
-    res_doc_title: 'Sonucunuz — ShenTechin Med',
+    res_doc_title: 'Sonucunuz — ShenTechin MED',
     res_doc_desc: 'Az önce tamamladığınız değerlendirmenin alışkanlık özeti.',
     res_analyzing: 'Özetiniz hazırlanıyor…',
     res_score_aria: 'Puanınız:',
@@ -480,13 +503,20 @@ export const UI = {
     res_band_low: 'Puan aralığı: 0–49 · dikkat gerekiyor',
     res_of100: '/ 100',
     res_mode_quick: 'kısa sürüm',
-    res_mode_full: 'detaylı sürüm',
+    res_mode_full: 'tam değerlendirme',
     res_from: '{mode}, {n} soru',
 
+    res_plan_title: 'Eylem planınız',
+    res_plan_desc: 'Puanınızı en çok düşüren cevaplardan çıkarıldı. Her adım neyi değiştireceğinizi ve bunun neden işe yaradığına dair kanıtı söylüyor.',
+    res_plan_empty: 'Burada değiştirilmesi gereken bir şey yok — bunlar yalnızca en düşük cevaplarınız.',
+    res_flags_title: 'Bir hekime danışmaya değer',
+    res_flags_desc: 'Bunlar tanı değil, örüntü eşleşmesidir. Cevaplarınızın belirli bir bileşimi, tarama araçlarının yakalamak için kurulduğu bir tabloya uyduğu için görünüyorlar.',
+    res_basis_title: 'Bu değerlendirme neye dayanıyor',
+    res_basis_desc: 'Sorular, aşağıdaki doğrulanmış ölçek ve kılavuzların kapsadığı alanlardan uyarlandı. Bu bir eğitim amaçlı öz-değerlendirmedir; ölçeklerin kendisi değildir.',
+    res_refs_title: 'Kaynaklar',
+    res_refs_desc: 'Bu sayfada geçen her sayı bunlardan birine dayanıyor. Her bağlantı ilgili kaydı PubMed üzerinde açar.',
     res_breakdown_title: 'Puan nereden geldi',
     res_breakdown_desc: 'Aşağıdaki her alan toplamla aynı şekilde puanlanır: yüksek olan iyidir.',
-    res_worst_title: 'Puanı en çok düşüren üç cevap',
-    res_worst_desc: 'Oynayacak en fazla yer bu alışkanlıklarda. Birini seçin.',
     res_best_title: 'Lehinize çalışanlar',
     res_answer_label: 'Verdiğiniz cevap',
 
@@ -499,7 +529,7 @@ export const UI = {
     res_copied: 'Bağlantı kopyalandı',
     res_image: 'Görsel olarak kaydet',
     res_image_hint: 'Paylaşabileceğiniz kare bir kart oluşturur.',
-    res_share_text: 'ShenTechin Med’de {test} skorum: {score}. Sen de bak:',
+    res_share_text: 'ShenTechin MED’de {test} skorum: {score}. Sen de bak:',
 
     res_expert: 'Sonucunuzla ilgili sorunuz mu var?',
     res_expert_desc: 'Bize yazın; doğru okumaya ya da doğru uzmanlık alanına yönlendirelim.',
@@ -558,12 +588,15 @@ export const RUNTIME_KEYS = {
   result: [
     'res_score_aria', 'res_band_good', 'res_band_mid', 'res_band_low',
     'res_from', 'res_mode_quick', 'res_mode_full',
-    'res_worst_title', 'res_worst_desc', 'res_best_title', 'res_answer_label',
+    'res_best_title', 'res_answer_label',
     'res_breakdown_title', 'res_breakdown_desc',
     'res_share_text', 'res_copied', 'res_history_title', 'res_history_desc',
     'res_history_clear', 'res_history_delta_up', 'res_history_delta_down',
     'res_history_delta_same', 'res_remind_title', 'res_remind_body',
     'res_empty_title', 'res_empty_desc', 'res_empty_btn', 'res_analyzing',
-    'res_shared_note', 'res_shared_cta', 'res_again', 'res_of100'
+    'res_shared_note', 'res_shared_cta', 'res_again', 'res_of100',
+    'res_plan_title', 'res_plan_desc', 'res_plan_empty',
+    'res_flags_title', 'res_flags_desc',
+    'res_basis_title', 'res_basis_desc', 'res_refs_title', 'res_refs_desc'
   ]
 };

@@ -20,7 +20,8 @@ import { ARTICLES } from './content-articles.mjs';
 import { LEGAL } from './content-legal.mjs';
 import { RESULT_TEXTS } from './content-results.mjs';
 import { ILLUSTRATIONS, heroArt, bandChart, DIAGRAMS, sampleScale } from './illustrations.mjs';
-import { sampleQuestion, QUESTIONS } from './lib/questions.mjs';
+import { sampleQuestion, QUESTIONS, TEST_IDS, dataFile } from './lib/questions.mjs';
+import { SCIENCE } from './content-science.mjs';
 import { serviceWorker, manifest } from './sw.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -118,7 +119,7 @@ function testCard(id, lang) {
 <h4><a href="${url('test', lang, id)}" data-card-name>${test[lang].name}</a></h4>
 <p class="tcard__desc">${t(lang, `card_${id}_desc`)}</p>
 <div class="tcard__actions">
-<a class="tcard__start" href="${url('quiz', lang)}?type=${id}&amp;mode=quick" data-start-link>${t(lang, 'btn_start')}</a>
+<a class="tcard__start" href="${url('quiz', lang)}?type=${id}&amp;mode=full" data-start-link>${t(lang, 'btn_start')}</a>
 <a class="tcard__more" href="${url('test', lang, id)}">${t(lang, 'btn_details')}</a>
 </div>
 </div>
@@ -234,6 +235,11 @@ function aboutMain(lang) {
 <p>${t(lang, 'privacy_desc')}</p>
 </div>
 <div class="info-block reveal">
+<div class="info-block__icon">${icon('book-open')}</div>
+<h2>${t(lang, 'evidence_title')}</h2>
+<p>${t(lang, 'evidence_desc')}</p>
+</div>
+<div class="info-block reveal">
 <div class="info-block__icon">${icon('alert-triangle')}</div>
 <h2>${t(lang, 'honest_title')}</h2>
 <p>${t(lang, 'honest_desc')}</p>
@@ -328,6 +334,7 @@ ${prepared.headings.map((h) => `<li><a href="#${h.id}">${h.text}</a></li>`).join
 <div class="doc-meta">
 <span>${icon('user-round')} ${t(lang, 'blog_author')}</span>
 <span>${icon('calendar')} ${dateLabel(article.date, lang)}</span>
+<span>${icon('check')} ${t(lang, 'art_updated').replace('{date}', dateLabel(article.modified || article.date, lang))}</span>
 <span>${icon('book-open')} ${t(lang, 'art_reading_time').replace('{n}', prepared.minutes)}</span>
 </div>
 </div>
@@ -338,6 +345,15 @@ ${prepared.headings.map((h) => `<li><a href="#${h.id}">${h.text}</a></li>`).join
 <article class="prose">
 <p><strong>${article[lang].dek}</strong></p>
 ${prepared.body}
+
+<section class="doc-section">
+<h2>${t(lang, 'art_refs')}</h2>
+<p class="refs__desc">${t(lang, 'art_refs_desc')}</p>
+<ol class="refs">
+${article.refs.map((r) => `<li><a href="https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/" target="_blank" rel="noopener noreferrer">${r[lang]}</a><span class="ref__id">PMID ${r.pmid}</span></li>`).join('\n')}
+</ol>
+</section>
+
 <div class="callout callout--warn"><p>${t(lang, 'art_disclaimer')}</p></div>
 
 <section class="doc-cta">
@@ -365,6 +381,7 @@ function testMain(test, lang) {
   const c = test[lang];
   const others = TESTS.filter((x) => x.id !== test.id).slice(0, 4);
   const sample = sampleQuestion(test.id, lang);
+  const sci = SCIENCE[test.id];
   const low = sample.custom ? (sample.custom[lang] || sample.custom.en).low : t(lang, `scale_${sample.anchorKey}_low`);
   const high = sample.custom ? (sample.custom[lang] || sample.custom.en).high : t(lang, `scale_${sample.anchorKey}_high`);
 
@@ -373,12 +390,12 @@ function testMain(test, lang) {
 <h1>${c.name}</h1>
 <p class="lede">${c.lede}</p>
 <div class="test-actions">
-<a class="btn btn--primary" href="${url('quiz', lang)}?type=${test.id}&amp;mode=quick">${t(lang, 'test_start_quick')} ${icon('arrow-right')}</a>
-<a class="btn btn--ghost" href="${url('quiz', lang)}?type=${test.id}&amp;mode=full">${t(lang, 'test_start_full')}</a>
+<a class="btn btn--primary" href="${url('quiz', lang)}?type=${test.id}&amp;mode=full">${t(lang, 'test_start_full')} ${icon('arrow-right')}</a>
+<a class="btn btn--ghost" href="${url('quiz', lang)}?type=${test.id}&amp;mode=quick">${t(lang, 'test_start_quick')}</a>
 </div>
 <div class="meta-row">
-<span>${icon('clock')} ${t(lang, 'test_meta_quick')}</span>
-<span>${icon('list-checks')} ${t(lang, 'test_meta_full')}</span>
+<span>${icon('clock')} ${t(lang, 'test_meta_len')}</span>
+<span>${icon('list-checks')} ${t(lang, 'test_meta_short')}</span>
 <span>${icon('lock')} ${t(lang, 'test_meta_free')}</span>
 </div>
 </header>
@@ -410,6 +427,18 @@ ${bandChart(lang)}
 <section class="doc-section">
 <h2>${t(lang, 'test_faq')}</h2>
 ${c.faq.map((f) => `<div class="faq-item"><h3>${f.q}</h3><p>${f.a}</p></div>`).join('\n')}
+</section>
+
+<section class="doc-section">
+<h2>${t(lang, 'test_basis')}</h2>
+<p>${t(lang, 'test_basis_desc')}</p>
+<ul class="basis">
+${sci.basis[lang].map((b) => `<li class="basis__item">${b}</li>`).join('\n')}
+</ul>
+<h3 class="refs__title">${t(lang, 'test_refs')}</h3>
+<ol class="refs">
+${sci.refs.map((r) => `<li><a href="https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/" target="_blank" rel="noopener noreferrer">${r[lang]}</a><span class="ref__id">PMID ${r.pmid}</span></li>`).join('\n')}
+</ol>
 </section>
 
 <section class="doc-section">
@@ -448,10 +477,10 @@ function quizMain(lang) {
 <span class="progress__count">…</span>
 <span class="progress__right">
 <span class="progress__left-time"></span>
-<span class="progress__mode">${t(lang, 'quiz_mode_quick')}</span>
+<span class="progress__mode">${t(lang, 'quiz_mode_full')}</span>
 </span>
 </div>
-<div class="progress__track" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="10">
+<div class="progress__track" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="25">
 <div class="progress__seen"></div>
 <div class="progress__fill"></div>
 </div>
@@ -514,22 +543,24 @@ ${icon('info')} <span>${t(lang, 'res_shared_note')}</span>
 </div>
 </section>
 
+<section class="panel panel--plan">
+<h2>${icon('list-checks')} ${t(lang, 'res_plan_title')}</h2>
+<p>${t(lang, 'res_plan_desc')}</p>
+<ol class="plan" id="plan"></ol>
+</section>
+
+<section class="panel panel--flag" id="flags-panel" hidden>
+<h2>${icon('alert-triangle')} ${t(lang, 'res_flags_title')}</h2>
+<p>${t(lang, 'res_flags_desc')}</p>
+<ul class="flags" id="flags"></ul>
+</section>
+
 <section class="panel">
 <h2>${t(lang, 'res_breakdown_title')}</h2>
 <p>${t(lang, 'res_breakdown_desc')}</p>
 <div class="themes" id="breakdown"></div>
 </section>
 
-<section class="panel">
-<h2>${t(lang, 'res_worst_title')}</h2>
-<p>${t(lang, 'res_worst_desc')}</p>
-<ul class="answers" id="worst"></ul>
-</section>
-
-<section class="panel">
-<h2>${t(lang, 'res_best_title')}</h2>
-<ul class="answers" id="best"></ul>
-</section>
 </div>
 
 <div>
@@ -545,6 +576,11 @@ ${icon('info')} <span>${t(lang, 'res_shared_note')}</span>
 </div>
 <p class="share-hint">${t(lang, 'res_image_hint')}</p>
 <canvas id="share-canvas" width="1080" height="1080"></canvas>
+</section>
+
+<section class="panel">
+<h2>${icon('check')} ${t(lang, 'res_best_title')}</h2>
+<ul class="answers" id="best"></ul>
 </section>
 
 <section class="panel" id="history-panel" hidden>
@@ -567,6 +603,15 @@ ${icon('info')} <span>${t(lang, 'res_shared_note')}</span>
 <button type="button" class="action-btn no-print" id="print-btn">${icon('printer')} ${t(lang, 'res_print')}</button>
 <a class="action-btn" href="${url('home', lang)}">${icon('arrow-left')} ${t(lang, 'res_retry')}</a>
 </div>
+</section>
+
+<section class="panel panel--evidence" id="evidence-panel">
+<h2>${icon('book-open')} ${t(lang, 'res_basis_title')}</h2>
+<p>${t(lang, 'res_basis_desc')}</p>
+<ul class="basis" id="basis"></ul>
+<h3 class="refs__title">${t(lang, 'res_refs_title')}</h3>
+<p class="refs__desc">${t(lang, 'res_refs_desc')}</p>
+<ol class="refs" id="refs"></ol>
 </section>
 
 <section class="panel">
@@ -619,7 +664,7 @@ for (const lang of LANGS) {
     title: t(lang, 'home_doc_title'), desc: t(lang, 'home_doc_desc'),
     ogImage: ogFor('home', lang),
     css: ['home.css'], main: homeMain(lang),
-    breadcrumb: [{ name: 'ShenTechin Med', url: absUrl('home', lang) }]
+    breadcrumb: [{ name: 'ShenTechin MED', url: absUrl('home', lang) }]
   }));
 
   /* --- hakkımızda --- */
@@ -629,7 +674,7 @@ for (const lang of LANGS) {
     ogImage: ogFor('about', lang),
     css: ['doc.css'], main: aboutMain(lang),
     breadcrumb: [
-      { name: 'ShenTechin Med', url: absUrl('home', lang) },
+      { name: 'ShenTechin MED', url: absUrl('home', lang) },
       { name: t(lang, 'nav_about') }
     ]
   }));
@@ -641,7 +686,7 @@ for (const lang of LANGS) {
     ogImage: ogFor('insights', lang),
     css: ['blog.css'], main: insightsMain(lang),
     breadcrumb: [
-      { name: 'ShenTechin Med', url: absUrl('home', lang) },
+      { name: 'ShenTechin MED', url: absUrl('home', lang) },
       { name: t(lang, 'nav_insights') }
     ]
   }));
@@ -667,7 +712,7 @@ for (const lang of LANGS) {
   /* --- 404 --- */
   writePage(filePath('notfound', lang), page({
     kind: 'notfound', lang, noindex: true,
-    title: `${t(lang, 'nf_title')} — ShenTechin Med`, desc: t(lang, 'nf_desc'),
+    title: `${t(lang, 'nf_title')} — ShenTechin MED`, desc: t(lang, 'nf_desc'),
     css: ['doc.css'], main: notFoundMain(lang)
   }));
 
@@ -678,7 +723,7 @@ for (const lang of LANGS) {
       title: l[lang].title, desc: l[lang].desc,
       css: ['doc.css'], main: legalMain(l, lang),
       breadcrumb: [
-        { name: 'ShenTechin Med', url: absUrl('home', lang) },
+        { name: 'ShenTechin MED', url: absUrl('home', lang) },
         { name: l[lang].h1 }
       ]
     }));
@@ -694,7 +739,7 @@ for (const lang of LANGS) {
       faq: test[lang].faq,
       quiz: { name: test[lang].name, about: test[lang].name },
       breadcrumb: [
-        { name: 'ShenTechin Med', url: absUrl('home', lang) },
+        { name: 'ShenTechin MED', url: absUrl('home', lang) },
         { name: t(lang, 'nav_tests'), url: absUrl('home', lang) },
         { name: test[lang].name }
       ]
@@ -706,17 +751,19 @@ for (const lang of LANGS) {
     const prepared = prepareArticle(article, lang);
     writePage(filePath('article', lang, article.slug), page({
       kind: 'article', lang, slug: article.slug, active: 'insights',
-      title: `${article[lang].title} — ShenTechin Med`, desc: article[lang].desc,
+      title: `${article[lang].title} — ShenTechin MED`, desc: article[lang].desc,
       ogType: 'article', ogImage: ogFor(`art-${article.slug}`, lang),
       css: ['doc.css'], main: articleMain(article, lang, prepared),
       article: {
         headline: article[lang].title,
         date: article.date,
+        modified: article.modified || article.date,
         section: t(lang, article.badgeKey),
-        words: prepared.words
+        words: prepared.words,
+        citations: article.refs
       },
       breadcrumb: [
-        { name: 'ShenTechin Med', url: absUrl('home', lang) },
+        { name: 'ShenTechin MED', url: absUrl('home', lang) },
         { name: t(lang, 'nav_insights'), url: absUrl('insights', lang) },
         { name: article[lang].title }
       ]
@@ -728,12 +775,49 @@ for (const lang of LANGS) {
 for (const [dir, target] of [['insights/index.html', url('insights', 'en')], ['tr/yazilar/index.html', url('insights', 'tr')]]) {
   write(dir, `<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
-<title>Insights — ShenTechin Med</title>
+<title>Insights — ShenTechin MED</title>
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="${SITE}${target}">
 <meta http-equiv="refresh" content="0; url=${target}">
-</head><body><p><a href="${target}">ShenTechin Med</a></p></body></html>
+</head><body><p><a href="${target}">ShenTechin MED</a></p></body></html>
 `);
+}
+
+/* ---------------------------------------------------------------
+   SORU BANKALARI VE SONUÇ METİNLERİ
+
+   İkisi de tarayıcıya ayrı dosya olarak gider ve ikisi de tools/
+   altındaki kaynaktan üretilir. Daha önce sonuç metinleri elle
+   yazılmış dosyalarda duruyordu ve content-results.mjs'e yapılan bir
+   değişiklik siteye hiç ulaşmıyordu — bu döngü artık kapalı.
+   --------------------------------------------------------------- */
+
+for (const id of TEST_IDS) {
+  write(`assets/js/data/${id}.js`, dataFile(id));
+}
+
+for (const lang of LANGS) {
+  for (const id of TEST_IDS) {
+    const band = RESULT_TEXTS[lang][id];
+    const sci = SCIENCE[id];
+    const payload = {
+      name: band.name,
+      bands: band.bands,
+      basis: sci.basis[lang],
+      /* p = PubMed kimliği, t = kaynak künyesi */
+      refs: sci.refs.map((r) => ({ p: r.pmid, t: r[lang] })),
+      domains: Object.fromEntries(
+        Object.entries(sci.domains).map(([k, v]) => [k, v[lang]])
+      ),
+      actions: Object.fromEntries(
+        Object.entries(sci.actions).map(([k, v]) => [k, v[lang]])
+      ),
+      /* q = soru indeksleri, at = puan eşiği, n = kaç tanesi eşiğin altında olmalı */
+      flags: sci.flags.map((f) => ({ q: f.q, at: f.at, n: f.need, t: f[lang] }))
+    };
+    write(`assets/js/results/${id}.${lang}.js`,
+      `window.RESULT_TEXT=${JSON.stringify(payload)};\n`);
+  }
 }
 
 /* ---------------------------------------------------------------
@@ -755,7 +839,7 @@ for (const lang of LANGS) {
   add('insights', null, '0.8');
   add('about', null, '0.6');
   for (const test of TESTS) add('test', test.id, '0.9');
-  for (const a of ARTICLES) add('article', a.slug, '0.7', a.date);
+  for (const a of ARTICLES) add('article', a.slug, '0.7', a.modified || a.date);
   for (const l of LEGAL) add(l.slug, null, '0.3');
 }
 
@@ -799,6 +883,8 @@ write('sw.js', serviceWorker(stamp, [
   '/assets/fonts/pjs-latin.woff2',
   '/assets/fonts/pjs-latin-ext.woff2',
   '/favicon.svg',
+  '/favicon-96x96.png',
+  '/icon-192.png',
   '/site.webmanifest'
 ]));
 

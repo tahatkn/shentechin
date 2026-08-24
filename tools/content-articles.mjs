@@ -2,6 +2,14 @@
 export const ARTICLES = [
 { slug:'chronic-stress-and-the-body', featured:true, badge:'neuro', badgeKey:'badge_neuro',
   tone:'stress', relatedTest:'stress', icon:'brain', date:'2026-08-19',
+  modified:'2026-08-25',
+  refs:[
+    {pmid:'9428819', en:'McEwen BS. Protective and damaging effects of stress mediators. N Engl J Med. 1998', tr:'McEwen BS. Stres aracılarının koruyucu ve zarar verici etkileri. N Engl J Med. 1998'},
+    {pmid:'19488073', en:'Chrousos GP. Stress and disorders of the stress system. Nat Rev Endocrinol. 2009', tr:'Chrousos GP. Stres ve stres sisteminin bozuklukları. Nat Rev Endocrinol. 2009'},
+    {pmid:'29213140', en:'Kivimäki M, Steptoe A. Effects of stress on the development and progression of cardiovascular disease. Nat Rev Cardiol. 2018', tr:'Kivimäki M, Steptoe A. Stresin kalp-damar hastalığının gelişimi ve ilerlemesine etkileri. Nat Rev Cardiol. 2018'},
+    {pmid:'15250815', en:'Segerstrom SC, Miller GE. Psychological stress and the human immune system. Psychol Bull. 2004', tr:'Segerstrom SC, Miller GE. Psikolojik stres ve insan bağışıklık sistemi. Psychol Bull. 2004'},
+    {pmid:'24395196', en:'Goyal M et al. Meditation programmes for psychological stress and well-being. JAMA Intern Med. 2014', tr:'Goyal M ve ark. Psikolojik stres ve iyilik hâli için meditasyon programları. JAMA Intern Med. 2014'}
+  ],
   en:{ title:'What chronic stress actually does to the body',
     desc:'Stress is a hormonal loop with a beginning, a purpose and an off switch. Understanding where the switch is makes it easier to use.',
     dek:'Stress is not only a feeling. It is a hormonal loop with a beginning, a purpose and an off switch — and understanding where that switch is makes it easier to use.',
@@ -59,6 +67,14 @@ export const ARTICLES = [
 
 { slug:'why-calorie-counting-fails', badge:'diet', badgeKey:'badge_meta',
   tone:'diet', relatedTest:'diet', icon:'leaf', date:'2026-07-03',
+  modified:'2026-08-25',
+  refs:[
+    {pmid:'1454084', en:'Lichtman SW et al. Discrepancy between self-reported and actual calorie intake. N Engl J Med. 1992', tr:'Lichtman SW ve ark. Beyan edilen ile gerçek kalori alımı arasındaki fark. N Engl J Med. 1992'},
+    {pmid:'7869932', en:'Schoeller DA. Limitations in the assessment of dietary energy intake by self-report. Metabolism. 1995', tr:'Schoeller DA. Beyana dayalı enerji alımı ölçümünün sınırları. Metabolism. 1995'},
+    {pmid:'22029981', en:'Sumithran P et al. Long-term persistence of hormonal adaptations to weight loss. N Engl J Med. 2011', tr:'Sumithran P ve ark. Kilo kaybına hormonal uyumun uzun süreli kalıcılığı. N Engl J Med. 2011'},
+    {pmid:'27136388', en:'Fothergill E et al. Persistent metabolic adaptation 6 years after "The Biggest Loser" competition. Obesity. 2016', tr:'Fothergill E ve ark. "The Biggest Loser" yarışmasından 6 yıl sonra süren metabolik uyum. Obesity. 2016'},
+    {pmid:'31105044', en:'Hall KD et al. Ultra-processed diets cause excess calorie intake and weight gain. Cell Metab. 2019', tr:'Hall KD ve ark. Ultra-işlenmiş diyetler fazla kalori alımına ve kilo artışına yol açıyor. Cell Metab. 2019'}
+  ],
   en:{ title:'Why calorie counting stops working for so many people',
     desc:'Calories in, calories out is not wrong — it is incomplete. Here is what the model leaves out and what to do instead.',
     dek:'Calories in, calories out is not wrong — it is just incomplete. Here is what the model leaves out, and what to do instead.',
@@ -120,6 +136,15 @@ export const ARTICLES = [
 
 { slug:'sleep-cycles-explained', badge:'sleep', badgeKey:'badge_sleep',
   tone:'sleep', relatedTest:'sleep', icon:'moon', date:'2026-06-12',
+  modified:'2026-08-25',
+  refs:[
+    {pmid:'26039963', en:'Watson NF et al. Recommended amount of sleep for a healthy adult. Sleep. 2015', tr:'Watson NF ve ark. Sağlıklı erişkin için önerilen uyku süresi. Sleep. 2015'},
+    {pmid:'24136970', en:'Xie L et al. Sleep drives metabolite clearance from the adult brain. Science. 2013', tr:'Xie L ve ark. Uyku, erişkin beyninden metabolit temizliğini sürüyor. Science. 2013'},
+    {pmid:'15450165', en:'Walker MP, Stickgold R. Sleep-dependent learning and memory consolidation. Neuron. 2004', tr:'Walker MP, Stickgold R. Uykuya bağlı öğrenme ve bellek pekişmesi. Neuron. 2004'},
+    {pmid:'25535358', en:'Chang AM et al. Evening use of light-emitting eReaders. PNAS. 2015', tr:'Chang AM ve ark. Akşam saatlerinde ışık yayan okuyucu kullanımı. PNAS. 2015'},
+    {pmid:'24235903', en:'Drake C et al. Caffeine taken 0, 3 or 6 hours before bed. J Clin Sleep Med. 2013', tr:'Drake C ve ark. Yatmadan 0, 3 ve 6 saat önce alınan kafein. J Clin Sleep Med. 2013'},
+    {pmid:'27136449', en:'Qaseem A et al. Management of chronic insomnia in adults: ACP guideline. Ann Intern Med. 2016', tr:'Qaseem A ve ark. Erişkinde kronik uykusuzluk yönetimi: ACP kılavuzu. Ann Intern Med. 2016'}
+  ],
   en:{ title:'Sleep cycles, explained without the jargon',
     desc:'Deep sleep and REM do different jobs and are not spread evenly across the night. That has practical consequences for when you go to bed.',
     dek:'Deep sleep and REM do different jobs, and they are not distributed evenly across the night. That has practical consequences for when you go to bed.',
@@ -191,6 +216,14 @@ export const ARTICLES = [
 
 { slug:'heart-rate-variability', badge:'cardio', badgeKey:'badge_cardio',
   tone:'heart', relatedTest:'heart', icon:'heart-pulse', date:'2026-07-28',
+  modified:'2026-08-25',
+  refs:[
+    {pmid:'8598068', en:'Task Force of ESC and NASPE. Heart rate variability: standards of measurement and clinical use. Circulation. 1996', tr:'ESC ve NASPE Görev Grubu. Kalp hızı değişkenliği: ölçüm standartları ve klinik kullanım. Circulation. 1996'},
+    {pmid:'29034226', en:'Shaffer F, Ginsberg JP. An overview of heart rate variability metrics and norms. Front Public Health. 2017', tr:'Shaffer F, Ginsberg JP. Kalp hızı değişkenliği ölçütleri ve normlarına genel bakış. Front Public Health. 2017'},
+    {pmid:'22178086', en:'Thayer JF et al. A meta-analysis of heart rate variability and neuroimaging studies. Neurosci Biobehav Rev. 2012', tr:'Thayer JF ve ark. Kalp hızı değişkenliği ve nörogörüntüleme çalışmalarının meta-analizi. Neurosci Biobehav Rev. 2012'},
+    {pmid:'23370966', en:'Hillebrand S et al. Heart rate variability and first cardiovascular event: meta-analysis. Europace. 2013', tr:'Hillebrand S ve ark. Kalp hızı değişkenliği ve ilk kardiyovasküler olay: meta-analiz. Europace. 2013'},
+    {pmid:'33143175', en:'Javaloyes A et al. HRV-based training for improving VO2max in endurance athletes: systematic review. Int J Environ Res Public Health. 2020', tr:'Javaloyes A ve ark. Dayanıklılık sporcularında VO2maks için HRV temelli antrenman: sistematik derleme. Int J Environ Res Public Health. 2020'}
+  ],
   en:{ title:'Heart rate variability: what it is and what it isn’t',
     desc:'HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.',
     dek:'HRV has become the headline number on every wearable. It does say something real — but far less precisely than the apps suggest.',

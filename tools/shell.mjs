@@ -147,9 +147,9 @@ function jsonLd(opts, lang) {
   graph.push({
     '@type': 'Organization',
     '@id': orgId,
-    name: 'ShenTechin Med',
+    name: 'ShenTechin MED',
     url: SITE,
-    logo: SITE + '/apple-touch-icon.png',
+    logo: SITE + '/icon-512.png',
     description: t(lang, 'footer_tagline')
   });
 
@@ -157,7 +157,7 @@ function jsonLd(opts, lang) {
     '@type': 'WebSite',
     '@id': siteId,
     url: SITE,
-    name: 'ShenTechin Med',
+    name: 'ShenTechin MED',
     inLanguage: lang,
     publisher: { '@id': orgId }
   });
@@ -193,13 +193,23 @@ function jsonLd(opts, lang) {
       description: opts.desc,
       inLanguage: lang,
       datePublished: opts.article.date,
-      dateModified: opts.article.date,
+      dateModified: opts.article.modified || opts.article.date,
       author: { '@type': 'Person', name: 'Dr. ShenTechin' },
       publisher: { '@id': orgId },
       image: opts.ogImage,
       mainEntityOfPage: { '@id': pageId },
       articleSection: opts.article.section,
-      wordCount: opts.article.words
+      wordCount: opts.article.words,
+      ...(opts.article.citations && opts.article.citations.length
+        ? {
+          citation: opts.article.citations.map((c) => ({
+            '@type': 'ScholarlyArticle',
+            name: c[lang],
+            identifier: 'PMID:' + c.pmid,
+            url: 'https://pubmed.ncbi.nlm.nih.gov/' + c.pmid + '/'
+          }))
+        }
+        : {})
     });
   }
 
@@ -279,7 +289,7 @@ export function page(opts) {
 ${opts.noindex ? '<meta name="robots" content="noindex, follow">' : ''}
 <meta name="theme-color" content="#f8fafc">
 <meta property="og:type" content="${opts.ogType || 'website'}">
-<meta property="og:site_name" content="ShenTechin Med">
+<meta property="og:site_name" content="ShenTechin MED">
 <meta property="og:locale" content="${lang === 'tr' ? 'tr_TR' : 'en_GB'}">
 <meta property="og:title" content="${esc(opts.title)}">
 <meta property="og:description" content="${esc(opts.desc)}">
@@ -291,8 +301,10 @@ ${opts.noindex ? '<meta name="robots" content="noindex, follow">' : ''}
 <meta name="twitter:title" content="${esc(opts.title)}">
 <meta name="twitter:description" content="${esc(opts.desc)}">
 <meta name="twitter:image" content="${ogImage}">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin>${
     lang === 'tr'

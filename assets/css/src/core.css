@@ -623,3 +623,55 @@ footer {
   .card, .diagram { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
   a[href^='http']::after { content: ' (' attr(href) ')'; font-size: 9pt; color: #555; }
 }
+
+/* =============================================================
+   BİLİMSEL TEMEL VE KAYNAKLAR
+
+   Hem test tanıtım sayfasında (doc paketi) hem sonuç ekranında
+   (result paketi) kullanıldığı için burada duruyor: core her
+   pakete giriyor, tekrar etmiyor.
+   ============================================================= */
+
+.basis {
+  list-style: none; margin: 0 0 var(--sp-6); padding: 0;
+  display: flex; flex-wrap: wrap; gap: var(--sp-2);
+}
+.basis__item {
+  padding: 6px 12px; border-radius: var(--r-pill);
+  background: var(--tone-soft, var(--bg-sunken));
+  border: 1px solid var(--border-soft);
+  color: var(--tone, var(--fg-muted));
+  font-size: var(--step--2); font-weight: 700;
+}
+
+.refs__title {
+  font-size: var(--step-0); font-weight: 800;
+  margin: var(--sp-6) 0 var(--sp-2);
+}
+.refs__desc { color: var(--fg-muted); font-size: var(--step--2); margin-bottom: var(--sp-4); }
+
+.refs {
+  list-style: none; counter-reset: ref; margin: 0; padding: 0;
+  display: grid; gap: var(--sp-3);
+}
+.refs li {
+  counter-increment: ref;
+  position: relative; padding-left: var(--sp-7);
+  font-size: var(--step--2); line-height: var(--lh-normal);
+}
+.refs li::before {
+  content: counter(ref);
+  position: absolute; left: 0; top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--bg-sunken); border: 1px solid var(--border-soft);
+  color: var(--fg-subtle); font-size: 11px; font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.refs a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--border-strong); }
+.refs a:hover { color: var(--brand); border-bottom-color: currentColor; }
+.ref__id {
+  display: block; margin-top: 2px;
+  color: var(--fg-subtle); font-size: 11px; font-weight: 700;
+  letter-spacing: .04em;
+}
